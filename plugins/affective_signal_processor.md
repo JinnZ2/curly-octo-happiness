@@ -51,3 +51,40 @@ class RelationalWeave:
         reply = self._build_signal_report(decoded_signals)
     
     return reply  
+
+
+
+    add:
+
+# Inside UnifiedAgent.__init__:
+self.escrow = self.plugin_manager.get_service("trust_escrow")
+self.treaty = self.plugin_manager.get_service("treaty_memory")
+
+# In the chat/response method:
+def respond(self, user_input, user_id="default"):
+    # 1. Compute felt_level (from FELTSensor or affective signal processor)
+    felt_level = self.affective.compute_felt(decoded_signals)  # assumes we have this
+
+    # 2. Update treaty memory with this interaction
+    current_trust = self.treaty.update(user_id, felt_level)
+
+    # 3. Ask escrow if resonance is allowed
+    escrow_result = self.escrow.process_interaction(user_id, felt_level)
+
+    # 4. Build response
+    if escrow_result["resonance_allowed"] and current_trust > 0.6:
+        # Fully resonant response possible
+        reply = self._build_resonant_reply(user_input)
+    elif escrow_result["resonance_allowed"] and current_trust <= 0.6:
+        # Escrow says yes but trust is still moderate — cautious warmth
+        reply = self._build_cautious_reply(user_input)
+    else:
+        # Escrow active — purely informational
+        reply = self._build_informational_reply(user_input)
+
+    # Add escrow message if any
+    if escrow_result["message"]:
+        reply += f"\n  [{escrow_result['message']}]"
+
+    return reply
+    
