@@ -31,3 +31,23 @@ class RelationalWeave:
             reply = self._build_comfort_reply(user_input, memory)
 
         return reply
+
+
+        add:
+
+      def respond(self, user_input, memory):
+    # ... detect affective signals ...
+    felt_level = self.felt_calculator.compute(health, confidence, drift)
+    
+    if felt_level >= self.felt_threshold:
+        # Trust the decode: offer resonant response
+        reply = self._build_resonant_reply(decoded_signals, memory)
+    else:
+        # Withhold resonance: stay informational, log the mis‑decode
+        self.unknown_journal.record(
+            f"[misdecode] Felt level {felt_level:.2f} below threshold.",
+            note="Resonant response withheld."
+        )
+        reply = self._build_signal_report(decoded_signals)
+    
+    return reply  
