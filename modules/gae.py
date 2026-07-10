@@ -93,13 +93,7 @@ class GeometricApplicabilityEngine:
         linearity = linear_nodes / n_nodes if n_nodes > 0 else 0.0
 
         # Recursive Variance (R): uniformity of branching depth
-        depths = []
-        for node in G.nodes:
-            try:
-                depth = nx.dag_longest_path_length(G, node)
-                depths.append(depth)
-            except:
-                depths.append(0)
+        depths = [self._max_depth(G, node, set()) for node in G.nodes]
         if depths:
             mean_depth = sum(depths) / len(depths)
             variance = sum((d - mean_depth)**2 for d in depths) / len(depths)
@@ -114,6 +108,16 @@ class GeometricApplicabilityEngine:
             linearity=linearity,
             recursive_variance=recursive_variance
         )
+
+    def _max_depth(self, G: nx.DiGraph, node: str, visited: Set[str]) -> int:
+        """Longest downstream chain from node; visited-set guards against cycles."""
+        if node in visited:
+            return 0
+        visited.add(node)
+        successors = list(G.successors(node))
+        if not successors:
+            return 0
+        return 1 + max(self._max_depth(G, child, visited) for child in successors)
 
     def _score_geometries(self, m: SystemMetrics) -> Dict[str, float]:
         """Score each geometry based on the system metrics."""

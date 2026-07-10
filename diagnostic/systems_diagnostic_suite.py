@@ -397,10 +397,10 @@ class FDM:
         self.visited = set()
         self.primitive_roots_found = set()
         root_node = self._trace_recursive(root_name, 0, max_depth)
-        
+
         return FractalTree(
             root=root_node,
-            max_depth=root_node.depth,
+            max_depth=self._tree_depth(root_node),
             primitive_roots=self.primitive_roots_found,
             active_branches=self._count_active(root_node),
             broken_branches=self._count_broken(root_node)
@@ -440,6 +440,12 @@ class FDM:
         
         return DependencyNode(name=name, depth=depth, status=status, children=children, primitive=False)
     
+    def _tree_depth(self, node: DependencyNode) -> int:
+        """Deepest node in the tree (the root itself is depth 0)."""
+        if not node.children:
+            return node.depth
+        return max(self._tree_depth(child) for child in node.children)
+
     def _count_active(self, node: DependencyNode) -> int:
         count = 1 if node.status == NodeStatus.ACTIVE else 0
         for child in node.children:
@@ -514,6 +520,7 @@ class TransitionSimulator:
         state = FarmState(0, 2.0, 0.35, 3.5, 0.2, 0.5, 0.3)
         
         for year in range(years + 1):
+            state.year = year
             # Linear: soil degrades, fertilizer increases, yield plateaus then declines
             state.soil_organic_matter = max(0.5, 2.0 - year * 0.08)
             state.water_retention = max(0.15, 0.35 - year * 0.01)
@@ -546,6 +553,7 @@ class TransitionSimulator:
         }
         
         for year in range(years + 1):
+            state.year = year
             if year <= 5 and year in phases:
                 s, w, y, b = phases[year]
                 state.soil_organic_matter += s

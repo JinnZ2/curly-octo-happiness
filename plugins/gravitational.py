@@ -111,6 +111,7 @@ class GravitationalPlugin:
         self.prev_state = None
         self.history = deque(maxlen=10)
         self.spatial_canon = None  # will be set after init
+        self._strain_was_rising = False  # for merger (peak) detection
 
     def init_bands(self, samples):
         """Set adaptive bands from a list of GW state dicts."""
@@ -171,10 +172,13 @@ class GravitationalPlugin:
             delta_phase = abs(phase - prev_phase)
             inspiral = 1 if freq > prev_freq else 0
             ringdown = 1 if (strain < prev_strain and freq > prev_freq) else 0
-            merger   = 1 if strain == max(strain, prev_strain) else 0
+            # Merger = strain peak: it was rising and has just turned over.
+            merger   = 1 if (self._strain_was_rising and strain < prev_strain) else 0
+            self._strain_was_rising = strain > prev_strain
         else:
             delta_s = 0.0; delta_f = 0.0; delta_phase = 0.0
             inspiral = 0; ringdown = 0; merger = 0
+            self._strain_was_rising = False
 
         bits.append(gray_bits(delta_s, self.bands_delta_s))
         bits.append(gray_bits(delta_f, self.bands_delta_f))

@@ -55,11 +55,14 @@ class DependencyTree:
     def recalibrate(self):
         for node in self.nodes.values():
             if node.claims:
-                node.confidence = sum(c.confidence for c in node.claims) / len(node.claims)
-            # adjust by dependencies
-            for dep in node.dependencies:
-                if dep in self.nodes:
-                    node.confidence = (node.confidence + self.nodes[dep].confidence) / 2
+                claim_conf = sum(c.confidence for c in node.claims) / len(node.claims)
+            else:
+                claim_conf = 0.5
+            # adjust by dependencies: average them once so the result doesn't
+            # depend on set-iteration order
+            dep_vals = [self.nodes[d].confidence for d in node.dependencies if d in self.nodes]
+            dep_conf = sum(dep_vals) / len(dep_vals) if dep_vals else 0.5
+            node.confidence = (claim_conf + dep_conf) / 2
 
     def summary(self):
         lines = ["Dependency Tree:"]

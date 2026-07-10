@@ -59,12 +59,14 @@ class BumpyWorld:
         self.x = 0.0
         self.v = 0.0
         self.terrain = lambda x: math.sin(x) * 0.5
+        self.step_count = 0
 
     def step(self, force):
         slope = math.cos(self.x) * 0.5
         self.v += force - slope * 0.1
         self.v *= 0.9
         self.x += self.v
+        self.step_count += 1
         return self.x, self.terrain(self.x)
 
 class WorldModel:

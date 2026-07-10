@@ -157,10 +157,10 @@ class EpisodicMemory:
     def retrieve(self, query, k=3):
         query_words = set(re.findall(r'\w+', query.lower()))
         scored = []
-        for ev in self.events:
+        for i, ev in enumerate(self.events):
             ev_words = set(re.findall(r'\w+', ev["content"].lower()))
             overlap = len(query_words & ev_words)
-            recency = 1.0 / (1 + len(self.events) - list(self.events).index(ev))
+            recency = 1.0 / (1 + len(self.events) - i)
             scored.append((overlap + 0.1*recency, ev))
         scored.sort(key=lambda x: x[0], reverse=True)
         return [ev for score, ev in scored[:k]]
@@ -236,8 +236,10 @@ class SkillLab:
         if name not in self.skills: return f"❌ Skill '{name}' not found."
         skill = self.skills[name]
         try:
-            exec(skill["code"], globals())
-            exec(skill["test"], globals())
+            # Run in a scratch namespace so skill code can't clobber module globals.
+            ns = {}
+            exec(skill["code"], ns)
+            exec(skill["test"], ns)
             skill["passed"] += 1
             skill["confidence"] = min(1.0, skill["confidence"]+0.1)
             return f"✅ '{name}' passed test {skill['passed']}x. Conf: {skill['confidence']:.2f}"
@@ -381,15 +383,22 @@ class VirtualReactor:
         self.P_pa = P_pa
         self.time = 0.0
         self.dt = 0.1  # time step in seconds (for integration)
+        # Derived observables must exist before the first step()
+        # ('reactor status' can be called immediately).
+        self._update_observables()
 
     def step(self, n=1):
         for _ in range(n):
             k = arrhenius_rate(self.A_pre, self.Ea, self.T_K)
-            # simple first-order A→B
-            dA = -k * self.conc_A * self.dt
-            self.conc_A += dA
-            self.conc_B -= dA
+            # exact first-order A→B integration (stable for any k*dt;
+            # the previous explicit-Euler update went negative when k*dt > 1)
+            decayed = self.conc_A * math.exp(-k * self.dt)
+            self.conc_B += self.conc_A - decayed
+            self.conc_A = decayed
             self.time += self.dt
+        self._update_observables()
+
+    def _update_observables(self):
         # pH proxy: assume B is acidic (H+ proportional to conc_B)
         self.pH = ph_from_concentration(max(0, self.conc_B * 0.1))  # scaling
         self.rate = arrhenius_rate(self.A_pre, self.Ea, self.T_K)

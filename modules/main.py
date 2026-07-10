@@ -5,6 +5,8 @@ Systems Diagnostic Suite (SDS)
 Integrates GAE, HND, and FDM into a single diagnostic pipeline.
 """
 
+from typing import Dict, List, Tuple
+
 from gae import GeometricApplicabilityEngine
 from hnd import HiddenNodeDetector
 from fdm import FractalDependencyMapper
@@ -34,8 +36,12 @@ def diagnose_system(
 
     # 2. Run HND if residuals provided
     if residuals is not None:
+        # HND expects dependencies as {source: [targets]}, not an edge list
+        dependencies = {}
+        for src, dst in edges:
+            dependencies.setdefault(src, []).append(dst)
         hnd = HiddenNodeDetector(
-            model={"nodes": nodes, "dependencies": edges},
+            model={"nodes": nodes, "dependencies": dependencies},
             environment=environment or {}
         )
         suggestions = hnd.scan(residuals)

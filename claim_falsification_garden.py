@@ -29,13 +29,16 @@ class Claim:
             self.confidence = max(0.0, self.confidence - 0.2)
         return outcome
 
-    def __str__(self):
-        status = "active"
+    @property
+    def status(self):
         if self.tests_failed >= 3:
-            status = "falsified"
-        elif self.tests_passed >= 3:
-            status = "survived"
-        return f"[{status}] {self.text} (conf: {self.confidence:.2f})"
+            return "falsified"
+        if self.tests_passed >= 3:
+            return "survived"
+        return "active"
+
+    def __str__(self):
+        return f"[{self.status}] {self.text} (conf: {self.confidence:.2f})"
 
 
 class CuriosityAgent:

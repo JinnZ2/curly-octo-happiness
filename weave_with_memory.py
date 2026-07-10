@@ -24,11 +24,11 @@ class EpisodicMemory:
         """Simple keyword overlap retrieval."""
         query_words = set(re.findall(r'\w+', query.lower()))
         scored = []
-        for ev in self.events:
+        for i, ev in enumerate(self.events):
             ev_words = set(re.findall(r'\w+', ev["content"].lower()))
             overlap = len(query_words & ev_words)
             # Boost recent items slightly
-            recency = 1.0 / (1 + len(self.events) - list(self.events).index(ev))
+            recency = 1.0 / (1 + len(self.events) - i)
             scored.append((overlap + 0.1*recency, ev))
         scored.sort(key=lambda x: x[0], reverse=True)
         return [ev for score, ev in scored[:k]]

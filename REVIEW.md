@@ -1,7 +1,17 @@
 # Repository Review — `curly-octo-happiness`
 
 > Multi-faceted review of the entire repository (all `.py` and `.md` files, ~8,700 lines of Python).
-> Review date: 2026-07-08. Line numbers refer to the current state of branch `main` / `claude/repository-review-geqz6w`.
+> Review date: 2026-07-08. Line numbers refer to the repository state at commit `ce93698` (the commit this review was written against); later commits on this branch apply fixes and may shift line numbers.
+
+## Fix log (applied after the review, same branch)
+
+The following findings have been **fixed and verified** (all runnable scripts pass; plugins load and encode):
+
+- **§1.1** magnetic `_gray_bits` rewritten to the canonical convention · **§1.3** `gae_shape_connecor.py` → `gae_shape_connector.py` · **§1.4** `base_plugin_ interface.md` → `base_plugin_interface.md` · **§1.5** `spacial_canon.py` → `spatial_canon.py` · **§1.7** v3 `tree.add_node` → `tree.get` · **§1.8 (partial)** `emf.py` now declares both `class_name` and legacy `encoder_class` · **§1.10** `meta_playground.py` imports the real modules and gains `run_self_model_step`
+- **§2.3** mangled line + `eval` fixed in `base_plugin_interface.md` · **§2.4** off-by-one slices replaced with `removeprefix` in `Field_adapter.md` (+ `eval` → `json.loads`) · **§2.5** plugin extracted to `plugins/light_bridge.py` · **§2.7** `split(" ", 2)` → `split(" ", 3)` in `physics_discovery.md`
+- **§3.1** `octahedral_canon.py` parses (bijection verified intact) · **§3.2** typing imports added · **§3.3** `step_count` added (also un-breaks `interplay.py`) · **§3.4** `import random` added · **§3.5** `meta_playground.py` runs end-to-end (`Claim.status` property added to `claim_falsification_garden.py`; `self_modeling_explorer.py` got a `run()` function + `__main__` guard) · **§3.6** `extension.py` merged into `shape_board.py` and deleted; `ShapeGuardian`/GAE imports fixed (all five `create_shape` types verified — this surfaced and fixed two latent `extension.py` bugs: wrong dodecahedron vertex permutations and scale-blind edge thresholds) · **§3.7 + §3.13** v6 reactor observables initialized in `__init__`, exact exponential integration · **§3.8** per-node depth replaces the misused networkx call · **§3.9** `max_depth` computed from the whole tree (both copies) · **§3.10** `main.py` converts edges to the `{source: [targets]}` shape HND expects · **§3.11** harmony-field velocities computed after the relaxation step · **§3.12** real 30-vertex icosidodecahedron (deduplicated, generated, asserted); scipy import dropped · **§3.14** merger bit now fires at the strain peak · **§3.15** `exec` into scratch namespaces · **§3.17** meta-encoder writes next to its own module · **§3.18** O(n²) retrieval → `enumerate` (6 copies) · **§3.19** order-independent `recalibrate()` · **§3.20** simulator `year` advances · **§3.22** Gray decode via new `gray_to_index`
+
+Still open (larger/structural): §1.2, §1.6, §1.9, §1.11–1.13, §2.1, §2.2, §2.6, §2.8–2.10, §3.16 (snippets fixed, pattern remains), §3.21, §3.23, §3.24, all of §4–§6.
 
 ## Findings summary
 

@@ -78,7 +78,7 @@ class FractalDependencyMapper:
 
         return FractalTree(
             root=root_node,
-            max_depth=root_node.depth,
+            max_depth=self._tree_depth(root_node),
             primitive_roots=self.primitive_roots_found,
             active_branches=self._count_active(root_node),
             broken_branches=self._count_broken(root_node)
@@ -123,6 +123,12 @@ class FractalDependencyMapper:
                 status = NodeStatus.DEGRADED
 
         return DependencyNode(name=name, depth=depth, status=status, children=children, primitive=False)
+
+    def _tree_depth(self, node: DependencyNode) -> int:
+        """Deepest node in the tree (the root itself is depth 0)."""
+        if not node.children:
+            return node.depth
+        return max(self._tree_depth(child) for child in node.children)
 
     def _count_active(self, node: DependencyNode) -> int:
         """Count active branches in the tree."""

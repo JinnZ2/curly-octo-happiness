@@ -1,6 +1,5 @@
 # plugins/harmony_field_engine.py
 import numpy as np
-from scipy.spatial.transform import Rotation  # for initial placement; fallback if not available
 
 PLUGIN_META = {
     "name": "harmony_field",
@@ -8,56 +7,29 @@ PLUGIN_META = {
     "class_name": "HarmonyFieldEngine",
 }
 
-# Rest coordinates of the icosidodecahedron (30 vertices, radius 1)
-# Generated from canonical coordinates; we can hard-code the 30 points.
-_REST_VERTICES = np.array([
-    [ 0.000000,  0.000000,  1.000000],
-    [ 0.000000,  0.000000, -1.000000],
-    [ 0.850651,  0.000000,  0.525731],
-    [-0.850651,  0.000000,  0.525731],
-    [ 0.850651,  0.000000, -0.525731],
-    [-0.850651,  0.000000, -0.525731],
-    [ 0.525731,  0.850651,  0.000000],
-    [ 0.525731, -0.850651,  0.000000],
-    [-0.525731,  0.850651,  0.000000],
-    [-0.525731, -0.850651,  0.000000],
-    [ 0.000000,  0.525731,  0.850651],
-    [ 0.000000, -0.525731,  0.850651],
-    [ 0.000000,  0.525731, -0.850651],
-    [ 0.000000, -0.525731, -0.850651],
-    [ 0.525731,  0.000000,  0.850651],
-    [-0.525731,  0.000000,  0.850651],
-    [ 0.525731,  0.000000, -0.850651],
-    [-0.525731,  0.000000, -0.850651],
-    [ 0.850651,  0.525731,  0.000000],
-    [-0.850651,  0.525731,  0.000000],
-    [ 0.850651, -0.525731,  0.000000],
-    [-0.850651, -0.525731,  0.000000],
-    [ 0.000000,  0.850651,  0.525731],
-    [ 0.000000, -0.850651,  0.525731],
-    [ 0.000000,  0.850651, -0.525731],
-    [ 0.000000, -0.850651, -0.525731],
-    [ 0.525731,  0.850651,  0.000000],
-    [-0.525731,  0.850651,  0.000000],
-    [ 0.525731, -0.850651,  0.000000],
-    [-0.525731, -0.850651,  0.000000],
-], dtype=float)
-# Remove duplicates (some lists above are duplicated due to manual generation; we should have exactly 30 unique vertices)
-_REST_VERTICES = np.unique(_REST_VERTICES, axis=0)
-# Ensure exactly 30 by using known formula: vertices = (0, ±1, ±φ), (±1, ±φ, 0), (±φ, 0, ±1) with φ=(1+√5)/2
-phi = (1+np.sqrt(5))/2
-_REST_VERTICES = np.array([
-    [0, 1, phi], [0, -1, phi], [0, 1, -phi], [0, -1, -phi],
-    [1, phi, 0], [-1, phi, 0], [1, -phi, 0], [-1, -phi, 0],
-    [phi, 0, 1], [-phi, 0, 1], [phi, 0, -1], [-phi, 0, -1],
-    [1, -phi, 0], [-1, -phi, 0], [1, phi, 0], [-1, phi, 0],
-    [phi, 0, -1], [-phi, 0, -1], [phi, 0, 1], [-phi, 0, 1],
-    [0, phi, 1], [0, -phi, 1], [0, phi, -1], [0, -phi, -1],
-    [1, 0, phi], [-1, 0, phi], [1, 0, -phi], [-1, 0, -phi],
-    [phi, 1, 0], [-phi, 1, 0],
-], dtype=float)
-# Normalize to unit sphere
-_REST_VERTICES = _REST_VERTICES / np.linalg.norm(_REST_VERTICES, axis=1)[:, None]
+
+def _icosidodecahedron_vertices():
+    """The 30 vertices of an icosidodecahedron, normalized to the unit sphere.
+
+    Canonical coordinates: all cyclic permutations of (0, 0, ±φ) and of
+    (±1/2, ±φ/2, ±(1+φ)/2), with φ the golden ratio.
+    """
+    phi = (1 + np.sqrt(5)) / 2
+    verts = set()
+    for x, y, z in [(0.0, 0.0, s * phi) for s in (1, -1)] + [
+        (sx * 0.5, sy * phi / 2, sz * (1 + phi) / 2)
+        for sx in (1, -1) for sy in (1, -1) for sz in (1, -1)
+    ]:
+        verts.add((x, y, z))
+        verts.add((z, x, y))
+        verts.add((y, z, x))
+    arr = np.array(sorted(verts), dtype=float)
+    assert arr.shape == (30, 3), f"expected 30 unique vertices, got {arr.shape[0]}"
+    return arr / np.linalg.norm(arr, axis=1)[:, None]
+
+
+# Rest coordinates of the icosidodecahedron (30 unique vertices, radius 1)
+_REST_VERTICES = _icosidodecahedron_vertices()
 
 class HarmonyFieldEngine:
     def __init__(self):
@@ -86,13 +58,14 @@ class HarmonyFieldEngine:
 
     def step(self):
         """Compute new positions and return the index of the fastest-distorting node."""
-        self.prev_vertices = self.current_vertices.copy()
-        displacements = np.linalg.norm(self.current_vertices - self.rest_vertices, axis=1)
-        velocities = np.linalg.norm(self.current_vertices - self.prev_vertices, axis=1)
-        # Priority: node with highest velocity of distortion
-        priority_idx = np.argmax(velocities)
+        prev = self.current_vertices.copy()
         # Update all nodes slightly towards rest
         self.current_vertices += (self.rest_vertices - self.current_vertices) * 0.1
+        self.prev_vertices = prev
+        velocities = np.linalg.norm(self.current_vertices - prev, axis=1)
+        displacements = np.linalg.norm(self.current_vertices - self.rest_vertices, axis=1)
+        # Priority: node with highest velocity of distortion
+        priority_idx = int(np.argmax(velocities))
         return priority_idx, velocities[priority_idx], displacements[priority_idx]
 
     def get_field_state_bits(self):

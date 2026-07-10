@@ -8,8 +8,15 @@ then generate a Shape Board with the recommended shape,
 using the system's nodes as tasks.
 """
 
-from gae import GAE
-from shape_board import ShapeBoard, ShapeProject, ShapeGenerator, NodeStatus, ShapeType
+import os
+import sys
+
+# The GAE class lives in diagnostic/systems_diagnostic_suite.py; there are no
+# packages in this repo, so extend sys.path relative to this file.
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "diagnostic"))
+
+from systems_diagnostic_suite import GAE
+from shape_board import ShapeBoard, ShapeProject, ShapeGenerator, ShapeGuardian, NodeStatus, ShapeType
 from typing import Dict, List, Tuple, Any
 
 def map_geometry_to_shape_type(geometry_name: str) -> str:

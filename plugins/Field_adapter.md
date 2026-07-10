@@ -6,11 +6,11 @@ if cmd == "plugins list":
     return self.plugin_manager.list_plugins()
 
 if cmd.startswith("plugin load "):
-    name = cmd[13:].strip()
+    name = cmd.removeprefix("plugin load ").strip()
     return self.plugin_manager.load_plugin(name)
 
 if cmd.startswith("plugin unload "):
-    name = cmd[15:].strip()
+    name = cmd.removeprefix("plugin unload ").strip()
     return self.plugin_manager.unload_plugin(name)
 
 if cmd.startswith("em simulate"):
@@ -29,13 +29,14 @@ if cmd.startswith("em simulate"):
     return f"📡 EM simulation:\n  Binary: {binary}\n  📊 {report}"
 
 if cmd.startswith("em read "):
-    # expects a raw field_data dict as string (Python literal)
+    # expects a raw field_data dict as JSON
+    import json
     parts = cmd.split(" ", 2)
     if len(parts) < 3:
-        return "Usage: em read {<field_data_dict>}"
+        return "Usage: em read {<field_data_json>}"
     try:
-        field_data = eval(parts[2])
-    except:
+        field_data = json.loads(parts[2])
+    except json.JSONDecodeError:
         return "Invalid field data dict."
     binary, report = self.plugin_manager.read_plugin("em_field", field_data)
     if binary is None:

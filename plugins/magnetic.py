@@ -47,11 +47,12 @@ class MagneticPlugin:
         self.bands_delta = [mag_range * p/100 for p in [0, 12.5, 25, 37.5, 50, 62.5, 75, 87.5]]
 
     def _gray_bits(self, value, bands):
-        idx = len(bands) - 1
+        # Highest band whose threshold <= value (same convention as the
+        # gray_bits helper in gravitational.py / unified_playground_v6.py).
+        idx = 0
         for i, th in enumerate(bands):
             if value >= th:
                 idx = i
-                break
         g = idx ^ (idx >> 1)
         return format(g, '03b')
 
