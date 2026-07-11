@@ -1,3 +1,5 @@
+> **Status: PLAN (not implemented).** This describes a possible split of `cognitive_playground.py` into a `reasoning_playground/` package. None of the files below exist; the code blocks are sketches with `...` placeholders.
+
 reasoning_playground/
 ├── explorer.py          # Generates reasoning chains (tree-of-thought, beam search, etc.)
 ├── critic.py            # Evaluates steps and final answers (process/outcome reward)

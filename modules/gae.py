@@ -183,3 +183,17 @@ ACTION:
 - Avoid {forb} geometry—it will break feedback loops and reduce resilience.
 - If environment changes, re-run diagnostic.
 """
+
+
+class GAE(GeometricApplicabilityEngine):
+    """Compatibility wrapper with the constructor-style API that the old
+    diagnostic-suite copy exposed: GAE(nodes, edges).analyze()."""
+
+    def __init__(self, nodes: List[str], edges: List[Tuple[str, str]]):
+        super().__init__()
+        self._nodes = nodes
+        self._edges = edges
+
+    def analyze(self, nodes=None, edges=None) -> Dict:
+        return super().analyze(nodes if nodes is not None else self._nodes,
+                               edges if edges is not None else self._edges)

@@ -6,39 +6,8 @@ It seeks out experiences that improve its self-model, i.e., it seeks to understa
 """
 
 import random
-import math
-import time
-from collections import deque
 
-# ---------- Simple 2D environment ----------
-class BumpyWorld:
-    def __init__(self):
-        self.x = 0.0   # position
-        self.v = 0.0   # velocity
-        self.terrain = lambda x: math.sin(x) * 0.5  # bumpy terrain height
-    def step(self, force):
-        # Simple dynamics: force pushes ball, gravity pulls down slope
-        slope = math.cos(self.x) * 0.5
-        self.v += force - slope * 0.1
-        self.v *= 0.9  # friction
-        self.x += self.v
-        # Reward is height (higher is better, to encourage climbing)
-        return self.x, self.terrain(self.x)
-
-# ---------- Simple world model (tiny RNN) ----------
-class WorldModel:
-    def __init__(self):
-        self.wh = [0.5, -0.2]  # weights for (state, action)
-        self.bias = 0.0
-    def predict(self, x, action):
-        return self.wh[0] * x + self.wh[1] * action + self.bias
-    def update(self, x, action, target):
-        pred = self.predict(x, action)
-        error = target - pred
-        self.wh[0] += 0.01 * error * x
-        self.wh[1] += 0.01 * error * action
-        self.bias += 0.01 * error
-        return error
+from grounding.worlds.bumpy import BumpyWorld, WorldModel
 
 # ---------- Self-model: predicts own world-model error ----------
 class SelfModel:

@@ -1,3 +1,5 @@
+> **Integration target:** `unified_playground.py` → `UnifiedAgent` (`__init__` / `handle_mentor`). This file is a wiring snippet, not a standalone module.
+
 if cmd.startswith("discover from "):
     # discover from <stream_name> [optional description]
     parts = cmd.split(" ", 3)   # ["discover", "from", stream, description?]

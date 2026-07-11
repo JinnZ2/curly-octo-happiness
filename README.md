@@ -19,9 +19,15 @@ python unified_playground.py                  # chat with Ari ('experiment 5', '
 python diagnostic/systems_diagnostic_suite.py # geometry diagnostics + hidden-node demo
 ```
 
-The root playgrounds are stdlib-only. Some subsystems need extras:
-`modules/` → `networkx`; `plugins/` → `numpy`; `project/shape_board.py` →
-`plotly networkx`; `project/cognitive_playground.py` → `torch transformers scikit-learn`.
+The root playgrounds are stdlib-only (run them from the repo root — they use the
+`grounding` package). Some subsystems need extras: `modules/` → `networkx`;
+`plugins/` → `numpy`; `project/shape_board.py` → `plotly networkx`;
+`project/cognitive_playground.py` → `torch transformers scikit-learn`.
+
+```bash
+pip install -e ".[test]"     # optional: installable package + test deps
+python -m pytest tests/     # 34 tests
+```
 
 ## What's in here
 

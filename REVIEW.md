@@ -13,7 +13,16 @@ The following findings have been **fixed and verified** (all runnable scripts pa
 
 Also applied (discoverability, §6): README rewritten with summary, quick start, subsystem map, "Why this matters", and license badge (§2.1, §6.1, §6.5, §6.7, §6.8); `KEYWORDS.md` (§6.3); `CITATION.cff` (§6.4); `metadata.json` JSON-LD (§6.6); `.github/ISSUE_TEMPLATE/feedback.md` (§6.10); `requirements.txt` + `.gitignore` (§3.24 partial). Repository topics (§6.2) must be set in GitHub Settings → Topics.
 
-Still open (larger/structural): §1.2, §1.6, §1.9, §1.11–1.13, §2.2, §2.6, §2.8–2.10, §3.16 (snippets fixed, pattern remains), §3.21, §3.23, §3.24 (packaging/tests), §4.1–4.8, §5 recommendations, §6.9.
+**Structural round (§4), applied in a later commit on this branch:**
+
+- **§4.1–4.3 / §1.6** — new `grounding/` package holds the single implementation of `Claim`, `DependencyTree`, `EpisodicMemory`/`MemoryStream`/`SharedMemory`, `Mentor`/`MentorInterface`, `BumpyWorld`/`WorldModel`, and `gray_bits`/`gray_to_index`. All root playgrounds import from it; `shared.py` is now a re-export shim. `Claim.status` unified as a property.
+- **§4.4 / §1.9 / §1.11** — version chains collapsed: `unified_playground.py` is the canonical agent (v5 rebuilt on `grounding`); v1–v6 and plugin-manager v1–v3 moved to `design/archive/` (with a README explaining they're read-only history).
+- **§4.5 / §1.8 / §1.12 / §3.23 (partial)** — one consolidated `plugin_manager.py`: supports all three read interfaces, registers constructor-arg classes as lazy **services** (`get_service`), aliases module names to plugin names, accepts both `auto_read_all` calling styles; `unified_orchestrator.py` got its missing imports.
+- **§4.6 / §1.2 / §1.13** — SDS merged: `modules/` is canonical (+ `transition.py`, + constructor-style `GAE` wrapper); `diagnostic/systems_diagnostic_suite.py` is now a shim + demo over it; `modules/architecture.md` reordered to match the code (GAE → HND → FDM).
+- **§4.8 / §3.24** — `pyproject.toml` (installable `grounding` package, optional-dependency extras) and a 34-test pytest suite (`tests/`): graycode round-trips, claim/tree behavior, canon bijection, GAE/FDM/HND/simulator regressions (§3.8, §3.9, §3.20 guards), plugin regressions (§1.1, §3.11, §3.14, §3.22 guards), shape generators.
+- **§2.2 / §2.6 / §2.8–2.10** — Playgrounds.md mapping table; integration-target headers on the `plugins/*.md` snippets; PLAN header on `Organize.md`; implementation note on `System_Diagnostic_Suite.md`; status annotations in `Expansions_in_progress.md`.
+
+Still open: §3.16 (eval pattern eliminated from docs; keep avoiding it in new snippets), §3.21 (diagnostic HND's hidden-buffer placeholder — superseded by the modules implementation), §5 recommendations (structured claims, units, scopes, escape-hatch detection — design work), §6.2 and §6.9 (GitHub settings: topics, Pages).
 
 ## Findings summary
 

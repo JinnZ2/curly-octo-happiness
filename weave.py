@@ -5,31 +5,7 @@ A conversational agent that exists only in relation.
 It maintains a memory stream, periodically reflects, and updates its self-description.
 """
 
-import random
-import time
-from collections import deque
-from datetime import datetime
-
-# ---------- Memory stream (Generative Agents style) ----------
-class MemoryStream:
-    def __init__(self, capacity=50):
-        self.events = deque(maxlen=capacity)
-
-    def add(self, content, tags=None):
-        self.events.append({
-            "timestamp": datetime.now().isoformat(),
-            "content": content,
-            "tags": tags or []
-        })
-
-    def recent(self, n=5):
-        return list(self.events)[-n:]
-
-    def sample_by_tag(self, tag):
-        return [e for e in self.events if tag in e["tags"]]
-
-    def all(self):
-        return list(self.events)
+from grounding.core.memory import MemoryStream
 
 # ---------- Relational agent ----------
 class RelationalAgent:

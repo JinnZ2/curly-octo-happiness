@@ -10,35 +10,8 @@ Rules:
 """
 
 import random
-import time
 
-class Claim:
-    def __init__(self, text, falsification_condition):
-        self.text = text
-        self.falsification = falsification_condition
-        self.confidence = 0.5
-        self.tests_passed = 0
-        self.tests_failed = 0
-
-    def test(self, outcome: bool):
-        if outcome:
-            self.tests_passed += 1
-            self.confidence = min(1.0, self.confidence + 0.1)
-        else:
-            self.tests_failed += 1
-            self.confidence = max(0.0, self.confidence - 0.2)
-        return outcome
-
-    @property
-    def status(self):
-        if self.tests_failed >= 3:
-            return "falsified"
-        if self.tests_passed >= 3:
-            return "survived"
-        return "active"
-
-    def __str__(self):
-        return f"[{self.status}] {self.text} (conf: {self.confidence:.2f})"
+from grounding.core.claims import Claim
 
 
 class CuriosityAgent:
