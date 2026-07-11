@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "curly-octo-happiness: AI Grounding & Claim-Falsification Playgrounds"
+type: software
+authors:
+  - name: "JinnZ2"
+repository-code: "https://github.com/JinnZ2/curly-octo-happiness"
+license: CC0-1.0
+keywords:
+  - AI grounding
+  - claim verification
+  - falsifiability
+  - systems analysis
+abstract: >
+  Experimental toolkit for AI epistemic grounding: falsifiable-claim agents,
+  dependency-confidence propagation, hidden-node detection from residuals,
+  geometric system diagnostics, and Gray-coded multi-physics sensor encoders.

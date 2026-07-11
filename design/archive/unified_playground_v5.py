@@ -142,10 +142,10 @@ class EpisodicMemory:
     def retrieve(self, query, k=3):
         query_words = set(re.findall(r'\w+', query.lower()))
         scored = []
-        for ev in self.events:
+        for i, ev in enumerate(self.events):
             ev_words = set(re.findall(r'\w+', ev["content"].lower()))
             overlap = len(query_words & ev_words)
-            recency = 1.0 / (1 + len(self.events) - list(self.events).index(ev))
+            recency = 1.0 / (1 + len(self.events) - i)
             scored.append((overlap + 0.1*recency, ev))
         scored.sort(key=lambda x: x[0], reverse=True)
         return [ev for score, ev in scored[:k]]
@@ -221,8 +221,10 @@ class SkillLab:
         if name not in self.skills: return f"❌ Skill '{name}' not found."
         skill = self.skills[name]
         try:
-            exec(skill["code"], globals())
-            exec(skill["test"], globals())
+            # Run in a scratch namespace so skill code can't clobber module globals.
+            ns = {}
+            exec(skill["code"], ns)
+            exec(skill["test"], ns)
             skill["passed"] += 1
             skill["confidence"] = min(1.0, skill["confidence"]+0.1)
             return f"✅ '{name}' passed test {skill['passed']}x. Conf: {skill['confidence']:.2f}"

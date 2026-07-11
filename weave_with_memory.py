@@ -3,35 +3,7 @@
 weave_with_memory.py – Relational Weave with Episodic Memory Retrieval
 """
 
-import random, time, re
-from datetime import datetime
-from collections import deque
-
-# ---------- Episodic Memory with Retrieval ----------
-class EpisodicMemory:
-    def __init__(self, max_events=200):
-        self.events = deque(maxlen=max_events)
-
-    def add(self, speaker, content, tags=None):
-        self.events.append({
-            "timestamp": datetime.now(),
-            "speaker": speaker,   # "user" or "agent"
-            "content": content,
-            "tags": tags or []
-        })
-
-    def retrieve(self, query, k=3):
-        """Simple keyword overlap retrieval."""
-        query_words = set(re.findall(r'\w+', query.lower()))
-        scored = []
-        for ev in self.events:
-            ev_words = set(re.findall(r'\w+', ev["content"].lower()))
-            overlap = len(query_words & ev_words)
-            # Boost recent items slightly
-            recency = 1.0 / (1 + len(self.events) - list(self.events).index(ev))
-            scored.append((overlap + 0.1*recency, ev))
-        scored.sort(key=lambda x: x[0], reverse=True)
-        return [ev for score, ev in scored[:k]]
+from grounding.core.memory import EpisodicMemory
 
 # ---------- Relational Agent ----------
 class RelationalAgent:

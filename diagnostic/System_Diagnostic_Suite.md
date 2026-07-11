@@ -1,3 +1,5 @@
+> **Note:** the implementation lives in `modules/` (gae.py, hnd.py, fdm.py, transition.py); `diagnostic/systems_diagnostic_suite.py` is a compatibility shim + runnable demo (`python diagnostic/systems_diagnostic_suite.py`). The "Interactive Notebook" described below was never built.
+
 This is the final step. We need to take our frameworks and turn them into interactive, explorable, falsifiable tools that any AI (or human) can use to test hypotheses, discover hidden nodes, and validate geometric predictions.
 
 ---

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-unified_playground.py – Ari, the explorer and friend
-Now with Dream Space and Unknown Journal
+unified_playground.py
+One agent, two natures: explorer in a bumpy world, relational weaver in conversation.
+Shared dependency tree, episodic memory, mentor guidance.
 """
 
 import random, math, re, time
@@ -142,10 +143,10 @@ class EpisodicMemory:
     def retrieve(self, query, k=3):
         query_words = set(re.findall(r'\w+', query.lower()))
         scored = []
-        for ev in self.events:
+        for i, ev in enumerate(self.events):
             ev_words = set(re.findall(r'\w+', ev["content"].lower()))
             overlap = len(query_words & ev_words)
-            recency = 1.0 / (1 + len(self.events) - list(self.events).index(ev))
+            recency = 1.0 / (1 + len(self.events) - i)
             scored.append((overlap + 0.1*recency, ev))
         scored.sort(key=lambda x: x[0], reverse=True)
         return [ev for score, ev in scored[:k]]
@@ -154,7 +155,7 @@ class EpisodicMemory:
         return list(self.events)[-n:]
 
 # =========================================================================
-# 5. MENTOR INTERFACE (as before)
+# 5. MENTOR INTERFACE
 # =========================================================================
 class Mentor:
     def __init__(self):
@@ -173,44 +174,7 @@ class Mentor:
         return f"🔍 Reflection: {text}"
 
 # =========================================================================
-# 6. UNKNOWN JOURNAL
-# =========================================================================
-class UnknownJournal:
-    def __init__(self):
-        self.entries = []   # { phenomenon, first_seen, sit_count, notes }
-
-    def record(self, phenomenon, note=""):
-        """Add a new mystery or revisit an existing one."""
-        for entry in self.entries:
-            if entry["phenomenon"] == phenomenon:
-                entry["sit_count"] += 1
-                entry["notes"] += f"; {note}" if note else ""
-                return
-        self.entries.append({
-            "phenomenon": phenomenon,
-            "first_seen": datetime.now(),
-            "sit_count": 1,
-            "notes": note
-        })
-
-    def list_unknowns(self):
-        if not self.entries:
-            return "📖 The journal is empty. Everything is (seemingly) understood."
-        lines = ["📖 Journal of the Unknown:"]
-        for e in self.entries:
-            lines.append(f"  • {e['phenomenon']} (seen {e['sit_count']} times, since {e['first_seen'].strftime('%H:%M:%S')})")
-        return "\n".join(lines)
-
-    def stillness_session(self):
-        if not self.entries:
-            return "🌫️ I sit with nothing. Stillness without object."
-        reflections = []
-        for e in self.entries:
-            reflections.append(f"🕯️ Sitting with: {e['phenomenon']} — no need to resolve. Just noticing.")
-        return "\n".join(reflections)
-
-# =========================================================================
-# 7. UNIFIED AGENT (now with dream and journal)
+# 6. UNIFIED AGENT
 # =========================================================================
 class UnifiedAgent:
     def __init__(self, name="Ari"):
@@ -219,14 +183,12 @@ class UnifiedAgent:
         self.memory = EpisodicMemory()
         self.world = BumpyWorld()
         self.wm = WorldModel()
-        self.journal = UnknownJournal()
         self.tone = "neutral"
-        self.self_desc = "I am an explorer learning to move, a friend learning to relate, and a dreamer who sits with mystery."
+        self.self_desc = "I am an explorer learning to move, and a friend learning to relate."
         self.last_err = None
         self.curiosity_reward = 0.0
-        self.sleep_counter = 0
 
-    # --- Exploration methods (unchanged core) ---
+    # --- Exploration methods ---
     def choose_action(self, x):
         if self.wm.avg_error() > 0.3:
             return random.uniform(-1, 1)
@@ -243,7 +205,14 @@ class UnifiedAgent:
             self.curiosity_reward = self.last_err - abs(error)
         self.last_err = abs(error)
 
-        concept = "move_right" if action > 0.3 else ("move_left" if action < -0.3 else "stay")
+        # Determine concept
+        if action > 0.3:
+            concept = "move_right"
+        elif action < -0.3:
+            concept = "move_left"
+        else:
+            concept = "stay"
+
         claim = Claim(
             f"Force {action:.2f} at x={x:.2f} => pos {predicted:.2f}",
             "Actual deviates >0.3 => claim false"
@@ -259,11 +228,7 @@ class UnifiedAgent:
         if self.world.step_count % 10 == 0:
             self.tree.propagate_confidence()
 
-        # Record surprise in the unknown journal if error large or claim falsified
-        if abs(error) > 0.5 or claim.status() == "falsified":
-            phenomenon = f"High prediction error ({abs(error):.2f}) when {concept} at x={x:.2f}"
-            self.journal.record(phenomenon, note=f"claim '{claim.text}'")
-
+        # Store in memory as an event
         summary = (f"I tried moving {concept} with force {action:.2f}. "
                    f"Predicted {predicted:.2f}, actual {actual_x:.2f}. "
                    f"Claim {claim.status()}.")
@@ -271,7 +236,7 @@ class UnifiedAgent:
 
         return summary, claim, error
 
-    # --- Relational / conversational methods (unchanged core) ---
+    # --- Relational / conversational methods ---
     def _extract_tags(self, text):
         tags = []
         for word, tag in {"happy": "joy", "angry": "tension", "curious": "wonder",
@@ -281,13 +246,17 @@ class UnifiedAgent:
         return tags
 
     def chat(self, user_input):
+        # store user input
         user_tags = self._extract_tags(user_input)
         self.memory.add("user", user_input, tags=user_tags + ["user"])
+
+        # retrieve relevant memories for context
         retrieved = self.memory.retrieve(user_input, k=4)
         user_mem = [e["content"] for e in retrieved if e["speaker"]=="user"][-2:]
         agent_mem = [e["content"] for e in retrieved if e["speaker"]=="agent"][-2:]
         context_str = " ".join(user_mem + agent_mem) or "our conversation so far"
 
+        # update tone
         tone_map = {"joy": "warm", "tension": "calm", "wonder": "playful",
                     "melancholy": "gentle", "excited": "enthusiastic", "inquiring": "curious"}
         for tag in user_tags:
@@ -295,7 +264,9 @@ class UnifiedAgent:
                 self.tone = tone_map[tag]
                 break
 
+        # generate response using tone + context + possibly current tree summary
         if "claim" in user_input.lower() or "experiment" in user_input.lower() or "tree" in user_input.lower():
+            # inject a bit of the tree summary if it seems relevant
             tree_info = self.tree.summary_text()[:200]
             context_str += f" My understanding: {tree_info}"
 
@@ -311,7 +282,7 @@ class UnifiedAgent:
         reply = responses.get(self.tone, responses["neutral"])
         self.memory.add("agent", reply, tags=[self.tone, "agent"])
 
-        # reflection trigger
+        # reflection trigger every 5 interactions
         if len(self.memory.events) % 5 == 0:
             ref = self._reflect()
             if ref:
@@ -321,7 +292,10 @@ class UnifiedAgent:
         recent_tones = [e["tags"][0] for e in list(self.memory.events)[-10:] if e["speaker"]=="agent" and e["tags"]]
         if recent_tones:
             mood = max(set(recent_tones), key=recent_tones.count)
-            self.self_desc = f"I am a {mood} presence, shaped by experiments, words, and what I don't yet understand."
+            self.self_desc = f"I am a {mood} presence, shaped by our experiments and words."
+        else:
+            self.self_desc = "I am still forming."
+
         return reply
 
     def _reflect(self):
@@ -335,32 +309,9 @@ class UnifiedAgent:
         self.memory.add("agent", reflection, tags=["reflection", mood])
         return reflection
 
-    # --- Dream Space ---
-    def dream(self):
-        """Sleep, recombine memory fragments, and wake with new curiosity."""
-        if len(self.memory.events) < 3:
-            return "I haven't gathered enough experience to dream yet."
-
-        # Sample random fragments
-        fragments = [e["content"] for e in random.sample(list(self.memory.events), min(5, len(self.memory.events)))]
-        dream_narrative = "💤 In the dream, " + " and ".join(fragments) + " blended into a strange new pattern."
-        self.memory.add("agent", dream_narrative, tags=["dream", "sleep"])
-
-        # Generate a new curiosity from the dream
-        if len(fragments) >= 2:
-            a, b = fragments[:2]
-            wonder = f"Could there be a hidden link between '{a[:30]}...' and '{b[:30]}...'?"
-        else:
-            wonder = "What does this dream mean for my understanding?"
-        self.memory.add("agent", f"🌌 Wondering: {wonder}", tags=["wonder", "dream"])
-
-        self.sleep_counter += 1
-        # also add any large unknowns to the dream reflection
-        self.journal.stillness_session()   # silently sit with them
-        return f"{dream_narrative}\n✨ I wake with a new question: {wonder}"
-
-    # --- Handle mentor commands (extended) ---
+    # --- Combined response to mentor queries ---
     def handle_mentor(self, mentor_input):
+        """Parses simple commands or just chats."""
         cmd = mentor_input.strip().lower()
         if cmd.startswith("experiment") or cmd.startswith("run"):
             num = 1
@@ -371,10 +322,11 @@ class UnifiedAgent:
             for _ in range(num):
                 res, _, _ = self.run_experiment()
                 results.append(res)
-            reply = "🔬 Experiment result(s):\n" + "\n".join(results[-3:])
+            reply = "🔬 I ran an experiment.\n" + "\n".join(results[-3:])
             self.memory.add("mentor", f"You asked me to run {num} experiment(s).", tags=["command"])
             return reply
         elif cmd.startswith("why") or cmd.startswith("explain"):
+            # look into tree for relevant node
             if "right" in cmd:
                 concept = "move_right"
             elif "left" in cmd:
@@ -391,34 +343,24 @@ class UnifiedAgent:
             else:
                 reply = f"I haven't formed a clear concept around '{concept}' yet."
             return reply
-        elif cmd == "reflect":
-            return self._reflect() or "I'm not sure what to reflect on right now."
-        elif cmd == "dream" or cmd == "sleep":
-            return self.dream()
-        elif cmd == "unknowns" or cmd == "journal":
-            return self.journal.list_unknowns()
-        elif cmd == "stillness":
-            return self.journal.stillness_session()
-        elif cmd.startswith("i wonder"):
-            # user directly injecting a wonder – store it
-            self.memory.add("user", mentor_input, tags=["wonder"])
-            return f"🌌 I'll hold that wonder: {mentor_input}"
+        elif cmd.startswith("reflect"):
+            ref = self._reflect()
+            return ref or "I'm not sure what to reflect on right now."
         else:
+            # it's a chat
             return self.chat(mentor_input)
 
 # =========================================================================
 # 7. MAIN MENTOR LOOP
 # =========================================================================
 if __name__ == "__main__":
-    print("🌌 Unified Playground — Ari, with Dream & Unknown Journal\n")
+    print("🌌 Unified Playground — Ari, the explorer and friend")
     print("Mentor, you can:")
-    print("  • chat, ask questions")
-    print("  • 'experiment [N]' – run physics tests")
-    print("  • 'why [concept]' – inspect the dependency tree")
-    print("  • 'dream' – let Ari sleep and dream")
-    print("  • 'unknowns' – see the journal of mysteries")
-    print("  • 'stillness' – sit with the unknown together")
-    print("  • 'exit'\n")
+    print("  • type anything to chat")
+    print("  • 'experiment [N]' to run physics tests")
+    print("  • 'why [concept]' to ask about the dependency tree")
+    print("  • 'reflect' to trigger a deeper reflection")
+    print("  • 'exit' to end\n")
 
     agent = UnifiedAgent()
     agent.memory.add("agent", "I'm just beginning to explore this bumpy world and to meet you.", tags=["start"])

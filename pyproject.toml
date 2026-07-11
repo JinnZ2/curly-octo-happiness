@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grounding-playgrounds"
+version = "0.1.0"
+description = "AI grounding & claim-falsification playgrounds: falsifiable-claim agents, dependency-confidence trees, hidden-node detection, geometric system diagnostics, Gray-coded sensor encoders."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "CC0-1.0" }
+# The core package and root playgrounds are stdlib-only.
+dependencies = []
+
+[project.optional-dependencies]
+sds = ["networkx"]                                      # modules/, diagnostic/
+plugins = ["numpy"]                                     # most of plugins/
+viz = ["plotly", "networkx"]                            # project/shape_board.py
+ml = ["torch", "transformers", "scikit-learn", "numpy"] # project/cognitive_playground.py
+test = ["pytest", "networkx", "numpy"]
+
+[project.urls]
+Repository = "https://github.com/JinnZ2/curly-octo-happiness"
+
+[tool.setuptools.packages.find]
+include = ["grounding*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

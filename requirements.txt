@@ -1,0 +1,19 @@
+# The root playgrounds (garden*, weave*, unified_playground*, shared.py) are
+# stdlib-only. The extras below are needed per subsystem:
+#
+#   modules/                       -> networkx
+#   plugins/ (most encoders)       -> numpy
+#   project/shape_board.py         -> plotly, networkx
+#   project/cognitive_playground.py-> torch, transformers, scikit-learn, numpy
+#
+# Install the common set:
+numpy
+networkx
+
+# Uncomment for the Shape Board visualization:
+# plotly
+
+# Uncomment for the cognitive playground (heavy):
+# torch
+# transformers
+# scikit-learn

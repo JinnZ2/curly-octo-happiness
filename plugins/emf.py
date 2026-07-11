@@ -2,7 +2,8 @@ PLUGIN_META = {
     "name": "emf_sensor",
     "description": "Electromagnetic field strength encoder.",
     "geometry_keys": ["field_strength_v_m", "frequency_hz"],
-    "encoder_class": "EMFEncoder",
+    "encoder_class": "EMFEncoder",  # legacy key for plugin_manager.py (v1)
+    "class_name": "EMFEncoder",    # standard key for plugin_manager v2/v3
 }
 
 class EMFEncoder:

@@ -13,9 +13,13 @@ class ThermalCameraEncoder:
         ...
 
 
-add __init__self.plugin_manager = PluginManager()
+In `UnifiedAgent.__init__`, add:
 
-add to handle_mentor
+```python
+self.plugin_manager = PluginManager()
+```
+
+Add to `handle_mentor`:
 
 if cmd == "plugins list":
     return self.plugin_manager.list_plugins()
@@ -32,9 +36,10 @@ if cmd.startswith("plugin read "):
         return "Usage: plugin read <name> <json_geometry>"
     name = parts[2]
     geom_str = parts[3] if len(parts) > 3 else "{}"
+    import json
     try:
-        geom = eval(geom_str)  # for simplicity; better to use json.loads
-    except:
+        geom = json.loads(geom_str)
+    except json.JSONDecodeError:
         geom = {}
     binary, report = self.plugin_manager.read_plugin(name, geom)
     if binary is None:

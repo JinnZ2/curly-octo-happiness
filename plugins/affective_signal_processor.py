@@ -40,6 +40,16 @@ def gray_bits(value, bands, n_bits=3):
     return format(g, f'0{n_bits}b')
 
 
+def gray_to_index(bits):
+    """Decode a Gray-coded bitstring back to its band index."""
+    g = int(bits, 2)
+    idx = g
+    while g:
+        g >>= 1
+        idx ^= g
+    return idx
+
+
 class AffectiveSignalProcessor:
     def __init__(self, mode='signal'):
         self.mode = mode  # 'signal' or 'comfort'
@@ -147,6 +157,6 @@ class AffectiveSignalProcessor:
         lines = ["Active Affective Channels:"]
         for ch in active:
             last = self.channels[ch]["last_value"]
-            band = int(gray_bits(last, self.channels[ch]["bands_intensity"]), 2)
+            band = gray_to_index(gray_bits(last, self.channels[ch]["bands_intensity"]))
             lines.append(f"  {ch}: band {band} (intensity {last:.2f})")
         return "\n".join(lines)

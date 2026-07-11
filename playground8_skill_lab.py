@@ -17,8 +17,10 @@ class SkillLab:
     def _run_tests(self, name: str):
         skill = self.skills[name]
         try:
-            exec(skill["code"], globals())
-            exec(skill["test"], globals())
+            # Run in a scratch namespace so skill code can't clobber module globals.
+            ns = {}
+            exec(skill["code"], ns)
+            exec(skill["test"], ns)
             skill["passed"] += 1
             print(f"✅ {name} passed tests.")
             self.tree.nodes[name].confidence = 0.9

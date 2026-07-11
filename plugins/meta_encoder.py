@@ -104,8 +104,7 @@ class MetaEncoderPlugin:
             Python code string containing any physics functions needed.
         """
         class_name = f"{name.capitalize()}Encoder"
-        nbits = len(magnitude_bands).bit_length()  # crude, should be 3 for 8 bands
-        nbits = 3  # standard
+        nbits = 3  # standard: 8 bands -> 3 bits
         bands_code = f"_DEFAULT_MAGNITUDE_BANDS = {magnitude_bands}\n_DEFAULT_DELTA_BANDS = {delta_bands if delta_bands else [0.0]*len(magnitude_bands)}"
         code = ENCODER_TEMPLATE.format(
             name=name,
@@ -116,10 +115,12 @@ class MetaEncoderPlugin:
             primary_key=primary_key,
             nbits=nbits
         )
-        filepath = os.path.join("plugins", f"{name}.py")
+        # Write next to this module so the result doesn't depend on the CWD.
+        plugin_dir = os.path.dirname(os.path.abspath(__file__))
+        filepath = os.path.join(plugin_dir, f"{name}.py")
         with open(filepath, "w") as f:
             f.write(code)
-        return f"✅ Encoder '{name}' created at plugins/{name}.py"
+        return f"✅ Encoder '{name}' created at {filepath}"
 
     def load_new_encoder(self, name, plugin_manager):
         """Hot‑load a freshly created encoder into the running PluginManager."""

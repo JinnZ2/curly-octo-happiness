@@ -1,0 +1,10 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "curly-octo-happiness",
+  "description": "AI grounding and claim-falsification playgrounds: falsifiable-claim agents, dependency-confidence trees, hidden-node detection, geometric system diagnostics, Gray-coded multi-physics sensor encoders.",
+  "codeRepository": "https://github.com/JinnZ2/curly-octo-happiness",
+  "programmingLanguage": "Python",
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "keywords": ["AI grounding", "claim verification", "falsifiability", "systems analysis", "sensor fusion"]
+}

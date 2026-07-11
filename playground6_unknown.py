@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Unknown Journal – sitting with mystery."""
+import random
 import time
 from shared import MentorInterface
 

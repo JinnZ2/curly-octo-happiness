@@ -1,3 +1,5 @@
+> **Integration target:** `unified_playground.py` → `UnifiedAgent` (`__init__` / `handle_mentor`). This file is a wiring snippet, not a standalone module.
+
 if cmd.startswith("create encoder"):
     parts = cmd.split(" ", 2)
     if len(parts) < 3:
