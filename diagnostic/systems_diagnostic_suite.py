@@ -90,31 +90,10 @@ def main():
     results = gae.analyze()
     print(results["diagnostic"])
 
-    # FDM
-    knowledge_base = {
-        "Fresnel_Lens": ["Lens_Optics", "Lens_Frame", "Lens_Alignment"],
-        "Lens_Optics": ["Glass", "Silica", "Molding"],
-        "Lens_Frame": ["Scrap_Metal", "Bolts", "Wood"],
-        "Lens_Alignment": ["Manual_Tracker", "Gears"],
-        "Pyrite": ["Mining", "Crushing", "Transport"],
-        "Mining": ["Access", "Breaking_Rock", "Lifting"],
-        "Breaking_Rock": ["Steel_Tools", "Muscle"],
-        "Steel_Tools": ["Scrap_Steel", "Forge", "Charcoal"],
-        "Charcoal": ["Biomass", "Pyrolysis"],
-        "Biomass": ["Trees", "Soil", "Water"],
-        "Glass": ["Sand", "Soda_Ash", "Heat"],
-        "Sand": ["Mining", "Soil"],
-        "Soda_Ash": ["Chemistry", "Brine"],
-        "Gears": ["Scrap_Metal", "Machining"],
-        "Trees": ["Seeds", "Soil", "Water", "Sunlight"],
-        "Soil": [],
-        "Water": [],
-        "Sunlight": [],
-        "Muscle": [],
-        "Seeds": [],
-    }
-
-    fdm = FDM(knowledge_base)
+    # FDM — knowledge base loaded from the shared data file (§5.5)
+    _data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data")
+    fdm = FDM.from_json(os.path.join(_data_dir, "chemical_plant_kb.json"),
+                        os.path.join(_data_dir, "primitive_roots.json"))
     tree = fdm.trace("Fresnel_Lens")
     print(fdm.generate_report(tree))
 

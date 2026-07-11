@@ -81,30 +81,11 @@ if __name__ == "__main__":
         ("Clay", "Acid"),
     ]
 
-    # Knowledge base for FDM
-    knowledge_base = {
-        "Fresnel_Lens": ["Lens_Optics", "Lens_Frame", "Lens_Alignment"],
-        "Lens_Optics": ["Glass", "Silica", "Molding"],
-        "Lens_Frame": ["Scrap_Metal", "Bolts", "Wood"],
-        "Lens_Alignment": ["Manual_Tracker", "Gears"],
-        "Pyrite": ["Mining", "Crushing", "Transport"],
-        "Mining": ["Access", "Breaking_Rock", "Lifting"],
-        "Breaking_Rock": ["Steel_Tools", "Muscle"],
-        "Steel_Tools": ["Scrap_Steel", "Forge", "Charcoal"],
-        "Charcoal": ["Biomass", "Pyrolysis"],
-        "Biomass": ["Trees", "Soil", "Water"],
-        "Glass": ["Sand", "Soda_Ash", "Heat"],
-        "Sand": ["Mining", "Soil"],
-        "Soda_Ash": ["Chemistry", "Brine"],
-        "Gears": ["Scrap_Metal", "Machining"],
-        "Scrap_Metal": ["Recycling", "Steel_Tools"],
-        "Trees": ["Seeds", "Soil", "Water", "Sunlight"],
-        "Soil": [],  # Primitive
-        "Water": [], # Primitive
-        "Sunlight": [], # Primitive
-        "Muscle": [], # Primitive
-        "Seeds": [], # Primitive
-    }
+    # Knowledge base for FDM — shared data file (data/chemical_plant_kb.json)
+    import os
+    from fdm import load_knowledge_base
+    _data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data")
+    knowledge_base = load_knowledge_base(os.path.join(_data_dir, "chemical_plant_kb.json"))
 
     # Run full diagnostic
     results = diagnose_system(nodes, edges, knowledge_base)

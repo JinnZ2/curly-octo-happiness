@@ -12,6 +12,7 @@ EpisodicMemory, BumpyWorld, WorldModel, Gray coding) live in the
 import random, math, re
 
 from grounding.core.claims import Claim, DependencyTree
+from grounding.core.epistemics import classify_falsifiability
 from grounding.core.graycode import gray_bits
 from grounding.core.memory import EpisodicMemory
 from grounding.worlds.bumpy import BumpyWorld, WorldModel
@@ -78,10 +79,14 @@ class SkillLab:
 
     def refactor(self, name, new_code):
         if name not in self.skills: return f"❌ Skill '{name}' not found."
-        self.skills[name]["code"] = new_code
-        self.skills[name]["passed"] = 0
-        self.skills[name]["failed"] = 0
-        self.skills[name]["confidence"] = 0.5
+        skill = self.skills[name]
+        skill["code"] = new_code
+        skill["passed"] = 0
+        skill["failed"] = 0
+        skill["confidence"] = 0.5
+        # Escape-hatch counter: resetting the track record is fine, but it
+        # must be counted, not silent (REVIEW.md §5.4).
+        skill["reformulations"] = skill.get("reformulations", 0) + 1
         return self.test_skill(name)
 
     def list_skills(self):
@@ -346,10 +351,16 @@ class UnifiedAgent:
         self.last_err = abs(error)
 
         concept = "move_right" if action > 0.3 else ("move_left" if action < -0.3 else "stay")
-        claim = Claim(f"Force {action:.2f} at x={x:.2f} => pos {predicted:.2f}",
-                      "Actual deviates >0.3 => false")
-        outcome = abs(actual_x - predicted) < 0.3
-        claim.test(outcome)
+        claim = Claim(
+            f"Force {action:.2f} at x={x:.2f} => pos {predicted:.2f}",
+            "Actual deviates >0.3 => false",
+            # The falsification condition in ONE machine-checkable place —
+            # the text above and the check below can no longer drift.
+            logical_form={"op": "abs_diff_lt", "args": ["actual_x", "predicted", 0.3]},
+            scope={"world": "BumpyWorld-v1", "step": self.world.step_count, "x": round(x, 2)},
+            reference_class="predictions by the current WorldModel under similar (x, action)",
+        )
+        outcome = claim.evaluate({"actual_x": actual_x, "predicted": predicted})
         self.tree.add_claim(concept, claim)
         self.tree.add_dependency(concept, "world_model_accuracy")
         self.tree.add_dependency(concept, "slope_knowledge")
@@ -496,7 +507,30 @@ class UnifiedAgent:
         if c.startswith("skill refactor"):
             parts = c.split(" ", 3)
             if len(parts) < 4: return "Usage: skill refactor <name> <new_code>"
-            return self.lab.refactor(parts[2], parts[3])
+            res = self.lab.refactor(parts[2], parts[3])
+            n = self.lab.skills.get(parts[2], {}).get("reformulations", 0)
+            if n >= 3:
+                self.journal.record(f"Possible escape hatch: skill '{parts[2]}' reformulated {n}x")
+                res += f"\n⚠️ '{parts[2]}' has been reformulated {n}× — logged to the Unknown Journal."
+            return res
+        if c.startswith("claim "):
+            # claim <text> :: <falsification condition>
+            body = cmd.strip()[6:]
+            if "::" in body:
+                text, fals = [s.strip() for s in body.split("::", 1)]
+            else:
+                text, fals = body.strip(), ""
+            claim = Claim(text, fals)
+            kind = classify_falsifiability(claim)
+            if kind == "unfalsifiable":
+                # Unfalsifiable statements are mysteries, not knowledge (§5.4).
+                self.journal.record(f"Unfalsifiable claim held as mystery: '{text}'")
+                return (f"🌫️ '{text}' has no falsification condition — holding it in the "
+                        f"Unknown Journal instead of the dependency tree. "
+                        f"(Add one with: claim <text> :: <how it could be proven wrong>)")
+            self.tree.add_claim("mentor_claims", claim)
+            self.memory.add("mentor", f"Registered claim: {text}", tags=["claim"])
+            return f"📌 Claim registered ({kind}): {claim}"
         # Hardware specific commands
         if c.startswith("check"):
             name = c.split()[-1] if len(c.split())>1 else "D1"
@@ -520,6 +554,7 @@ class UnifiedAgent:
 if __name__ == "__main__":
     print("🌌 Unified Playground — Ari, hardware steward edition\n")
     print("Commands: experiment [N] | why <concept> | dream | unknowns | stillness")
+    print("          claim <text> :: <falsification>")
     print("          skill extract/list/test/refactor")
     print("          check <component> | degrade (stress hardware)\n")
     agent = UnifiedAgent()

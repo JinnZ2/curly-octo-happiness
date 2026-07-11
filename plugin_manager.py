@@ -18,12 +18,20 @@ import os
 import sys
 from typing import Callable, Dict, Optional, Tuple
 
+try:
+    # Optional advisory unit checking (REVIEW.md §5.2); available when the
+    # grounding package is importable (run from the repo root or pip install).
+    from grounding.core.epistemics import check_geometry_units
+except ImportError:
+    check_geometry_units = None
+
 
 class PluginManager:
-    def __init__(self, plugin_dir="plugins"):
+    def __init__(self, plugin_dir="plugins", unit_checks=False):
         self.plugin_dir = plugin_dir
         self.plugins = {}          # name -> {"module", "class", "instance", "meta", "kind"}
         self.auto_load = set()     # names of plugins to auto-read each cycle
+        self.unit_checks = unit_checks and check_geometry_units is not None
         self._scan()
 
     def _scan(self):
@@ -124,22 +132,32 @@ class PluginManager:
         if entry["instance"] is None:
             return None, f"⚠️ '{name}' is a service; instantiate it with get_service()."
         inst = entry["instance"]
+        unit_note = self._unit_note(state)
         try:
             if hasattr(inst, "to_binary"):
                 params = inspect.signature(inst.to_binary).parameters
                 if "prev_state" in params:
                     binary = inst.to_binary(state, prev_state=prev_state,
                                             cross_signals=cross_signals)
-                    return binary, self._report(inst)
+                    return binary, self._report(inst) + unit_note
             if hasattr(inst, "process"):
                 result = inst.process(state)
-                return result.get("binary"), result.get("report", "")
+                return result.get("binary"), result.get("report", "") + unit_note
             if hasattr(inst, "from_geometry") and hasattr(inst, "to_binary"):
                 inst.from_geometry(state)
-                return inst.to_binary(), self._report(inst)
+                return inst.to_binary(), self._report(inst) + unit_note
             return None, "⚠️ Plugin doesn't support read operation."
         except Exception as e:
             return None, f"⚠️ Error: {e}"
+
+    def _unit_note(self, state) -> str:
+        """Advisory unit/plausibility warnings for a geometry dict (§5.2)."""
+        if not self.unit_checks or not isinstance(state, dict):
+            return ""
+        warnings = check_geometry_units(state)
+        if not warnings:
+            return ""
+        return "\n⚠️ units: " + "; ".join(warnings)
 
     @staticmethod
     def _report(inst) -> str:

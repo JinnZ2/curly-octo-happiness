@@ -22,7 +22,15 @@ Also applied (discoverability, §6): README rewritten with summary, quick start,
 - **§4.8 / §3.24** — `pyproject.toml` (installable `grounding` package, optional-dependency extras) and a 34-test pytest suite (`tests/`): graycode round-trips, claim/tree behavior, canon bijection, GAE/FDM/HND/simulator regressions (§3.8, §3.9, §3.20 guards), plugin regressions (§1.1, §3.11, §3.14, §3.22 guards), shape generators.
 - **§2.2 / §2.6 / §2.8–2.10** — Playgrounds.md mapping table; integration-target headers on the `plugins/*.md` snippets; PLAN header on `Organize.md`; implementation note on `System_Diagnostic_Suite.md`; status annotations in `Expansions_in_progress.md`.
 
-Still open: §3.16 (eval pattern eliminated from docs; keep avoiding it in new snippets), §3.21 (diagnostic HND's hidden-buffer placeholder — superseded by the modules implementation), §5 recommendations (structured claims, units, scopes, escape-hatch detection — design work), §6.2 and §6.9 (GitHub settings: topics, Pages).
+**Epistemics round (§5), applied in a later commit on this branch:**
+
+- **§5.1** — `grounding/core/epistemics.py::evaluate_logical_form` executes structured `{"op", "args"}` refutation conditions; `Claim.logical_form` + `Claim.evaluate(bindings)` make the falsification condition a single machine-checkable source of truth (the agent's `run_experiment` now uses it instead of a duplicated inline check). `check_with_z3` cross-checks the same forms with the Z3 SMT solver when installed (gracefully "unavailable" otherwise).
+- **§5.2** — `check_geometry_units` validates the repo's unit-suffix convention (`voltage_v`, `T_K`, `P_pa`, …) against plausible physical ranges, opt-in at the plugin boundary via `PluginManager(unit_checks=True)` (a lightweight stand-in for `pint`). `DependencyTree.add_claim` now sets a "revolutionary" `meta_flag` on low-confidence claims attached to well-grounded (>0.9) nodes.
+- **§5.3** — `Claim` gained optional `scope` (temporal/spatial/ontological dict) and `reference_class` fields; the agent's experiment claims populate both.
+- **§5.4** — `classify_falsifiability` (machine-checkable / falsifiable / unfalsifiable) + `Claim.falsifiable`; the agent's new `claim <text> :: <falsification>` command routes unfalsifiable claims to the `UnknownJournal` instead of the tree. Escape hatches are now counted: `Claim.reformulate()` and `SkillLab.refactor` both track reformulations, flagging (and journaling) after 3.
+- **§5.5** — `Claim.beta_confidence` (Beta(1+passed, 1+failed) posterior mean) provides calibrated probability alongside the legacy heuristic; FDM knowledge bases moved to `data/chemical_plant_kb.json` / `data/primitive_roots.json` with `FractalDependencyMapper.from_json` (deduplicating the KB that was inlined in both `modules/main.py` and the diagnostic demo). 16 new tests (`tests/test_epistemics.py`) cover all of the above.
+
+Still open: §3.16 (eval pattern eliminated from docs; keep avoiding it in new snippets), §3.21 (diagnostic HND's hidden-buffer placeholder — superseded by the modules implementation), §6.2 and §6.9 (GitHub settings: topics, Pages).
 
 ## Findings summary
 

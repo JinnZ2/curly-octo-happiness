@@ -6,9 +6,17 @@ Traces any node down to its primitive roots.
 Identifies branching depth, root sets, and branch health.
 """
 
+import json
 from dataclasses import dataclass, field
 from typing import Dict, List, Set, Optional, Any
 from enum import Enum
+
+
+def load_knowledge_base(path: str) -> Dict[str, List[str]]:
+    """Load a {node: [dependencies]} knowledge base from a JSON file
+    (see data/*.json in the repo root)."""
+    with open(path) as f:
+        return json.load(f)
 
 class NodeStatus(Enum):
     ACTIVE = "active"
@@ -48,16 +56,27 @@ class FractalDependencyMapper:
         "LIVESTOCK": "biological labor, can be bred",
     }
 
-    def __init__(self, knowledge_base: Optional[Dict[str, List[str]]] = None):
+    def __init__(self, knowledge_base: Optional[Dict[str, List[str]]] = None,
+                 primitive_roots: Optional[Dict[str, str]] = None):
         """
         Args:
             knowledge_base: {
                 "node_name": ["dependency_1", "dependency_2", ...]
             }
+            primitive_roots: optional {NAME: description} catalog overriding
+                the class default (see data/primitive_roots.json).
         """
         self.knowledge_base = knowledge_base or {}
+        self.primitive_catalog = primitive_roots or self.PRIMITIVE_ROOTS
         self.visited: Set[str] = set()
         self.primitive_roots_found: Set[str] = set()
+
+    @classmethod
+    def from_json(cls, kb_path: str, primitive_roots_path: Optional[str] = None):
+        """Build a mapper from JSON files (background knowledge kept as
+        data, not code — REVIEW.md §5.5)."""
+        roots = load_knowledge_base(primitive_roots_path) if primitive_roots_path else None
+        return cls(load_knowledge_base(kb_path), primitive_roots=roots)
 
     def trace(self, root_name: str, depth: int = 0, max_depth: int = 20) -> FractalTree:
         """
@@ -92,7 +111,7 @@ class FractalDependencyMapper:
         self.visited.add(name)
 
         # Check if this is a primitive root
-        if name.upper() in self.PRIMITIVE_ROOTS:
+        if name.upper() in self.primitive_catalog:
             self.primitive_roots_found.add(name.upper())
             return DependencyNode(name=name, depth=depth, status=NodeStatus.ACTIVE, primitive=True)
 

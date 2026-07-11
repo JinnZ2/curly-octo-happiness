@@ -1,0 +1,9 @@
+{
+  "SUNLIGHT": "energy source, cannot be manufactured",
+  "SOIL": "physical substrate, must be present",
+  "WATER": "essential input, cannot be created from nothing",
+  "MUSCLE": "human labor, cannot be automated away",
+  "GRAVITY": "physical constant, can be used passively",
+  "SEEDS": "biological reproduction, cannot be synthesized from scratch",
+  "LIVESTOCK": "biological labor, can be bred"
+}

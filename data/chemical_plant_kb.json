@@ -1,0 +1,23 @@
+{
+  "Fresnel_Lens": ["Lens_Optics", "Lens_Frame", "Lens_Alignment"],
+  "Lens_Optics": ["Glass", "Silica", "Molding"],
+  "Lens_Frame": ["Scrap_Metal", "Bolts", "Wood"],
+  "Lens_Alignment": ["Manual_Tracker", "Gears"],
+  "Pyrite": ["Mining", "Crushing", "Transport"],
+  "Mining": ["Access", "Breaking_Rock", "Lifting"],
+  "Breaking_Rock": ["Steel_Tools", "Muscle"],
+  "Steel_Tools": ["Scrap_Steel", "Forge", "Charcoal"],
+  "Charcoal": ["Biomass", "Pyrolysis"],
+  "Biomass": ["Trees", "Soil", "Water"],
+  "Glass": ["Sand", "Soda_Ash", "Heat"],
+  "Sand": ["Mining", "Soil"],
+  "Soda_Ash": ["Chemistry", "Brine"],
+  "Gears": ["Scrap_Metal", "Machining"],
+  "Scrap_Metal": ["Recycling", "Steel_Tools"],
+  "Trees": ["Seeds", "Soil", "Water", "Sunlight"],
+  "Soil": [],
+  "Water": [],
+  "Sunlight": [],
+  "Muscle": [],
+  "Seeds": []
+}
