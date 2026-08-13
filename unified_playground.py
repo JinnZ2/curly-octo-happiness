@@ -15,6 +15,8 @@ from grounding.core.claims import Claim, DependencyTree
 from grounding.core.epistemics import classify_falsifiability
 from grounding.core.graycode import gray_bits
 from grounding.core.memory import EpisodicMemory
+from grounding.core.mentor import TeachbackMentor
+from grounding.core.vsm import AlgedonicSignal, SecondOrderGuard, Signal, ViableSystem
 from grounding.worlds.bumpy import BumpyWorld, WorldModel
 
 # =========================================================================
@@ -327,6 +329,105 @@ class UnifiedAgent:
         ]
         self.encoder = HardwareBridgeEncoder()
 
+        # Cybernetic architecture (PLAN_FORWARD Phase 1)
+        self.mentor = TeachbackMentor()
+        self.guard = SecondOrderGuard()
+        self.vsm = self._build_vsm()
+        self.pain = []           # algedonic signals awaiting the operator's eyes
+
+    def _build_vsm(self):
+        """Map what already exists onto Beer's five systems.
+
+        Nothing here is new machinery — it is a statement of which existing part
+        plays which cybernetic role, made concrete enough that signals actually
+        route through it.
+        """
+        system = ViableSystem(self.name)
+        for component in self.components:
+            system.register(1, f"component:{component.name}")
+        system.register(1, "world:BumpyWorld")
+        system.register(2, "trust:tone/confidence propagation")
+        system.register(3, "claims/epistemics engine")
+        system.register(3, "S3* audit: hardware encoder + unknown journal")
+        system.register(4, "curiosity + dreams + unknown-journal horizon scan")
+        system.register(5, "mentor/governance")
+
+        # S2 damps chatter: an operational report about a still-healthy unit is
+        # coordination noise, and S3 will not spend attention on it.
+        system.mediator(2, lambda sig: sig.payload.get("health", 1.0) < 0.6)
+        # S3 allocates attention: only what the audit channel calls actionable.
+        system.mediator(3, lambda sig: sig.payload.get("actionable", True))
+
+        system.on_policy(self._policy_handler)
+        return system
+
+    def _policy_handler(self, signal):
+        """S5. Everything that reaches policy is remembered; pain is surfaced."""
+        self.memory.add("vsm", f"[{signal.source}] {signal.message}",
+                        tags=["vsm", "policy"])
+        if isinstance(signal, AlgedonicSignal):
+            self.pain.append(signal)
+            self.journal.record(
+                f"Algedonic {signal.severity} from {signal.source}: {signal.message}",
+                note="reached policy without coordination or control mediation")
+
+    def hardware_scan(self):
+        """Report every component to S5 — routine reports mediated, pain not.
+
+        This is 1.2: the thermal-runaway quarantine bit was already a hard
+        override buried in the encoder. Generalising it into an AlgedonicSignal
+        means the override no longer depends on somebody happening to run
+        `check` on the right component: a unit in trouble reaches policy by
+        itself, and the trust layer does not get a vote.
+        """
+        raised = []
+        for component in self.components:
+            geom = component.get_geometry()
+            quarantine = self.encoder._thermal_runaway_quarantine(
+                geom["temperature_c"], geom["current_a"])
+            if quarantine or geom["health_score"] < 0.15:
+                reason = ("thermal runaway" if quarantine
+                          else f"health {geom['health_score']:.2f}")
+                signal = AlgedonicSignal(
+                    source=f"component:{component.name}",
+                    message=f"{reason} — quarantine",
+                    severity="pain",
+                    payload={"health": geom["health_score"],
+                             "temperature_c": geom["temperature_c"],
+                             "current_a": geom["current_a"]},
+                )
+                self.vsm.raise_algedonic(signal)
+                raised.append(signal)
+            else:
+                self.vsm.route(Signal(
+                    source=f"component:{component.name}",
+                    message=f"health {geom['health_score']:.2f}",
+                    payload={"health": geom["health_score"], "actionable": False},
+                ))
+        return raised
+
+    def self_model_check(self):
+        """1.4 — cross-validate the self-description against an independent stream.
+
+        The agent's confidence in its own concepts comes from its own claim
+        tree; the world model's prediction error does not. When the first rises
+        while the second does not fall, the self-description has stopped being
+        about the world.
+        """
+        if len(self.wm.error_hist) < 5:
+            return []   # nothing independent to cross-validate against yet
+
+        nodes = [n.confidence for n in self.tree.nodes.values()]
+        self_confidence = sum(nodes) / len(nodes) if nodes else 0.5
+        # avg_error is in world units, not a probability. err/(1+err) maps it
+        # onto [0, 1) without pretending an error of 1.0 means "entirely wrong".
+        raw = self.wm.avg_error()
+        independent_error = raw / (1.0 + raw)
+        flags = self.guard.check(self_confidence, independent_error)
+        for flag in flags:
+            self.journal.record(f"Second-order guard: {flag}")
+        return flags
+
     def degrade_hardware(self, severity=0.1):
         """Age all components slightly."""
         for comp in self.components:
@@ -376,6 +477,12 @@ class UnifiedAgent:
         self.memory.add("agent", summary, tags=["experiment", concept, claim.status])
         # Also degrade hardware after experiment (wear & tear)
         self.degrade_hardware(0.05)
+
+        # Hardware reports itself to S5 every step; pain interrupts the summary.
+        for signal in self.hardware_scan():
+            summary += f"\n  🚨 ALGEDONIC [{signal.source}] {signal.message}"
+        for flag in self.self_model_check():
+            summary += f"\n  ⚠️ {flag}"
         return summary, claim, error
 
     def choose_action(self, x):
@@ -486,7 +593,9 @@ class UnifiedAgent:
                 s, _, _ = self.run_experiment()
                 out.append(s)
             return "🔬 " + "\n".join(out[-3:])
-        if c.startswith("why") or c.startswith("explain"):
+        # "explain <concept>" asks the tree; "explain <concept> :: <text>" is the
+        # mentor teaching, handled further down.
+        if c.startswith("why") or (c.startswith("explain") and "::" not in c):
             if "right" in c: concept = "move_right"
             elif "left" in c: concept = "move_left"
             else: concept = "world_model_accuracy"
@@ -545,7 +654,53 @@ class UnifiedAgent:
                     f"   Binary: {bin_str}")
         if c == "degrade":
             self.degrade_hardware(0.2)
-            return "⚡ Applied stress to all components."
+            raised = self.hardware_scan()
+            out = "⚡ Applied stress to all components."
+            for signal in raised:
+                out += f"\n🚨 ALGEDONIC [{signal.source}] {signal.message}"
+            return out
+        # Cybernetic architecture (Phase 1)
+        if c in ("vsm", "systems"):
+            return self.vsm.report()
+        if c in ("pain", "algedonic"):
+            if not self.pain:
+                return "🫧 No algedonic signals. The channel is quiet, which is the point."
+            lines = [f"🚨 {len(self.pain)} algedonic signal(s), most recent last:"]
+            for signal in self.pain[-5:]:
+                lines.append(f"  [{signal.severity}] {signal.source}: {signal.message}")
+                lines.append(f"     path: {' → '.join(signal.path)} "
+                             f"(bypassed mediation: {signal.bypassed_mediation})")
+            if self.vsm.saturated():
+                lines.append("  ⚠️ channel SATURATED — pain has become the weather; "
+                             "either the hardware is failing en masse or the "
+                             "threshold is set too low to mean anything.")
+            return "\n".join(lines)
+        if c in ("self-check", "selfcheck", "second-order"):
+            self.self_model_check()
+            return self.guard.report()
+        if c.startswith("explain "):
+            body = cmd.strip()[8:]
+            if "::" not in body:
+                return "Usage: explain <concept> :: <explanation>"
+            concept, explanation = [s.strip() for s in body.split("::", 1)]
+            return self.mentor.explain(concept, explanation)
+        if c.startswith("teachback"):
+            body = cmd.strip()[9:].strip()
+            if "::" not in body:
+                return "Usage: teachback <concept> :: <your reconstruction>"
+            concept, reconstruction = [s.strip() for s in body.split("::", 1)]
+            message, _ = self.mentor.teachback(concept, reconstruction)
+            return message
+        if c.startswith("confirm"):
+            return self.mentor.confirm(cmd.strip()[7:].strip())
+        if c.startswith("correct "):
+            body = cmd.strip()[8:]
+            if "::" not in body:
+                return "Usage: correct <concept> :: <what it actually is>"
+            concept, correction = [s.strip() for s in body.split("::", 1)]
+            return self.mentor.correct(concept, correction)
+        if c in ("learned", "teachback status"):
+            return self.mentor.status()
         return self.chat(cmd)
 
 # =========================================================================
@@ -556,7 +711,10 @@ if __name__ == "__main__":
     print("Commands: experiment [N] | why <concept> | dream | unknowns | stillness")
     print("          claim <text> :: <falsification>")
     print("          skill extract/list/test/refactor")
-    print("          check <component> | degrade (stress hardware)\n")
+    print("          check <component> | degrade (stress hardware)")
+    print("          vsm | pain | self-check")
+    print("          explain <concept> :: <text> | teachback <concept> :: <your words>")
+    print("          confirm <concept> | correct <concept> :: <text> | learned\n")
     agent = UnifiedAgent()
     agent.memory.add("agent", "I am Ari, ready to explore physics and steward this circuit.", tags=["start"])
     while True:
