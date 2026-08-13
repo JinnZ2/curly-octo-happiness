@@ -49,7 +49,7 @@ Stdlib only.
 
 from dataclasses import dataclass, field
 from math import exp, inf, log2, log10
-from typing import Dict, List, Mapping, Optional, Sequence
+from typing import Dict, List, Mapping, Optional, Sequence, Tuple
 
 __all__ = [
     "BIT_COST",
@@ -62,6 +62,7 @@ __all__ = [
     "SeedState",
     "ViabilityReading",
     "assess_dormancy",
+    "bet_monolayer",
     "erasure_cost",
     "fold",
     "fold_window",
@@ -92,6 +93,15 @@ MAGNITUDE_RESOLUTION = 0.01
 # Residual activity floor and ceiling, in the seed analogy's moisture units.
 # Below the floor, further drying buys no duration and damages the structure;
 # above the ceiling the seed is being stored wet and will not keep.
+#
+# The floor has a mechanism rather than being a chosen number, and
+# `bet_monolayer` derives it from measured sorption data. Below the BET
+# monolayer the remaining water is structurally bound — a single layer on the
+# macromolecular surface — and stripping it exposes that surface rather than
+# protecting it, which is why further drying inverts from helping to harming.
+# The species dependence is real: measured storage optima run from about
+# 0.057 g/g in maize embryos to 0.02 in safflower, so a single constant is a
+# default to be replaced by a measurement, not a law.
 MIN_VIABLE_RESIDUAL = 0.02
 MAX_USEFUL_RESIDUAL = 0.14
 
@@ -102,6 +112,72 @@ _K_E = 5.0
 _C_W = 3.0
 _C_H = 0.03
 _C_Q = 0.0004
+
+
+def bet_monolayer(isotherm: Sequence[Tuple[float, float]],
+                  activity_range: Tuple[float, float] = (0.05, 0.45)
+                  ) -> Dict[str, float]:
+    """Derive the residual floor from a measured sorption isotherm.
+
+    Brunauer–Emmett–Teller, linearised:
+
+        a / ((1 - a) m)  =  1/(m_0 C)  +  ((C - 1)/(m_0 C)) a
+
+    Least squares on that line gives the monolayer capacity `m_0` — the water
+    content at which a single layer covers the macromolecular surface. That is
+    the mechanism under `MIN_VIABLE_RESIDUAL`: above the monolayer, removing
+    water slows metabolism and buys storage life; below it, the water being
+    removed is the layer that was shielding the surface, so drying starts
+    exposing what it was meant to protect. Ellis & Roberts' viability equation
+    is known to break down near this point, and measured storage optima track
+    it across species rather than sitting at a common value.
+
+    Args:
+        isotherm: (water activity, moisture content) pairs, activity in (0, 1).
+        activity_range: BET is a monolayer theory and only holds in the low- to
+            mid-activity region; points outside are excluded rather than
+            silently fitted, because a fit through the multilayer region
+            returns a number that is not a monolayer.
+
+    Returns:
+        `monolayer` (the derived floor), `c_constant` (binding energy term,
+        large means strongly bound), and `n_points` actually used.
+    """
+    usable = [(a, m) for a, m in isotherm
+              if activity_range[0] <= a <= activity_range[1] and 0 < a < 1 and m > 0]
+    if len(usable) < 3:
+        raise ValueError(
+            f"BET needs at least 3 points inside the monolayer region "
+            f"{activity_range}; got {len(usable)}. Fitting outside it would "
+            "return a multilayer artefact wearing a monolayer's name.")
+
+    xs = [a for a, _ in usable]
+    ys = [a / ((1.0 - a) * m) for a, m in usable]
+    n = len(xs)
+
+    # Guard on the actual spread, not on the least-squares denominator. Three
+    # points at nominally the same activity leave a denominator of ~1e-33
+    # rather than 0 — positive enough to pass a `<= 0` check and produce a
+    # confident-looking monolayer computed entirely from rounding error.
+    if max(xs) - min(xs) < 0.02:
+        raise ValueError(
+            f"isotherm spans only {max(xs) - min(xs):.4g} in water activity; "
+            "a BET line needs points spread across the monolayer region, and "
+            "fitting a slope through a single activity returns rounding noise")
+
+    mean_x, mean_y = sum(xs) / n, sum(ys) / n
+    denominator = sum((x - mean_x) ** 2 for x in xs)
+
+    slope = sum((x - mean_x) * (y - mean_y) for x, y in zip(xs, ys)) / denominator
+    intercept = mean_y - slope * mean_x
+    if slope + intercept <= 0:
+        raise ValueError(
+            "BET fit gives a non-positive monolayer; the isotherm is not "
+            "BET-shaped in this range")
+
+    monolayer = 1.0 / (slope + intercept)
+    c_constant = (slope / intercept + 1.0) if intercept > 0 else inf
+    return {"monolayer": monolayer, "c_constant": c_constant, "n_points": n}
 
 
 @dataclass

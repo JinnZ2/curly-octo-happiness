@@ -17,6 +17,7 @@ from grounding.core.dormancy import (
     SEED_TERMS,
     SeedState,
     assess_dormancy,
+    bet_monolayer,
     fold,
     fold_window,
     format_dormancy,
@@ -380,3 +381,46 @@ def test_a_partitioned_component_can_fold_and_later_re_bloom():
     assert (revived["bands"] / revived["claims"]
             == pytest.approx(8.0 / 6.0, abs=1e-12))        # same shape
     assert seed.metric_signature["partition"] == [0, 1]
+
+
+# --- the residual floor, derived from a sorption isotherm -------------------
+
+def bet_isotherm(monolayer, c_constant, activities):
+    """Synthesise a BET isotherm with known parameters."""
+    return [(a, monolayer * c_constant * a
+             / ((1 - a) * (1 + (c_constant - 1) * a))) for a in activities]
+
+
+ACTIVITIES = [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.60, 0.80]
+
+
+@pytest.mark.parametrize("monolayer,c_constant", [
+    (0.055, 20.0),      # ~maize embryo storage optimum
+    (0.020, 15.0),      # ~safflower
+    (0.045, 30.0),      # ~elm
+])
+def test_bet_recovers_a_known_monolayer(monolayer, c_constant):
+    """The floor is measurable, not chosen — and species-specific."""
+    fitted = bet_monolayer(bet_isotherm(monolayer, c_constant, ACTIVITIES))
+    assert fitted["monolayer"] == pytest.approx(monolayer, rel=1e-6)
+    assert fitted["c_constant"] == pytest.approx(c_constant, rel=1e-6)
+
+
+def test_bet_excludes_the_multilayer_region():
+    """A fit through high activity returns something that is not a monolayer."""
+    fitted = bet_monolayer(bet_isotherm(0.055, 20.0, ACTIVITIES))
+    assert fitted["n_points"] == 9          # the 0.60 and 0.80 points dropped
+
+
+def test_bet_refuses_a_fit_it_cannot_support():
+    with pytest.raises(ValueError) as excinfo:
+        bet_monolayer([(0.6, 0.1), (0.8, 0.2)])
+    assert "monolayer region" in str(excinfo.value)
+    with pytest.raises(ValueError):
+        bet_monolayer([(0.2, 0.05), (0.2, 0.05), (0.2, 0.05)])   # no spread
+
+
+def test_the_default_floor_sits_in_the_measured_species_range():
+    """0.02 is safflower's optimum, not a universal constant — and is documented
+    as a default to be replaced by a measurement."""
+    assert 0.015 <= MIN_VIABLE_RESIDUAL <= 0.06
