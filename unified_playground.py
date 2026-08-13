@@ -13,6 +13,7 @@ import random, math, re
 
 from grounding.core.allostasis import AllostaticBands
 from grounding.core.claims import Claim, DependencyTree
+from grounding.core.damage import DamageDetector
 from grounding.core.epistemics import classify_falsifiability
 from grounding.core.graycode import gray_bits
 from grounding.core.memory import EpisodicMemory
@@ -359,6 +360,8 @@ class UnifiedAgent:
         self.battery_j = 500.0
         self.catalog = self._build_fallback_catalog()
         self.safety_claims = {}
+        self.damage = DamageDetector()
+        self.relearns = 0
 
     # ------------------------------------------------------------------
     # Phase 3 — embodiment: safe sets and provably safe repurposing
@@ -487,6 +490,60 @@ class UnifiedAgent:
         ):
             catalog.register("diode", entry("diode", mode, health_after, note))
         return catalog
+
+    # Which component drives the world. Naming it explicitly beats letting the
+    # first list entry silently be the actuator.
+    ACTUATOR = "D1"
+
+    def actuator_efficiency(self):
+        """Fraction of a commanded force the hardware actually delivers.
+
+        A healthy actuator delivers all of it; a dead one delivers a third. The
+        agent has no privileged access to this number — it can only infer that
+        something changed from its own prediction errors, which is the point.
+        """
+        for component in self.components:
+            if component.name == self.ACTUATOR:
+                return 0.33 + 0.67 * max(0.0, min(1.0, component.health))
+        return 1.0
+
+    def damage_scan(self, relearn=True):
+        """Does my own body explain my prediction errors? (3.5)
+
+        The world model's residual is scanned against interoceptive signals —
+        the health and temperature of the agent's own components — using the
+        Phase 0 acceptance criterion. Detection and attribution are separate:
+        the model can know it is wrong without knowing which part changed, and
+        saying so beats naming an innocent component.
+
+        On an attributed detection the world model relearns (Lipson's
+        damage→relearn loop), the detector's history is cleared so the next
+        change is measured against the *new* dynamics, and pain goes to S5.
+        """
+        report = self.damage.scan()
+        if not report.detected:
+            return report
+
+        self.journal.record(
+            f"Dynamics changed: mean |residual| {report.before:.3f} -> "
+            f"{report.after:.3f}"
+            + (f", attributed to {report.culprit}" if report.culprit
+               else ", unattributed"),
+            note="damage detector")
+
+        if report.culprit and relearn:
+            # Relearning is not a reset to ignorance: the weights stay, the
+            # error history goes, so the model adapts from where it is rather
+            # than re-deriving the world from scratch.
+            self.wm.error_hist.clear()
+            self.damage.reset()
+            self.relearns += 1
+            self.vsm.raise_algedonic(AlgedonicSignal(
+                source=f"self-model:{report.culprit}",
+                message=(f"dynamics changed and my model did not: relearning "
+                         f"(effect {report.effect_size:.1f} sigma)"),
+                payload={"health": 0.0, "actionable": True}))
+        return report
 
     def fallback_for(self, name):
         """What can this part still do, and is that safe from where it is now?"""
@@ -694,7 +751,12 @@ class UnifiedAgent:
         x = self.world.x
         action = self.choose_action(x)
         predicted = self.wm.predict(x, action)
-        actual_x, _ = self.world.step(action)
+        # The command reaches the world through the agent's own hardware. A worn
+        # actuator delivers less than it was told to, and the world model — which
+        # predicts from the *commanded* force — has no way to know that. This is
+        # what makes damage detectable at all: without a body in the loop the
+        # residual carries no information about the body (3.5).
+        actual_x, _ = self.world.step(action * self.actuator_efficiency())
         error = self.wm.update(x, action, actual_x)
         if self.last_err is not None:
             self.curiosity_reward = self.last_err - abs(error)
@@ -726,6 +788,11 @@ class UnifiedAgent:
         self.memory.add("agent", summary, tags=["experiment", concept, claim.status])
         # Also degrade hardware after experiment (wear & tear)
         self.degrade_hardware(0.05)
+
+        # Feed the residual to the damage detector alongside the body state that
+        # produced it, so a change in the dynamics can be traced to a part.
+        self.damage.observe(error, {f"{c.name}_health": c.health
+                                    for c in self.components})
 
         # Hardware reports itself to S5 every step; pain interrupts the summary.
         for signal in self.hardware_scan():
@@ -954,6 +1021,11 @@ class UnifiedAgent:
                         + result["decision"].report())
             detail = result.get("breaches") or [result["reason"]]
             return f"{head}\n   REFUSED: {result['reason']}\n   " + "\n   ".join(detail)
+        if c.startswith("damage"):
+            report = self.damage_scan(relearn="scan" not in c)
+            extra = (f"\n   relearned {self.relearns}× so far"
+                     if self.relearns else "")
+            return f"🩺 {report.summary()}{extra}"
         if c == "catalog":
             return self.catalog.report(self.component_state(self.components[0]))
         if c.startswith("ambient"):

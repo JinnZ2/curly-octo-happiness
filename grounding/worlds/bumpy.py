@@ -53,13 +53,24 @@ class WorldModel:
         return self.w[0] * x + self.w[1] * a + self.b
 
     def update(self, x, a, target):
+        """One normalised-LMS step.
+
+        Plain LMS (`w += lr * error * x`) is only stable while `lr` is small
+        relative to the input power, and `x` here is a position that accumulates
+        without bound — so a long run would eventually diverge, quietly, taking
+        every downstream statistic with it. Dividing by the input norm makes the
+        step size adaptive and the update stable at any input scale, which is
+        the standard NLMS fix. The `1.0 +` keeps it well behaved near the
+        origin, where the raw norm goes to zero.
+        """
         pred = self.predict(x, a)
         error = target - pred
         self.error_hist.append(abs(error))
         lr = 0.01
-        self.w[0] += lr * error * x
-        self.w[1] += lr * error * a
-        self.b += lr * error
+        norm = 1.0 + x * x + a * a
+        self.w[0] += lr * error * x / norm
+        self.w[1] += lr * error * a / norm
+        self.b += lr * error / norm
         return error
 
     def avg_error(self):

@@ -20,14 +20,18 @@ python diagnostic/systems_diagnostic_suite.py # geometry diagnostics + hidden-no
 python scripts/hypothesis_engine.py --dry-run # research pipeline, offline sample corpus
 ```
 
-The root playgrounds are stdlib-only (run them from the repo root — they use the
-`grounding` package). Some subsystems need extras: `modules/` → `networkx`;
+**The core is stdlib-only on purpose.** `grounding/` and the root playgrounds run on a
+bare Python install with nothing to fetch — the hardware-stewardship line is about working
+where parts and bandwidth are scarce, and a core that needs wheels does not. Heavier
+capability lives behind extras and must *add* to that path rather than replace it
+(`modules/gae.py` computes graph energy with numpy when present and a stdlib Jacobi solver
+when not, with a test asserting they agree). Extras: `modules/` → `networkx`;
 `plugins/` → `numpy`; `project/shape_board.py` → `plotly networkx`;
 `project/cognitive_playground.py` → `torch transformers scikit-learn`.
 
 ```bash
 pip install -e ".[test]"     # optional: installable package + test deps
-python -m pytest tests/     # 154 tests (1 skipped without plotly)
+python -m pytest tests/     # 171 tests (1 skipped without plotly)
 ```
 
 ## What's in here
@@ -41,6 +45,7 @@ python -m pytest tests/     # 154 tests (1 skipped without plotly)
 | Systems Diagnostic Suite | `modules/`, `diagnostic/` | GAE (geometry fit + structural complexity/attack tolerance), HND (hidden variables from residuals, ε-machine acceptance), FDM (root tracing) |
 | Complexity & cybernetics | `grounding/core/epsilon_machine.py`, `variety.py`, `vsm.py`, `regulator.py`, `allostasis.py` | Causal-state reconstruction (C_mu, h_mu), Ashby's requisite-variety alarm, Beer's five systems with a bypassing algedonic channel, good-regulator homomorphism checks, allostatic bands |
 | Safety & repurposing | `grounding/core/safety.py` | Control-barrier safety filter (no QP dependency) and a runtime-assurance fallback catalog that recomputes each envelope on degraded dynamics |
+| Damage & self-model | `grounding/core/damage.py` | Changepoint detection on prediction residuals, with attribution to the interoceptive signal that explains it |
 | Shape Board | `project/` | GAE recommendations rendered as interactive 3D task shapes (plotly) |
 | Hypothesis engine | `scripts/hypothesis_engine.py`, `config/topics.json` | Weekly autonomous research pipeline: explore scholarly APIs → stake claims → cross-source test → consolidate hypothesis drafts |
 
@@ -64,7 +69,8 @@ bypassing algedonic channel, Pask teachback claims, a second-order guard against
 self-confirming self-description, good-regulator homomorphism checks against each world's
 causal DAG, allostatic bands with a load counter, antifragility measured as a falsifiable
 claim (which came back refuted — see the roadmap), and a control-barrier safety filter whose
-fallback catalog recomputes each envelope on degraded dynamics; Phase 2.4, Phases 3.3–3.6
+fallback catalog recomputes each envelope on degraded dynamics, and damage detection that
+traces a change in the dynamics back to the part responsible; Phase 2.4, Phases 3.3/3.4/3.6
 and Phase 4 are still plan.
 
 ## Why this matters

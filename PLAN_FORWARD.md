@@ -84,9 +84,17 @@ Implemented in `grounding/core/vsm.py` (`ViableSystem`, `Signal`,
 
 **3.4 Latent world-model + CEM planner** — V-JEPA 2-AC pattern at toy scale: learn $P(z_{t+1}|z_t,a)$, plan $\arg\min_a\|z_{t+H}-z_{goal}\|$; gives falsification agents the ability to attack *plans*, not just states.
 
-**3.5 HND × self-model damage detection** — hook HND onto any learned dynamics residual $|\dot x - \hat f_\theta(x,u)|$; Lipson-style damage→relearn loop in the sandbox.
+**3.5 HND × self-model damage detection** — hook HND onto any learned dynamics residual $|\dot x - \hat f_\theta(x,u)|$; Lipson-style damage→relearn loop in the sandbox. — **SHIPPED, with a caveat that matters**
+*Done as `grounding/core/damage.py::DamageDetector` — detection (a Welch-t changepoint on the residual stream) and attribution (which interoceptive signal explains it, by the Phase 0 ε-machine criterion) kept deliberately separate, wired via `UnifiedAgent.damage_scan()` behind the `damage` command. Detection without attribution is a reported state, not an error: the model can know it is wrong without knowing why, and naming an innocent component is worse than admitting ignorance.*
+*Three corrections found by measuring rather than reasoning:*
+- *The agent had **no body in the loop at all** — component health did not affect the dynamics, so the residual carried zero information about the hardware and there was nothing to detect. Commands now reach the world through `actuator_efficiency()`.*
+- *Damage does not have to **raise** the residual. A weakened actuator moves the body less, so its prediction errors get* smaller*. A signed test misses that entirely; the statistic is absolute.*
+- *The threshold is a **Welch t, not a Cohen's d**. Actuator failure here separates the per-sample residual distributions by under 1σ while shifting the mean unmistakably — thresholding per-sample separation would miss every real failure.*
+***The caveat:*** BumpyWorld's residual is non-stationary even with healthy hardware — position wanders, so error magnitude drifts and the changepoint test fires on a perfectly good model. The detector is validated on synthetic streams with a stationary baseline; *this* world does not provide one. What makes it safe to wire up anyway is the attribution gate: the false positives come back `unattributed`, and relearning requires a named culprit, so a noisy detector never resets a good model. A world with bounded state, or a residual statistic normalised by excursion, is the real fix and is not built.
+*Also fixed here, found while chasing the above:* `WorldModel.update` used plain LMS with a fixed rate against an **unbounded** position, so a long run diverged — weights reached ~1e190 after ~240 steps, silently corrupting the regulator score, curiosity signal and every claim outcome downstream. It is normalised LMS now, and the model actually converges (w₀ → 0.99, the true coefficient).
 
-**3.6 Neuromorphic encoding alignment** — event-camera Δ-threshold + refractory rule as the adaptive-band update; positions Gray-coded bitstreams as the sensor-fusion bus for scavenged/degrading hardware.
+**3.6 Neuromorphic encoding alignment** — *not built.* Cheap and a good fit for the encoder line, but it belongs with the band machinery rather than the safety layer, and Phase 3.5 turned out to be a much larger piece of work than its one line suggested.
+
 
 ## Phase 4 — Contribution back (novel, unfilled niches)
 
@@ -95,7 +103,7 @@ Implemented in `grounding/core/vsm.py` (`ViableSystem`, `Signal`,
 - **Complexity-instrumented falsification playground:** ε-machine acceptance + graph-energy topology scoring + antifragility claim type = a citable methodology paper.
 
 ## Status
-Phases 0, 1, 2.1–2.3 and 3.1–3.2 are implemented and tested (`tests/test_epsilon_machine.py`, `tests/test_variety.py`, `tests/test_vsm.py`, `tests/test_regulator.py`, `tests/test_safety.py`, the Phase 0 and 2.3 blocks in `tests/test_sds.py`, and the variety tests in `tests/test_plugins.py`); `cd modules && python main.py` runs the diagnostic pipeline with both Phase 0 upgrades enabled, and `python unified_playground.py` exposes the Phase 1–3 channels (`vsm`, `pain`, `self-check`, `regulator`, `bands`, `safety`, `fallback`, `catalog`, `ambient`, teachback). Phase 2.4, Phases 3.3–3.6 and Phase 4 are still plan.
+Phases 0, 1, 2.1–2.3, 3.1–3.2 and 3.5 are implemented and tested (`tests/test_epsilon_machine.py`, `tests/test_variety.py`, `tests/test_vsm.py`, `tests/test_regulator.py`, `tests/test_safety.py`, the Phase 0 and 2.3 blocks in `tests/test_sds.py`, and the variety tests in `tests/test_plugins.py`); `cd modules && python main.py` runs the diagnostic pipeline with both Phase 0 upgrades enabled, and `python unified_playground.py` exposes the Phase 1–3 channels (`vsm`, `pain`, `self-check`, `regulator`, `bands`, `safety`, `fallback`, `catalog`, `ambient`, teachback). Phase 2.4, Phases 3.3/3.4/3.6 and Phase 4 are still plan. **3.3 and 3.4 are the first items that genuinely need a dependency** — a flow-matching policy and a learned latent planner want the `ml` extra. The tier rule in `pyproject.toml` is what keeps that from eroding the core: extras add capability, they never replace it, and `grounding/` stays stdlib so the stewardship line still runs where there is nothing to install.
 
 Worth reading together: Phase 2 produced the roadmap's first **falsified** predictions — TORUS is robust rather than antifragile, and Ari's dependency tree preserves a quarter of the world's causal structure. Both were staked as claims and refuted by measurement, which is the repo working as designed rather than the plan failing.
 
