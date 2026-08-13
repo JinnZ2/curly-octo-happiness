@@ -16,10 +16,20 @@ def diagnose_system(
     edges: List[Tuple[str, str]],
     knowledge_base: Dict[str, List[str]],
     residuals: List[float] = None,
-    environment: Dict = None
+    environment: Dict = None,
+    complexity_scoring: bool = False,
+    hnd_acceptance: str = "correlation"
 ) -> Dict:
     """
     Run full diagnostic on a system.
+
+    Args:
+        complexity_scoring: let structural complexity and attack tolerance
+            adjust the GAE geometry scores (see GeometricApplicabilityEngine).
+        hnd_acceptance: "correlation" or "epsilon_machine" (see
+            HiddenNodeDetector.scan). The ε-machine criterion treats the
+            correlation thresholds as a candidate generator and only accepts
+            variables that measurably simplify the residual stream.
 
     Returns:
         {
@@ -31,7 +41,7 @@ def diagnose_system(
     results = {}
 
     # 1. Run GAE
-    gae = GeometricApplicabilityEngine()
+    gae = GeometricApplicabilityEngine(complexity_scoring=complexity_scoring)
     results["gae"] = gae.analyze(nodes, edges)
 
     # 2. Run HND if residuals provided
@@ -44,9 +54,10 @@ def diagnose_system(
             model={"nodes": nodes, "dependencies": dependencies},
             environment=environment or {}
         )
-        suggestions = hnd.scan(residuals)
+        suggestions = hnd.scan(residuals, acceptance=hnd_acceptance)
         results["hnd"] = {
             "suggestions": [s.__dict__ for s in suggestions],
+            "rejected": [s.__dict__ for s in hnd.rejected],
             "report": hnd.generate_report()
         }
 
@@ -87,11 +98,35 @@ if __name__ == "__main__":
     _data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data")
     knowledge_base = load_knowledge_base(os.path.join(_data_dir, "chemical_plant_kb.json"))
 
-    # Run full diagnostic
-    results = diagnose_system(nodes, edges, knowledge_base)
+    # A residual stream driven by an unmodelled seasonal variable, plus a decoy
+    # that merely echoes the residual back. Correlation alone cannot tell them
+    # apart; the eps-machine acceptance criterion can.
+    import random
+    random.seed(7)
+    # 320 samples: the acceptance criterion refuses to answer below roughly
+    # MIN_SAMPLES_PER_HISTORY * |alphabet|^L, and a demo that gets refused
+    # teaches the wrong lesson.
+    season = [float((i // 7) % 3) for i in range(320)]
+    residuals = [0.4 * s + 0.25 + random.gauss(0, 0.05) for s in season]
+    environment = {
+        "variables": {},
+        "time_series": {
+            "Seasonal_Water_Table": season,
+            "Ledger_Copy": [r * 2.0 + random.gauss(0, 0.02) for r in residuals],
+        },
+    }
+
+    # Run full diagnostic with both Phase 0 upgrades enabled
+    results = diagnose_system(nodes, edges, knowledge_base,
+                              residuals=residuals, environment=environment,
+                              complexity_scoring=True,
+                              hnd_acceptance="epsilon_machine")
 
     # Print GAE results
     print(results["gae"]["diagnostic"])
+
+    # Print HND results
+    print(results["hnd"]["report"])
 
     # Print FDM for Fresnel_Lens
     print(results["fdm"]["Fresnel_Lens"]["report"])

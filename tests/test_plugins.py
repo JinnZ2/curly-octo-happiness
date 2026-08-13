@@ -57,6 +57,73 @@ def test_gravitational_merger_at_peak_only():
     assert rising[23] == "0" and peak[23] == "1"
 
 
+class _StubManager:
+    """Minimal plugin_manager stand-in exposing one encoder's band thresholds."""
+
+    def __init__(self, bands):
+        instance = type("Enc", (), {"bands_magnitude": bands})()
+        self.plugins = {"enc": {"instance": instance}}
+
+
+def test_variety_alarm_fires_when_the_bands_cannot_keep_up():
+    """Ashby wiring: in-range data the encoder can no longer tell apart."""
+    import physics_discovery
+
+    plugin = physics_discovery.PhysicsDiscoveryPlugin()
+    # Two thresholds spanning the whole range: the data is comfortably in range
+    # but every value lands in the same band, so one codeword answers all of it.
+    plugin.plugin_manager = _StubManager([0.0, 100.0])
+    for i in range(60):
+        plugin.ingest("seismo", i * 0.05)
+
+    status = plugin.variety_status("seismo")
+    assert status["distinct_disturbances"] > 10   # the world presents many states
+    assert status["distinct_responses"] == 1      # the encoder sees one
+    assert status["response_variety"] == 0.0
+    assert status["margin"] < 0                   # V(R) < V(D): Ashby violated
+    assert status["uncontrolled_variety"] > 0
+    assert status["alarm"]
+
+    # A finely banded encoder over the same range keeps its margin.
+    plugin.plugin_manager = _StubManager([i * 0.05 for i in range(60)])
+    assert not plugin.variety_status("seismo")["alarm"]
+
+
+def test_variety_status_needs_a_populated_buffer():
+    import physics_discovery
+
+    plugin = physics_discovery.PhysicsDiscoveryPlugin()
+    plugin.plugin_manager = _StubManager([0.0, 1.0])
+    assert plugin.variety_status("nothing_here") is None
+    for i in range(5):
+        plugin.ingest("short", i)
+    assert plugin.variety_status("short") is None
+
+
+def test_discovery_trigger_modes():
+    import physics_discovery
+
+    plugin = physics_discovery.PhysicsDiscoveryPlugin()
+    # Values sit inside the known range, so novelty stays low, but the single
+    # band means the encoder cannot distinguish them: variety alarm only.
+    plugin.plugin_manager = _StubManager([0.0, 10.0])
+    for i in range(60):
+        plugin.ingest("seismo", i * 0.1)
+
+    novelty, _ = plugin.check_for_novelty("seismo")
+    assert novelty < plugin.novelty_threshold
+    assert "no action" in plugin.run_full_discovery("seismo", trigger="novelty")
+
+    with pytest.raises(ValueError):
+        plugin.run_full_discovery("seismo", trigger="vibes")
+
+    # The variety trigger reaches the encoder-creation path instead of bailing
+    # out; with no meta_encoder wired up it fails there, which is the proof it
+    # got past the gate.
+    with pytest.raises(AttributeError):
+        plugin.run_full_discovery("seismo", trigger="variety")
+
+
 def test_affective_gray_decode():
     import affective_signal_processor as asp
     a = asp.AffectiveSignalProcessor()
