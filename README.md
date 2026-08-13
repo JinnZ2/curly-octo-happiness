@@ -42,6 +42,19 @@ python -m pytest tests/     # 34 tests
 
 See `Playgrounds.md` for design write-ups and `REVIEW.md` for a full code review.
 
+## Research notes & roadmap
+
+`design/notes/` holds consolidated notes pairing the repo's own equations and design
+rules with the 2024–2026 literature on the same themes (epistemics & falsification,
+training/calibration, transformer design, diagnostics & neural architecture, learning
+simulation, and complexity engineering / cybernetics / robotics). Start at
+[`design/notes/00_INDEX.md`](design/notes/00_INDEX.md).
+
+[`PLAN_FORWARD.md`](PLAN_FORWARD.md) is the roadmap those notes feed: a phased plan for
+grounding the existing heuristics (HND thresholds, GAE scores, adaptive bands) in
+validated theory, then layering a cybernetic architecture, a good-regulator world model,
+and a robotics embodiment layer on top. Both are reading material, not runnable code.
+
 ## Why this matters
 
 Large models assert; they rarely *stake* claims. This project prototypes the

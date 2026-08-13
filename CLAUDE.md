@@ -37,7 +37,7 @@ Dependencies: the `grounding` package and root playgrounds are stdlib-only. Extr
 
 ## Repository conventions and gotchas
 
-- **Sketches vs. code**: `design/archive/` and `project/Organize.md` are non-runnable history/plans. The `.md` files in `plugins/` are wiring snippets for `UnifiedAgent.handle_mentor` (each states its target at the top); `plugins/Light_bridge.md` documents `plugins/light_bridge.py`.
+- **Sketches vs. code**: `design/archive/`, `design/notes/` (research notes, index at `00_INDEX.md`), root `PLAN_FORWARD.md` (phased roadmap those notes feed), and `project/Organize.md` are non-runnable history/notes/plans. The `.md` files in `plugins/` are wiring snippets for `UnifiedAgent.handle_mentor` (each states its target at the top); `plugins/Light_bridge.md` documents `plugins/light_bridge.py`.
 - No packages outside `grounding/`: `modules/`, `plugins/`, `diagnostic/`, `project/` rely on their own directory being on `sys.path` (scripts there assume CWD or add paths themselves; `tests/conftest.py` handles it for tests).
 - When adding an encoder plugin, use `grounding.core.graycode.gray_bits` semantics for banding and declare `class_name` in `PLUGIN_META`; adaptive banding goes in an `init_bands(samples)` method.
 - License is CC0 1.0 (public domain).
