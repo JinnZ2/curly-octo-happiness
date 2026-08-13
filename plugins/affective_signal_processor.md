@@ -1,3 +1,5 @@
+> **Integration target:** `unified_playground.py` → `UnifiedAgent` (`__init__` / `handle_mentor`). This file is a wiring snippet, not a standalone module.
+
 inside weave:
 
 # Inside the UnifiedAgent's chat method (or a new SignalWeave class)

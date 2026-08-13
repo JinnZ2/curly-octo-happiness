@@ -1,14 +1,10 @@
+Pipeline order matches `main.py` / `diagnose_system()`: GAE → HND → FDM,
+then feed back. (`transition.py` is a standalone simulator on the side.)
+
+```
 ┌─────────────────────────────────────────────────────────────┐
 │                    SYSTEM INPUT                            │
 │  (Nodes, Edges, Dependencies, Environmental Variables)     │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│            Fractal Dependency Mapper (FDM)                 │
-│  - Traces any node to primitive roots                      │
-│  - Identifies branching depth and redundancy               │
-│  - Outputs: Dependency tree, Root set, Branch health       │
 └─────────────────────────────────────────────────────────────┘
                               │
                               ▼
@@ -33,9 +29,18 @@
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
+│            Fractal Dependency Mapper (FDM)                 │
+│  - Traces any node to primitive roots                      │
+│  - Identifies branching depth and redundancy               │
+│  - Outputs: Dependency tree, Root set, Branch health       │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
 │                    FEEDBACK LOOP                           │
 │  - Update model with new nodes                             │
 │  - Re-run GAE                                              │
 │  - Re-run HND                                              │
 │  - Iterate until residuals fall below threshold            │
 └─────────────────────────────────────────────────────────────┘
+```

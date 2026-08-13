@@ -1,3 +1,6 @@
+> **Note:** this plugin now lives as runnable code in `plugins/light_bridge.py`
+> (extracted from this document). The copy below is kept for reference.
+
 """
 Light Bridge Plugin – encodes optical photon geometry into binary.
 """

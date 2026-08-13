@@ -1,4 +1,21 @@
+# Playground Design Catalog
 
+Design write-ups for the playground line. Concept → implementation map
+(sections below cover playgrounds 4-6 and 8; 1-3 and 7 predate this doc):
+
+| # | Playground | Design section | Implementation |
+|---|---|---|---|
+| 1 | Claim & Falsification Garden | (predates this doc) | `claim_falsification_garden.py`, `garden.py`, `garden_with_tree.py` |
+| 2 | Relational Weave | (predates this doc) | `relational_weave.py`, `weave.py`, `weave_with_memory.py` |
+| 3 | Initiation Loop | (predates this doc) | `initiation_loop.py` |
+| 4 | The Distributed Self | 🧬 below | `playground4_distributed.py` |
+| 5 | The Dream Space | 💤 below | `playground5_dream.py` |
+| 6 | The Unknown & Not-Yet-Known | 🌌 below | `playground6_unknown.py` |
+| 7 | Self-Modeling Explorer | (predates this doc) | `self_modeling_explorer.py` |
+| 8 | Co-Creation Lab / Skill Lab | 🧪 below | `playground8_skill_lab.py` |
+
+All of the above merge into `unified_playground.py` (daily-cycle version:
+`meta_playground.py`).
 
 ---
 

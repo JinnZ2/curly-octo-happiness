@@ -5,19 +5,19 @@ import random, time
 from shared import DependencyTree, SharedMemory, MentorInterface
 
 # Import all playground modules
-from playground1_garden import run_garden_cycle      # We'll define simple run_* functions
-from playground2_weave import run_weave_interaction
-from playground3_initiation import run_initiation_phase
+# (playgrounds 1-3 and 7 live in files that predate the playgroundN_* naming)
+from claim_falsification_garden import CuriosityAgent, MiniWorld
+from relational_weave import RelationalAgent
+from initiation_loop import InitiatingAgent
 from playground4_distributed import DistributedAgent
 from playground5_dream import Dreamer
 from playground6_unknown import UnknownJournal
-from playground7_self_model import run_self_model_step
+import self_modeling_explorer
 from playground8_skill_lab import SkillLab
 
 # Quick wrappers for those that don't already have a run function
 def run_garden_cycle(tree, mem, mentor):
     # simplified garden step
-    from playground1_garden import CuriosityAgent, MiniWorld
     agent = CuriosityAgent("GardenAgent")
     world = MiniWorld()
     claim = agent.make_claim("moving right is safe", "if I hit a wall, it's false")
@@ -29,19 +29,23 @@ def run_garden_cycle(tree, mem, mentor):
 
 def run_weave_interaction(tree, mem, mentor):
     # quick relational weave snippet
-    from playground2_weave import RelationalAgent
     agent = RelationalAgent()
     response = agent.respond("I'm feeling curious today.")
     mem.add({"playground": "weave", "response": response, "tone": agent.state['tone']})
     print(f"🌀 Weave: {response}")
 
 def run_initiation_phase(tree, mem, mentor):
-    from playground3_initiation import InitiatingAgent
     agent = InitiatingAgent()
     agent.observe("the world is bumpy")
     wonder = agent.initiate()
     mem.add({"playground": "initiation", "wonder": wonder})
     print(f"🌌 Initiation: {wonder}")
+
+def run_self_model_step(tree, mem):
+    # short burst of the self-modeling explorer (playground 7)
+    final_x, self_err, _ = self_modeling_explorer.run(steps=20)
+    mem.add({"playground": "self_model", "final_pos": final_x, "self_error": self_err})
+    print(f"🌀 Self-model: 20 steps, final pos {final_x:.2f}, self-err {self_err:.3f}")
 
 # Main daily loop
 if __name__ == "__main__":

@@ -8,79 +8,9 @@ Curiosity is rewarded when its world model gets better.
 
 import random
 import math
-import time
-from collections import deque
 
-# ---------- Environment: 1D bumpy terrain ----------
-class BumpyWorld:
-    def __init__(self):
-        self.x = 0.0
-        self.v = 0.0
-        self.terrain = lambda x: math.sin(x) * 0.5  # heights between -0.5 and 0.5
-        self.step_count = 0
-
-    def step(self, force: float):
-        # Simple dynamics with gravity toward slope
-        slope = math.cos(self.x) * 0.5
-        self.v += force - slope * 0.1
-        self.v *= 0.9          # friction
-        self.x += self.v
-        self.step_count += 1
-        return self.x, self.terrain(self.x)
-
-# ---------- Simple world model (online linear regression) ----------
-class WorldModel:
-    def __init__(self):
-        self.w = [0.5, -0.2]  # weights for (x, action)
-        self.b = 0.0
-        self.error_history = deque(maxlen=50)
-
-    def predict(self, x, action):
-        return self.w[0] * x + self.w[1] * action + self.b
-
-    def update(self, x, action, target):
-        pred = self.predict(x, action)
-        error = target - pred
-        self.error_history.append(abs(error))
-        # SGD
-        lr = 0.01
-        self.w[0] += lr * error * x
-        self.w[1] += lr * error * action
-        self.b   += lr * error
-        return error
-
-    def average_error(self):
-        if not self.error_history:
-            return 1.0
-        return sum(self.error_history) / len(self.error_history)
-
-# ---------- Claim system ----------
-class Claim:
-    def __init__(self, description, condition_text):
-        self.text = description
-        self.falsification = condition_text
-        self.confidence = 0.5
-        self.tests_passed = 0
-        self.tests_failed = 0
-
-    def test(self, outcome: bool):
-        if outcome:
-            self.tests_passed += 1
-            self.confidence = min(1.0, self.confidence + 0.1)
-        else:
-            self.tests_failed += 1
-            self.confidence = max(0.0, self.confidence - 0.2)
-        return outcome
-
-    def status(self):
-        if self.tests_failed >= 3:
-            return "falsified"
-        if self.tests_passed >= 3:
-            return "survived"
-        return "active"
-
-    def __str__(self):
-        return f"[{self.status()}] {self.text} (conf:{self.confidence:.2f})"
+from grounding.core.claims import Claim
+from grounding.worlds.bumpy import BumpyWorld, WorldModel
 
 # ---------- Agent ----------
 class CuriousExplorer:

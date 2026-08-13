@@ -1,6 +1,9 @@
 # plugins/unified_orchestrator.py
 import numpy as np
 
+from geometric_inference_engine import GeometricInferenceEngine
+from scheduling_entropy_monitor import SchedulingEntropyMonitor
+
 PLUGIN_META = {
     "name": "unified_orchestrator",
     "description": "Orchestrates all plugins using the geometric field. Replaces sequential decision-making.",

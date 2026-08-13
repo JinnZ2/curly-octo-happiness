@@ -141,10 +141,10 @@ class EpisodicMemory:
     def retrieve(self, query, k=3):
         query_words = set(re.findall(r'\w+', query.lower()))
         scored = []
-        for ev in self.events:
+        for i, ev in enumerate(self.events):
             ev_words = set(re.findall(r'\w+', ev["content"].lower()))
             overlap = len(query_words & ev_words)
-            recency = 1.0 / (1 + len(self.events) - list(self.events).index(ev))
+            recency = 1.0 / (1 + len(self.events) - i)
             scored.append((overlap + 0.1*recency, ev))
         scored.sort(key=lambda x: x[0], reverse=True)
         return [ev for score, ev in scored[:k]]
@@ -363,7 +363,7 @@ class UnifiedAgent:
         self.lab.add_skill(skill_name, code, test_code)
         test_result = self.lab.test_skill(skill_name)
         # Add to tree and memory
-        self.tree.add_node(skill_name)
+        self.tree.get(skill_name)
         self.tree.add_dependency(skill_name, "world_model_accuracy")
         self.tree.add_dependency(skill_name, "training_data")
         self.memory.add("agent", f"Extracted skill '{skill_name}' from world model. {test_result}", tags=["skill", "extract"])

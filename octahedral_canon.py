@@ -1,4 +1,4 @@
-This is the canon:  """
+"""
 octahedral_canon — bijection between the GEIS and Engine octahedral
                     coordinate conventions.
 
