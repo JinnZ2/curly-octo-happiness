@@ -74,7 +74,9 @@ def test_a_varying_signal_that_explains_the_residual_is_named():
     assert report.detected
     assert report.culprit == "D1_health"
     assert not report.unattributed
-    assert report.candidates["R1_health"]["acceptance"] == "rejected"
+    # A signal that never moves is not tested and is never named: "skipped"
+    # is the honest verdict, and it is not "rejected" because nothing was tried.
+    assert report.candidates["R1_health"]["acceptance"] == "skipped"
     assert "attributed to" in report.summary()
 
 

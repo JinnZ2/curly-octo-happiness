@@ -20,7 +20,7 @@ Compute Sinha–de Weck $C = C_1 + C_2C_3$ ($C_3$ = normalized graph energy) on 
 **0.3 Requisite-variety meter** *(cybernetics)* — **done**
 Track $H(\text{disturbance codewords})$ vs $H(\text{agent response repertoire})$ per world; alarm when the margin $V(D) - V(R)$ approaches zero. Wire the alarm to band-width auto-expansion (the physics-discovery loop already amplifies variety; give it the missing trigger signal).
 *Shipped as `grounding/core/variety.py::VarietyMeter` (Shannon or Ashby-counting variety, optional window) wired into `plugins/physics_discovery.py`: `variety_status(stream)` measures the stream's disturbance variety at 32-bin reference resolution against the codewords the loaded encoders can actually produce, and `run_full_discovery(trigger="variety"|"either")` builds an encoder on that alarm. The two triggers catch different failures — novelty says "I have never seen this", variety says "I can no longer tell these apart" — and only the second fires on in-range data the bands have gone too coarse for.*
-*Not done: `grounding/worlds/` is untouched — the meter is wired to the sensor bus, not yet to a world's disturbance/response loop.*
+*Completed later: `ThermalWorld` carries its own `VarietyMeter`, so the disturbance/response loop of a world is now measured, not only the sensor bus (see "A world worth regulating" below).*
 
 ## Phase 1 — Cybernetic architecture (VSM instantiation) — **SHIPPED**
 
@@ -106,8 +106,54 @@ Implemented in `grounding/core/vsm.py` (`ViableSystem`, `Signal`,
 - **Gray-code token embeddings:** verified open niche (Notes 03); Hamming-smooth codes for STE-stable ultra-low-bit tokens.
 - **Complexity-instrumented falsification playground:** ε-machine acceptance + graph-energy topology scoring + antifragility claim type = a citable methodology paper.
 
+## A world worth regulating (added after Phases 0–3)
+
+The recurring bottleneck across every phase was not the machinery but the
+substrate. `BumpyWorld` has unbounded state, a non-stationary residual even with
+healthy hardware, and — until 3.5 — no body in the loop at all, so the ε-machine
+criterion, the changepoint test and the homomorphism check were all pointed at
+something that could not hold still long enough to be measured.
+
+`grounding/worlds/thermal.py` closes all three. Hold a part in a temperature band
+against mean-reverting cold: bounded (temperature relaxes toward ambient rather
+than accumulating), stationary under a fixed policy, control-affine so the CBF
+barriers are exactly right for it, and embodied — heater efficiency is a plant
+parameter, and `ThermalModel` recovers the true plant to three decimals with the
+damage-sensitive gain identifiable to ±0.1.
+
+Two results worth carrying forward:
+
+- **The causal DAG is checked against the code.** `causal_dag()` and `step()` are
+  cross-validated by finite-difference sensitivity — both that every declared
+  edge is a real dependence, and that undeclared dependences do not exist. A DAG
+  that cannot be wrong about the code it describes is not a model of it.
+- **Persistent excitation is not optional.** A controller that sets the heater as
+  a deterministic function of ambient makes the plant *unidentifiable*: the
+  learned gain reads ~0.25 against a true 6.0, forever. Dither 0.4 recovers it
+  (residual 0.001, gain 5.999). This is the rigorous version of the repo's
+  explore-when-your-model-is-bad rule — exploration here is not curiosity, it is
+  the precondition for having a model at all, and a regulator that stops
+  exploring loses the ability to notice its own body changing.
+
+Damage detection, which BumpyWorld could not support, works here: 1 false
+positive in 12 seeds against 11 detections, and the culprit is *named* rather
+than left unattributed. That last part needed a second attribution test —
+component health steps between two levels, and the ε-machine criterion is nearly
+blind to a signal with no dynamics, so `DamageDetector` now picks a two-sample
+test for level signals and the causal-state test for continuous ones.
+
+Also added: a practical-significance floor (`min_shift`). On a well-converged
+model the residual is so small and steady that a meaningless wobble is many
+standard errors wide — statistical significance without effect size is the
+large-n trap, and the caller is the only one who knows what counts as a real
+change for their signal.
+
+**Still open on the detector:** repeated online scanning inflates false positives,
+because sequential testing is not single testing. A proper sequential test
+(CUSUM with a calibrated threshold) is the fix and is not built.
+
 ## Status
-Phases 0, 1, 2.1–2.3, 3.1–3.2, 3.5 and 3.6 are implemented and tested (`tests/test_epsilon_machine.py`, `tests/test_variety.py`, `tests/test_vsm.py`, `tests/test_regulator.py`, `tests/test_safety.py`, the Phase 0 and 2.3 blocks in `tests/test_sds.py`, and the variety tests in `tests/test_plugins.py`); `cd modules && python main.py` runs the diagnostic pipeline with both Phase 0 upgrades enabled, and `python unified_playground.py` exposes the Phase 1–3 channels (`vsm`, `pain`, `self-check`, `regulator`, `bands`, `safety`, `fallback`, `catalog`, `ambient`, teachback). Phase 2.4, Phases 3.3/3.4 and Phase 4 are still plan. **3.3 and 3.4 are the first items that genuinely need a dependency** — a flow-matching policy and a learned latent planner want the `ml` extra. The tier rule in `pyproject.toml` is what keeps that from eroding the core: extras add capability, they never replace it, and `grounding/` stays stdlib so the stewardship line still runs where there is nothing to install.
+Phases 0, 1, 2.1–2.3, 3.1–3.2, 3.5 and 3.6 are implemented and tested, plus `ThermalWorld` (above) (`tests/test_epsilon_machine.py`, `tests/test_variety.py`, `tests/test_vsm.py`, `tests/test_regulator.py`, `tests/test_safety.py`, the Phase 0 and 2.3 blocks in `tests/test_sds.py`, and the variety tests in `tests/test_plugins.py`); `cd modules && python main.py` runs the diagnostic pipeline with both Phase 0 upgrades enabled, and `python unified_playground.py` exposes the Phase 1–3 channels (`vsm`, `pain`, `self-check`, `regulator`, `bands`, `safety`, `fallback`, `catalog`, `ambient`, teachback). Phase 2.4, Phases 3.3/3.4 and Phase 4 are still plan. **3.3 and 3.4 are the first items that genuinely need a dependency** — a flow-matching policy and a learned latent planner want the `ml` extra. The tier rule in `pyproject.toml` is what keeps that from eroding the core: extras add capability, they never replace it, and `grounding/` stays stdlib so the stewardship line still runs where there is nothing to install.
 
 Worth reading together: Phase 2 produced the roadmap's first **falsified** predictions — TORUS is robust rather than antifragile, and Ari's dependency tree preserves a quarter of the world's causal structure. Both were staked as claims and refuted by measurement, which is the repo working as designed rather than the plan failing.
 

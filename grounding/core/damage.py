@@ -95,8 +95,22 @@ class DamageDetector:
     # p-value.
     RECENT_SPAN = 3
 
-    def __init__(self, capacity: int = 400):
+    def __init__(self, capacity: int = 400, min_shift: float = 0.0):
+        """
+        Args:
+            capacity: samples retained. The buffer must span the change for
+                attribution to work — evict the pre-change samples and the
+                culprit signal looks constant.
+            min_shift: smallest change in mean |residual| worth reporting, in
+                the residual's own units. Statistical significance alone is not
+                enough on a well-converged model: once the residual is tiny and
+                steady, a practically meaningless wobble is many standard errors
+                wide and the Welch t fires on it. Only the caller knows what
+                counts as a real change for their signal, so the floor is theirs
+                to set; 0.0 keeps the pure statistical behaviour.
+        """
         self.capacity = capacity
+        self.min_shift = min_shift
         self.residuals: List[float] = []
         self.signals: Dict[str, List[float]] = {}
 
@@ -169,19 +183,44 @@ class DamageDetector:
 
     # -- stage 2: which part of me? -------------------------------------
 
+    # A signal taking at most this many distinct values is a *level* signal —
+    # "healthy then broken" — and gets a two-sample test instead of the
+    # causal-state one. The two tests answer the same question for different
+    # kinds of evidence, and using the wrong one is how a real culprit escapes.
+    MAX_LEVELS_FOR_TWO_SAMPLE = 4
+
     def attribute(self, signal_name: str, n_bands: int = 4,
                   max_history: int = 2, margin: float = 0.02
                   ) -> Tuple[bool, Dict[str, float]]:
         """Does conditioning on this interoceptive signal explain the residual?
 
-        Identical criterion to `HiddenNodeDetector.accept_by_epsilon_machine`:
-        both statistical complexity and entropy rate must fall. Reusing it is
-        the point — the same standard of evidence should apply whether the
-        unmodelled variable is out in the world or inside the robot.
+        Two tests, picked by what the signal actually looks like:
+
+        **Few distinct levels** — component health that stepped from healthy to
+        broken. Group the residuals by level and compare them; if the residual
+        distribution differs across the signal's values, the signal explains it.
+        The causal-state criterion is nearly blind here, because a signal that
+        is constant within each regime adds no *predictive* structure the
+        residual's own history did not already have — it would clear a genuine
+        culprit for lack of dynamics.
+
+        **Many levels** — a continuously varying signal, where the question is
+        whether conditioning on it simplifies the process. That is
+        `HiddenNodeDetector.accept_by_epsilon_machine`'s criterion exactly: both
+        statistical complexity and entropy rate must fall. Reusing it is the
+        point — the same standard of evidence whether the unmodelled variable is
+        out in the world or inside the robot.
         """
         series = self.signals.get(signal_name)
         if not series or len(series) != len(self.residuals):
             return False, {"acceptance": "skipped", "why": "signal unusable"}
+
+        levels = sorted(set(series))
+        if 2 <= len(levels) <= self.MAX_LEVELS_FOR_TWO_SAMPLE:
+            return self._attribute_by_level(series, levels)
+        if len(levels) < 2:
+            return False, {"acceptance": "skipped", "why": "signal never varies",
+                           "test": "two-sample"}
 
         residual_symbols = symbolize(self.residuals, n_bands=n_bands)
         needed = self.MIN_SAMPLES_PER_HISTORY * len(set(residual_symbols)) ** max_history
@@ -202,8 +241,39 @@ class DamageDetector:
         accepted = delta_c >= margin and delta_h >= margin
         return accepted, {
             "acceptance": "accepted" if accepted else "rejected",
+            "test": "epsilon-machine",
             "delta_c_mu": round(delta_c, 4),
             "delta_h_mu": round(delta_h, 4),
+        }
+
+    def _attribute_by_level(self, series: Sequence[float], levels: Sequence[float]
+                            ) -> Tuple[bool, Dict[str, float]]:
+        """Do the residuals differ across this signal's levels? (Welch t)"""
+        groups = []
+        for level in levels:
+            values = [r for r, s in zip(self.residuals, series) if s == level]
+            if len(values) >= self.MIN_WINDOW:
+                groups.append((level, values))
+        if len(groups) < 2:
+            return False, {"acceptance": "skipped", "test": "two-sample",
+                           "why": "no two levels with enough samples"}
+
+        # Compare the most and least extreme groups by mean residual.
+        groups.sort(key=lambda pair: mean(pair[1]))
+        (low_level, low), (high_level, high) = groups[0], groups[-1]
+        difference = abs(mean(high) - mean(low))
+        standard_error = ((pstdev(low) ** 2) / len(low)
+                          + (pstdev(high) ** 2) / len(high)) ** 0.5
+        t = difference / standard_error if standard_error > 1e-12 else (
+            float("inf") if difference > 1e-12 else 0.0)
+
+        accepted = t >= self.EFFECT_THRESHOLD
+        return accepted, {
+            "acceptance": "accepted" if accepted else "rejected",
+            "test": "two-sample",
+            "t": round(t, 4),
+            "levels": [low_level, high_level],
+            "mean_residual": [round(mean(low), 4), round(mean(high), 4)],
         }
 
     def scan(self) -> DamageReport:
@@ -216,16 +286,28 @@ class DamageDetector:
                                 after=after, changepoint=split,
                                 reason=f"recent shift is t={effect:.2f}, "
                                        f"below {self.EFFECT_THRESHOLD}")
+        if abs(after - before) < self.min_shift:
+            return DamageReport(False, effect_size=effect, before=before,
+                                after=after, changepoint=split,
+                                reason=(f"shift of {abs(after - before):.4f} is "
+                                        f"statistically clear (t={effect:.2f}) but "
+                                        f"below the {self.min_shift:g} floor that "
+                                        f"counts as a real change here"))
 
         candidates: Dict[str, Dict[str, float]] = {}
-        best_name, best_delta = None, 0.0
+        best_name, best_score = None, 0.0
         for name in sorted(self.signals):
             accepted, diagnostics = self.attribute(name)
             candidates[name] = diagnostics
-            if accepted:
-                combined = diagnostics["delta_c_mu"] + diagnostics["delta_h_mu"]
-                if combined > best_delta:
-                    best_name, best_delta = name, combined
+            if not accepted:
+                continue
+            # Rank within a test, never across one: a Welch t and a pair of
+            # bit-drops are not on the same scale, and comparing them would
+            # pick the culprit by which test it happened to qualify under.
+            score = (diagnostics["t"] if diagnostics.get("test") == "two-sample"
+                     else diagnostics["delta_c_mu"] + diagnostics["delta_h_mu"])
+            if best_name is None or score > best_score:
+                best_name, best_score = name, score
 
         return DamageReport(
             detected=True,
