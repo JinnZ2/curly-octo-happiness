@@ -15,6 +15,7 @@ from grounding.core.allostasis import AllostaticBands
 from grounding.core.claims import Claim, DependencyTree
 from grounding.core.damage import DamageDetector
 from grounding.core.epistemics import classify_falsifiability
+from grounding.core.events import EventEncoder, fidelity_claim
 from grounding.core.graycode import gray_bits
 from grounding.core.memory import EpisodicMemory
 from grounding.core.mentor import TeachbackMentor
@@ -506,6 +507,24 @@ class UnifiedAgent:
             if component.name == self.ACTUATOR:
                 return 0.33 + 0.67 * max(0.0, min(1.0, component.health))
         return 1.0
+
+    def event_encode(self, hysteresis=0.0, refractory=0.0):
+        """Re-encode the prediction-error stream as sparse events (3.6).
+
+        The same band alphabet the plugin encoders already speak, driven by
+        change instead of by the clock. Returns (encoder, claim, measurement) —
+        the claim stakes what the compression cost in fidelity, because a
+        telemetry budget met by dropping the signal is not a budget met.
+        """
+        values = [abs(e) for e in self.wm.error_hist]
+        if len(values) < 8:
+            return None, None, None
+        encoder = EventEncoder(self.bands.thresholds, threshold=hysteresis,
+                               refractory=refractory)
+        for step, value in enumerate(values):
+            encoder.observe(step, value)
+        claim, measurement = fidelity_claim(encoder, values)
+        return encoder, claim, measurement
 
     def damage_scan(self, relearn=True):
         """Does my own body explain my prediction errors? (3.5)
@@ -1021,6 +1040,16 @@ class UnifiedAgent:
                         + result["decision"].report())
             detail = result.get("breaches") or [result["reason"]]
             return f"{head}\n   REFUSED: {result['reason']}\n   " + "\n   ".join(detail)
+        if c.startswith("events"):
+            parts = c.split()
+            hysteresis = float(parts[1]) if len(parts) > 1 else 0.0
+            encoder, claim, m = self.event_encode(hysteresis=hysteresis)
+            if encoder is None:
+                return "📉 Not enough prediction-error history to encode yet."
+            return (f"⚡ {encoder.report()}\n"
+                    f"   band error {m['band_error']:.1%} — fidelity claim "
+                    f"{'held' if claim.passed else 'FALSIFIED'} "
+                    f"(raise hysteresis for less traffic and more loss)")
         if c.startswith("damage"):
             report = self.damage_scan(relearn="scan" not in c)
             extra = (f"\n   relearned {self.relearns}× so far"
