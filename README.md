@@ -31,7 +31,7 @@ when not, with a test asserting they agree). Extras: `modules/` → `networkx`;
 
 ```bash
 pip install -e ".[test]"     # optional: installable package + test deps
-python -m pytest tests/     # 272 tests (2 skipped: plotly, and a numpy-only guard)
+python -m pytest tests/     # 279 tests (2 skipped: plotly, and a numpy-only guard)
 ```
 
 ## What's in here

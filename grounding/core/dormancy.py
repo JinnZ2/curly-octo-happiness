@@ -48,10 +48,11 @@ Stdlib only.
 """
 
 from dataclasses import dataclass, field
-from math import exp, inf, log10
+from math import exp, inf, log2, log10
 from typing import Dict, List, Mapping, Optional, Sequence
 
 __all__ = [
+    "BIT_COST",
     "DEFAULT_FOLD_COST",
     "DormancyReading",
     "FoldWindow",
@@ -61,6 +62,7 @@ __all__ = [
     "SeedState",
     "ViabilityReading",
     "assess_dormancy",
+    "erasure_cost",
     "fold",
     "fold_window",
     "format_dormancy",
@@ -75,7 +77,17 @@ SEED_TERMS = ("resonance_energy", "adaptability", "diversity", "coupling")
 # Folding is not free — it costs energy to reorganise into a seed. The option
 # therefore expires while the system is still alive, which is the whole point:
 # a system that waits until it is dying has already lost the choice.
+# Kept as the fallback when the structure is not described well enough to count
+# the bits; `erasure_cost` is the derived path and the preferred one.
 DEFAULT_FOLD_COST = 0.15
+
+# Landauer parameters. `BIT_COST` is the disclosed free parameter — the energy
+# charged per erased bit, in whatever units the caller's energy budget is in.
+# `MAGNITUDE_RESOLUTION` is the precision to which magnitude would have to be
+# recorded to *not* lose it, which is what sets how many bits letting it go
+# actually destroys.
+BIT_COST = 0.02
+MAGNITUDE_RESOLUTION = 0.01
 
 # Residual activity floor and ceiling, in the seed analogy's moisture units.
 # Below the floor, further drying buys no duration and damages the structure;
@@ -103,18 +115,68 @@ class FoldWindow:
     warnings: List[str] = field(default_factory=list)
 
 
-def fold_window(energy: float, fold_cost_fraction: float = DEFAULT_FOLD_COST
-                ) -> FoldWindow:
+def erasure_cost(magnitude: float, n_terms: int, history_steps: int = 0,
+                 resolution: float = MAGNITUDE_RESOLUTION,
+                 bit_cost: float = BIT_COST) -> float:
+    """What folding costs, from the information it destroys.
+
+    Landauer's principle: erasing a bit of information has a positive minimum
+    thermodynamic cost, kT ln 2, and it is *erasure* that is irreversible, not
+    computation. Folding is deliberate erasure — `SeedState.lost` already names
+    exactly what goes: magnitude, history, phase. So the cost is not a constant
+    to be chosen, it is a count of the bits being discarded:
+
+        magnitude   log2(total / resolution)  bits to record how big it was
+        phase       log2(n_terms)             which term led, at fold time
+        history     history_steps bits        one bit per step not carried
+
+    Two things follow that the fixed-fraction version could only stipulate:
+
+    **The window closes strictly before death, and now for a reason.** Erasure
+    has a positive floor, so the cost is never zero, so there is always a band
+    of energies where the structure is alive and can no longer afford to fold.
+    Previously that band existed because a constant was chosen positive.
+
+    **A bigger or older structure costs more to fold.** Both are testable
+    claims about the model rather than free parameters, and both match the
+    intuition folding is supposed to capture: there is more to let go of.
+
+    As with the viability equation, this is the *shape* of Landauer and not a
+    thermodynamic measurement of anything in this repo. `bit_cost` is the
+    disclosed free parameter; the structure of the count is not.
+    """
+    if magnitude <= 0 or n_terms < 1:
+        return bit_cost
+    magnitude_bits = max(0.0, log2(magnitude / resolution))
+    phase_bits = log2(n_terms) if n_terms > 1 else 0.0
+    bits = magnitude_bits + phase_bits + max(0, history_steps)
+    return bit_cost * max(1.0, bits)      # never below one bit's worth
+
+
+def fold_window(energy: float, fold_cost_fraction: Optional[float] = None,
+                magnitude: Optional[float] = None, n_terms: int = 1,
+                history_steps: int = 0) -> FoldWindow:
     """Can this system still afford to fold?
 
     Reorganising into a seed costs energy, so the option closes *before* the
     system reaches zero. A component that spends its last reserves staying
     expanded has not chosen to die — it has lost the ability to choose.
-    """
-    if not 0.0 < fold_cost_fraction < 1.0:
-        raise ValueError("fold_cost_fraction must be in (0, 1)")
 
-    cost = fold_cost_fraction
+    The cost comes from `erasure_cost` when the structure is described
+    (`magnitude`, `n_terms`, `history_steps`), and from `fold_cost_fraction`
+    otherwise. The derived path is preferred: a fixed fraction makes the
+    closing of the window an assumption, while an erasure count makes it a
+    consequence of how much there is to let go of.
+    """
+    if fold_cost_fraction is not None:
+        if not 0.0 < fold_cost_fraction < 1.0:
+            raise ValueError("fold_cost_fraction must be in (0, 1)")
+        cost = fold_cost_fraction
+    elif magnitude is not None:
+        cost = erasure_cost(magnitude, n_terms, history_steps)
+    else:
+        cost = DEFAULT_FOLD_COST
+
     margin = energy - cost
     warnings: List[str] = []
 
@@ -164,7 +226,10 @@ class SeedState:
 def fold(terms: Optional[Mapping[str, float]] = None,
          residual_activity: float = 0.05,
          metric_signature: Optional[Mapping[str, object]] = None,
-         fold_cost_fraction: float = DEFAULT_FOLD_COST,
+         fold_cost_fraction: Optional[float] = None,
+         energy: Optional[float] = None,
+         energy_term: str = "resonance_energy",
+         history_steps: int = 0,
          **named_terms: float) -> SeedState:
     """Collapse a structure to its proportions — the reverse bloom.
 
@@ -175,12 +240,20 @@ def fold(terms: Optional[Mapping[str, float]] = None,
         metric_signature: whatever the caller needs carried verbatim — the seed
             keeps it untouched, because a proportion means nothing without the
             convention that produced it.
-        fold_cost_fraction: energy fraction folding costs. The first term is
-            treated as the energy budget the cost is charged against.
+        fold_cost_fraction: fixed cost override. Leave unset to derive the cost
+            from the information folding destroys (`erasure_cost`).
+        energy: the budget the fold cost is charged against. Defaults to the
+            `energy_term` entry when the vocabulary has one.
+        energy_term: which term names the energy budget.
+        history_steps: how much history is being discarded, in steps. Folding a
+            long-lived structure erases more and therefore costs more.
 
     Raises:
         ValueError: on an empty structure (there is nothing to fold and saying
-            so is the honest answer), or when the fold window has closed.
+            so is the honest answer); when the fold window has closed; or when
+            no energy budget can be identified — the earlier version silently
+            treated whichever term happened to be first as the budget, which is
+            a guess about caller intent dressed as a default.
     """
     values = dict(terms or {})
     values.update(named_terms)
@@ -198,10 +271,20 @@ def fold(terms: Optional[Mapping[str, float]] = None,
             "no proportions to carry. This is the case where a dead reading "
             "means what it says — BLACK means what it says.")
 
-    # The fold has to be affordable, and affordability is judged on the energy
-    # term when one is present rather than on the total.
-    energy = values.get("resonance_energy", values[next(iter(values))])
-    window = fold_window(energy, fold_cost_fraction)
+    # The fold has to be affordable, and affordability needs a named budget.
+    # Guessing one from term order would make the answer depend on dict
+    # insertion order, which is not a property of the structure.
+    budget = energy if energy is not None else values.get(energy_term)
+    if budget is None:
+        raise ValueError(
+            f"no energy budget: pass energy=..., or include a '{energy_term}' "
+            f"term, or name the budget with energy_term=. Terms present: "
+            f"{sorted(values)}. Folding is charged against something specific, "
+            "and picking whichever term came first would be a guess.")
+
+    window = fold_window(budget, fold_cost_fraction,
+                         magnitude=total, n_terms=len(values),
+                         history_steps=history_steps)
     if not window.open:
         raise ValueError(
             "fold window has closed: " + " ".join(window.warnings))

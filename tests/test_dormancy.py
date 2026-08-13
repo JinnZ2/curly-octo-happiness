@@ -11,6 +11,7 @@ import pytest
 from grounding.core.coupling import components, coupling_coherence, MSFWindow
 from grounding.core.dormancy import (
     DEFAULT_FOLD_COST,
+    erasure_cost,
     MAX_USEFUL_RESIDUAL,
     MIN_VIABLE_RESIDUAL,
     SEED_TERMS,
@@ -54,6 +55,40 @@ def test_narrow_window_is_flagged_before_it_closes():
 def test_invalid_cost_fraction_is_rejected():
     with pytest.raises(ValueError):
         fold_window(0.5, fold_cost_fraction=1.5)
+
+
+# --- the fold cost, derived from what folding destroys ----------------------
+
+def test_erasure_cost_is_never_zero():
+    """Landauer's floor is what makes the window close before death."""
+    assert erasure_cost(1e-9, 1) > 0
+    assert erasure_cost(0.0, 4) > 0
+
+
+def test_a_bigger_structure_costs_more_to_fold():
+    assert erasure_cost(100.0, 4) > erasure_cost(10.0, 4) > erasure_cost(1.0, 4)
+
+
+def test_an_older_structure_costs_more_to_fold():
+    """History is erased too, so there is more to let go of."""
+    assert erasure_cost(2.0, 4, history_steps=50) > erasure_cost(2.0, 4)
+
+
+def test_more_terms_cost_more_phase_to_discard():
+    assert erasure_cost(2.0, 12) > erasure_cost(2.0, 4)
+
+
+def test_the_derived_cost_drives_the_window():
+    """A structure can be alive and unable to afford folding, for a reason."""
+    cheap = fold_window(0.25, magnitude=1.0, n_terms=4)
+    dear = fold_window(0.25, magnitude=1000.0, n_terms=4, history_steps=20)
+    assert cheap.open and not dear.open
+    assert dear.cost > cheap.cost
+
+
+def test_an_explicit_fraction_still_overrides_the_derivation():
+    assert fold_window(0.5, fold_cost_fraction=0.9).open is False
+    assert fold_window(0.5, fold_cost_fraction=0.1).open is True
 
 
 # --- folding ----------------------------------------------------------------
@@ -124,9 +159,19 @@ def test_seed_rejects_proportions_that_do_not_sum_to_one():
 def test_arbitrary_term_vocabularies_fold():
     """The four canonical terms are a default, not a requirement."""
     seed = fold({"claims": 12.0, "bands": 8.0, "repertoire": 4.0},
-                fold_cost_fraction=0.01)
+                energy=5.0)
     assert set(seed.proportions) == {"claims", "bands", "repertoire"}
     assert seed.proportions["claims"] == pytest.approx(0.5)
+
+
+def test_an_unnamed_energy_budget_is_refused_not_guessed():
+    """Picking whichever term came first makes the answer depend on dict order."""
+    with pytest.raises(ValueError) as excinfo:
+        fold({"claims": 12.0, "bands": 8.0})
+    assert "would be a guess" in str(excinfo.value)
+    # Naming it either way works.
+    assert fold({"claims": 12.0, "bands": 8.0}, energy=5.0)
+    assert fold({"claims": 12.0, "bands": 8.0}, energy_term="claims")
 
 
 # --- viability decay: duration is bought, and the price is finite -----------
@@ -324,7 +369,7 @@ def test_a_partitioned_component_can_fold_and_later_re_bloom():
 
     # The isolated side folds what it still has.
     seed = fold({"claims": 6.0, "bands": 8.0, "variety": 2.0},
-                residual_activity=0.03, fold_cost_fraction=0.01,
+                residual_activity=0.03, energy=2.0,
                 metric_signature={"partition": [0, 1]})
     assert assess_dormancy(seed, periods_elapsed=50.0).state == "DORMANT"
 

@@ -106,6 +106,51 @@ Implemented in `grounding/core/vsm.py` (`ViableSystem`, `Signal`,
 - **Gray-code token embeddings:** verified open niche (Notes 03); Hamming-smooth codes for STE-stable ultra-low-bit tokens.
 - **Complexity-instrumented falsification playground:** ε-machine acceptance + graph-energy topology scoring + antifragility claim type = a citable methodology paper.
 
+## Principles the build converged on
+
+These were not in the plan. Each was reached separately, in different phases,
+usually by getting it wrong first — which is the only reason they are worth
+writing down as principles rather than as preferences.
+
+**Abstain rather than guess when the evidence cannot support a verdict.**
+Derived four times independently:
+- Phase 0.1 — below a sample-density floor the ε-machine criterion leaves a
+  candidate *untested* (`hnd.unverified`) rather than refuted.
+- Phase 1.3 — the teachback overlap check votes only where a lexical measure
+  can support a verdict; low overlap cannot separate "missed it" from
+  "paraphrased in synonyms", so it waits for the mentor.
+- Phase 3.5 — damage detection reports `unattributed` rather than naming the
+  best-correlated component, because naming an innocent part is worse than
+  admitting ignorance.
+- `dormancy` — `NEVER_FOLDED` is neither proof of death nor evidence of
+  dormancy. A seed's silence and a corpse's silence are identical to any
+  measure of flux, so the structural channel is reported separately.
+
+The recurring failure mode is the same each time: a measurement that cannot
+distinguish two cases reporting one of them anyway. Four independent
+derivations make this the repo's central epistemic commitment, not a habit.
+
+**Derive the shape; disclose the free parameters.** An interior optimum
+asserted as a Gaussian bump moves wherever its centre is put. `coupling`
+computes the MSF class from the node dynamics instead, and reports Class II
+(a threshold, no optimum) for this repo's own thermal units — refusing to
+invent the penalty the framework would have liked. `dormancy` takes the
+*shape* of Ellis & Roberts and of Landauer without claiming their constants,
+and says so on every reading. The test is whether changing a constant changes
+the verdict: if it does, the verdict was the constant.
+
+**State what a measurement destroys.** `SeedState.lost` names magnitude,
+history and phase explicitly; `events.fidelity_claim` stakes compression so
+any bandwidth saving has its band error measured rather than assumed;
+`transition`'s viability test refuses to call convexity-while-ruined
+antifragility. A lossy step that does not enumerate its losses is
+indistinguishable from a lossless one in the record.
+
+**A guess with a default is still a guess.** `fold` used to treat whichever
+term came first as the energy budget, which made the answer depend on dict
+insertion order. It now refuses and asks. Silent defaults for things only the
+caller knows are the quietest way for an assumption to become a result.
+
 ## A world worth regulating (added after Phases 0–3)
 
 The recurring bottleneck across every phase was not the machinery but the
