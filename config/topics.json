@@ -1,0 +1,38 @@
+{
+  "_comment": "Topics the hypothesis engine explores. Append an entry and commit; the next scheduled run picks it up. See design/hypothesis_engine.md.",
+  "topics": [
+    {
+      "name": "calibration and falsifiability of LLM agents",
+      "queries": [
+        "calibrated confidence language model agents",
+        "falsifiable claims autonomous agents",
+        "hallucination calibration abstention"
+      ],
+      "sources": ["arxiv", "semantic_scholar", "crossref"]
+    },
+    {
+      "name": "hidden variable detection / causal discovery from residuals",
+      "queries": [
+        "hidden confounder detection model residuals",
+        "causal discovery latent variables time series"
+      ],
+      "sources": ["arxiv", "semantic_scholar"]
+    },
+    {
+      "name": "causal states and statistical complexity",
+      "queries": [
+        "epsilon machine causal state reconstruction",
+        "statistical complexity entropy rate prediction"
+      ],
+      "sources": ["arxiv", "semantic_scholar"]
+    },
+    {
+      "name": "requisite variety and cybernetic regulation",
+      "queries": [
+        "requisite variety regulator law Ashby",
+        "good regulator theorem causal world model"
+      ],
+      "sources": ["arxiv", "crossref"]
+    }
+  ]
+}

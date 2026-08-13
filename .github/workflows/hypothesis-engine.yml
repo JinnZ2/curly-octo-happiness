@@ -1,0 +1,96 @@
+name: hypothesis engine
+
+# Weekly autonomous research digest. Explores free scholarly APIs, stakes and
+# tests claims, and commits the resulting hypothesis drafts back to the repo.
+# See design/hypothesis_engine.md.
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"   # Mondays 06:17 UTC
+  workflow_dispatch:
+    inputs:
+      max_per_topic:
+        description: "Cap results per query per source"
+        required: false
+        default: "10"
+      dry_run:
+        description: "Skip network access and use the sample findings"
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: hypothesis-engine
+  cancel-in-progress: false
+
+jobs:
+  smoke:
+    # Offline contract check: the engine must survive a full dry run before it
+    # is allowed to touch the network or the repo.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pytest
+      - run: python -m pytest tests/test_hypothesis_engine.py -q
+
+  run:
+    needs: smoke
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run the engine
+        run: |
+          python scripts/hypothesis_engine.py \
+            --config config/topics.json \
+            --max-per-topic "${{ github.event.inputs.max_per_topic || '10' }}" \
+            ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
+            | tee engine_stdout.txt
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-digest-${{ github.run_number }}
+          path: |
+            data/
+            hypotheses/
+            engine_stdout.txt
+          retention-days: 90
+
+      - name: Commit the digest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data hypotheses
+          if git diff --cached --quiet; then
+            echo "nothing new this week"
+          else
+            git commit -m "chore(engine): weekly research digest $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Open an issue on new hypotheses
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if grep -q "NEW HYPOTHESIS" data/engine_report.md; then
+            gh label create hypothesis-engine --color 0e8a16 \
+              --description "Autonomous research digest" --force
+            gh issue create \
+              --title "Hypothesis engine: new drafts $(date -u +%Y-%m-%d)" \
+              --body-file data/engine_report.md \
+              --label "hypothesis-engine"
+          else
+            echo "no topic reached the surviving-claim threshold"
+          fi

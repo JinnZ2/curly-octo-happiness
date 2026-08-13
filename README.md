@@ -17,6 +17,7 @@ git clone https://github.com/JinnZ2/curly-octo-happiness && cd curly-octo-happin
 python garden.py                              # watch an agent make & falsify 100 claims
 python unified_playground.py                  # chat with Ari ('experiment 5', 'why right', 'exit')
 python diagnostic/systems_diagnostic_suite.py # geometry diagnostics + hidden-node demo
+python scripts/hypothesis_engine.py --dry-run # research pipeline, offline sample corpus
 ```
 
 The root playgrounds are stdlib-only (run them from the repo root — they use the
@@ -26,7 +27,7 @@ The root playgrounds are stdlib-only (run them from the repo root — they use t
 
 ```bash
 pip install -e ".[test]"     # optional: installable package + test deps
-python -m pytest tests/     # 71 tests (1 skipped without plotly)
+python -m pytest tests/     # 82 tests (1 skipped without plotly)
 ```
 
 ## What's in here
@@ -40,6 +41,7 @@ python -m pytest tests/     # 71 tests (1 skipped without plotly)
 | Systems Diagnostic Suite | `modules/`, `diagnostic/` | GAE (geometry fit + structural complexity/attack tolerance), HND (hidden variables from residuals, ε-machine acceptance), FDM (root tracing) |
 | Complexity & cybernetics | `grounding/core/epsilon_machine.py`, `variety.py` | Causal-state reconstruction (C_mu, h_mu) and Ashby's requisite-variety alarm |
 | Shape Board | `project/` | GAE recommendations rendered as interactive 3D task shapes (plotly) |
+| Hypothesis engine | `scripts/hypothesis_engine.py`, `config/topics.json` | Weekly autonomous research pipeline: explore scholarly APIs → stake claims → cross-source test → consolidate hypothesis drafts |
 
 See `Playgrounds.md` for design write-ups and `REVIEW.md` for a full code review.
 
