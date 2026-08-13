@@ -68,11 +68,17 @@ Implemented in `grounding/core/vsm.py` (`ViableSystem`, `Signal`,
 **2.4 SOC stress layer (optional)** — world variants where hidden variables accumulate stress and release in power-law avalanches; HND detects them by fitting $P(s)\sim s^{-\tau}$ tails in residual events.
 *Not built — the plan marks it optional and it needs a new world variant rather than an upgrade to an existing one.*
 
-## Phase 3 — Robotics embodiment layer
+## Phase 3 — Robotics embodiment layer — **3.1–3.2 SHIPPED**
 
 **3.1 CBF-QP safety layer** (~50 lines + a QP solver) over the stewardship simulator: safe sets as claims — $h(x) = T_{max} - T(x)$, plus cold-environment coupled CBFs $h_1 = E_{bat}-E_{min}$, $h_2 = T_{min}-T_{ambient}$. "Repurposed component" ⇒ recompute $h$ on degraded dynamics — provably safe repurposing, not just plausible.
+*Done in `grounding/core/safety.py` (`Barrier`, `SafetyFilter`, `safety_claim`, `thermal_barriers`, `battery_barrier`) + `UnifiedAgent.safety_check()` behind the `safety` command.*
+***No QP solver dependency.*** The constraint $L_f h + L_g h\,u \ge -\alpha(h)$ is linear in $u$ and the objective is a Euclidean projection, so a single constraint has the closed-form half-space projection and several are handled by Dykstra's alternating projections — stdlib, and honest about its limits (`converged` and `feasible` are both reported). Infeasibility is surfaced as *a finding about the system*, not a solver failure: freezing with no battery to spare genuinely has no safe control, and the filter says so instead of returning a number.
+*Safe sets are staked as claims with machine-checkable refutation ($h < 0$ observed), so "this component stayed safe" accumulates a Beta-posterior track record. A **falsified** safety claim raises an algedonic signal — Phase 1's channel carrying Phase 3's evidence.*
+*Two modelling notes, both in the source:* heating is taken proportional to current rather than $i^2$ to keep the dynamics control-affine (a real resistive part would need dissipated power as the control, or a nonlinear program); and `VirtualComponent.apply_stress` now takes the ambient temperature, because the component's temperature previously ignored it entirely — the cold-environment barrier could never have bound, which would have made it theatre.
 
 **3.2 Failure-mode → fallback-controller catalog** — the diode→conductor / drift→sensor / open→antenna table becomes a runtime-assurance simplex catalog: each failure mode ships with a repurposed capability AND its recomputed safety envelope.
+*Done as `FallbackCatalog` + `UnifiedAgent._build_fallback_catalog()` behind the `fallback` and `catalog` commands. The existing repurpose table supplied the capabilities; what each entry gains is the envelope its **degraded** dynamics support, so a fallback can be refused at a state where the capability plainly exists. The same shorted diode is offered as a conductor at 20 °C and refused at 60 °C, because a part at health 0.25 has a recomputed ceiling of 44.6 °C rather than the nominal 125 °C.*
+*Three distinct refusals, because they mean different things: no catalogued fallback (this failure has no known repurposing), outside the recomputed envelope (capability exists, not at this state), and no feasible control (the envelope admits the state but the degraded barriers cannot be satisfied together from here).*
 
 **3.3 Flow-matching policy on 1-D worlds** — π0-style $\mathcal L_{FM}$ with 10-step Euler decode, conditioned on a "parts vector" from the repurposing engine; evaluate zero-shot transfer when a component is swapped (field-repair proxy benchmark, toy scale).
 
@@ -89,7 +95,7 @@ Implemented in `grounding/core/vsm.py` (`ViableSystem`, `Signal`,
 - **Complexity-instrumented falsification playground:** ε-machine acceptance + graph-energy topology scoring + antifragility claim type = a citable methodology paper.
 
 ## Status
-Phases 0, 1 and 2.1–2.3 are implemented and tested (`tests/test_epsilon_machine.py`, `tests/test_variety.py`, `tests/test_vsm.py`, `tests/test_regulator.py`, the Phase 0 and 2.3 blocks in `tests/test_sds.py`, and the variety tests in `tests/test_plugins.py`); `cd modules && python main.py` runs the diagnostic pipeline with both Phase 0 upgrades enabled, and `python unified_playground.py` exposes the Phase 1 and 2 channels (`vsm`, `pain`, `self-check`, `regulator`, `bands`, teachback). Phase 2.4 and Phases 3–4 are still plan.
+Phases 0, 1, 2.1–2.3 and 3.1–3.2 are implemented and tested (`tests/test_epsilon_machine.py`, `tests/test_variety.py`, `tests/test_vsm.py`, `tests/test_regulator.py`, `tests/test_safety.py`, the Phase 0 and 2.3 blocks in `tests/test_sds.py`, and the variety tests in `tests/test_plugins.py`); `cd modules && python main.py` runs the diagnostic pipeline with both Phase 0 upgrades enabled, and `python unified_playground.py` exposes the Phase 1–3 channels (`vsm`, `pain`, `self-check`, `regulator`, `bands`, `safety`, `fallback`, `catalog`, `ambient`, teachback). Phase 2.4, Phases 3.3–3.6 and Phase 4 are still plan.
 
 Worth reading together: Phase 2 produced the roadmap's first **falsified** predictions — TORUS is robust rather than antifragile, and Ari's dependency tree preserves a quarter of the world's causal structure. Both were staked as claims and refuted by measurement, which is the repo working as designed rather than the plan failing.
 

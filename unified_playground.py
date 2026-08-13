@@ -19,6 +19,9 @@ from grounding.core.memory import EpisodicMemory
 from grounding.core.mentor import TeachbackMentor
 from grounding.core.regulator import (
     CausalDAG, check_homomorphism, homomorphism_report, regulator_score)
+from grounding.core.safety import (
+    Fallback, FallbackCatalog, SafetyFilter, battery_barrier, safety_claim,
+    thermal_barriers)
 from grounding.core.vsm import AlgedonicSignal, SecondOrderGuard, Signal, ViableSystem
 from grounding.worlds.bumpy import BumpyWorld, WorldModel
 
@@ -268,14 +271,21 @@ class VirtualComponent:
         self.failure_mode = "none"
         self.stress_cycles = 0
 
-    def apply_stress(self, severity=0.1):
+    # Ambient the baseline temperatures were characterised at. A part sitting
+    # in a colder environment runs colder, which is what makes the thermal
+    # floor a real constraint rather than a decorative one.
+    REFERENCE_AMBIENT_C = 25.0
+
+    def apply_stress(self, severity=0.1, ambient_c=REFERENCE_AMBIENT_C):
         """Simulate one step of degradation (thermal, electrical)."""
         self.stress_cycles += 1
         self.drift_rate = severity * random.uniform(0.5, 1.5)
         self.health = max(0.0, self.health - self.drift_rate * 0.1)
         self.v = self.baseline_v * (1.0 + random.uniform(-0.2, 0.2) * (1 - self.health))
         self.i = self.baseline_i * (1.0 + random.uniform(-0.3, 0.5) * (1 - self.health))
-        self.temp = self.baseline_temp + (1 - self.health) * random.uniform(20, 80)
+        self_heating = self.baseline_temp - self.REFERENCE_AMBIENT_C
+        self.temp = (ambient_c + self_heating
+                     + (1 - self.health) * random.uniform(20, 80))
         self.noise = min(1.0, 0.01 + (1 - self.health) * 0.5)
         if self.health > 0.7: self.failure_mode = "none"
         elif self.health > 0.4: self.failure_mode = "drift"
@@ -342,6 +352,154 @@ class UnifiedAgent:
         # forecast; the load counter records what the anticipation costs.
         self.bands = AllostaticBands([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 1.0],
                                      name="prediction_error")
+
+        # Embodiment layer (Phase 3): the operating environment the barriers are
+        # defined against, and the runtime-assurance catalog.
+        self.ambient_c = 25.0
+        self.battery_j = 500.0
+        self.catalog = self._build_fallback_catalog()
+        self.safety_claims = {}
+
+    # ------------------------------------------------------------------
+    # Phase 3 — embodiment: safe sets and provably safe repurposing
+    # ------------------------------------------------------------------
+
+    # Nominal plant constants for a healthy part. Degradation moves them, which
+    # is the whole point of recomputing the envelope rather than reusing it.
+    NOMINAL_T_MAX = 125.0
+    NOMINAL_T_MIN = -40.0
+    NOMINAL_COOLING = 0.05
+    NOMINAL_HEATING = 8.0
+    NOMINAL_DRAIN = 2.0
+    BATTERY_RESERVE_J = 100.0
+
+    def degraded_plant(self, health):
+        """Plant constants for a part at this health — the degraded dynamics.
+
+        A worn part sheds heat worse and tolerates less of it, so both the
+        cooling coefficient and the temperature ceiling fall with health. The
+        barrier built from these constants is a *different* barrier, which is
+        why a fallback's envelope has to be recomputed rather than inherited.
+        """
+        health = max(0.0, min(1.0, health))
+        return {
+            "t_max": self.NOMINAL_T_MIN + (self.NOMINAL_T_MAX - self.NOMINAL_T_MIN)
+                     * (0.35 + 0.65 * health),
+            "t_min": self.NOMINAL_T_MIN,
+            "cooling": self.NOMINAL_COOLING * (0.3 + 0.7 * health),
+            "heating": self.NOMINAL_HEATING,
+            "drain": self.NOMINAL_DRAIN * (2.0 - health),   # worn parts waste power
+        }
+
+    def component_state(self, component):
+        geom = component.get_geometry()
+        return {
+            "temperature_c": geom["temperature_c"],
+            "ambient_c": self.ambient_c,
+            "battery_j": self.battery_j,
+            "health": geom["health_score"],
+        }
+
+    def component_filter(self, component):
+        """Barriers for this part *as it is now*, not as it left the factory."""
+        plant = self.degraded_plant(component.health)
+        return SafetyFilter(
+            thermal_barriers(plant["t_max"], plant["t_min"],
+                             plant["cooling"], plant["heating"])
+            + [battery_barrier(self.BATTERY_RESERVE_J, plant["drain"])])
+
+    def safety_check(self, name, nominal_current=None):
+        """Filter a nominal current command through this part's safe sets.
+
+        Also stakes each barrier as a claim and evaluates it against the
+        observed state, so "this component stayed safe" accumulates a track
+        record instead of being asserted once at design time.
+        """
+        for component in self.components:
+            if component.name.lower() != name.lower():
+                continue
+            state = self.component_state(component)
+            filt = self.component_filter(component)
+            command = (component.i if nominal_current is None else nominal_current)
+            decision = filt.filter(state, [command])
+
+            for barrier in filt.barriers:
+                key = (component.name, barrier.name)
+                claim = self.safety_claims.get(key)
+                if claim is None:
+                    claim = safety_claim(barrier, scope={"component": component.name})
+                    self.safety_claims[key] = claim
+                claim.evaluate({"h": barrier.margin(state)})
+                if claim.status == "falsified":
+                    self.vsm.raise_algedonic(AlgedonicSignal(
+                        source=f"component:{component.name}",
+                        message=f"safe set '{barrier.name}' breached repeatedly",
+                        payload={"health": state["health"], "actionable": True}))
+            return component, state, decision
+        return None, None, None
+
+    def _build_fallback_catalog(self):
+        """Turn the repurpose table into runtime-assurance entries (3.2).
+
+        The repo already knew a shorted diode conducts and a drifting one
+        senses. What each entry gains here is the envelope its degraded
+        dynamics support — so a fallback can be *refused* at a state where the
+        capability exists but safety cannot be shown.
+        """
+        catalog = FallbackCatalog()
+
+        def entry(comp_type, mode, health_after, note=""):
+            plant = self.degraded_plant(health_after)
+            capability = _REPURPOSE_MAP.get((comp_type, mode),
+                                            _REPURPOSE_MAP.get(("default", mode), "none"))
+            effectiveness = _EFFECTIVENESS.get((comp_type, mode),
+                                               _EFFECTIVENESS.get(("default", mode), 0.0))
+            return Fallback(
+                failure_mode=mode,
+                capability=capability,
+                effectiveness=effectiveness,
+                # The envelope is the recomputed safe set, stated as plain
+                # limits so a state can be checked against it before any
+                # control is attempted.
+                envelope={"temperature_c_max": plant["t_max"],
+                          "temperature_c_min": plant["t_min"],
+                          "battery_j_min": self.BATTERY_RESERVE_J},
+                barriers=(lambda p=plant: thermal_barriers(
+                    p["t_max"], p["t_min"], p["cooling"], p["heating"])
+                    + [battery_barrier(self.BATTERY_RESERVE_J, p["drain"])]),
+                note=note,
+            )
+
+        for mode, health_after, note in (
+            ("short_circuit", 0.25, "conducts, but with almost no thermal margin left"),
+            ("open_circuit", 0.30, "no current path: usable as structure or antenna"),
+            ("drift", 0.55, "still measures, calibration untrustworthy"),
+            ("partial_degradation", 0.40, "noisy; acceptable where noise is the signal"),
+            ("degradation", 0.45, ""),
+            ("none", 1.0, ""),
+        ):
+            catalog.register("default", entry("default", mode, health_after, note))
+        for mode, health_after, note in (
+            ("short_circuit", 0.25, "diode shorted: a conductor, not a rectifier"),
+            ("drift", 0.60, "forward voltage drifts with temperature — that is the sensor"),
+            ("open_circuit", 0.30, "open junction radiates: antenna"),
+            ("partial_degradation", 0.40, ""),
+        ):
+            catalog.register("diode", entry("diode", mode, health_after, note))
+        return catalog
+
+    def fallback_for(self, name):
+        """What can this part still do, and is that safe from where it is now?"""
+        for component in self.components:
+            if component.name.lower() == name.lower():
+                state = self.component_state(component)
+                geom = component.get_geometry()
+                result = self.catalog.select(component.type, geom["failure_mode"],
+                                             state, [component.i])
+                result["component"] = component.name
+                result["failure_mode"] = geom["failure_mode"]
+                return result
+        return None
 
     # ------------------------------------------------------------------
     # Phase 2 — good regulator and allostatic bands
@@ -520,9 +678,9 @@ class UnifiedAgent:
         return flags
 
     def degrade_hardware(self, severity=0.1):
-        """Age all components slightly."""
+        """Age all components slightly, in whatever environment they are in."""
         for comp in self.components:
-            comp.apply_stress(severity)
+            comp.apply_stress(severity, ambient_c=self.ambient_c)
 
     def check_component(self, name):
         for comp in self.components:
@@ -771,6 +929,44 @@ class UnifiedAgent:
             return self.guard.report()
         if c in ("regulator", "homomorphism"):
             return self.regulator_report()
+        if c.startswith("safety"):
+            parts = c.split()
+            name = parts[1] if len(parts) > 1 else self.components[0].name
+            component, state, decision = self.safety_check(name)
+            if component is None:
+                return f"❌ Component {name} not found."
+            plant = self.degraded_plant(component.health)
+            return (f"🛡️ {component.name} at health {component.health:.2f} "
+                    f"(ceiling recomputed to {plant['t_max']:.0f}°C, "
+                    f"cooling {plant['cooling']:.3f}, ambient {self.ambient_c:.0f}°C)\n"
+                    + decision.report())
+        if c.startswith("fallback"):
+            parts = c.split()
+            name = parts[1] if len(parts) > 1 else self.components[0].name
+            result = self.fallback_for(name)
+            if result is None:
+                return f"❌ Component {name} not found."
+            head = (f"🔁 {result['component']} ({result['failure_mode']}): "
+                    f"{result.get('capability', '—')}")
+            if result["available"]:
+                return (f"{head}\n   AVAILABLE (effectiveness "
+                        f"{result.get('effectiveness', 0):.1f})\n"
+                        + result["decision"].report())
+            detail = result.get("breaches") or [result["reason"]]
+            return f"{head}\n   REFUSED: {result['reason']}\n   " + "\n   ".join(detail)
+        if c == "catalog":
+            return self.catalog.report(self.component_state(self.components[0]))
+        if c.startswith("ambient"):
+            parts = cmd.split()
+            if len(parts) > 1:
+                try:
+                    self.ambient_c = float(parts[1])
+                except ValueError:
+                    return "Usage: ambient <degrees C>"
+            return (f"🌡️ Ambient set to {self.ambient_c:.0f}°C, "
+                    f"battery {self.battery_j:.0f} J. "
+                    "Cold ambient makes the thermal floor bind against the "
+                    "battery reserve — try `safety D1`.")
         if c in ("bands", "allostasis"):
             shifted = self.anticipate_bands()
             if shifted is None:
@@ -810,7 +1006,8 @@ if __name__ == "__main__":
     print("          claim <text> :: <falsification>")
     print("          skill extract/list/test/refactor")
     print("          check <component> | degrade (stress hardware)")
-    print("          vsm | pain | self-check")
+    print("          vsm | pain | self-check | regulator | bands")
+    print("          safety <component> | fallback <component> | catalog | ambient <°C>")
     print("          explain <concept> :: <text> | teachback <concept> :: <your words>")
     print("          confirm <concept> | correct <concept> :: <text> | learned\n")
     agent = UnifiedAgent()
