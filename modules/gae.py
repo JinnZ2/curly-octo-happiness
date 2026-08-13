@@ -10,11 +10,21 @@ from dataclasses import dataclass, field
 from typing import Dict, List, Tuple, Optional, Set
 import networkx as nx
 import math
+import os
+import sys
 
-try:                     # numpy is optional here; Jacobi below covers its absence
+try:                     # numpy is optional here; the stdlib solver covers it
     import numpy as _np
 except ImportError:      # pragma: no cover - exercised only on numpy-less installs
     _np = None
+
+# The symmetric eigensolver lives in the shared core package — coupling.py needs
+# the same one for Laplacian spectra, and the repo keeps one canonical copy.
+try:
+    from grounding.core.linalg import symmetric_eigenvalues
+except ImportError:      # pragma: no cover - depends on how the script was launched
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from grounding.core.linalg import symmetric_eigenvalues
 
 # Above this size the pure-Python eigensolver is too slow to be worth running;
 # fall back to McClelland's bound instead. numpy, when present, has no cap.
@@ -35,38 +45,6 @@ class SystemMetrics:
     structural_complexity: float = 0.0  # C = C1 + C2*C3
     hub_concentration: float = 0.0    # spread of betweenness, 0 = flat, 1 = hub-dominated
     attack_tolerance: float = 1.0     # largest component left after targeted removal
-
-
-def _jacobi_eigenvalues(matrix: List[List[float]], sweeps: int = 60,
-                        tol: float = 1e-9) -> List[float]:
-    """Eigenvalues of a real symmetric matrix, cyclic Jacobi rotations.
-
-    Pure stdlib so that modules/ keeps networkx as its only hard dependency.
-    """
-    n = len(matrix)
-    a = [row[:] for row in matrix]
-    for _ in range(sweeps):
-        off = sum(a[i][j] ** 2 for i in range(n) for j in range(n) if i != j)
-        if off <= tol:
-            break
-        for p in range(n - 1):
-            for q in range(p + 1, n):
-                if abs(a[p][q]) < 1e-12:
-                    continue
-                theta = (a[q][q] - a[p][p]) / (2.0 * a[p][q])
-                sign = 1.0 if theta >= 0 else -1.0
-                t = sign / (abs(theta) + math.sqrt(theta * theta + 1.0))
-                c = 1.0 / math.sqrt(t * t + 1.0)
-                s = t * c
-                for k in range(n):
-                    akp, akq = a[k][p], a[k][q]
-                    a[k][p] = c * akp - s * akq
-                    a[k][q] = s * akp + c * akq
-                for k in range(n):
-                    apk, aqk = a[p][k], a[q][k]
-                    a[p][k] = c * apk - s * aqk
-                    a[q][k] = s * apk + c * aqk
-    return [a[i][i] for i in range(n)]
 
 
 def graph_energy(G: nx.Graph) -> float:
@@ -96,10 +74,7 @@ def graph_energy(G: nx.Graph) -> float:
         A[index[u]][index[v]] = 1.0
         A[index[v]][index[u]] = 1.0
 
-    if _np is not None:
-        eigenvalues = _np.linalg.eigvalsh(_np.array(A))
-        return float(_np.abs(eigenvalues).sum())
-    return sum(abs(e) for e in _jacobi_eigenvalues(A))
+    return sum(abs(e) for e in symmetric_eigenvalues(A, cap=None))
 
 
 class GeometricApplicabilityEngine:

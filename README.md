@@ -31,7 +31,7 @@ when not, with a test asserting they agree). Extras: `modules/` → `networkx`;
 
 ```bash
 pip install -e ".[test]"     # optional: installable package + test deps
-python -m pytest tests/     # 205 tests (1 skipped without plotly)
+python -m pytest tests/     # 226 tests (2 skipped: plotly, and a numpy-only guard)
 ```
 
 ## What's in here
@@ -46,6 +46,7 @@ python -m pytest tests/     # 205 tests (1 skipped without plotly)
 | Complexity & cybernetics | `grounding/core/epsilon_machine.py`, `variety.py`, `vsm.py`, `regulator.py`, `allostasis.py` | Causal-state reconstruction (C_mu, h_mu), Ashby's requisite-variety alarm, Beer's five systems with a bypassing algedonic channel, good-regulator homomorphism checks, allostatic bands |
 | Safety & repurposing | `grounding/core/safety.py` | Control-barrier safety filter (no QP dependency) and a runtime-assurance fallback catalog that recomputes each envelope on degraded dynamics |
 | Damage & self-model | `grounding/core/damage.py` | Changepoint detection on prediction residuals, with attribution to the interoceptive signal that explains it |
+| Coupling & synchronizability | `grounding/core/coupling.py`, `linalg.py` | Master Stability Function: when a network of units can hold together, when a partition is structural, and when no coupling strength can help |
 | Worlds | `grounding/worlds/` | `BumpyWorld` (1-D physics toy) and `ThermalWorld` — bounded, stationary, body-in-the-loop, with a causal DAG checked against the code |
 | Event encoding | `grounding/core/events.py` | DVS-style Δ-threshold + refractory encoding over the Gray-code bands, with the compression staked as a testable claim |
 | Shape Board | `project/` | GAE recommendations rendered as interactive 3D task shapes (plotly) |

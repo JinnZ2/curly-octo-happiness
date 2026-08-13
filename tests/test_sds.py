@@ -5,7 +5,7 @@ import pytest
 nx = pytest.importorskip("networkx")
 
 from gae import GAE, GeometricApplicabilityEngine, graph_energy  # noqa: E402
-from gae import _jacobi_eigenvalues                              # noqa: E402
+from grounding.core.linalg import symmetric_eigenvalues          # noqa: E402
 from fdm import FractalDependencyMapper            # noqa: E402
 from hnd import HiddenNodeDetector                 # noqa: E402
 from transition import TransitionSimulator         # noqa: E402
@@ -71,7 +71,7 @@ def test_graph_energy_matches_known_values():
 def test_jacobi_matches_the_analytic_spectrum():
     # C_5 adjacency eigenvalues: 2, 2cos(2pi/5) x2, 2cos(4pi/5) x2
     A = nx.to_numpy_array(nx.cycle_graph(5)).tolist()
-    got = sorted(_jacobi_eigenvalues(A))
+    got = sorted(symmetric_eigenvalues(A))
     import math
     want = sorted([2.0] + [2 * math.cos(2 * math.pi / 5)] * 2
                   + [2 * math.cos(4 * math.pi / 5)] * 2)
