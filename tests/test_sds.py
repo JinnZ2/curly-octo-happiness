@@ -1,8 +1,11 @@
+import random
+
 import pytest
 
 nx = pytest.importorskip("networkx")
 
-from gae import GAE, GeometricApplicabilityEngine  # noqa: E402
+from gae import GAE, GeometricApplicabilityEngine, graph_energy  # noqa: E402
+from gae import _jacobi_eigenvalues                              # noqa: E402
 from fdm import FractalDependencyMapper            # noqa: E402
 from hnd import HiddenNodeDetector                 # noqa: E402
 from transition import TransitionSimulator         # noqa: E402
@@ -48,6 +51,133 @@ def test_hnd_finds_correlated_hidden_variable():
                              environment=env)
     names = [s.name for s in hnd.scan(residuals)]
     assert "Hidden_X" in names
+
+
+# --- Phase 0.2: structural complexity + attack tolerance -------------------
+
+STAR_NODES = [f"n{i}" for i in range(9)]
+STAR_EDGES = [("n0", f"n{i}") for i in range(1, 9)]
+RING_NODES = [f"r{i}" for i in range(9)]
+RING_EDGES = [(f"r{i}", f"r{(i + 1) % 9}") for i in range(9)]
+
+
+def test_graph_energy_matches_known_values():
+    # E(K_n) = 2(n-1); E(C_5) = 6.472...
+    assert graph_energy(nx.complete_graph(4)) == pytest.approx(6.0, abs=1e-6)
+    assert graph_energy(nx.cycle_graph(5)) == pytest.approx(6.472136, abs=1e-5)
+    assert graph_energy(nx.empty_graph(0)) == 0.0
+
+
+def test_jacobi_matches_the_analytic_spectrum():
+    # C_5 adjacency eigenvalues: 2, 2cos(2pi/5) x2, 2cos(4pi/5) x2
+    A = nx.to_numpy_array(nx.cycle_graph(5)).tolist()
+    got = sorted(_jacobi_eigenvalues(A))
+    import math
+    want = sorted([2.0] + [2 * math.cos(2 * math.pi / 5)] * 2
+                  + [2 * math.cos(4 * math.pi / 5)] * 2)
+    assert got == pytest.approx(want, abs=1e-8)
+
+
+def test_star_is_hub_fragile_and_ring_is_not():
+    star = GAE(STAR_NODES, STAR_EDGES).analyze()["metrics"]
+    ring = GAE(RING_NODES, RING_EDGES).analyze()["metrics"]
+
+    # Removing the star's centre leaves isolated leaves; the ring just opens up.
+    assert star["hub_concentration"] > 0.8
+    assert star["attack_tolerance"] < 0.2
+    assert ring["hub_concentration"] < 0.1
+    assert ring["attack_tolerance"] > 0.8
+
+    # C = C1 + C2*C3 counts parts, interfaces and how tangled the wiring is.
+    assert star["structural_complexity"] > len(STAR_NODES)
+    assert ring["structural_complexity"] > star["structural_complexity"]
+
+
+def test_complexity_scoring_pushes_fragile_systems_toward_distributed_forms():
+    plain = GAE(STAR_NODES, STAR_EDGES).analyze()
+    adjusted = GAE(STAR_NODES, STAR_EDGES, complexity_scoring=True).analyze()
+    for geometry in ("TORUS", "ICOSAHEDRON"):
+        assert adjusted["scores"][geometry] > plain["scores"][geometry]
+    # The resilient ring earns no such boost (its betweenness variance is zero
+    # up to floating-point dust).
+    ring_plain = GAE(RING_NODES, RING_EDGES).analyze()
+    ring_adjusted = GAE(RING_NODES, RING_EDGES, complexity_scoring=True).analyze()
+    for geometry, score in ring_plain["scores"].items():
+        assert ring_adjusted["scores"][geometry] == pytest.approx(score, abs=1e-9)
+
+
+def test_complexity_scoring_is_off_by_default():
+    """Existing callers keep their scores; only the metrics dict grows."""
+    assert (GAE(CHAIN_NODES, CHAIN_EDGES).analyze()["scores"]
+            == GeometricApplicabilityEngine().analyze(CHAIN_NODES, CHAIN_EDGES)["scores"])
+
+
+# --- Phase 0.1: eps-machine acceptance criterion ---------------------------
+
+def _driver_and_decoy(n=300, seed=1):
+    """A residual driven by a hidden variable, plus a decoy that only echoes it."""
+    rng = random.Random(seed)
+    driver = [float((i // 7) % 3) for i in range(n)]
+    residuals = [0.4 * d + 0.25 + rng.gauss(0, 0.05) for d in driver]
+    decoy = [r * 2.0 + rng.gauss(0, 0.02) for r in residuals]
+    return residuals, {"variables": {},
+                       "time_series": {"Driver": driver, "Decoy": decoy}}
+
+
+def test_epsilon_machine_keeps_the_driver_and_drops_the_echo():
+    residuals, env = _driver_and_decoy()
+    hnd = HiddenNodeDetector(model={"nodes": ["A", "B"], "dependencies": {}},
+                             environment=env)
+
+    # Correlation alone cannot separate them: both correlate ~1.0 with residuals.
+    assert {s.name for s in hnd.scan(residuals)} == {"Driver", "Decoy"}
+
+    kept = {s.name for s in hnd.scan(residuals, acceptance="epsilon_machine")}
+    assert kept == {"Driver"}
+    assert {s.name for s in hnd.rejected} == {"Decoy"}
+
+
+def test_accepted_suggestions_carry_their_epsilon_machine_diagnostics():
+    residuals, env = _driver_and_decoy()
+    hnd = HiddenNodeDetector(model={"nodes": ["A"], "dependencies": {}},
+                             environment=env)
+    accepted = hnd.scan(residuals, acceptance="epsilon_machine")[0]
+    d = accepted.diagnostics
+    assert d["acceptance"] == "accepted"
+    assert d["delta_c_mu"] >= d["margin"] and d["delta_h_mu"] >= d["margin"]
+    assert d["c_mu_after"] < d["c_mu_before"]
+    assert "eps-machine" in accepted.evidence
+    assert "Rejected by the eps-machine criterion: Decoy" in hnd.generate_report()
+
+
+def test_acceptance_skips_series_it_cannot_judge():
+    residuals = [0.3] * 4
+    hnd = HiddenNodeDetector(model={"nodes": []},
+                             environment={"time_series": {"Short": [1.0, 2.0]}})
+    accepted, diagnostics = hnd.accept_by_epsilon_machine(residuals, "Short")
+    assert accepted is False and diagnostics["acceptance"] == "skipped"
+
+
+def test_too_little_data_leaves_a_candidate_untested_not_refuted():
+    """Below the sample-density floor the criterion abstains rather than judging."""
+    residuals, env = _driver_and_decoy(n=60)
+    hnd = HiddenNodeDetector(model={"nodes": []}, environment=env)
+    kept = hnd.scan(residuals, acceptance="epsilon_machine")
+
+    # Nothing is refuted on 60 samples; the candidates survive, flagged.
+    assert {s.name for s in kept} == {"Driver", "Decoy"}
+    assert not hnd.rejected
+    assert {s.name for s in hnd.unverified} == {"Driver", "Decoy"}
+    assert all(s.diagnostics["acceptance"] == "skipped" for s in kept)
+    assert all(s.diagnostics["samples"] < s.diagnostics["samples_needed"]
+               for s in kept)
+    assert "Untested by the eps-machine criterion" in hnd.generate_report()
+
+
+def test_unknown_acceptance_mode_is_rejected():
+    hnd = HiddenNodeDetector(model={"nodes": []}, environment={})
+    with pytest.raises(ValueError):
+        hnd.scan([1.0] * 10, acceptance="vibes")
 
 
 def test_transition_years_advance():

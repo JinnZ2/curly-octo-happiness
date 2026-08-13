@@ -26,7 +26,7 @@ The root playgrounds are stdlib-only (run them from the repo root — they use t
 
 ```bash
 pip install -e ".[test]"     # optional: installable package + test deps
-python -m pytest tests/     # 34 tests
+python -m pytest tests/     # 71 tests (1 skipped without plotly)
 ```
 
 ## What's in here
@@ -37,7 +37,8 @@ python -m pytest tests/     # 34 tests
 | Relational playgrounds | `weave*.py`, `relational_weave.py` | Conversation agents with episodic memory and reflection |
 | Unified agent line | `unified_playground*.py` | The above merged, growing per version (dreams, skills, hardware, chemistry) |
 | Plugin encoders | `plugin_manager*.py`, `plugins/` | Physical sensor data → Gray-coded bitstreams (EM, magnetic, GW, light, affect) |
-| Systems Diagnostic Suite | `modules/`, `diagnostic/` | GAE (geometry fit), HND (hidden variables from residuals), FDM (root tracing) |
+| Systems Diagnostic Suite | `modules/`, `diagnostic/` | GAE (geometry fit + structural complexity/attack tolerance), HND (hidden variables from residuals, ε-machine acceptance), FDM (root tracing) |
+| Complexity & cybernetics | `grounding/core/epsilon_machine.py`, `variety.py` | Causal-state reconstruction (C_mu, h_mu) and Ashby's requisite-variety alarm |
 | Shape Board | `project/` | GAE recommendations rendered as interactive 3D task shapes (plotly) |
 
 See `Playgrounds.md` for design write-ups and `REVIEW.md` for a full code review.
@@ -53,7 +54,9 @@ simulation, and complexity engineering / cybernetics / robotics). Start at
 [`PLAN_FORWARD.md`](PLAN_FORWARD.md) is the roadmap those notes feed: a phased plan for
 grounding the existing heuristics (HND thresholds, GAE scores, adaptive bands) in
 validated theory, then layering a cybernetic architecture, a good-regulator world model,
-and a robotics embodiment layer on top. Both are reading material, not runnable code.
+and a robotics embodiment layer on top. **Phase 0 is implemented** — ε-machine acceptance
+in HND, structural complexity and attack tolerance in GAE, and the requisite-variety alarm
+on the physics-discovery loop; Phases 1–4 are still plan.
 
 ## Why this matters
 

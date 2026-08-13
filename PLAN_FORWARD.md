@@ -6,19 +6,21 @@ Framing: the repo already implements proto-versions of all three fields' core ma
 
 ---
 
-## Phase 0 — Ground the existing heuristics in validated theory (small, high-value)
+## Phase 0 — Ground the existing heuristics in validated theory (small, high-value) — **SHIPPED**
 
-**0.1 HND acceptance criterion via ε-machines** *(complexity)*
+**0.1 HND acceptance criterion via ε-machines** *(complexity)* — **done**
 Current HND flags hidden variables when Pearson |r| > 0.5 on residuals. Upgrade: fit causal-state reconstruction (CSSR — tractable on the repo's finite-alphabet Gray-coded bitstreams) before/after adding a candidate hidden node. Accept the node iff statistical complexity $C_\mu = H[\mathcal S]$ *and* entropy rate $h_\mu$ both drop. Replaces an ad-hoc threshold with Crutchfield's minimality theorem.
-*Files: modules/hnd.py, grounding/core/graycode.py.*
+*Shipped in `grounding/core/epsilon_machine.py` + `HiddenNodeDetector.scan(acceptance="epsilon_machine")`, opt-in so existing callers keep the correlation behaviour. The correlation thresholds became a candidate generator; the ε-machine is the acceptance test, and rejects land in `hnd.rejected`.*
+*Two deviations from the sketch, both documented in the source:* (a) only CSSR phases I–II are implemented — no determinisation — so $C_\mu$ is a lower bound and the numbers are only meaningful comparatively; (b) the augmented machine needs a shorter history budget than the baseline (`equalized_history_length`), because a richer conditioning alphabet inflates $C_\mu$ for a purely finite-sample reason. Without that correction the criterion rejected genuine drivers 40% of the time; with it, 39/40 over a seed sweep, with echo variables and noise rejected 40/40. The test is also data-hungry — it separates driver from echo 6/20 times at 60 samples and 19/20 at 300 — so below a sample-density floor it abstains, leaving the candidate *untested* (`hnd.unverified`) rather than refuted.
 
-**0.2 GAE scoring via structural complexity** *(complexity)*
+**0.2 GAE scoring via structural complexity** *(complexity)* — **done**
 Compute Sinha–de Weck $C = C_1 + C_2C_3$ ($C_3$ = normalized graph energy) on the dependency-tree DSM alongside C/N/L/R. Use betweenness-centrality variance under *targeted* node removal (Barabási attack tolerance) to trigger TORUS/ICOSAHEDRON recommendations — quantifying why distributed forms are resilient rather than asserting it.
-*Files: modules/gae.py.*
+*Shipped in `modules/gae.py`: `graph_energy` (numpy when available, a stdlib Jacobi solver otherwise, so `modules/` keeps networkx as its only hard dependency), and four new always-reported metrics — `graph_energy`, `structural_complexity`, `hub_concentration`, `attack_tolerance`. Score adjustment is behind `complexity_scoring=True` so existing scores stay comparable; when on, `fragility = hub_concentration × (1 − attack_tolerance)` boosts TORUS/ICOSAHEDRON. A 9-node star gets +24; a 9-node ring gets nothing.*
 
-**0.3 Requisite-variety meter** *(cybernetics)*
+**0.3 Requisite-variety meter** *(cybernetics)* — **done**
 Track $H(\text{disturbance codewords})$ vs $H(\text{agent response repertoire})$ per world; alarm when the margin $V(D) - V(R)$ approaches zero. Wire the alarm to band-width auto-expansion (the physics-discovery loop already amplifies variety; give it the missing trigger signal).
-*Files: plugins/meta_encoder.py, plugins/physics_discovery.py, grounding/worlds/.*
+*Shipped as `grounding/core/variety.py::VarietyMeter` (Shannon or Ashby-counting variety, optional window) wired into `plugins/physics_discovery.py`: `variety_status(stream)` measures the stream's disturbance variety at 32-bin reference resolution against the codewords the loaded encoders can actually produce, and `run_full_discovery(trigger="variety"|"either")` builds an encoder on that alarm. The two triggers catch different failures — novelty says "I have never seen this", variety says "I can no longer tell these apart" — and only the second fires on in-range data the bands have gone too coarse for.*
+*Not done: `grounding/worlds/` is untouched — the meter is wired to the sensor bus, not yet to a world's disturbance/response loop.*
 
 ## Phase 1 — Cybernetic architecture (VSM instantiation)
 
@@ -68,6 +70,9 @@ Track $H(\text{disturbance codewords})$ vs $H(\text{agent response repertoire})$
 - **Field-repair robotics dataset/benchmark:** (failure mode, repurposed function, safety envelope) tuples for VLA recovery behavior — a gap in OXE/Droid, acute in cold, parts-scarce environments.
 - **Gray-code token embeddings:** verified open niche (Notes 03); Hamming-smooth codes for STE-stable ultra-low-bit tokens.
 - **Complexity-instrumented falsification playground:** ε-machine acceptance + graph-energy topology scoring + antifragility claim type = a citable methodology paper.
+
+## Status
+Phase 0 is implemented and tested (`tests/test_epsilon_machine.py`, `tests/test_variety.py`, the Phase 0 blocks in `tests/test_sds.py`, and the variety tests in `tests/test_plugins.py`); `cd modules && python main.py` runs the pipeline with both upgrades enabled. Phases 1–4 are still plan.
 
 ## Sequencing rationale
 Phase 0 sharpens what exists with no new subsystems. Phase 1 reorganizes control flow (cheap, mostly routing). Phase 2 deepens world fidelity. Phase 3 adds embodiment. Phase 4 packages results. Each phase yields falsifiable claims testable inside the repo itself — the plan eats its own cooking.
