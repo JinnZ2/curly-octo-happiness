@@ -10,12 +10,24 @@ readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "CC0-1.0" }
 # The core package and root playgrounds are stdlib-only.
+# Tier 0 — the core is stdlib-only, on purpose. The whole point of the
+# hardware-stewardship line is running where parts and bandwidth are scarce, so
+# `grounding/` and the root playgrounds must work on a bare Python install with
+# no wheels to fetch. Nothing in Tier 0 may import an optional dependency, even
+# guarded: a `try: import numpy` in the core makes the core's behaviour depend
+# on what happens to be installed.
 dependencies = []
 
+# Tiers 1+ — heavier capability, each behind an extra, each with the tier-0 path
+# still intact. The rule that keeps the promise: an extra may add capability,
+# never replace it. `modules/gae.py` is the pattern — graph energy uses numpy
+# when it is there and a stdlib Jacobi solver when it is not, and the tests
+# assert the two agree.
 [project.optional-dependencies]
 sds = ["networkx"]                                      # modules/, diagnostic/
 plugins = ["numpy"]                                     # most of plugins/
 viz = ["plotly", "networkx"]                            # project/shape_board.py
+solver = ["z3-solver"]                                  # epistemics.check_with_z3
 ml = ["torch", "transformers", "scikit-learn", "numpy"] # project/cognitive_playground.py
 test = ["pytest", "networkx", "numpy"]
 

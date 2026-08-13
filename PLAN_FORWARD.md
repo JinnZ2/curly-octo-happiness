@@ -20,7 +20,7 @@ Compute Sinha–de Weck $C = C_1 + C_2C_3$ ($C_3$ = normalized graph energy) on 
 **0.3 Requisite-variety meter** *(cybernetics)* — **done**
 Track $H(\text{disturbance codewords})$ vs $H(\text{agent response repertoire})$ per world; alarm when the margin $V(D) - V(R)$ approaches zero. Wire the alarm to band-width auto-expansion (the physics-discovery loop already amplifies variety; give it the missing trigger signal).
 *Shipped as `grounding/core/variety.py::VarietyMeter` (Shannon or Ashby-counting variety, optional window) wired into `plugins/physics_discovery.py`: `variety_status(stream)` measures the stream's disturbance variety at 32-bin reference resolution against the codewords the loaded encoders can actually produce, and `run_full_discovery(trigger="variety"|"either")` builds an encoder on that alarm. The two triggers catch different failures — novelty says "I have never seen this", variety says "I can no longer tell these apart" — and only the second fires on in-range data the bands have gone too coarse for.*
-*Not done: `grounding/worlds/` is untouched — the meter is wired to the sensor bus, not yet to a world's disturbance/response loop.*
+*Completed later: `ThermalWorld` carries its own `VarietyMeter`, so the disturbance/response loop of a world is now measured, not only the sensor bus (see "A world worth regulating" below).*
 
 ## Phase 1 — Cybernetic architecture (VSM instantiation) — **SHIPPED**
 
@@ -48,31 +48,57 @@ Implemented in `grounding/core/vsm.py` (`ViableSystem`, `Signal`,
 **1.4 Second-order guard** — cross-validate self-model claims against independent diagnostic streams (HND) to prevent self-confirming self-descriptions (von Foerster eigenvalue drift).
 *Done as `SecondOrderGuard`, which keeps history because the failure it exists to catch is invisible in a snapshot: confidence climbing monotonically while independent error refuses to fall. It also flags plain overconfidence. `UnifiedAgent.self_model_check()` feeds it node confidence against world-model error, normalised `err/(1+err)` (raw `avg_error` is in world units, not a probability) and held back until there are ≥5 independent observations to compare against.*
 
-## Phase 2 — World model becomes a good regulator
+## Phase 2 — World model becomes a good regulator — **2.1–2.3 SHIPPED**
 
 **2.1 Causal-DAG grounding of worlds** — per Richens & Everitt (2024): make each world's causal structure explicit; score regulator quality by outcome entropy of claim resolutions. The claims tree *is* the homomorphic model the Good Regulator Theorem demands — make the homomorphism checkable (FDM roots as the invariant).
+*Done in `grounding/core/regulator.py` (`CausalDAG`, `check_homomorphism`, `regulator_score`) + `BumpyWorld.causal_dag()` + `UnifiedAgent.regulator_check()` behind the `regulator` command. The check earns its keep immediately: Ari's dependency tree preserves only 25% of the world's causal edges, is missing the primitive roots `friction` and `v_t`, and has two **invented** roots — concepts that are sources in the model but have no cause in the world. Unmapped variables are handed to hidden-node detection and journalled rather than swallowed. Collapsing several world variables onto one concept counts as legitimate abstraction, not a broken edge; losing an exogenous root does not.*
+*Correction made while wiring: the regulator score must be computed over claims that were actually **tested**, not over `status`. Each experiment evaluates its claim once, so the three-strikes status never resolves — scoring `status` reported a perfect 1.00 for an agent that had resolved nothing.*
 
 **2.2 Allostatic bands** — percentile bands shift predictively ahead of regime change (use dream-recombination rollouts as the predictor) instead of reactively; log accumulated band-shift cost as "allostatic load."
-*Files: plugins/magnetic.py, gravitational.py (init_bands), playground5_dream.py.*
+*Done as `grounding/core/allostasis.py::AllostaticBands`: `reactive_update()` (homeostatic catch-up) vs `anticipate(forecast, blend=…)` (allostatic shift), with every shift charged to a cumulative `load` and `chronic()` flagging the pay-forever-fit-never pattern — load rising while coverage does not improve. Wired into `UnifiedAgent.anticipate_bands()` behind the `bands` command, using recombined prediction-error deltas as the rollout.*
+*`miscoverage` is measured as band **utilisation** — under-range samples silently clamped into band 0, or bands nothing ever lands in — which is the requisite-variety measure from Phase 0 applied to one encoder's own repertoire. An earlier version counted samples above the top threshold as out of range; by the Gray-code convention the top band is open-ended, so those are covered by construction.*
 
 **2.3 Antifragility as a claim type** — in the transition simulator, measure $\partial^2 f/\partial\sigma^2$ of yield-vs-stressor per topology (LINE should be concave, TORUS convex). "Convexity under bounded volatility" becomes a staked, falsifiable claim tracked by Beta posteriors.
-*Files: modules/transition.py.*
+*Done in `modules/transition.py` (`stress_path`, `run_stressed`, `convexity`, `antifragility_claim`, `regime_scan`, `antifragility_report`), measured under a mean-preserving two-point drought spread with common random numbers across σ so the second difference is curvature rather than noise.*
+***The prediction is half falsified, and the claim machinery records it.*** LINE is concave as predicted. TORUS is **robust, not antifragile**: its water buffer absorbs the entire spread, so widening the spread neither gains nor costs it much (relative Jensen gap −0.0004). Both convexity claims come back refuted at the default operating point. Two things came out of measuring rather than asserting:
+- *Curvature is regime-dependent, not a property of a topology.* A buffer that absorbs **small** stressors bends the response concave at the scale it covers; only a floor capping **large** damage bends it convex. `regime_scan` maps where each topology sits.
+- *Convexity is not automatically antifragility.* LINE goes convex under heavy stress purely because yield has bottomed out at zero — losses stop growing because there is nothing left to lose. The measurement therefore carries a viability test, and reports Taleb's full triad (fragile / robust / antifragile) instead of a convexity binary.
+- *Sensitivity checked:* strengthening the hormesis term does **not** flip TORUS convex — it makes it more concave, because the hormesis gain sits inside the buffer, so a wider spread only ever loses it. Antifragility here would need capacity built by the stressors that *exceed* the buffer, which is a different mechanism. Left unbuilt: searching for a mechanism that makes the prediction true would be rigging the measurement.
 
 **2.4 SOC stress layer (optional)** — world variants where hidden variables accumulate stress and release in power-law avalanches; HND detects them by fitting $P(s)\sim s^{-\tau}$ tails in residual events.
+*Not built — the plan marks it optional and it needs a new world variant rather than an upgrade to an existing one.*
 
-## Phase 3 — Robotics embodiment layer
+## Phase 3 — Robotics embodiment layer — **3.1–3.2 SHIPPED**
 
 **3.1 CBF-QP safety layer** (~50 lines + a QP solver) over the stewardship simulator: safe sets as claims — $h(x) = T_{max} - T(x)$, plus cold-environment coupled CBFs $h_1 = E_{bat}-E_{min}$, $h_2 = T_{min}-T_{ambient}$. "Repurposed component" ⇒ recompute $h$ on degraded dynamics — provably safe repurposing, not just plausible.
+*Done in `grounding/core/safety.py` (`Barrier`, `SafetyFilter`, `safety_claim`, `thermal_barriers`, `battery_barrier`) + `UnifiedAgent.safety_check()` behind the `safety` command.*
+***No QP solver dependency.*** The constraint $L_f h + L_g h\,u \ge -\alpha(h)$ is linear in $u$ and the objective is a Euclidean projection, so a single constraint has the closed-form half-space projection and several are handled by Dykstra's alternating projections — stdlib, and honest about its limits (`converged` and `feasible` are both reported). Infeasibility is surfaced as *a finding about the system*, not a solver failure: freezing with no battery to spare genuinely has no safe control, and the filter says so instead of returning a number.
+*Safe sets are staked as claims with machine-checkable refutation ($h < 0$ observed), so "this component stayed safe" accumulates a Beta-posterior track record. A **falsified** safety claim raises an algedonic signal — Phase 1's channel carrying Phase 3's evidence.*
+*Two modelling notes, both in the source:* heating is taken proportional to current rather than $i^2$ to keep the dynamics control-affine (a real resistive part would need dissipated power as the control, or a nonlinear program); and `VirtualComponent.apply_stress` now takes the ambient temperature, because the component's temperature previously ignored it entirely — the cold-environment barrier could never have bound, which would have made it theatre.
 
 **3.2 Failure-mode → fallback-controller catalog** — the diode→conductor / drift→sensor / open→antenna table becomes a runtime-assurance simplex catalog: each failure mode ships with a repurposed capability AND its recomputed safety envelope.
+*Done as `FallbackCatalog` + `UnifiedAgent._build_fallback_catalog()` behind the `fallback` and `catalog` commands. The existing repurpose table supplied the capabilities; what each entry gains is the envelope its **degraded** dynamics support, so a fallback can be refused at a state where the capability plainly exists. The same shorted diode is offered as a conductor at 20 °C and refused at 60 °C, because a part at health 0.25 has a recomputed ceiling of 44.6 °C rather than the nominal 125 °C.*
+*Three distinct refusals, because they mean different things: no catalogued fallback (this failure has no known repurposing), outside the recomputed envelope (capability exists, not at this state), and no feasible control (the envelope admits the state but the degraded barriers cannot be satisfied together from here).*
 
 **3.3 Flow-matching policy on 1-D worlds** — π0-style $\mathcal L_{FM}$ with 10-step Euler decode, conditioned on a "parts vector" from the repurposing engine; evaluate zero-shot transfer when a component is swapped (field-repair proxy benchmark, toy scale).
 
 **3.4 Latent world-model + CEM planner** — V-JEPA 2-AC pattern at toy scale: learn $P(z_{t+1}|z_t,a)$, plan $\arg\min_a\|z_{t+H}-z_{goal}\|$; gives falsification agents the ability to attack *plans*, not just states.
 
-**3.5 HND × self-model damage detection** — hook HND onto any learned dynamics residual $|\dot x - \hat f_\theta(x,u)|$; Lipson-style damage→relearn loop in the sandbox.
+**3.5 HND × self-model damage detection** — hook HND onto any learned dynamics residual $|\dot x - \hat f_\theta(x,u)|$; Lipson-style damage→relearn loop in the sandbox. — **SHIPPED, with a caveat that matters**
+*Done as `grounding/core/damage.py::DamageDetector` — detection (a Welch-t changepoint on the residual stream) and attribution (which interoceptive signal explains it, by the Phase 0 ε-machine criterion) kept deliberately separate, wired via `UnifiedAgent.damage_scan()` behind the `damage` command. Detection without attribution is a reported state, not an error: the model can know it is wrong without knowing why, and naming an innocent component is worse than admitting ignorance.*
+*Three corrections found by measuring rather than reasoning:*
+- *The agent had **no body in the loop at all** — component health did not affect the dynamics, so the residual carried zero information about the hardware and there was nothing to detect. Commands now reach the world through `actuator_efficiency()`.*
+- *Damage does not have to **raise** the residual. A weakened actuator moves the body less, so its prediction errors get* smaller*. A signed test misses that entirely; the statistic is absolute.*
+- *The threshold is a **Welch t, not a Cohen's d**. Actuator failure here separates the per-sample residual distributions by under 1σ while shifting the mean unmistakably — thresholding per-sample separation would miss every real failure.*
+***The caveat:*** BumpyWorld's residual is non-stationary even with healthy hardware — position wanders, so error magnitude drifts and the changepoint test fires on a perfectly good model. The detector is validated on synthetic streams with a stationary baseline; *this* world does not provide one. What makes it safe to wire up anyway is the attribution gate: the false positives come back `unattributed`, and relearning requires a named culprit, so a noisy detector never resets a good model. A world with bounded state, or a residual statistic normalised by excursion, is the real fix and is not built.
+*Also fixed here, found while chasing the above:* `WorldModel.update` used plain LMS with a fixed rate against an **unbounded** position, so a long run diverged — weights reached ~1e190 after ~240 steps, silently corrupting the regulator score, curiosity signal and every claim outcome downstream. It is normalised LMS now, and the model actually converges (w₀ → 0.99, the true coefficient).
 
-**3.6 Neuromorphic encoding alignment** — event-camera Δ-threshold + refractory rule as the adaptive-band update; positions Gray-coded bitstreams as the sensor-fusion bus for scavenged/degrading hardware.
+**3.6 Neuromorphic encoding alignment** — event-camera Δ-threshold + refractory rule as the adaptive-band update; positions Gray-coded bitstreams as the sensor-fusion bus for scavenged/degrading hardware. — **SHIPPED**
+*Done as `grounding/core/events.py` (`EventEncoder`, `reconstruct`, `fidelity_claim`), wired via `UnifiedAgent.event_encode()` behind the `events` command. Events carry Gray-coded band indices, so the bus is the one the plugin encoders already speak — driven by change instead of by the clock.*
+*The threshold is a **band** change with a value hysteresis, not a raw value distance.* The first version used a uniform distance, which lost 53% of band crossings: the repo's bands are equal-occupancy and therefore unevenly spaced in value, so a uniform threshold silently misses crossings exactly where the signal spends its time. An event camera's threshold *is* its quantisation step, so the band edge is the faithful analogue.
+*Reporting every band change is lossless by construction and still saves 82% of the traffic on a slow signal — that is the case the stewardship line cares about, where the constraint is a radio budget rather than compute. Everything past that is a trade, and `fidelity_claim` stakes it: hysteresis 0.5 saves 94% at 10% band error and the claim is **refuted**. `retune()` drives the event rate toward a target as a control loop, and the demo shows the trap — it converges on the rate while the band error climbs to ~30%, which is what "retuning without re-staking the fidelity claim" costs.*
+*Honest limit: on a fast noisy stream (the agent's own prediction error) lossless encoding saves only ~18%. Event coding wins on slow signals, and the module says so rather than reporting a compression ratio without its error.*
+
 
 ## Phase 4 — Contribution back (novel, unfilled niches)
 
@@ -80,8 +106,56 @@ Implemented in `grounding/core/vsm.py` (`ViableSystem`, `Signal`,
 - **Gray-code token embeddings:** verified open niche (Notes 03); Hamming-smooth codes for STE-stable ultra-low-bit tokens.
 - **Complexity-instrumented falsification playground:** ε-machine acceptance + graph-energy topology scoring + antifragility claim type = a citable methodology paper.
 
+## A world worth regulating (added after Phases 0–3)
+
+The recurring bottleneck across every phase was not the machinery but the
+substrate. `BumpyWorld` has unbounded state, a non-stationary residual even with
+healthy hardware, and — until 3.5 — no body in the loop at all, so the ε-machine
+criterion, the changepoint test and the homomorphism check were all pointed at
+something that could not hold still long enough to be measured.
+
+`grounding/worlds/thermal.py` closes all three. Hold a part in a temperature band
+against mean-reverting cold: bounded (temperature relaxes toward ambient rather
+than accumulating), stationary under a fixed policy, control-affine so the CBF
+barriers are exactly right for it, and embodied — heater efficiency is a plant
+parameter, and `ThermalModel` recovers the true plant to three decimals with the
+damage-sensitive gain identifiable to ±0.1.
+
+Two results worth carrying forward:
+
+- **The causal DAG is checked against the code.** `causal_dag()` and `step()` are
+  cross-validated by finite-difference sensitivity — both that every declared
+  edge is a real dependence, and that undeclared dependences do not exist. A DAG
+  that cannot be wrong about the code it describes is not a model of it.
+- **Persistent excitation is not optional.** A controller that sets the heater as
+  a deterministic function of ambient makes the plant *unidentifiable*: the
+  learned gain reads ~0.25 against a true 6.0, forever. Dither 0.4 recovers it
+  (residual 0.001, gain 5.999). This is the rigorous version of the repo's
+  explore-when-your-model-is-bad rule — exploration here is not curiosity, it is
+  the precondition for having a model at all, and a regulator that stops
+  exploring loses the ability to notice its own body changing.
+
+Damage detection, which BumpyWorld could not support, works here: 1 false
+positive in 12 seeds against 11 detections, and the culprit is *named* rather
+than left unattributed. That last part needed a second attribution test —
+component health steps between two levels, and the ε-machine criterion is nearly
+blind to a signal with no dynamics, so `DamageDetector` now picks a two-sample
+test for level signals and the causal-state test for continuous ones.
+
+Also added: a practical-significance floor (`min_shift`). On a well-converged
+model the residual is so small and steady that a meaningless wobble is many
+standard errors wide — statistical significance without effect size is the
+large-n trap, and the caller is the only one who knows what counts as a real
+change for their signal.
+
+**Still open on the detector:** repeated online scanning inflates false positives,
+because sequential testing is not single testing. A proper sequential test
+(CUSUM with a calibrated threshold) is the fix and is not built.
+
 ## Status
-Phases 0 and 1 are implemented and tested (`tests/test_epsilon_machine.py`, `tests/test_variety.py`, `tests/test_vsm.py`, the Phase 0 blocks in `tests/test_sds.py`, and the variety tests in `tests/test_plugins.py`); `cd modules && python main.py` runs the diagnostic pipeline with both Phase 0 upgrades enabled, and `python unified_playground.py` exposes the Phase 1 channels. Phases 2–4 are still plan.
+Phases 0, 1, 2.1–2.3, 3.1–3.2, 3.5 and 3.6 are implemented and tested, plus `ThermalWorld` (above) (`tests/test_epsilon_machine.py`, `tests/test_variety.py`, `tests/test_vsm.py`, `tests/test_regulator.py`, `tests/test_safety.py`, the Phase 0 and 2.3 blocks in `tests/test_sds.py`, and the variety tests in `tests/test_plugins.py`); `cd modules && python main.py` runs the diagnostic pipeline with both Phase 0 upgrades enabled, and `python unified_playground.py` exposes the Phase 1–3 channels (`vsm`, `pain`, `self-check`, `regulator`, `bands`, `safety`, `fallback`, `catalog`, `ambient`, teachback). Phase 2.4, Phases 3.3/3.4 and Phase 4 are still plan. **3.3 and 3.4 are the first items that genuinely need a dependency** — a flow-matching policy and a learned latent planner want the `ml` extra. The tier rule in `pyproject.toml` is what keeps that from eroding the core: extras add capability, they never replace it, and `grounding/` stays stdlib so the stewardship line still runs where there is nothing to install.
+
+Worth reading together: Phase 2 produced the roadmap's first **falsified** predictions — TORUS is robust rather than antifragile, and Ari's dependency tree preserves a quarter of the world's causal structure. Both were staked as claims and refuted by measurement, which is the repo working as designed rather than the plan failing.
 
 Separately, `scripts/hypothesis_engine.py` (design doc `design/hypothesis_engine.md`) implements the research-pipeline half of Phase 4's "contribution back" — it stakes and tests literature claims in this same machinery on a weekly schedule.
 

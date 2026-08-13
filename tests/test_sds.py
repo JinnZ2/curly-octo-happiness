@@ -180,6 +180,109 @@ def test_unknown_acceptance_mode_is_rejected():
         hnd.scan([1.0] * 10, acceptance="vibes")
 
 
+# --- Phase 2.3: antifragility as a measured claim --------------------------
+
+def test_stress_path_is_a_mean_preserving_spread():
+    sim = TransitionSimulator()
+    narrow = sim.stress_path(20, 0.05, seed=1)
+    wide = sim.stress_path(20, 0.20, seed=1)
+    assert len(narrow) == len(wide) == 21
+    assert max(wide) - min(wide) > max(narrow) - min(narrow)
+
+    # Common random numbers: the same coin sequence at every sigma, so the paths
+    # differ only in spread and f(sigma) is smooth enough to differentiate.
+    def ups(path, sigma):
+        return [v > sim.MEAN_SEVERITY for v in path]
+    assert ups(narrow, 0.05) == ups(wide, 0.20)
+
+    # The spread is mean-preserving over the seed ensemble, not path by path:
+    # 21 coin flips do not balance exactly, which is why the measurement
+    # averages over seeds rather than trusting a single run.
+    def ensemble_mean(sigma):
+        paths = [sim.stress_path(20, sigma, seed) for seed in range(24)]
+        return sum(sum(p) for p in paths) / sum(len(p) for p in paths)
+    assert ensemble_mean(0.05) == pytest.approx(ensemble_mean(0.20), abs=0.01)
+
+
+def test_run_stressed_rejects_unknown_topology():
+    with pytest.raises(ValueError):
+        TransitionSimulator().run_stressed("SPIRAL", [0.1, 0.1])
+
+
+def test_zero_stress_is_the_viability_yardstick():
+    sim = TransitionSimulator()
+    for topology in ("LINE", "TORUS"):
+        unstressed = sim.unstressed_yield(topology)
+        stressed = sim.run_stressed(topology, [0.5] * 21)
+        assert min(s.yield_per_acre for s in stressed) <= unstressed
+
+
+def test_convexity_measures_curvature_and_viability():
+    sim = TransitionSimulator()
+    m = sim.convexity("TORUS")
+    assert m["shape"] in ("convex", "concave", "linear")
+    assert m["triad"] in ("antifragile", "robust", "fragile", "fragile (ruined)")
+    # antifragile requires convexity AND survival, never one alone.
+    assert m["antifragile"] == bool(m["d2f_dsigma2"] > 0 and m["viable"])
+
+
+def test_measured_shapes_at_the_default_operating_point():
+    """The plan predicted LINE concave / TORUS convex. Only the first holds.
+
+    TORUS turns out *robust*, not antifragile: its buffer absorbs the whole
+    spread, so widening the spread neither gains nor costs it much. Pinning the
+    measurement here means a mechanism change that flips it has to be noticed.
+    """
+    sim = TransitionSimulator()
+    line = sim.convexity("LINE")
+    torus = sim.convexity("TORUS")
+
+    assert line["shape"] == "concave"
+    assert not line["viable"]              # LINE is already ruined at mean 0.30
+    assert line["triad"] == "fragile (ruined)"
+
+    assert torus["viable"]
+    assert torus["triad"] == "robust"
+    assert not torus["antifragile"]
+
+
+def test_antifragility_claim_records_its_own_refutation():
+    sim = TransitionSimulator()
+    claim, m = sim.antifragility_claim("TORUS")
+    # The claim carries an executable refutation test, so text and check agree.
+    assert claim.falsifiability == "machine-checkable"
+    assert claim.passed + claim.failed == 1
+    assert (claim.passed == 1) == m["antifragile"]
+    assert claim.scope["topology"] == "TORUS"
+
+
+def test_regime_scan_restores_the_mean_severity():
+    sim = TransitionSimulator()
+    original = sim.MEAN_SEVERITY
+    rows = sim.regime_scan("TORUS", means=(0.2, 0.8))
+    assert sim.MEAN_SEVERITY == original
+    assert [r["mean_severity"] for r in rows] == [0.2, 0.8]
+    # Curvature is regime-dependent; that is the finding, not a nuisance.
+    assert rows[0]["d2f_dsigma2"] != rows[1]["d2f_dsigma2"]
+
+
+def test_convexity_of_ruin_is_not_antifragility():
+    """LINE goes convex at high stress only because yield has bottomed out."""
+    sim = TransitionSimulator()
+    convex_and_ruined = [r for r in sim.regime_scan("LINE", means=(0.4, 0.6, 0.8))
+                         if r["d2f_dsigma2"] > 0]
+    assert convex_and_ruined, "expected LINE to go convex under heavy stress"
+    for row in convex_and_ruined:
+        assert not row["viable"]
+        assert not row["antifragile"]
+        assert row["triad"] == "fragile (ruined)"
+
+
+def test_antifragility_report_renders():
+    text = TransitionSimulator().antifragility_report()
+    assert "REGIME SCAN" in text and "LINE" in text and "TORUS" in text
+
+
 def test_transition_years_advance():
     sim = TransitionSimulator()
     for states in (sim.run_linear(5), sim.run_torus(5)):
