@@ -4,7 +4,8 @@ import random
 
 import pytest
 
-from grounding.core.damage import DamageDetector
+from grounding.core.damage import (
+    DamageDetector, SequentialDamageDetector, arl0_for, decision_interval_for)
 from grounding.worlds.bumpy import WorldModel
 
 
@@ -195,3 +196,104 @@ def test_unattributed_detections_do_not_trigger_relearning():
     if report.detected and report.unattributed:
         assert ari.relearns == 0
     assert ari.relearns == 0 or report.culprit is not None
+
+
+# --- sequential monitoring: calibrated by rate, not by convention -----------
+
+def test_siegmund_reproduces_the_textbook_pairing():
+    """Reference 0.5, interval 5 -> ARL0 ~ 465 in the literature."""
+    assert arl0_for(5.0, reference=0.5) == pytest.approx(465, rel=0.05)
+
+
+def test_threshold_and_arl0_invert_each_other():
+    for target in (100.0, 500.0, 1000.0, 5000.0):
+        h = decision_interval_for(target)
+        assert arl0_for(h) == pytest.approx(target, rel=1e-3)
+    with pytest.raises(ValueError):
+        decision_interval_for(0.5)
+
+
+def test_a_rate_is_a_more_useful_parameter_than_a_sigma_level():
+    """Tighter false-alarm budget buys a higher threshold, monotonically."""
+    assert (decision_interval_for(5000.0) > decision_interval_for(1000.0)
+            > decision_interval_for(100.0))
+
+
+def test_cusum_stays_quiet_on_an_in_control_iid_stream():
+    rng = random.Random(0)
+    detector = SequentialDamageDetector(arl0=1000.0, calibration=150)
+    alarms = sum(1 for _ in range(3000)
+                 if detector.observe(abs(rng.gauss(0, 1))).fired)
+    # Designed for one per 1000; independent Gaussian data honours that.
+    assert alarms <= 8
+
+
+def test_cusum_detects_a_shift_it_was_designed_to_catch():
+    rng = random.Random(1)
+    detector = SequentialDamageDetector(arl0=1000.0, calibration=150)
+    for _ in range(200):
+        detector.observe(abs(rng.gauss(0, 1)))
+    fired_after = None
+    for step in range(400):
+        if detector.observe(abs(rng.gauss(3, 1))).fired:
+            fired_after = step
+            break
+    assert fired_after is not None and fired_after < 30
+
+
+def test_cusum_catches_a_shift_that_lowers_the_residual():
+    """Two-sided: damage that quiets the stream is damage too."""
+    rng = random.Random(2)
+    detector = SequentialDamageDetector(arl0=1000.0, calibration=150)
+    for _ in range(200):
+        detector.observe(abs(rng.gauss(0, 1)))
+    fired = any(detector.observe(abs(rng.gauss(0, 0.05))).fired
+                for _ in range(400))
+    assert fired
+
+
+def test_alarm_reports_the_rate_it_was_designed_for():
+    rng = random.Random(3)
+    detector = SequentialDamageDetector(arl0=250.0, calibration=100)
+    for _ in range(150):
+        detector.observe(abs(rng.gauss(0, 1)))
+    for _ in range(300):
+        alarm = detector.observe(abs(rng.gauss(4, 1)))
+        if alarm.fired:
+            assert "one false alarm per 250" in alarm.summary()
+            return
+    raise AssertionError("expected an alarm on a 4-sigma shift")
+
+
+def test_empirical_calibration_needs_enough_in_control_data():
+    """Estimating a run length of N needs enough runs to average over."""
+    detector = SequentialDamageDetector(arl0=1000.0, calibration=150)
+    with pytest.raises(ValueError) as excinfo:
+        detector.calibrate_from([0.1] * 2000)
+    assert "ten runs' worth" in str(excinfo.value)
+
+
+def test_empirical_calibration_reports_the_gap_from_theory():
+    """On an autocorrelated stream the theoretical threshold is badly wrong.
+
+    Measured on ThermalWorld's settled residual: lag-1 autocorrelation 0.74,
+    and a *designed* ARL0 of 1000 delivers an empirical 7.8. The calibration
+    against the real stream recovers the promise and reports the inflation
+    rather than absorbing it.
+    """
+    rng = random.Random(4)
+    # An AR(1) stream stands in for the correlated case, cheaply.
+    stream, value = [], 0.0
+    for _ in range(8000):
+        value = 0.75 * value + rng.gauss(0, 1)
+        stream.append(abs(value))
+
+    detector = SequentialDamageDetector(arl0=500.0, calibration=150)
+    theoretical = detector.threshold
+    info = detector.calibrate_from(stream)
+
+    assert info["theoretical_threshold"] == pytest.approx(theoretical)
+    assert info["threshold"] > theoretical          # inflation, not deflation
+    assert info["inflation"] > 1.5
+    # And the promise now holds on the stream it was made about.
+    assert info["achieved_arl0"] == pytest.approx(500.0, rel=0.25)

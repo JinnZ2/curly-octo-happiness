@@ -34,13 +34,273 @@ Stdlib only.
 """
 
 from dataclasses import dataclass, field
+from math import exp, inf, log
 from statistics import mean, pstdev
 from typing import Dict, List, Optional, Sequence, Tuple
 
 from grounding.core.epsilon_machine import (
     equalized_history_length, reconstruct, symbolize)
 
-__all__ = ["DamageDetector", "DamageReport"]
+__all__ = [
+    "CusumAlarm",
+    "DamageDetector",
+    "DamageReport",
+    "SequentialDamageDetector",
+    "arl0_for",
+    "decision_interval_for",
+]
+
+
+# ---------------------------------------------------------------------------
+# Sequential monitoring: the right tool for looking repeatedly
+# ---------------------------------------------------------------------------
+#
+# `DamageDetector.scan()` is a fixed-sample test. Run it once on a settled
+# model it is sound; run it every step and false alarms accumulate, because
+# repeated testing is not single testing and no per-test threshold fixes that.
+#
+# CUSUM (Page 1954) is built for exactly this. It accumulates evidence instead
+# of re-testing, and Lorden's result makes it minimax optimal: among procedures
+# meeting a false-alarm constraint, it minimises worst-case detection delay. The
+# threshold is then calibrated to a *rate* rather than a per-look significance —
+# which is what turns the choice from a convention into a quantity with units.
+
+def arl0_for(decision_interval: float, reference: float = 0.5) -> float:
+    """In-control average run length: observations per false alarm.
+
+    Siegmund's approximation for a two-sided CUSUM. Reproduces the textbook
+    pairing (reference 0.5, interval 5 -> ARL0 ~ 465) to within a percent.
+    """
+    b = decision_interval + 1.166
+    drift = -reference
+    one_sided = (exp(-2 * drift * b) + 2 * drift * b - 1) / (2 * drift * drift)
+    return one_sided / 2.0
+
+
+def decision_interval_for(arl0: float, reference: float = 0.5) -> float:
+    """Invert `arl0_for`: what threshold buys this false-alarm rate?
+
+    This is the parameter worth exposing. "One false alarm per 1000
+    observations" is a statement an operator can hold an opinion about;
+    "three sigma" is a statement about a distribution's tail that says nothing
+    about how often the alarm will cry wolf on *their* stream.
+    """
+    if arl0 <= 1:
+        raise ValueError("arl0 must exceed 1 observation")
+    low, high = 0.01, 60.0
+    for _ in range(200):
+        middle = (low + high) / 2
+        if arl0_for(middle, reference) < arl0:
+            low = middle
+        else:
+            high = middle
+    return (low + high) / 2
+
+
+@dataclass
+class CusumAlarm:
+    """A sequential detection, with the evidence that accumulated to it."""
+
+    fired: bool
+    direction: str = ""              # "up" | "down"
+    statistic: float = 0.0
+    threshold: float = 0.0
+    observations: int = 0
+    since_reset: int = 0
+    baseline_mean: float = 0.0
+    baseline_sd: float = 0.0
+    arl0: float = 0.0
+
+    def summary(self) -> str:
+        if not self.fired:
+            return (f"No sequential alarm: S={self.statistic:.2f} of "
+                    f"h={self.threshold:.2f} after {self.since_reset} "
+                    f"observations")
+        return (f"CUSUM alarm ({self.direction}): S={self.statistic:.2f} "
+                f"crossed h={self.threshold:.2f} after {self.since_reset} "
+                f"observations, at a designed rate of one false alarm per "
+                f"{self.arl0:g}")
+
+
+class SequentialDamageDetector:
+    """Online residual monitor calibrated by false-alarm rate, not by sigma.
+
+    Learns a baseline from the first `calibration` observations — which assumes
+    the model has settled, and says so rather than pretending otherwise — then
+    accumulates standardised deviations in both directions. Damage that lowers
+    the residual is caught as readily as damage that raises it, which the
+    one-sided form would miss.
+    """
+
+    def __init__(self, arl0: float = 1000.0, reference: float = 0.5,
+                 calibration: int = 100):
+        """
+        Args:
+            arl0: target observations per false alarm, in control. The whole
+                point of the class: pick how often you are willing to be
+                interrupted for nothing.
+            reference: slack in baseline standard deviations. 0.5 is the
+                conventional pairing and is efficient for shifts near 1 sd.
+            calibration: observations used to learn the in-control baseline.
+        """
+        self.arl0 = arl0
+        self.reference = reference
+        self.calibration = calibration
+        self.threshold = decision_interval_for(arl0, reference)
+
+        self.baseline: List[float] = []
+        self.baseline_mean = 0.0
+        self.baseline_sd = 0.0
+        self.upper = 0.0
+        self.lower = 0.0
+        self.observations = 0
+        self.since_reset = 0
+
+    @property
+    def calibrated(self) -> bool:
+        return len(self.baseline) >= self.calibration
+
+    def observe(self, residual: float) -> CusumAlarm:
+        """Feed one residual. Returns the alarm state after this observation."""
+        value = abs(float(residual))
+        self.observations += 1
+
+        if not self.calibrated:
+            self.baseline.append(value)
+            if self.calibrated:
+                self.baseline_mean = mean(self.baseline)
+                self.baseline_sd = pstdev(self.baseline) or 1e-9
+            return CusumAlarm(fired=False, threshold=self.threshold,
+                              observations=self.observations,
+                              arl0=self.arl0)
+
+        self.since_reset += 1
+        z = (value - self.baseline_mean) / self.baseline_sd
+        self.upper = max(0.0, self.upper + z - self.reference)
+        self.lower = max(0.0, self.lower - z - self.reference)
+
+        if self.upper > self.threshold or self.lower > self.threshold:
+            up = self.upper >= self.lower
+            alarm = CusumAlarm(
+                fired=True, direction="up" if up else "down",
+                statistic=self.upper if up else self.lower,
+                threshold=self.threshold, observations=self.observations,
+                since_reset=self.since_reset,
+                baseline_mean=self.baseline_mean, baseline_sd=self.baseline_sd,
+                arl0=self.arl0)
+            self.reset_statistic()
+            return alarm
+
+        return CusumAlarm(fired=False, statistic=max(self.upper, self.lower),
+                          threshold=self.threshold,
+                          observations=self.observations,
+                          since_reset=self.since_reset,
+                          baseline_mean=self.baseline_mean,
+                          baseline_sd=self.baseline_sd, arl0=self.arl0)
+
+    def calibrate_from(self, in_control: Sequence[float],
+                       tolerance: float = 0.15) -> Dict[str, float]:
+        """Set the threshold from a real in-control stream, not from theory.
+
+        Siegmund's ARL0 is exact for independent Gaussian observations. Measured
+        on this repo's own settled residuals — lag-1 autocorrelation 0.74, still
+        0.67 at lag 90, and folded to |residual| so not remotely normal — a
+        *designed* ARL0 of 1000 delivers an empirical 7.8. Two orders of
+        magnitude. AR(1) whitening recovers almost none of it (10.2), because
+        the departure is not only serial correlation.
+
+        So the threshold is measured instead: replay an in-control sample at
+        candidate thresholds and take the one whose observed run length hits
+        the target. The promise then holds on the stream it was made about,
+        which is the only place a false-alarm rate means anything.
+
+        Returns the calibration, including `theoretical_threshold` so the size
+        of the gap stays visible rather than being quietly absorbed.
+
+        Raises:
+            ValueError: if no threshold in range achieves the target — an
+                honest failure, because the alternative is a number that
+                promises a rate the stream will not honour.
+        """
+        sample = [abs(float(v)) for v in in_control]
+        # Estimating a run length of N needs enough runs to average over. Ten
+        # expected alarms is the floor; below that the estimate jumps between
+        # single-alarm values and the calibration is fitting noise.
+        needed = int(self.calibration + 10 * self.arl0)
+        if len(sample) < needed:
+            raise ValueError(
+                f"calibrating to one false alarm per {self.arl0:g} needs about "
+                f"{needed} in-control observations (ten runs' worth plus the "
+                f"baseline window); got {len(sample)}. A shorter sample cannot "
+                "distinguish the target rate from several others.")
+
+        theoretical = self.threshold
+        # A geometric grid, not bisection: achieved ARL0 is a step function of
+        # the threshold, so bisection lands on whichever step it happens to
+        # bracket and can overshoot the target by an order of magnitude. Scan,
+        # then take the threshold whose achieved rate is closest in log terms.
+        # The range has to be generous — on an autocorrelated stream achieved
+        # ARL0 grows roughly *linearly* with the threshold rather than
+        # exponentially as normal theory has it.
+        best = None
+        candidate = max(0.5, theoretical * 0.5)
+        while candidate <= 20000.0:
+            achieved = self._replay(sample, candidate)
+            distance = abs(log(achieved / self.arl0)) if achieved > 0 else inf
+            if best is None or distance < best[2]:
+                best = (candidate, achieved, distance)
+            candidate *= 1.15
+
+        if best is None or best[2] > log(4.0):
+            raise ValueError(
+                f"no threshold gets within a factor of 4 of one false alarm "
+                f"per {self.arl0:g} on this stream. It is too far from "
+                "in-control-and-independent for a rate promise to mean "
+                "anything; monitor a whitened signal or thin the stream to its "
+                "decorrelation length.")
+
+        self.threshold, achieved = best[0], best[1]
+        if abs(achieved - self.arl0) / self.arl0 > tolerance:
+            achieved_note = f"achieved {achieved:g}, outside {tolerance:.0%}"
+        else:
+            achieved_note = f"achieved {achieved:g}"
+        return {
+            "threshold": self.threshold,
+            "theoretical_threshold": theoretical,
+            "inflation": self.threshold / theoretical if theoretical else inf,
+            "target_arl0": self.arl0,
+            "achieved_arl0": achieved,
+            "note": achieved_note,
+        }
+
+    def _replay(self, sample: Sequence[float], threshold: float) -> float:
+        """Observed run length at this threshold, on this sample."""
+        warmup = sample[:self.calibration]
+        centre, spread = mean(warmup), (pstdev(warmup) or 1e-9)
+        upper = lower = 0.0
+        runs, last = [], 0
+        for index, value in enumerate(sample[self.calibration:]):
+            z = (value - centre) / spread
+            upper = max(0.0, upper + z - self.reference)
+            lower = max(0.0, lower - z - self.reference)
+            if upper > threshold or lower > threshold:
+                runs.append(index - last)
+                last = index
+                upper = lower = 0.0
+        if not runs:
+            return float(len(sample) - self.calibration)
+        return sum(runs) / len(runs)
+
+    def reset_statistic(self) -> None:
+        """Clear the accumulators, keeping the learned baseline."""
+        self.upper = self.lower = 0.0
+        self.since_reset = 0
+
+    def rebaseline(self) -> None:
+        """Forget the baseline too — after a relearn, the old normal is gone."""
+        self.baseline.clear()
+        self.baseline_mean = self.baseline_sd = 0.0
+        self.reset_statistic()
 
 
 @dataclass
