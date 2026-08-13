@@ -48,17 +48,25 @@ Implemented in `grounding/core/vsm.py` (`ViableSystem`, `Signal`,
 **1.4 Second-order guard** — cross-validate self-model claims against independent diagnostic streams (HND) to prevent self-confirming self-descriptions (von Foerster eigenvalue drift).
 *Done as `SecondOrderGuard`, which keeps history because the failure it exists to catch is invisible in a snapshot: confidence climbing monotonically while independent error refuses to fall. It also flags plain overconfidence. `UnifiedAgent.self_model_check()` feeds it node confidence against world-model error, normalised `err/(1+err)` (raw `avg_error` is in world units, not a probability) and held back until there are ≥5 independent observations to compare against.*
 
-## Phase 2 — World model becomes a good regulator
+## Phase 2 — World model becomes a good regulator — **2.1–2.3 SHIPPED**
 
 **2.1 Causal-DAG grounding of worlds** — per Richens & Everitt (2024): make each world's causal structure explicit; score regulator quality by outcome entropy of claim resolutions. The claims tree *is* the homomorphic model the Good Regulator Theorem demands — make the homomorphism checkable (FDM roots as the invariant).
+*Done in `grounding/core/regulator.py` (`CausalDAG`, `check_homomorphism`, `regulator_score`) + `BumpyWorld.causal_dag()` + `UnifiedAgent.regulator_check()` behind the `regulator` command. The check earns its keep immediately: Ari's dependency tree preserves only 25% of the world's causal edges, is missing the primitive roots `friction` and `v_t`, and has two **invented** roots — concepts that are sources in the model but have no cause in the world. Unmapped variables are handed to hidden-node detection and journalled rather than swallowed. Collapsing several world variables onto one concept counts as legitimate abstraction, not a broken edge; losing an exogenous root does not.*
+*Correction made while wiring: the regulator score must be computed over claims that were actually **tested**, not over `status`. Each experiment evaluates its claim once, so the three-strikes status never resolves — scoring `status` reported a perfect 1.00 for an agent that had resolved nothing.*
 
 **2.2 Allostatic bands** — percentile bands shift predictively ahead of regime change (use dream-recombination rollouts as the predictor) instead of reactively; log accumulated band-shift cost as "allostatic load."
-*Files: plugins/magnetic.py, gravitational.py (init_bands), playground5_dream.py.*
+*Done as `grounding/core/allostasis.py::AllostaticBands`: `reactive_update()` (homeostatic catch-up) vs `anticipate(forecast, blend=…)` (allostatic shift), with every shift charged to a cumulative `load` and `chronic()` flagging the pay-forever-fit-never pattern — load rising while coverage does not improve. Wired into `UnifiedAgent.anticipate_bands()` behind the `bands` command, using recombined prediction-error deltas as the rollout.*
+*`miscoverage` is measured as band **utilisation** — under-range samples silently clamped into band 0, or bands nothing ever lands in — which is the requisite-variety measure from Phase 0 applied to one encoder's own repertoire. An earlier version counted samples above the top threshold as out of range; by the Gray-code convention the top band is open-ended, so those are covered by construction.*
 
 **2.3 Antifragility as a claim type** — in the transition simulator, measure $\partial^2 f/\partial\sigma^2$ of yield-vs-stressor per topology (LINE should be concave, TORUS convex). "Convexity under bounded volatility" becomes a staked, falsifiable claim tracked by Beta posteriors.
-*Files: modules/transition.py.*
+*Done in `modules/transition.py` (`stress_path`, `run_stressed`, `convexity`, `antifragility_claim`, `regime_scan`, `antifragility_report`), measured under a mean-preserving two-point drought spread with common random numbers across σ so the second difference is curvature rather than noise.*
+***The prediction is half falsified, and the claim machinery records it.*** LINE is concave as predicted. TORUS is **robust, not antifragile**: its water buffer absorbs the entire spread, so widening the spread neither gains nor costs it much (relative Jensen gap −0.0004). Both convexity claims come back refuted at the default operating point. Two things came out of measuring rather than asserting:
+- *Curvature is regime-dependent, not a property of a topology.* A buffer that absorbs **small** stressors bends the response concave at the scale it covers; only a floor capping **large** damage bends it convex. `regime_scan` maps where each topology sits.
+- *Convexity is not automatically antifragility.* LINE goes convex under heavy stress purely because yield has bottomed out at zero — losses stop growing because there is nothing left to lose. The measurement therefore carries a viability test, and reports Taleb's full triad (fragile / robust / antifragile) instead of a convexity binary.
+- *Sensitivity checked:* strengthening the hormesis term does **not** flip TORUS convex — it makes it more concave, because the hormesis gain sits inside the buffer, so a wider spread only ever loses it. Antifragility here would need capacity built by the stressors that *exceed* the buffer, which is a different mechanism. Left unbuilt: searching for a mechanism that makes the prediction true would be rigging the measurement.
 
 **2.4 SOC stress layer (optional)** — world variants where hidden variables accumulate stress and release in power-law avalanches; HND detects them by fitting $P(s)\sim s^{-\tau}$ tails in residual events.
+*Not built — the plan marks it optional and it needs a new world variant rather than an upgrade to an existing one.*
 
 ## Phase 3 — Robotics embodiment layer
 
@@ -81,7 +89,9 @@ Implemented in `grounding/core/vsm.py` (`ViableSystem`, `Signal`,
 - **Complexity-instrumented falsification playground:** ε-machine acceptance + graph-energy topology scoring + antifragility claim type = a citable methodology paper.
 
 ## Status
-Phases 0 and 1 are implemented and tested (`tests/test_epsilon_machine.py`, `tests/test_variety.py`, `tests/test_vsm.py`, the Phase 0 blocks in `tests/test_sds.py`, and the variety tests in `tests/test_plugins.py`); `cd modules && python main.py` runs the diagnostic pipeline with both Phase 0 upgrades enabled, and `python unified_playground.py` exposes the Phase 1 channels. Phases 2–4 are still plan.
+Phases 0, 1 and 2.1–2.3 are implemented and tested (`tests/test_epsilon_machine.py`, `tests/test_variety.py`, `tests/test_vsm.py`, `tests/test_regulator.py`, the Phase 0 and 2.3 blocks in `tests/test_sds.py`, and the variety tests in `tests/test_plugins.py`); `cd modules && python main.py` runs the diagnostic pipeline with both Phase 0 upgrades enabled, and `python unified_playground.py` exposes the Phase 1 and 2 channels (`vsm`, `pain`, `self-check`, `regulator`, `bands`, teachback). Phase 2.4 and Phases 3–4 are still plan.
+
+Worth reading together: Phase 2 produced the roadmap's first **falsified** predictions — TORUS is robust rather than antifragile, and Ari's dependency tree preserves a quarter of the world's causal structure. Both were staked as claims and refuted by measurement, which is the repo working as designed rather than the plan failing.
 
 Separately, `scripts/hypothesis_engine.py` (design doc `design/hypothesis_engine.md`) implements the research-pipeline half of Phase 4's "contribution back" — it stakes and tests literature claims in this same machinery on a weekly schedule.
 

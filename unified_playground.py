@@ -11,11 +11,14 @@ EpisodicMemory, BumpyWorld, WorldModel, Gray coding) live in the
 
 import random, math, re
 
+from grounding.core.allostasis import AllostaticBands
 from grounding.core.claims import Claim, DependencyTree
 from grounding.core.epistemics import classify_falsifiability
 from grounding.core.graycode import gray_bits
 from grounding.core.memory import EpisodicMemory
 from grounding.core.mentor import TeachbackMentor
+from grounding.core.regulator import (
+    CausalDAG, check_homomorphism, homomorphism_report, regulator_score)
 from grounding.core.vsm import AlgedonicSignal, SecondOrderGuard, Signal, ViableSystem
 from grounding.worlds.bumpy import BumpyWorld, WorldModel
 
@@ -334,6 +337,94 @@ class UnifiedAgent:
         self.guard = SecondOrderGuard()
         self.vsm = self._build_vsm()
         self.pain = []           # algedonic signals awaiting the operator's eyes
+
+        # Allostatic bands over prediction error (Phase 2.2). Dreams supply the
+        # forecast; the load counter records what the anticipation costs.
+        self.bands = AllostaticBands([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 1.0],
+                                     name="prediction_error")
+
+    # ------------------------------------------------------------------
+    # Phase 2 — good regulator and allostatic bands
+    # ------------------------------------------------------------------
+
+    def model_dag(self):
+        """The agent's own causal picture, read off the dependency tree.
+
+        This is the candidate homomorphic image: concepts as variables,
+        dependencies as arrows. It is built from what the agent actually
+        believes, not from what it ought to believe, which is the only way the
+        comparison below can fail.
+        """
+        dag = CausalDAG("Ari's dependency tree")
+        for name, node in self.tree.nodes.items():
+            dag.nodes.add(name)
+            for dependency in node.deps:
+                dag.add_edge(dependency, name)
+        return dag
+
+    # How the agent's concepts line up with the world's variables. Stated
+    # explicitly so the mapping itself is reviewable — a wrong mapping is a
+    # wrong claim about what the agent thinks it is tracking.
+    WORLD_MAPPING = {
+        "x_t": "far_from_origin",
+        "slope_t": "slope_knowledge",
+        "force_t": "move_right",
+        "v_next": "world_model_accuracy",
+        "x_next": "world_model_accuracy",
+        "terrain_next": "world_model_accuracy",
+    }
+
+    def regulator_check(self):
+        """Is the claims tree a homomorphic model of the world (2.1)?"""
+        world = self.world.causal_dag()
+        result = check_homomorphism(world, self.model_dag(), self.WORLD_MAPPING)
+        # Only *tested* claims are outcomes. An untested claim has not happened
+        # yet, and counting it would score an agent that never tests anything as
+        # a perfect regulator. Note the outcome is the claim's evidence balance,
+        # not `status`: each experiment evaluates its claim once, so the
+        # three-strikes status never resolves and would score nothing at all.
+        outcomes = ["held" if c.passed > c.failed else "refuted"
+                    for node in self.tree.nodes.values() for c in node.claims
+                    if c.passed + c.failed > 0]
+        result["regulator_score"] = round(regulator_score(outcomes), 4) if outcomes else None
+        result["n_resolutions"] = len(outcomes)
+        for candidate in result["hidden_node_candidates"]:
+            self.journal.record(
+                f"World variable '{candidate}' has no concept in my model",
+                note="good-regulator check: unmodelled causal source")
+        return result
+
+    def regulator_report(self):
+        world = self.world.causal_dag()
+        text = homomorphism_report(world, self.model_dag(), self.WORLD_MAPPING)
+        result = self.regulator_check()
+        if result["n_resolutions"]:
+            text += (f"\nRegulator score: {result['regulator_score']:.2f} "
+                     f"over {result['n_resolutions']} claim resolutions "
+                     f"(1.0 = outcomes fully determined, 0.0 = coin flips)")
+        else:
+            text += "\nRegulator score: no claims resolved yet."
+        return text
+
+    def anticipate_bands(self):
+        """Shift the error bands ahead of the regime, using dreams as the forecast.
+
+        The dream mechanism recombines memory fragments; the numbers attached to
+        those fragments are this agent's only forecast of where it is going. It
+        is a weak predictor, which is exactly why `AllostaticBands` charges the
+        shift to a load counter and flags the chronic case.
+        """
+        recent = [abs(e) for e in self.wm.error_hist]
+        if len(recent) < 8:
+            return None
+        for value in recent:
+            self.bands.observe(value)
+        # Rollout: recombine recent error pairs the way dreams recombine
+        # fragments, projecting the drift forward one step.
+        rollout = []
+        for a, b in zip(recent, recent[1:]):
+            rollout.append(max(0.0, b + (b - a)))
+        return self.bands.anticipate(rollout)
 
     def _build_vsm(self):
         """Map what already exists onto Beer's five systems.
@@ -678,6 +769,13 @@ class UnifiedAgent:
         if c in ("self-check", "selfcheck", "second-order"):
             self.self_model_check()
             return self.guard.report()
+        if c in ("regulator", "homomorphism"):
+            return self.regulator_report()
+        if c in ("bands", "allostasis"):
+            shifted = self.anticipate_bands()
+            if shifted is None:
+                return "📉 Not enough prediction-error history to forecast bands yet."
+            return self.bands.report()
         if c.startswith("explain "):
             body = cmd.strip()[8:]
             if "::" not in body:
