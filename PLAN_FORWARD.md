@@ -22,7 +22,13 @@ Track $H(\text{disturbance codewords})$ vs $H(\text{agent response repertoire})$
 *Shipped as `grounding/core/variety.py::VarietyMeter` (Shannon or Ashby-counting variety, optional window) wired into `plugins/physics_discovery.py`: `variety_status(stream)` measures the stream's disturbance variety at 32-bin reference resolution against the codewords the loaded encoders can actually produce, and `run_full_discovery(trigger="variety"|"either")` builds an encoder on that alarm. The two triggers catch different failures — novelty says "I have never seen this", variety says "I can no longer tell these apart" — and only the second fires on in-range data the bands have gone too coarse for.*
 *Not done: `grounding/worlds/` is untouched — the meter is wired to the sensor bus, not yet to a world's disturbance/response loop.*
 
-## Phase 1 — Cybernetic architecture (VSM instantiation)
+## Phase 1 — Cybernetic architecture (VSM instantiation) — **SHIPPED**
+
+Implemented in `grounding/core/vsm.py` (`ViableSystem`, `Signal`,
+`AlgedonicSignal`, `SecondOrderGuard`) and `grounding/core/mentor.py`
+(`TeachbackMentor`), wired into `unified_playground.py` behind the commands
+`vsm`, `pain`, `self-check`, `explain … :: …`, `teachback … :: …`, `confirm`,
+`correct … :: …`, `learned`. Tests in `tests/test_vsm.py`.
 
 **1.1 VSM mapping** — structurally instantiate Beer's five systems:
 - S1 = worlds/plugins (autonomous units staking claims)
@@ -31,13 +37,16 @@ Track $H(\text{disturbance codewords})$ vs $H(\text{agent response repertoire})$
 - S4 = physics-discovery loop + dreams + UnknownJournal horizon scan
 - S5 = mentor/governance adjudicating the S3/S4 (exploit/explore) homeostat — the existing self-model error signal is exactly the bid variable S4 needs
 
+*Done as `UnifiedAgent._build_vsm()`: the mapping is a registry signals actually route through, not a comment. S2 damps reports from healthy units; S3 spends attention only on what the audit channel calls actionable.*
+
 **1.2 Algedonic channel** — diagnostic-critical events (thermal-runaway quarantine bit already exists in hardware encoder) must bypass trust-field mediation straight to S5/mentor. Generalize the quarantine override into a first-class `AlgedonicSignal` routed in unified_playground.
-*Files: unified_playground.py, diagnostic/, plugins/.*
+*Done. Every `Signal` carries the `path` it travelled, so "it bypassed mediation" is checkable per message: `route()` records S1→S2→S3→S5 and can be attenuated at any hop, `raise_algedonic()` records S1→S5 and consults no mediator. `hardware_scan()` runs every experiment step, so the quarantine override no longer waits for an operator to run `check` on the right component. Added beyond the sketch: the channel is rate-guarded — `saturated()` reports when pain has become the weather, which is itself a diagnosis (either the units are failing en masse or the threshold is too low to mean anything).*
 
 **1.3 Teachback claims (Pask)** — mentor interaction becomes falsifiable: agent reconstructs the mentor's explanation as a claim; mentor confirmation resolves it through the existing Beta-posterior machinery. Concepts are only "learned" after teachback survives.
-*Files: grounding/core/mentor.py, claims.py.*
+*Done as `TeachbackMentor`. Two design calls the sketch did not anticipate:* (a) the automatic word-overlap check only votes where it can — reciting the explanation back is decisively **not** reconstruction, but low overlap cannot distinguish "missed it" from "paraphrased in synonyms", so it abstains and waits for the mentor (the same posture as Phase 0's untested-is-not-refuted); (b) a reworded reconstruction goes through `claim.reformulate()` rather than starting a fresh claim, so retrying until something sticks trips the existing escape-hatch counter — and an escape-hatched concept is never `learned()` however good the fourth wording looks.
 
 **1.4 Second-order guard** — cross-validate self-model claims against independent diagnostic streams (HND) to prevent self-confirming self-descriptions (von Foerster eigenvalue drift).
+*Done as `SecondOrderGuard`, which keeps history because the failure it exists to catch is invisible in a snapshot: confidence climbing monotonically while independent error refuses to fall. It also flags plain overconfidence. `UnifiedAgent.self_model_check()` feeds it node confidence against world-model error, normalised `err/(1+err)` (raw `avg_error` is in world units, not a probability) and held back until there are ≥5 independent observations to compare against.*
 
 ## Phase 2 — World model becomes a good regulator
 
@@ -72,7 +81,9 @@ Track $H(\text{disturbance codewords})$ vs $H(\text{agent response repertoire})$
 - **Complexity-instrumented falsification playground:** ε-machine acceptance + graph-energy topology scoring + antifragility claim type = a citable methodology paper.
 
 ## Status
-Phase 0 is implemented and tested (`tests/test_epsilon_machine.py`, `tests/test_variety.py`, the Phase 0 blocks in `tests/test_sds.py`, and the variety tests in `tests/test_plugins.py`); `cd modules && python main.py` runs the pipeline with both upgrades enabled. Phases 1–4 are still plan.
+Phases 0 and 1 are implemented and tested (`tests/test_epsilon_machine.py`, `tests/test_variety.py`, `tests/test_vsm.py`, the Phase 0 blocks in `tests/test_sds.py`, and the variety tests in `tests/test_plugins.py`); `cd modules && python main.py` runs the diagnostic pipeline with both Phase 0 upgrades enabled, and `python unified_playground.py` exposes the Phase 1 channels. Phases 2–4 are still plan.
+
+Separately, `scripts/hypothesis_engine.py` (design doc `design/hypothesis_engine.md`) implements the research-pipeline half of Phase 4's "contribution back" — it stakes and tests literature claims in this same machinery on a weekly schedule.
 
 ## Sequencing rationale
 Phase 0 sharpens what exists with no new subsystems. Phase 1 reorganizes control flow (cheap, mostly routing). Phase 2 deepens world fidelity. Phase 3 adds embodiment. Phase 4 packages results. Each phase yields falsifiable claims testable inside the repo itself — the plan eats its own cooking.

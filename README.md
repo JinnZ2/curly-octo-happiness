@@ -15,7 +15,7 @@ sensor-fusion encoders.
 ```bash
 git clone https://github.com/JinnZ2/curly-octo-happiness && cd curly-octo-happiness
 python garden.py                              # watch an agent make & falsify 100 claims
-python unified_playground.py                  # chat with Ari ('experiment 5', 'why right', 'exit')
+python unified_playground.py                  # chat with Ari ('experiment 5', 'vsm', 'pain', 'exit')
 python diagnostic/systems_diagnostic_suite.py # geometry diagnostics + hidden-node demo
 python scripts/hypothesis_engine.py --dry-run # research pipeline, offline sample corpus
 ```
@@ -27,7 +27,7 @@ The root playgrounds are stdlib-only (run them from the repo root — they use t
 
 ```bash
 pip install -e ".[test]"     # optional: installable package + test deps
-python -m pytest tests/     # 82 tests (1 skipped without plotly)
+python -m pytest tests/     # 105 tests (1 skipped without plotly)
 ```
 
 ## What's in here
@@ -39,7 +39,7 @@ python -m pytest tests/     # 82 tests (1 skipped without plotly)
 | Unified agent line | `unified_playground*.py` | The above merged, growing per version (dreams, skills, hardware, chemistry) |
 | Plugin encoders | `plugin_manager*.py`, `plugins/` | Physical sensor data → Gray-coded bitstreams (EM, magnetic, GW, light, affect) |
 | Systems Diagnostic Suite | `modules/`, `diagnostic/` | GAE (geometry fit + structural complexity/attack tolerance), HND (hidden variables from residuals, ε-machine acceptance), FDM (root tracing) |
-| Complexity & cybernetics | `grounding/core/epsilon_machine.py`, `variety.py` | Causal-state reconstruction (C_mu, h_mu) and Ashby's requisite-variety alarm |
+| Complexity & cybernetics | `grounding/core/epsilon_machine.py`, `variety.py`, `vsm.py` | Causal-state reconstruction (C_mu, h_mu), Ashby's requisite-variety alarm, Beer's five systems with a bypassing algedonic channel |
 | Shape Board | `project/` | GAE recommendations rendered as interactive 3D task shapes (plotly) |
 | Hypothesis engine | `scripts/hypothesis_engine.py`, `config/topics.json` | Weekly autonomous research pipeline: explore scholarly APIs → stake claims → cross-source test → consolidate hypothesis drafts |
 
@@ -56,9 +56,11 @@ simulation, and complexity engineering / cybernetics / robotics). Start at
 [`PLAN_FORWARD.md`](PLAN_FORWARD.md) is the roadmap those notes feed: a phased plan for
 grounding the existing heuristics (HND thresholds, GAE scores, adaptive bands) in
 validated theory, then layering a cybernetic architecture, a good-regulator world model,
-and a robotics embodiment layer on top. **Phase 0 is implemented** — ε-machine acceptance
-in HND, structural complexity and attack tolerance in GAE, and the requisite-variety alarm
-on the physics-discovery loop; Phases 1–4 are still plan.
+and a robotics embodiment layer on top. **Phases 0 and 1 are implemented** — ε-machine
+acceptance in HND, structural complexity and attack tolerance in GAE, the requisite-variety
+alarm on the physics-discovery loop, and Beer's VSM with a genuinely bypassing algedonic
+channel, Pask teachback claims, and a second-order guard against self-confirming
+self-description; Phases 2–4 are still plan.
 
 ## Why this matters
 
