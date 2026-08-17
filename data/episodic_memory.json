@@ -1,0 +1,1362 @@
+[
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Cognitive Architectures for Language Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2309.02427v3",
+    "date": "2023-09-05"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Large Language Model Evaluation Via Multi AI Agents: Preliminary results",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2404.01023v1",
+    "date": "2024-04-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Learning From Failure: Integrating Negative Examples when Fine-tuning Large Language Models as Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2402.11651v2",
+    "date": "2024-02-18"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] How do language models learn facts? Dynamics, curricula and hallucinations",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2503.21676v2",
+    "date": "2025-03-27"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Agents: An Open-source Framework for Autonomous Language Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2309.07870v3",
+    "date": "2023-09-14"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Calibrating the Confidence of Large Language Models by Eliciting Fidelity",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2404.02655v2",
+    "date": "2024-04-03"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Agentic Confidence Calibration",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2601.15778v1",
+    "date": "2026-01-22"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Mobile-Agent: Autonomous Multi-Modal Mobile Device Agent with Visual Perception",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2401.16158v2",
+    "date": "2024-01-29"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Retrospex: Language Agent Meets Offline Reinforcement Learning Critic",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2505.11807v2",
+    "date": "2025-05-17"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Unforgettable Generalization in Language Models",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2409.02228v2",
+    "date": "2024-09-03"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Behaviorally-Calibrated Finance Agents (BCFA\u2122): A Framework for Confidence-Gated Agentic AI in Regulatory Finance Filings",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.2139/ssrn.5650070",
+    "date": "2025"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Count With Confidence: Calibrated Confidence Interval Prediction for Crowd Counting",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.36227/techrxiv.172503508.87325247/v1",
+    "date": "2024-08-30"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Confidence-calibrated federated graph attention for internet of things agents under latency SLOs",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.1038/s41598-026-45662-3",
+    "date": "2026-03-28"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Pseudo-label Learning with Calibrated Confidence Using an Energy-based Model",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.1109/ijcnn60899.2024.10650805",
+    "date": "2024-06-30"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Point2Brick: Automating building semantic model creation via multi-stage confidence-aware Large Language Model agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.1016/j.enbuild.2026.117516",
+    "date": "2026-07"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Confidence-Calibrated Small-Large Language Model Collaboration for Cost-Efficient Reasoning",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.18653/v1/2026.eacl-long.208",
+    "date": "2026"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Calibrated Per-Carrier Confidence and Certified Pruning for Gaussian-Splat Assets",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.31224/7689",
+    "date": "2026-07-25"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] The Augmented Behavioural Capacity (ABC) Model: Large Language Model Assistance and Calibrated Retail-Investor Decision-Making",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.20944/preprints202607.0315.v1",
+    "date": "2026-07-06"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Semantic Validation Gates: A Computable, Statistically Calibrated Framework for Runtime Verification of Language-Model Outputs",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.2139/ssrn.7157718",
+    "date": "2026"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Advancing Glaucoma Diagnosis: Employing Confidence-Calibrated Label Smoothing Loss for Model Calibration",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.1016/j.xops.2024.100555",
+    "date": "2024-11"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Cryptographically verifiable authorization for autonomous AI agents: A falsifiable hypothesis and proof-of-concept",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2607.21325v2",
+    "date": "2026-07-23"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Learning the Value Systems of Agents with Preference-based and Inverse Reinforcement Learning",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2602.04518v1",
+    "date": "2026-02-04"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Establishing Shared Query Understanding in an Open Multi-Agent System",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2305.09349v1",
+    "date": "2023-05-16"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Distributed Quantum Gaussian Processes for Multi-Agent Systems",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2602.15006v2",
+    "date": "2026-02-16"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Caging the Agents: A Zero Trust Security Architecture for Autonomous AI in Healthcare",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2603.17419v1",
+    "date": "2026-03-18"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Personality-Driven Decision-Making in LLM-Based Autonomous Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2504.00727v1",
+    "date": "2025-04-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Multi-agent Reinforcement Learning for Cooperative Lane Changing of Connected and Autonomous Vehicles in Mixed Traffic",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2111.06318v2",
+    "date": "2021-11-11"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Autonomous Agents Modelling Other Agents: A Comprehensive Survey and Open Problems",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/1709.08071v2",
+    "date": "2017-09-23"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Deception and Communication in Autonomous Multi-Agent Systems: An Experimental Study with Among Us",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2603.26635v1",
+    "date": "2026-03-27"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] A Survey of Multi-Agent Deep Reinforcement Learning with Communication",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2203.08975v2",
+    "date": "2022-03-16"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Auditability Before Ontology: Operational Gates for Subjecthood Claims A Falsifiable Framework for Stakebearing Identity and Governance",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.2139/ssrn.6181600",
+    "date": "2026"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Agents of Context: A Methodological Critique and Counter-Evidence Analysis of Adversarial Red-Teaming Claims for Autonomous AI Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.65737/airjir2026369",
+    "date": "2026-03-02"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Is static or cidal antibiotic falsifiable?",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.1128/aac.01361-25",
+    "date": "2025-11-05"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] A Hybrid Approach for Detecting Fraudulent Medical Insurance Claims: (Extended Abstract)",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.65109/idcf1732",
+    "date": "2016-05-09"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] From Actuary to Algorithm: Quantifying the Operational Efficiency Gains and Cost Reduction Potential of AI Agents in Transforming Core Underwriting, Claims, and Policy Administration for the Autonomous Insurance Enterprise",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.2139/ssrn.5560122",
+    "date": "2025"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Autonomous Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.1007/978-1-4615-5739-5_5",
+    "date": "1998"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Linearly anticipatory autonomous agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.1145/267658.267784",
+    "date": "1997"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Planning Falsifiable Confirmatory Research",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.31234/osf.io/pu2xy",
+    "date": "2023-03-04"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Evolving Self-Organising Agents Without Fitness: Three Falsifiable Experiments from Constraint-Driven Selection to Developmental Encoding",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.1145/3795101.3814687",
+    "date": "2026-07-13"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Synthesizing Coordination Requirements for Heterogeneous Autonomous Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.1023/a:1010033827337",
+    "date": "2000-06"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Explicit Abstention Knobs for Predictable Reliability in Video Question Answering",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2601.00138v2",
+    "date": "2025-12-31"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Hallucination, abstention, and computable inseparability",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2604.28067v2",
+    "date": "2026-04-30"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Mitigating Multimodal Hallucination via Phase-wise Self-reward",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2604.17982v1",
+    "date": "2026-04-20"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Mitigating LLM Hallucinations via Conformal Abstention",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2405.01563v1",
+    "date": "2024-04-04"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] An Explainable Agentic AI Framework for Uncertainty-Aware and Abstention-Enabled Acute Ischemic Stroke Imaging Decisions",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2601.01008v1",
+    "date": "2026-01-03"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Hallucination as output-boundary misclassification: a composite abstention architecture for language models",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2604.06195v1",
+    "date": "2026-03-12"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Are Hallucinations Bad Estimations?",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2509.21473v1",
+    "date": "2025-09-25"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] I-CALM: Incentivizing Confidence-Aware Abstention for LLM Hallucination Mitigation",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2604.03904v1",
+    "date": "2026-04-05"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] First Hallucination Tokens Are Different from Conditional Ones",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2507.20836v4",
+    "date": "2025-07-28"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Hallucinated Adversarial Learning for Robust Visual Tracking",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/1906.07008v1",
+    "date": "2019-06-17"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Evidence-Calibrated RAG for Unanswerable Question Answering: Retrieval Coverage, Abstention Calibration, and Hallucination-Proxy Analysis on SQuAD 2.0",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.51903/jtie.v4i2.536",
+    "date": "2025-08-25"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Hallucination in Generative AI as Evaluative and Institutional Misalignment: The Hallucination-Institutional Nexus and Institutional Calibration",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.2139/ssrn.7219578",
+    "date": "2026"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Deference and Abstention",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.23943/princeton/9780691154442.003.0005",
+    "date": "2012-04-29"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Abstention",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.1007/springerreference_223509",
+    "date": "None"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Abstaining from Abstention: Why Younger Abstention Does Not Apply in 42 U.S.C \u00a7 1983 Bail Litigation",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.2139/ssrn.4122260",
+    "date": "2022"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Do LLMs Know When Evidence is Insufficient? An Evidence Sufficiency Benchmark for Answer-Abstention Calibration in Retrieval-Augmented Generation",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.32604/cmc.2026.086343",
+    "date": "2026"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Hallucination and Landscape",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.5040/9781350905184",
+    "date": "2010"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] abstention, n.",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.1093/oed/1045263604",
+    "date": "2023-03-02"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.69987/aimlr.2025.60401",
+    "date": "2025-10-05"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Hot Contention, Cool Abstention",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.1093/oso/9780190693916.003.0005",
+    "date": "2021-02-19"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Mitigating Hidden Confounding by Progressive Confounder Imputation via Large Language Models",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2507.02928v1",
+    "date": "2025-06-26"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Personalized Residuals for Concept-Driven Text-to-Image Generation",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2405.12978v1",
+    "date": "2024-05-21"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Mitigating Hidden Confounding Effects for Causal Recommendation",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2205.07499v2",
+    "date": "2022-05-16"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Detecting Botnets Through Log Correlation",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/1001.2665v1",
+    "date": "2010-01-15"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Environment Reconstruction with Hidden Confounders for Reinforcement Learning based Recommendation",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/1907.06584v1",
+    "date": "2019-07-12"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Detecting hidden confounding in observational data using multiple environments",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2205.13935v4",
+    "date": "2022-05-27"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Review Residuals: Update-Conditioned Residual Gating for Transformers",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2606.31859v1",
+    "date": "2026-06-30"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Confounder Detection in High Dimensional Linear Models using First Moments of Spectral Measures",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/1803.06852v2",
+    "date": "2018-03-19"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Context-specific kernel-based hidden Markov model for time series analysis",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2301.09870v2",
+    "date": "2023-01-24"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2504.09480v1",
+    "date": "2025-04-13"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Causal discovery of linear non-Gaussian acyclic models in the presence of latent confounders",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2001.04197v4",
+    "date": "2020-01-13"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Causal discovery for time series with latent confounders",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2209.03427v1",
+    "date": "2022-09-07"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Robust Time Series Causal Discovery for Agent-Based Model Validation",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2410.19412v3",
+    "date": "2024-10-25"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Bootstrap aggregation and confidence measures to improve time series causal discovery",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2306.08946v2",
+    "date": "2023-06-15"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Latent-Y: A Lab-Validated Autonomous Agent for De Novo Drug Design",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2603.29727v2",
+    "date": "2026-03-31"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Latent-X: An Atom-level Frontier Model for De Novo Protein Binder Design",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2507.19375v1",
+    "date": "2025-07-25"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Discovery of Causal Additive Models in the Presence of Unobserved Variables",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2106.02234v1",
+    "date": "2021-06-04"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Drug-like antibodies with low immunogenicity in human panels designed with Latent-X2",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2512.20263v1",
+    "date": "2025-12-23"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Clustering Multivariate Time Series using Energy Distance",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2303.14295v1",
+    "date": "2023-03-24"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Score matching through the roof: linear, nonlinear, and latent variables causal discovery",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2407.18755v2",
+    "date": "2024-07-26"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Quantitative probing: Validating causal models using quantitative domain knowledge",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/2209.03013v1",
+    "date": "2022-09-07"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Human in the Loop: Interactive Passive Automata Learning via Evidence-Driven State-Merging Algorithms",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/1707.09430v1",
+    "date": "2017-07-28"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] A Unifying Causal Framework for Analyzing Dataset Shift-stable Learning Algorithms",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/1905.11374v5",
+    "date": "2019-05-27"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] STream3R: Scalable Sequential 3D Reconstruction with Causal Transformer",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/2508.10893v1",
+    "date": "2025-08-14"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Reconstruction of Epsilon-Machines in Predictive Frameworks and Decisional States",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/0902.0600v5",
+    "date": "2009-02-03"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Predicting Market Troughs: A Machine Learning Approach with Causal Interpretation",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/2509.05922v1",
+    "date": "2025-09-07"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Text as Causal Mediators: Research Design for Causal Estimates of Differential Treatment of Social Groups via Language Aspects",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/2109.07542v1",
+    "date": "2021-09-15"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Estimating Supply Incrementality in Two-sided Marketplaces: A Causal Machine Learning Approach",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/2606.30999v1",
+    "date": "2026-06-30"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Long Story Short: Omitted Variable Bias in Causal Machine Learning",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/2112.13398v5",
+    "date": "2021-12-26"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] A Scoping Review of Earth Observation and Machine Learning for Causal Inference: Implications for the Geography of Poverty",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/2406.02584v4",
+    "date": "2024-05-30"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Range entropy: A bridge between signal complexity and self-similarity",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/1809.06500v3",
+    "date": "2018-09-18"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Open Problems within Nonextensive Statistical Mechanics",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/2401.02977v2",
+    "date": "2023-12-31"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] On Complexity and Emergence",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/nlin/0101006v1",
+    "date": "2001-01-02"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] A Spacetime Foam Approach to the Schwarzschild-de Sitter Entropy",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/gr-qc/0003089v1",
+    "date": "2000-03-22"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Linear Quantum Entropy and Non-Hermitian Hamiltonians",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/1612.05917v1",
+    "date": "2016-12-18"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Corrections to Bekenstein-Hawking entropy --- Quantum or not-so quantum?",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/1101.0030v1",
+    "date": "2010-12-30"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Unfolding the complexity of the global value chain: Strengths and entropy in the single-layer, multiplex, and multi-layer international trade networks",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/1809.07407v2",
+    "date": "2018-09-19"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] R\u00e9nyi Entropy Power Inequalities via Normal Transport and Rotation",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/1807.02622v2",
+    "date": "2018-07-07"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Complexity of Networks (reprise)",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/0911.3482v5",
+    "date": "2009-11-18"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] A note on the connection between non-additive entropy and $h$-derivative",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/1905.07706v4",
+    "date": "2019-05-19"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] A Formal Definition of Scale-dependent Complexity and the Multi-scale Law of Requisite Variety",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/2206.04896v2",
+    "date": "2022-06-10"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Requisite Variety, Autopoiesis, and Self-organization",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/1409.7475v2",
+    "date": "2014-09-26"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Plankton: the paradox and the power law",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/1705.05327v1",
+    "date": "2017-05-15"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] A stability analysis of the power-law steady state of marine size spectra",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/1001.3826v3",
+    "date": "2010-01-21"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Incorporating AI incident reporting into telecommunications law and policy: Insights from India",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/2509.09508v2",
+    "date": "2025-09-11"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Superintelligence and Law",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/2603.28669v1",
+    "date": "2026-03-30"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Data-Dependent Goal Modeling for ML-Enabled Law Enforcement Systems",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/2601.06237v1",
+    "date": "2026-01-09"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Leveraging Environmental Correlations: The Thermodynamics of Requisite Variety",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/1609.05353v1",
+    "date": "2016-09-17"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Discrete simulation of power law noise",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/1103.5062v1",
+    "date": "2011-03-25"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Cotangent Bundles of Partial Flag Varieties and Conormal Varieties of their Schubert Divisors",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/1712.00107v1",
+    "date": "2017-11-30"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Requisite Variety and Its Implications for the Control of Complex Systems",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.1007/978-1-4899-0718-9_28",
+    "date": "1991"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] D'Zilva's Addition to Ashby's Law of Requisite Variety",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.2139/ssrn.6452601",
+    "date": "2026"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Ashby\u2019s Law of Requisite Variety and Its Application",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.1201/9781315370903-11",
+    "date": "2016-08-19"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] NLP and the Law of Requisite Variety",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.4324/9781315099569-6",
+    "date": "2018-05-15"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] A Capacity-Based Theory of Complexity Control in Megaprojects: Structural Demands, Regulatory Capacity, and Ashby's Law of Requisite Variety",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.31235/osf.io/3hdn5_v1",
+    "date": "2026-03-31"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Requisite Variety For Ai Security",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.2139/ssrn.6255362",
+    "date": "2026"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Law of requisite variety: a case of IT and business alignment",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.20470/jsi.v2i3.91",
+    "date": "2011"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] The law of requisite variety: Is it applicable to human systems?",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.3233/hsm-1986-6401",
+    "date": "1986-12-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Complexity and Organization\u2013Environment Relations: Revisiting Ashby's Law of Requisite Variety",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.4135/9781446201084.n17",
+    "date": "2011"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] H\u221e entropy and the law of requisite variety",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.1109/cdc.2003.1272961",
+    "date": "None"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] What-If World: A Causal Benchmark for General World Models in Embodied Scenarios",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/2605.27589v1",
+    "date": "2026-05-26"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Causal inference via algebraic geometry: feasibility tests for functional causal structures with two binary observed variables",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/1506.03880v2",
+    "date": "2015-06-12"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] A \"Good\" Regulator May Provide a World Model for Intelligent Systems",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/2506.23032v2",
+    "date": "2025-06-28"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] WorldGym: World Model as An Environment for Policy Evaluation",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/2506.00613v3",
+    "date": "2025-05-31"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Causal Regime Detection in Energy Markets With Augmented Time Series Structural Causal Models",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/2511.04361v2",
+    "date": "2025-11-06"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Multi-Domain Causal Discovery in Bijective Causal Models",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/2504.21261v1",
+    "date": "2025-04-30"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] A \u2018good\u2019 regulator may provide a world model for intelligent systems",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.1098/rsta.2025.0007",
+    "date": "2026-05-14"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] The Causal/Mechanical Model",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.1515/9780691221489-046",
+    "date": "1985-12-31"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.2139/ssrn.7216139",
+    "date": "2026"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] A Representation Theorem for Causal Decision Theory",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.1017/cbo9780511498497.009",
+    "date": "1999-04-13"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] A \u201cGood Regulator Theorem\u201d for Embodied Agents",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.1162/isal.a.874",
+    "date": "2025-10"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Theorem 2 for the Continuous Time Model (Real-World Model)",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.4324/9781032726410-19",
+    "date": "2024-06-14"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] The Rybczynski theorem in the three-factor, two-good model",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.1016/0165-1765(85)90215-0",
+    "date": "1985-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Model Projects and the Difficulty of Predicting Future Success",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.1093/oso/9780192849977.003.0009",
+    "date": "2022-01-20"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Theorem 1 for the Real-World Model",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.4324/9781032726410-20",
+    "date": "2024-06-14"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] GeoCausal: A Geometric-Causal World Model Integrating System 1 and System 2 for Embodied Reasoning",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.2139/ssrn.6089867",
+    "date": "2026"
+  }
+]

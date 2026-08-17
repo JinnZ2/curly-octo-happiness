@@ -1,0 +1,1260 @@
+{
+  "claims": [
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 3.5 result",
+      "id": "64cda870547bd0fa",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2024-04-01",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "arxiv",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "http://arxiv.org/abs/2404.01023v1",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "fa921cc3072b40375b4dc010fbec1268cb7d6d8840ab78e9f01beac079f5d854",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "e99d0eb8958c477c19209ece0d153c09b5153709771320689821492359cd6436",
+        "6bd67bf6f0178524488a121cdf3f62314fa6eae85817ebc6ba8c8b9832c378ae",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "06cfccec4fe6e7af58d2759bba58edbe446e0283d8833ce362d9126d60c17ce4",
+        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Large Language Model Evaluation Via Multi AI Agents: Preliminary results reports: As Large Language Models (LLMs) have become integral to both research and daily operations, rigorous evaluation is crucial. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 6 result",
+      "id": "9e951858059649c1",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2024-04-03",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "arxiv",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "http://arxiv.org/abs/2404.02655v2",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "fa921cc3072b40375b4dc010fbec1268cb7d6d8840ab78e9f01beac079f5d854",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "06cfccec4fe6e7af58d2759bba58edbe446e0283d8833ce362d9126d60c17ce4",
+        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Calibrating the Confidence of Large Language Models by Eliciting Fidelity reports: Large language models optimized with techniques like RLHF have achieved good alignment in being helpful and harmless. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 0.0 result",
+      "id": "da60ac8b37d43ee4",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "crossref records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026-07-25",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "crossref",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "https://doi.org/10.31224/7689",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "e99d0eb8958c477c19209ece0d153c09b5153709771320689821492359cd6436",
+        "6bd67bf6f0178524488a121cdf3f62314fa6eae85817ebc6ba8c8b9832c378ae",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Calibrated Per-Carrier Confidence and Certified Pruning for Gaussian-Splat Assets reports: A 3D Gaussian-splatting asset ships millions of primitives, each carrying a per-primitive confidence \u2014 a view count, an opacity \u2014 that downstream pruning, streaming, and level-of-detail decisions consume as if it meant something. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 0.990 result",
+      "id": "2e2daaddbf7698af",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "crossref records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "crossref",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "https://doi.org/10.2139/ssrn.7157718",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "fa921cc3072b40375b4dc010fbec1268cb7d6d8840ab78e9f01beac079f5d854",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "e99d0eb8958c477c19209ece0d153c09b5153709771320689821492359cd6436",
+        "6bd67bf6f0178524488a121cdf3f62314fa6eae85817ebc6ba8c8b9832c378ae",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
+        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
+        "5f29181eaafa615a854a3546527cc468002a13d5942ea6b7e993679bb46d13ef",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Semantic Validation Gates: A Computable, Statistically Calibrated Framework for Runtime Verification of Language-Model Outputs reports: As language models and autonomous agents produce long reasoning chains and consequential decisions, deployment requires a verification layer that converts qualitative judgments-wellformed, factual, consistent, safe, on-task-into calibrated, auditable measurements. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 7 result",
+      "id": "e92338fb0d621d4a",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026-03-18",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "arxiv",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "http://arxiv.org/abs/2603.17419v1",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "fa921cc3072b40375b4dc010fbec1268cb7d6d8840ab78e9f01beac079f5d854",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "e99d0eb8958c477c19209ece0d153c09b5153709771320689821492359cd6436",
+        "6bd67bf6f0178524488a121cdf3f62314fa6eae85817ebc6ba8c8b9832c378ae",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "97f1d08afaeb77aeb7778dcac8f5be79ae4424c169553f176f65d36535be1823",
+        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Caging the Agents: A Zero Trust Security Architecture for Autonomous AI in Healthcare reports: Autonomous AI agents powered by large language models are being deployed in production with capabilities including shell execution, file system access, database queries, and multi-party communication. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 1 result",
+      "id": "5a903cbc41fb58e1",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026-03-27",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "arxiv",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "http://arxiv.org/abs/2603.26635v1",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "fa921cc3072b40375b4dc010fbec1268cb7d6d8840ab78e9f01beac079f5d854",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "e99d0eb8958c477c19209ece0d153c09b5153709771320689821492359cd6436",
+        "6bd67bf6f0178524488a121cdf3f62314fa6eae85817ebc6ba8c8b9832c378ae",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "06cfccec4fe6e7af58d2759bba58edbe446e0283d8833ce362d9126d60c17ce4",
+        "97f1d08afaeb77aeb7778dcac8f5be79ae4424c169553f176f65d36535be1823",
+        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Deception and Communication in Autonomous Multi-Agent Systems: An Experimental Study with Among Us reports: As large language models are deployed as autonomous agents, their capacity for strategic deception raises core questions for coordination, reliability, and safety in multi-goal, multi-agent systems. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 9 result",
+      "id": "a3203da6bc7d0333",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2022-03-16",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "arxiv",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "http://arxiv.org/abs/2203.08975v2",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "fa921cc3072b40375b4dc010fbec1268cb7d6d8840ab78e9f01beac079f5d854",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "e99d0eb8958c477c19209ece0d153c09b5153709771320689821492359cd6436",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, A Survey of Multi-Agent Deep Reinforcement Learning with Communication reports: Communication is an effective mechanism for coordinating the behaviors of multiple agents, broadening their views of the environment, and to support their collaborations. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 2026 result",
+      "id": "f9e61934f1eb3756",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "crossref records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026-03-02",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "crossref",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "https://doi.org/10.65737/airjir2026369",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "fa921cc3072b40375b4dc010fbec1268cb7d6d8840ab78e9f01beac079f5d854",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "e99d0eb8958c477c19209ece0d153c09b5153709771320689821492359cd6436",
+        "6bd67bf6f0178524488a121cdf3f62314fa6eae85817ebc6ba8c8b9832c378ae",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "06cfccec4fe6e7af58d2759bba58edbe446e0283d8833ce362d9126d60c17ce4",
+        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
+        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
+        "5f29181eaafa615a854a3546527cc468002a13d5942ea6b7e993679bb46d13ef",
+        "52c46137da0e11d17b4c988606409a8d4643d0e2368d670bb7dc87a73f3cded2",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Agents of Context: A Methodological Critique and Counter-Evidence Analysis of Adversarial Red-Teaming Claims for Autonomous AI Agents reports: The recent paper Agents of Chaos (Shapira et al., 2026) reports an exploratory red-teaming study of six autonomous language-model-powered agents, documenting eleven vulnerability case studies including unauthorized compliance, sensitive data disclosure, identity spoofing, and multi-agent vulnerability propagation. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated \u2265 result",
+      "id": "3b7009c2116b12f4",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "crossref records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2023-03-04",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "crossref",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "https://doi.org/10.31234/osf.io/pu2xy",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "e99d0eb8958c477c19209ece0d153c09b5153709771320689821492359cd6436",
+        "6bd67bf6f0178524488a121cdf3f62314fa6eae85817ebc6ba8c8b9832c378ae",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Planning Falsifiable Confirmatory Research reports: Falsifiable research is a basic goal of science and is needed for science to be self-correcting. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 2.0 result",
+      "id": "328440ba55cbbeb0",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2025-12-31",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "arxiv",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "http://arxiv.org/abs/2601.00138v2",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "fa921cc3072b40375b4dc010fbec1268cb7d6d8840ab78e9f01beac079f5d854",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "e99d0eb8958c477c19209ece0d153c09b5153709771320689821492359cd6436",
+        "6bd67bf6f0178524488a121cdf3f62314fa6eae85817ebc6ba8c8b9832c378ae",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "06cfccec4fe6e7af58d2759bba58edbe446e0283d8833ce362d9126d60c17ce4",
+        "97f1d08afaeb77aeb7778dcac8f5be79ae4424c169553f176f65d36535be1823",
+        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
+        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
+        "5f29181eaafa615a854a3546527cc468002a13d5942ea6b7e993679bb46d13ef",
+        "52c46137da0e11d17b4c988606409a8d4643d0e2368d670bb7dc87a73f3cded2",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Explicit Abstention Knobs for Predictable Reliability in Video Question Answering reports: High-stakes deployment of vision-language models (VLMs) requires selective prediction, where systems abstain when uncertain rather than risk costly errors. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 0 result",
+      "id": "3ea9d4205f92ac1f",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026-04-30",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "arxiv",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "http://arxiv.org/abs/2604.28067v2",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "fa921cc3072b40375b4dc010fbec1268cb7d6d8840ab78e9f01beac079f5d854",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Hallucination, abstention, and computable inseparability reports: The impossibility of eliminating hallucination, understood here as incorrect definite answers, in sufficiently expressive yes-or-no formal domains is an immediate consequence of classical undecidability theorems. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 1.5 result",
+      "id": "ee1d5ec2adbd726e",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026-04-20",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "arxiv",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "http://arxiv.org/abs/2604.17982v1",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "fa921cc3072b40375b4dc010fbec1268cb7d6d8840ab78e9f01beac079f5d854",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "e99d0eb8958c477c19209ece0d153c09b5153709771320689821492359cd6436",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "06cfccec4fe6e7af58d2759bba58edbe446e0283d8833ce362d9126d60c17ce4",
+        "97f1d08afaeb77aeb7778dcac8f5be79ae4424c169553f176f65d36535be1823",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
+        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Mitigating Multimodal Hallucination via Phase-wise Self-reward reports: Large Vision-Language Models (LVLMs) still struggle with vision hallucination, where generated responses are inconsistent with the visual input. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 50 result",
+      "id": "0bd6f21689a94891",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026-03-12",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "arxiv",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "http://arxiv.org/abs/2604.06195v1",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "fa921cc3072b40375b4dc010fbec1268cb7d6d8840ab78e9f01beac079f5d854",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "06cfccec4fe6e7af58d2759bba58edbe446e0283d8833ce362d9126d60c17ce4",
+        "97f1d08afaeb77aeb7778dcac8f5be79ae4424c169553f176f65d36535be1823",
+        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Hallucination as output-boundary misclassification: a composite abstention architecture for language models reports: Large language models often produce unsupported claims. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 5 result",
+      "id": "f4e8afe766d08551",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026-04-05",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "arxiv",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "http://arxiv.org/abs/2604.03904v1",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "fa921cc3072b40375b4dc010fbec1268cb7d6d8840ab78e9f01beac079f5d854",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "e99d0eb8958c477c19209ece0d153c09b5153709771320689821492359cd6436",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "06cfccec4fe6e7af58d2759bba58edbe446e0283d8833ce362d9126d60c17ce4",
+        "97f1d08afaeb77aeb7778dcac8f5be79ae4424c169553f176f65d36535be1823",
+        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
+        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa",
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
+        "5f29181eaafa615a854a3546527cc468002a13d5942ea6b7e993679bb46d13ef",
+        "52c46137da0e11d17b4c988606409a8d4643d0e2368d670bb7dc87a73f3cded2",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, I-CALM: Incentivizing Confidence-Aware Abstention for LLM Hallucination Mitigation reports: Large language models (LLMs) frequently produce confident but incorrect answers, partly because common binary scoring conventions reward answering over honestly expressing uncertainty. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 3 result",
+      "id": "dd845b297c2dac54",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2019-06-17",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "arxiv",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "http://arxiv.org/abs/1906.07008v1",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "fa921cc3072b40375b4dc010fbec1268cb7d6d8840ab78e9f01beac079f5d854",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "e99d0eb8958c477c19209ece0d153c09b5153709771320689821492359cd6436",
+        "6bd67bf6f0178524488a121cdf3f62314fa6eae85817ebc6ba8c8b9832c378ae",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Hallucinated Adversarial Learning for Robust Visual Tracking reports: Humans can easily learn new concepts from just a single exemplar, mainly due to their remarkable ability to imagine or hallucinate what the unseen exemplar may look like in different settings. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 2.0 result",
+      "id": "27d03e327155c5f1",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "crossref records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2025-08-25",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "crossref",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "https://doi.org/10.51903/jtie.v4i2.536",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "fa921cc3072b40375b4dc010fbec1268cb7d6d8840ab78e9f01beac079f5d854",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "e99d0eb8958c477c19209ece0d153c09b5153709771320689821492359cd6436",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "06cfccec4fe6e7af58d2759bba58edbe446e0283d8833ce362d9126d60c17ce4",
+        "97f1d08afaeb77aeb7778dcac8f5be79ae4424c169553f176f65d36535be1823",
+        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
+        "9f2e3fa3f7274abb286a952eb57cdb2c41df3f7e23b38b8ed88d18d8e4989270"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Evidence-Calibrated RAG for Unanswerable Question Answering: Retrieval Coverage, Abstention Calibration, and Hallucination-Proxy Analysis on SQuAD 2.0 reports: This paper presents a controlled and reproducible empirical study of evidence-calibrated retrieval-augmented question answering (RAG) for answerable and unanswerable reading-comprehension tasks using the SQuAD 2.0 benchmark. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 70% result",
+      "id": "30cfe373d2a923f6",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "crossref records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2022",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "crossref",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "https://doi.org/10.2139/ssrn.4122260",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "97f1d08afaeb77aeb7778dcac8f5be79ae4424c169553f176f65d36535be1823",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "5f29181eaafa615a854a3546527cc468002a13d5942ea6b7e993679bb46d13ef",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Abstaining from Abstention: Why Younger Abstention Does Not Apply in 42 U.S.C \u00a7 1983 Bail Litigation reports: Advocates of bail reform have repeatedly faced a procedural barrier to wide-spread relief in federal court: Younger abstention. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 1 result",
+      "id": "58bdd6bf956d548d",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "crossref records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2025-10-05",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "crossref",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "https://doi.org/10.69987/aimlr.2025.60401",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "fa921cc3072b40375b4dc010fbec1268cb7d6d8840ab78e9f01beac079f5d854",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "e99d0eb8958c477c19209ece0d153c09b5153709771320689821492359cd6436",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "06cfccec4fe6e7af58d2759bba58edbe446e0283d8833ce362d9126d60c17ce4",
+        "97f1d08afaeb77aeb7778dcac8f5be79ae4424c169553f176f65d36535be1823",
+        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
+        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval reports: Large language models (LLMs) can generate fluent yet unsupported content (\u201challucinations\u201d), which undermines trust and complicates downstream decision making. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.8,
+      "confidence": 0.9999999999999999,
+      "failed": 1,
+      "falsification": "An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 3 result",
+      "id": "a7e8108eae4e9ce0",
+      "meta_flags": [],
+      "passed": 7,
+      "reference_class": "arxiv records on 'hidden variable detection / causal discovery from residuals'",
+      "reformulation_count": 0,
+      "scope": {
+        "date": "2024-05-21",
+        "source": "arxiv",
+        "topic": "hidden variable detection / causal discovery from residuals"
+      },
+      "source_url": "http://arxiv.org/abs/2405.12978v1",
+      "status": "survived",
+      "tested_against": [
+        "c812488f2bf56e80e535717e511227cfec92951b4f1d05ac69228df6a89eab7d",
+        "08ff057f86cf825a66144b5bfaab9f41361e0a4cbadb3332acb70e30c80a353a",
+        "8ea99e5af6e1f41c0ca0e763894947df2f277ac2eba6aab2bffae5669ab7cdd4",
+        "c388a6455890336b18dd826de91398915e498c718399283f013636e3a19ce296",
+        "a042bb53092d7499c0ff92942a6988cabe47e710a5ccffa69cf94c6c7868bdbc",
+        "f0af2d706352a645ed8de7ddd13755b4cd19c1eff8ec3088fac651e8ba9f23ea",
+        "6a7119dacf25a66435550d3fd3ec2e21f1638db85891bf9e534a4c1832955c52",
+        "081a6ad825f582fced9485081673e9901b4a2cce7f835a66dbccf763e36e8bda"
+      ],
+      "text": "On topic hidden variable detection / causal discovery from residuals, Personalized Residuals for Concept-Driven Text-to-Image Generation reports: We present personalized residuals and localized attention-guided sampling for efficient concept-driven generation using text-to-image diffusion models."
+    },
+    {
+      "beta_confidence": 0.875,
+      "confidence": 1.0,
+      "failed": 0,
+      "falsification": "An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 1 result",
+      "id": "a3d8b7893257acd4",
+      "meta_flags": [],
+      "passed": 6,
+      "reference_class": "arxiv records on 'hidden variable detection / causal discovery from residuals'",
+      "reformulation_count": 0,
+      "scope": {
+        "date": "2026-06-30",
+        "source": "arxiv",
+        "topic": "hidden variable detection / causal discovery from residuals"
+      },
+      "source_url": "http://arxiv.org/abs/2606.31859v1",
+      "status": "survived",
+      "tested_against": [
+        "c812488f2bf56e80e535717e511227cfec92951b4f1d05ac69228df6a89eab7d",
+        "8ea99e5af6e1f41c0ca0e763894947df2f277ac2eba6aab2bffae5669ab7cdd4",
+        "c388a6455890336b18dd826de91398915e498c718399283f013636e3a19ce296",
+        "a042bb53092d7499c0ff92942a6988cabe47e710a5ccffa69cf94c6c7868bdbc",
+        "6a7119dacf25a66435550d3fd3ec2e21f1638db85891bf9e534a4c1832955c52",
+        "081a6ad825f582fced9485081673e9901b4a2cce7f835a66dbccf763e36e8bda"
+      ],
+      "text": "On topic hidden variable detection / causal discovery from residuals, Review Residuals: Update-Conditioned Residual Gating for Transformers reports: Residual connections add every sublayer's proposed update with a fixed coefficient of one; the network never evaluates whether an update is reliable before committing it."
+    },
+    {
+      "beta_confidence": 0.8,
+      "confidence": 0.9999999999999999,
+      "failed": 1,
+      "falsification": "An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 1 result",
+      "id": "2e0c54c18103812e",
+      "meta_flags": [],
+      "passed": 7,
+      "reference_class": "arxiv records on 'hidden variable detection / causal discovery from residuals'",
+      "reformulation_count": 0,
+      "scope": {
+        "date": "2025-04-13",
+        "source": "arxiv",
+        "topic": "hidden variable detection / causal discovery from residuals"
+      },
+      "source_url": "http://arxiv.org/abs/2504.09480v1",
+      "status": "survived",
+      "tested_against": [
+        "c812488f2bf56e80e535717e511227cfec92951b4f1d05ac69228df6a89eab7d",
+        "08ff057f86cf825a66144b5bfaab9f41361e0a4cbadb3332acb70e30c80a353a",
+        "8ea99e5af6e1f41c0ca0e763894947df2f277ac2eba6aab2bffae5669ab7cdd4",
+        "c388a6455890336b18dd826de91398915e498c718399283f013636e3a19ce296",
+        "a042bb53092d7499c0ff92942a6988cabe47e710a5ccffa69cf94c6c7868bdbc",
+        "f0af2d706352a645ed8de7ddd13755b4cd19c1eff8ec3088fac651e8ba9f23ea",
+        "6a7119dacf25a66435550d3fd3ec2e21f1638db85891bf9e534a4c1832955c52",
+        "081a6ad825f582fced9485081673e9901b4a2cce7f835a66dbccf763e36e8bda"
+      ],
+      "text": "On topic hidden variable detection / causal discovery from residuals, Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation reports: Vision-Language Model (VLM) have gained widespread adoption in Open-Vocabulary (OV) object detection and segmentation tasks."
+    },
+    {
+      "beta_confidence": 0.7778,
+      "confidence": 0.8999999999999999,
+      "failed": 1,
+      "falsification": "An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 67% result",
+      "id": "d28176e05b44be39",
+      "meta_flags": [],
+      "passed": 6,
+      "reference_class": "arxiv records on 'hidden variable detection / causal discovery from residuals'",
+      "reformulation_count": 0,
+      "scope": {
+        "date": "2026-03-31",
+        "source": "arxiv",
+        "topic": "hidden variable detection / causal discovery from residuals"
+      },
+      "source_url": "http://arxiv.org/abs/2603.29727v2",
+      "status": "survived",
+      "tested_against": [
+        "c812488f2bf56e80e535717e511227cfec92951b4f1d05ac69228df6a89eab7d",
+        "08ff057f86cf825a66144b5bfaab9f41361e0a4cbadb3332acb70e30c80a353a",
+        "8ea99e5af6e1f41c0ca0e763894947df2f277ac2eba6aab2bffae5669ab7cdd4",
+        "c388a6455890336b18dd826de91398915e498c718399283f013636e3a19ce296",
+        "f0af2d706352a645ed8de7ddd13755b4cd19c1eff8ec3088fac651e8ba9f23ea",
+        "6a7119dacf25a66435550d3fd3ec2e21f1638db85891bf9e534a4c1832955c52",
+        "081a6ad825f582fced9485081673e9901b4a2cce7f835a66dbccf763e36e8bda"
+      ],
+      "text": "On topic hidden variable detection / causal discovery from residuals, Latent-Y: A Lab-Validated Autonomous Agent for De Novo Drug Design reports: Drug discovery relies on iterative expert workflows that are slow to parallelize and difficult to scale."
+    },
+    {
+      "beta_confidence": 0.7778,
+      "confidence": 0.8999999999999999,
+      "failed": 1,
+      "falsification": "An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 30 result",
+      "id": "c22391dc093349d3",
+      "meta_flags": [],
+      "passed": 6,
+      "reference_class": "arxiv records on 'hidden variable detection / causal discovery from residuals'",
+      "reformulation_count": 0,
+      "scope": {
+        "date": "2025-07-25",
+        "source": "arxiv",
+        "topic": "hidden variable detection / causal discovery from residuals"
+      },
+      "source_url": "http://arxiv.org/abs/2507.19375v1",
+      "status": "survived",
+      "tested_against": [
+        "c812488f2bf56e80e535717e511227cfec92951b4f1d05ac69228df6a89eab7d",
+        "08ff057f86cf825a66144b5bfaab9f41361e0a4cbadb3332acb70e30c80a353a",
+        "8ea99e5af6e1f41c0ca0e763894947df2f277ac2eba6aab2bffae5669ab7cdd4",
+        "c388a6455890336b18dd826de91398915e498c718399283f013636e3a19ce296",
+        "a042bb53092d7499c0ff92942a6988cabe47e710a5ccffa69cf94c6c7868bdbc",
+        "6a7119dacf25a66435550d3fd3ec2e21f1638db85891bf9e534a4c1832955c52",
+        "081a6ad825f582fced9485081673e9901b4a2cce7f835a66dbccf763e36e8bda"
+      ],
+      "text": "On topic hidden variable detection / causal discovery from residuals, Latent-X: An Atom-level Frontier Model for De Novo Protein Binder Design reports: Traditional drug discovery relies on rounds of screening millions of candidate molecules with low success rates, making drug discovery time and resource intensive."
+    },
+    {
+      "beta_confidence": 0.7778,
+      "confidence": 0.8999999999999999,
+      "failed": 1,
+      "falsification": "An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 4 result",
+      "id": "c6ec3c3b7e0895b2",
+      "meta_flags": [],
+      "passed": 6,
+      "reference_class": "arxiv records on 'hidden variable detection / causal discovery from residuals'",
+      "reformulation_count": 0,
+      "scope": {
+        "date": "2025-12-23",
+        "source": "arxiv",
+        "topic": "hidden variable detection / causal discovery from residuals"
+      },
+      "source_url": "http://arxiv.org/abs/2512.20263v1",
+      "status": "survived",
+      "tested_against": [
+        "c812488f2bf56e80e535717e511227cfec92951b4f1d05ac69228df6a89eab7d",
+        "08ff057f86cf825a66144b5bfaab9f41361e0a4cbadb3332acb70e30c80a353a",
+        "8ea99e5af6e1f41c0ca0e763894947df2f277ac2eba6aab2bffae5669ab7cdd4",
+        "c388a6455890336b18dd826de91398915e498c718399283f013636e3a19ce296",
+        "a042bb53092d7499c0ff92942a6988cabe47e710a5ccffa69cf94c6c7868bdbc",
+        "f0af2d706352a645ed8de7ddd13755b4cd19c1eff8ec3088fac651e8ba9f23ea",
+        "081a6ad825f582fced9485081673e9901b4a2cce7f835a66dbccf763e36e8bda"
+      ],
+      "text": "On topic hidden variable detection / causal discovery from residuals, Drug-like antibodies with low immunogenicity in human panels designed with Latent-X2 reports: Drug discovery has long sought computational systems capable of designing drug-like molecules directly: developable and non-immunogenic from the start."
+    },
+    {
+      "beta_confidence": 0.8,
+      "confidence": 0.9999999999999999,
+      "failed": 1,
+      "falsification": "An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 2013 result",
+      "id": "6f0ae643c12d6cfb",
+      "meta_flags": [],
+      "passed": 7,
+      "reference_class": "arxiv records on 'hidden variable detection / causal discovery from residuals'",
+      "reformulation_count": 0,
+      "scope": {
+        "date": "2023-03-24",
+        "source": "arxiv",
+        "topic": "hidden variable detection / causal discovery from residuals"
+      },
+      "source_url": "http://arxiv.org/abs/2303.14295v1",
+      "status": "survived",
+      "tested_against": [
+        "c812488f2bf56e80e535717e511227cfec92951b4f1d05ac69228df6a89eab7d",
+        "08ff057f86cf825a66144b5bfaab9f41361e0a4cbadb3332acb70e30c80a353a",
+        "8ea99e5af6e1f41c0ca0e763894947df2f277ac2eba6aab2bffae5669ab7cdd4",
+        "c388a6455890336b18dd826de91398915e498c718399283f013636e3a19ce296",
+        "a042bb53092d7499c0ff92942a6988cabe47e710a5ccffa69cf94c6c7868bdbc",
+        "f0af2d706352a645ed8de7ddd13755b4cd19c1eff8ec3088fac651e8ba9f23ea",
+        "6a7119dacf25a66435550d3fd3ec2e21f1638db85891bf9e534a4c1832955c52",
+        "081a6ad825f582fced9485081673e9901b4a2cce7f835a66dbccf763e36e8bda"
+      ],
+      "text": "On topic hidden variable detection / causal discovery from residuals, Clustering Multivariate Time Series using Energy Distance reports: A novel methodology is proposed for clustering multivariate time series data using energy distance defined in Sz\u00e9kely and Rizzo (2013)."
+    },
+    {
+      "beta_confidence": 0.75,
+      "confidence": 0.7,
+      "failed": 0,
+      "falsification": "An independent source on 'causal states and statistical complexity' reports the opposite effect, or fails to reproduce the stated 1 result",
+      "id": "fb67124677e1c3ac",
+      "meta_flags": [],
+      "passed": 2,
+      "reference_class": "arxiv records on 'causal states and statistical complexity'",
+      "reformulation_count": 0,
+      "scope": {
+        "date": "2024-05-30",
+        "source": "arxiv",
+        "topic": "causal states and statistical complexity"
+      },
+      "source_url": "http://arxiv.org/abs/2406.02584v4",
+      "status": "active",
+      "tested_against": [
+        "a9a90cb3ec922327dbf28b97cd486e4be8fc5bc7d94d4d1577b72e01b11a3824",
+        "49192202e53a34fcbcf8c85d3cd8aa0837cb2fba1f037bf36c96d696af1a5148"
+      ],
+      "text": "On topic causal states and statistical complexity, A Scoping Review of Earth Observation and Machine Learning for Causal Inference: Implications for the Geography of Poverty reports: Earth observation (EO) data such as satellite imagery can have far-reaching impacts on our understanding of the geography of poverty, especially when coupled with machine learning (ML) and computer vision."
+    },
+    {
+      "beta_confidence": 0.6,
+      "confidence": 0.49999999999999994,
+      "failed": 1,
+      "falsification": "An independent source on 'causal states and statistical complexity' reports the opposite effect, or fails to reproduce the stated 0 result",
+      "id": "9954bec2249d91e7",
+      "meta_flags": [],
+      "passed": 2,
+      "reference_class": "arxiv records on 'causal states and statistical complexity'",
+      "reformulation_count": 0,
+      "scope": {
+        "date": "2018-09-18",
+        "source": "arxiv",
+        "topic": "causal states and statistical complexity"
+      },
+      "source_url": "http://arxiv.org/abs/1809.06500v3",
+      "status": "active",
+      "tested_against": [
+        "a9a90cb3ec922327dbf28b97cd486e4be8fc5bc7d94d4d1577b72e01b11a3824",
+        "49192202e53a34fcbcf8c85d3cd8aa0837cb2fba1f037bf36c96d696af1a5148",
+        "89875ef686fcb84a00e1b66b7d7f0cbaa67edb95fdcc6bad7c452f1e3515ebd2"
+      ],
+      "text": "On topic causal states and statistical complexity, Range entropy: A bridge between signal complexity and self-similarity reports: Approximate entropy (ApEn) and sample entropy (SampEn) are widely used for temporal complexity analysis of real-world phenomena."
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result",
+      "id": "ec358b0c93660324",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "arxiv records on 'requisite variety and cybernetic regulation'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2017-05-15",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "arxiv",
+        "topic": "requisite variety and cybernetic regulation"
+      },
+      "source_url": "http://arxiv.org/abs/1705.05327v1",
+      "status": "active",
+      "tested_against": [
+        "ad445f8c226eb71c037e179743d1feded4c8f12a08f2762febaf4c70b2f8ee2e",
+        "016957bdfcbfc1bf273c07356b3262bfd90b51f4cf738213a94d2f6f797c0482",
+        "f12ed9da25eb9462236d56b25f1380266c021da6bf5f578e68e3f50972641a92",
+        "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111",
+        "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9",
+        "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608"
+      ],
+      "text": "On topic requisite variety and cybernetic regulation, Plankton: the paradox and the power law reports: Two basic features of assemblages of unicellular plankton: (1) their high biodiversity and (2) the power-law structure of their abundance, can be explained by an allometric scaling of cell growth and mortality with respect to cell size. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 2023 result",
+      "id": "ed6d01ffd3142856",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "arxiv records on 'requisite variety and cybernetic regulation'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2025-09-11",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "arxiv",
+        "topic": "requisite variety and cybernetic regulation"
+      },
+      "source_url": "http://arxiv.org/abs/2509.09508v2",
+      "status": "active",
+      "tested_against": [
+        "016957bdfcbfc1bf273c07356b3262bfd90b51f4cf738213a94d2f6f797c0482",
+        "f12ed9da25eb9462236d56b25f1380266c021da6bf5f578e68e3f50972641a92",
+        "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111",
+        "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134",
+        "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
+        "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608"
+      ],
+      "text": "On topic requisite variety and cybernetic regulation, Incorporating AI incident reporting into telecommunications law and policy: Insights from India reports: The integration of artificial intelligence (AI) into telecommunications infrastructure introduces novel risks, such as algorithmic bias and unpredictable system behavior, that fall outside the scope of traditional cybersecurity and data protection frameworks. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 2020 result",
+      "id": "c36075e5eb90fe6d",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "crossref records on 'requisite variety and cybernetic regulation'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026-03-31",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "crossref",
+        "topic": "requisite variety and cybernetic regulation"
+      },
+      "source_url": "https://doi.org/10.31235/osf.io/3hdn5_v1",
+      "status": "active",
+      "tested_against": [
+        "ad445f8c226eb71c037e179743d1feded4c8f12a08f2762febaf4c70b2f8ee2e",
+        "016957bdfcbfc1bf273c07356b3262bfd90b51f4cf738213a94d2f6f797c0482",
+        "f12ed9da25eb9462236d56b25f1380266c021da6bf5f578e68e3f50972641a92",
+        "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111",
+        "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134",
+        "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed"
+      ],
+      "text": "On topic requisite variety and cybernetic regulation, A Capacity-Based Theory of Complexity Control in Megaprojects: Structural Demands, Regulatory Capacity, and Ashby's Law of Requisite Variety reports: Megaproject research has shown repeatedly that large, technologically demanding, and politically exposed projects are prone to cost escalation, delay, and governance breakdown. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result",
+      "id": "16d081300cf321e2",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "crossref records on 'requisite variety and cybernetic regulation'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "crossref",
+        "topic": "requisite variety and cybernetic regulation"
+      },
+      "source_url": "https://doi.org/10.2139/ssrn.6255362",
+      "status": "active",
+      "tested_against": [
+        "ad445f8c226eb71c037e179743d1feded4c8f12a08f2762febaf4c70b2f8ee2e",
+        "016957bdfcbfc1bf273c07356b3262bfd90b51f4cf738213a94d2f6f797c0482",
+        "f12ed9da25eb9462236d56b25f1380266c021da6bf5f578e68e3f50972641a92",
+        "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134",
+        "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
+        "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9",
+        "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608",
+        "8a56e96aad42dff91205cec4b9d184fe5a6836bef9f2d4f300de99f1a501ad12"
+      ],
+      "text": "On topic requisite variety and cybernetic regulation, Requisite Variety For Ai Security reports: Enterprises are deploying large language models and autonomous AI agents into operational control loops-security operations, quality assurance, procurement, infrastructure management-where these systems make thousands of consequential decisions with tool access, external data ingestion, and limited human oversight. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 319 result",
+      "id": "7b77502b691ca58c",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "arxiv records on 'requisite variety and cybernetic regulation'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026-05-26",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "arxiv",
+        "topic": "requisite variety and cybernetic regulation"
+      },
+      "source_url": "http://arxiv.org/abs/2605.27589v1",
+      "status": "active",
+      "tested_against": [
+        "016957bdfcbfc1bf273c07356b3262bfd90b51f4cf738213a94d2f6f797c0482",
+        "f12ed9da25eb9462236d56b25f1380266c021da6bf5f578e68e3f50972641a92",
+        "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111",
+        "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
+        "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9",
+        "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608"
+      ],
+      "text": "On topic requisite variety and cybernetic regulation, What-If World: A Causal Benchmark for General World Models in Embodied Scenarios reports: Video generation models are increasingly used as world simulators for tasks like driving and robotic manipulation. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 151 result",
+      "id": "b42b5c4447dd86ad",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "crossref records on 'requisite variety and cybernetic regulation'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "crossref",
+        "topic": "requisite variety and cybernetic regulation"
+      },
+      "source_url": "https://doi.org/10.2139/ssrn.7216139",
+      "status": "active",
+      "tested_against": [
+        "016957bdfcbfc1bf273c07356b3262bfd90b51f4cf738213a94d2f6f797c0482",
+        "f12ed9da25eb9462236d56b25f1380266c021da6bf5f578e68e3f50972641a92",
+        "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111",
+        "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134",
+        "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
+        "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9"
+      ],
+      "text": "On topic requisite variety and cybernetic regulation, From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market reports: Quantitative factor strategies routinely excel in backtests and disappoint in production: the flagship live multifactor index earned a Sharpe ratio statistically indistinguishable from zero over seventeen years. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 9 result",
+      "id": "65bb0272d062e853",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "crossref records on 'requisite variety and cybernetic regulation'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2022-01-20",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "crossref",
+        "topic": "requisite variety and cybernetic regulation"
+      },
+      "source_url": "https://doi.org/10.1093/oso/9780192849977.003.0009",
+      "status": "active",
+      "tested_against": [
+        "ad445f8c226eb71c037e179743d1feded4c8f12a08f2762febaf4c70b2f8ee2e",
+        "016957bdfcbfc1bf273c07356b3262bfd90b51f4cf738213a94d2f6f797c0482",
+        "f12ed9da25eb9462236d56b25f1380266c021da6bf5f578e68e3f50972641a92",
+        "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111",
+        "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
+        "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9"
+      ],
+      "text": "On topic requisite variety and cybernetic regulation, Model Projects and the Difficulty of Predicting Future Success reports: Chapter 9 draws on the lessons of handpump tubewells, thalidomide, and DDT, to argue that global aid may have unanticipated long-term negative consequences that make predicting the overall future success of aid problematic. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result",
+      "id": "578ca01497db3e77",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "crossref records on 'requisite variety and cybernetic regulation'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "crossref",
+        "topic": "requisite variety and cybernetic regulation"
+      },
+      "source_url": "https://doi.org/10.2139/ssrn.6089867",
+      "status": "active",
+      "tested_against": [
+        "ad445f8c226eb71c037e179743d1feded4c8f12a08f2762febaf4c70b2f8ee2e",
+        "016957bdfcbfc1bf273c07356b3262bfd90b51f4cf738213a94d2f6f797c0482",
+        "f12ed9da25eb9462236d56b25f1380266c021da6bf5f578e68e3f50972641a92",
+        "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111",
+        "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134",
+        "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
+        "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9",
+        "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608"
+      ],
+      "text": "On topic requisite variety and cybernetic regulation, GeoCausal: A Geometric-Causal World Model Integrating System 1 and System 2 for Embodied Reasoning reports: This paper introduces GeoCausal, a novel theoretical framework for embodied artificial intelligence that unifies geometric deep learning with dual-process cognitive architectures. (scope narrowed: restricted after failure #1)"
+    }
+  ],
+  "saved_at": "2026-08-17T07:17:36"
+}
