@@ -33,8 +33,8 @@ jobs:
     # is allowed to touch the network or the repo.
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - run: pip install pytest
@@ -44,8 +44,8 @@ jobs:
     needs: smoke
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
 
@@ -58,7 +58,7 @@ jobs:
             | tee engine_stdout.txt
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: research-digest-${{ github.run_number }}
           path: |
@@ -67,7 +67,11 @@ jobs:
             engine_stdout.txt
           retention-days: 90
 
+      # A dry run reads the sample corpus, so its output must never reach the
+      # repo or an issue: committing it would overwrite the real digest with
+      # fixture data, and that is the one path meant to be safe to test with.
       - name: Commit the digest
+        if: github.event.inputs.dry_run != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -80,7 +84,7 @@ jobs:
           fi
 
       - name: Open an issue on new hypotheses
-        if: success()
+        if: success() && github.event.inputs.dry_run != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
