@@ -50,7 +50,7 @@ runs free on GitHub runners.
 | 4. test | **Falsification-first testing** — with no world available, the engine uses cross-source verification as the test oracle: independent corroboration raises confidence, contradiction lowers it. |
 | 5. modify | **Escape hatches** — failed claims are `reformulate()`d with narrower scope; at 3 reformulations the claim exits the tree into the unknown journal rather than being infinitely patched. |
 | 3/5 | **Unknown journal** — unfalsifiable or escape-hatched content is preserved, flagged, never silently deleted. |
-| 6. hidden | **Hidden-node detection** (mirrors `modules/hnd.py`) — residual series are correlated against exogenous candidate series; triggers on mean|residual| ≥ 0.1 and |r| > 0.5. The candidates are `findings_volume` and `source_diversity` per equal-*time* bucket over the topic's findings (equal-count buckets would make volume constant by construction, and so untestable). |
+| 6. hidden | **Hidden-node detection** (mirrors `modules/hnd.py`) — residuals and candidate series are put on one shared grid of equal-*time* buckets (equal-count buckets would make volume constant by construction, and so untestable), each claim placed by the date of the finding it was staked from. The candidates are `findings_volume` and `source_diversity`. Four gates: ≥ `MIN_BUCKETS` occupied buckets, mean\|residual\| ≥ 0.1, residual spread ≥ `RESIDUAL_SPREAD_FLOOR`, and a Bonferroni-corrected permutation p ≤ 0.05 — magnitude of \|r\| alone is not evidence at these bucket counts. |
 | 2. log | **Episodic memory** — findings are appended to a persistent memory index (`data/episodic_memory.json`; repo `EpisodicMemory` used when importable). |
 
 ## Config reference (`config/topics.json`)
@@ -116,10 +116,27 @@ Workflow: `.github/workflows/hypothesis-engine.yml` (Mondays 06:17 UTC, plus
   replication; hypothesis drafts are starting points for human review.
 - Crossref/abstract availability varies; findings without abstracts produce
   thin claims that tend to route to the unknown journal.
-- **Two gates, not one, in stage 6** — large residuals alone are not a hidden
-  variable. A topic whose claim confidences swing wildly but track nothing
-  measurable produces no suggestion, by design; something exogenous has to move
-  with them. `tests/test_hypothesis_engine.py` pins both directions.
+- **Stage 6 gates on alignment, movement, and significance — not magnitude.**
+  Large residuals alone are not a hidden variable; something exogenous has to
+  move with them, over the *same interval*. The first live run (2026-08-17)
+  reported `source_diversity` at r=−0.72 on seven claims and it was an artifact
+  of all three missing checks: residuals were zipped to the candidate series by
+  list position (claim-stake order against chronological order — reordering the
+  same data moved r from −0.72 to +0.46), the seven residuals spanned 0.097 so
+  there was nothing to explain, and |r|>0.5 is reached by 46% of random
+  orderings at that n. Claims are now placed in real time by the finding they
+  were staked from and averaged per bucket, a topic needs `MIN_BUCKETS`
+  occupied buckets and `RESIDUAL_SPREAD_FLOOR` of actual movement, and the
+  correlation must clear a permutation p-value Bonferroni-corrected over the
+  candidates tried. Replaying the live corpus through the fixed scan yields
+  zero suggestions. `tests/test_hypothesis_engine.py` pins every direction.
+- **Reformulation resets the evidence the residual scan reads.** `stage_modify`
+  runs before `stage_hidden`, and `Claim.reformulate()` zeroes `passed`/`failed`
+  by design — a restated claim does not inherit the old wording's track record.
+  In the first live run that left 26 of 35 claims at `beta_confidence` exactly
+  0.5, so two whole topics carried no residual information at all while the
+  report's test counts (217/225) described activity that no longer stood in the
+  tree. The report now states both numbers.
 - **The unfalsifiability test is lexical.** A claim is routed to the unknown
   journal when its abstract contains no measurable anchor (number, percentage,
   inequality) or is hedged twice over. A confidently-worded abstract with a

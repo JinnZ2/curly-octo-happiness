@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import random
 import re
 import sys
 import time
@@ -57,6 +58,16 @@ DEFAULT_SLEEP = 1.0
 # Stage 6 gates, mirroring modules/hnd.py.
 RESIDUAL_THRESHOLD = 0.1
 CORRELATION_THRESHOLD = 0.5
+# A residual that barely moves cannot be explained by anything; correlating it
+# reads noise as signal. Same discipline as the BET spread guard in dormancy.py.
+RESIDUAL_SPREAD_FLOOR = 0.05
+# Pearson r on three points is not evidence, whatever its magnitude.
+MIN_BUCKETS = 4
+# Significance is measured by permutation rather than assumed from |r|: the
+# bucket counts here are small enough that the asymptotic t-test does not hold.
+PERMUTATIONS = 2000
+SIGNIFICANCE = 0.05
+PERMUTATION_SEED = 20260817
 
 # Stage 7: a topic needs this many surviving claims to be worth drafting.
 NEW_HYPOTHESIS_MIN_CLAIMS = 3
@@ -717,72 +728,159 @@ def stage_modify(tree: DependencyTree, unknown_path, reform_path) -> Dict[str, i
 # stage 6 — hidden variables
 # ---------------------------------------------------------------------------
 
-def candidate_series(rows: List[dict], n_buckets: int) -> List[Tuple[str, List[float]]]:
+class TimeGrid:
+    """Equal-width time buckets shared by the residuals and every candidate.
+
+    The point of the grid is that bucket *i* means the same interval on both
+    sides of the correlation. Without it the only thing lining a residual up
+    with a candidate value is list position -- claim-stake order against
+    chronological order -- and those two orderings are unrelated.
+    """
+
+    def __init__(self, start: date, span_days: int, n_buckets: int) -> None:
+        self.start = start
+        self.span_days = span_days
+        self.n_buckets = n_buckets
+
+    @classmethod
+    def over(cls, dates: Sequence[date], n_buckets: int) -> Optional["TimeGrid"]:
+        if len(dates) < 2 or n_buckets < 2:
+            return None
+        start, end = min(dates), max(dates)
+        span = (end - start).days
+        if span <= 0:
+            return None
+        return cls(start, span, n_buckets)
+
+    def index(self, when: date) -> int:
+        offset = (when - self.start).days
+        return max(0, min(self.n_buckets - 1,
+                          int(offset / self.span_days * self.n_buckets)))
+
+    def bucket(self, dated: Iterable[Tuple[date, Any]]) -> List[List[Any]]:
+        out: List[List[Any]] = [[] for _ in range(self.n_buckets)]
+        for when, item in dated:
+            out[self.index(when)].append(item)
+        return out
+
+
+def candidate_series(rows: List[dict], grid: TimeGrid) -> List[Tuple[str, List[float]]]:
     """Exogenous series the residuals can be correlated against.
 
-    The findings stream is split into `n_buckets` equal *time* intervals (equal
-    counts would make volume constant by construction and untestable), and each
-    candidate is one summary statistic per interval. These stand in for the
+    One summary statistic per bucket of `grid`. These stand in for the
     environmental time series modules/hnd.py correlates against.
     """
     dated = [(parse_date(r.get("date", "")), r) for r in rows]
-    dated = [(d, r) for d, r in dated if d is not None]
-    if len(dated) < 2 or n_buckets < 2:
-        return []
-    dated.sort(key=lambda pair: pair[0])
-
-    start, end = dated[0][0], dated[-1][0]
-    span = (end - start).days
-    if span <= 0:
-        return []
-
-    buckets: List[List[dict]] = [[] for _ in range(n_buckets)]
-    for when, row in dated:
-        index = min(n_buckets - 1, int((when - start).days / span * n_buckets))
-        buckets[index].append(row)
-
+    buckets = grid.bucket((d, r) for d, r in dated if d is not None)
     volume = [float(len(b)) for b in buckets]
     diversity = [float(len({r.get("source", "") for r in b})) for b in buckets]
     return [("findings_volume", volume), ("source_diversity", diversity)]
 
 
+def permutation_p(x: Sequence[float], y: Sequence[float], observed: float,
+                  trials: int = PERMUTATIONS,
+                  seed: int = PERMUTATION_SEED) -> float:
+    """Two-sided p for |r| under random re-pairing, by permutation.
+
+    The bucket counts here are single digits, where the asymptotic t-test on r
+    is not trustworthy; permuting the pairing measures the null directly. The
+    add-one form keeps p strictly positive, and the seed keeps a committed
+    digest reproducible.
+    """
+    rng = random.Random(seed)
+    shuffled = list(y)
+    target = abs(observed) - 1e-12
+    hits = 0
+    for _ in range(trials):
+        rng.shuffle(shuffled)
+        if abs(pearson(x, shuffled)) >= target:
+            hits += 1
+    return (hits + 1) / (trials + 1)
+
+
 def stage_hidden(tree: DependencyTree, findings: Sequence, hidden_path,
                  residual_threshold: float = RESIDUAL_THRESHOLD,
-                 correlation_threshold: float = CORRELATION_THRESHOLD) -> List[dict]:
+                 correlation_threshold: float = CORRELATION_THRESHOLD,
+                 significance: float = SIGNIFICANCE) -> List[dict]:
     """Scan claim residuals for unmodelled drivers, mirroring modules/hnd.py.
 
     The residual of a claim is how far its calibrated posterior sits from
     "no idea": `beta_confidence - 0.5`. Signed, because the direction is the
     evidence -- a topic whose claims drift confident as the literature thickens
-    is telling you something a topic with random scatter is not. Gated on mean
-    |residual| >= threshold so the scan does not chase noise, exactly as HND
-    gates on mean residual magnitude.
+    is telling you something a topic with random scatter is not.
+
+    Each claim is placed in real time by the finding it was staked from, and
+    residuals are averaged per bucket, so a correlation is between two things
+    measured over the same interval. Four gates stand between a correlation and
+    a suggestion: enough occupied buckets, mean |residual| past the HND
+    magnitude threshold, residuals that actually *move* (a flat residual is
+    explained by nothing), and a permutation p-value corrected for the number
+    of candidates tried. The first live run tripped over the absence of the
+    last three -- it reported source_diversity at r=-0.72 on seven claims whose
+    residuals spanned 0.097, a value |r|>0.5 reaches on 46% of random orderings.
     """
     rows = [f if isinstance(f, dict) else f.to_dict() for f in findings]
+    when_by_url = {}
+    for row in rows:
+        parsed = parse_date(row.get("date", ""))
+        if parsed is not None and row.get("url"):
+            when_by_url[row["url"]] = parsed
     suggestions: List[dict] = []
 
     for topic, claims in sorted(tree.by_topic().items()):
-        if len(claims) < 3:
-            continue
-        residuals = [c.beta_confidence - 0.5 for c in claims]
-        mean_abs = sum(abs(r) for r in residuals) / len(residuals)
-        if mean_abs < residual_threshold:
+        dated_claims = [(when_by_url[c.source_url], c) for c in claims
+                        if c.source_url in when_by_url]
+        if len(dated_claims) < MIN_BUCKETS:
             continue
 
         topic_rows = [r for r in rows if r.get("topic") in (topic, None)] or rows
-        for name, series in candidate_series(topic_rows, len(residuals)):
+        topic_dates = [d for d in (parse_date(r.get("date", "")) for r in topic_rows)
+                       if d is not None]
+        grid = TimeGrid.over(topic_dates, len(dated_claims))
+        if grid is None:
+            continue
+
+        # Residuals onto the same grid, then keep only the buckets that carry a
+        # claim -- and drop those buckets from every candidate too, so both
+        # sides stay aligned on the interval rather than on list position.
+        binned = grid.bucket((d, c.beta_confidence - 0.5) for d, c in dated_claims)
+        occupied = [i for i, b in enumerate(binned) if b]
+        if len(occupied) < MIN_BUCKETS:
+            continue
+        residuals = [sum(binned[i]) / len(binned[i]) for i in occupied]
+
+        mean_abs = sum(abs(r) for r in residuals) / len(residuals)
+        if mean_abs < residual_threshold:
+            continue
+        spread = max(residuals) - min(residuals)
+        if spread < RESIDUAL_SPREAD_FLOOR:
+            continue
+
+        candidates = candidate_series(topic_rows, grid)
+        for name, full_series in candidates:
+            series = [full_series[i] for i in occupied]
             r = pearson(series, residuals)
             if abs(r) <= correlation_threshold:
+                continue
+            p = permutation_p(series, residuals, r)
+            # Bonferroni over the candidates tried on this topic.
+            if p * len(candidates) > significance:
                 continue
             suggestions.append({
                 "type": "hidden_variable_suggestion",
                 "topic": topic,
                 "candidate": name,
                 "correlation": round(r, 4),
+                "p_value": round(p, 5),
+                "corrected_p": round(min(1.0, p * len(candidates)), 5),
                 "mean_abs_residual": round(mean_abs, 4),
-                "n_claims": len(claims),
+                "residual_spread": round(spread, 4),
+                "n_buckets": len(occupied),
+                "n_claims": len(dated_claims),
                 "evidence": (f"claim residuals on '{topic}' track {name} "
-                             f"(r={r:.2f}) across {len(claims)} claims"),
+                             f"(r={r:.2f}, p={p:.3f} by permutation) across "
+                             f"{len(occupied)} time buckets holding "
+                             f"{len(dated_claims)} claims"),
                 "logged_at": datetime.now().isoformat(timespec="seconds"),
             })
 
@@ -909,6 +1007,11 @@ def write_report(path, stats: Dict[str, Any]) -> str:
         f"{stats['test']['skipped']} no signal",
         f"- reformulations: {stats['modify']['reformulated']} "
         f"({stats['modify']['escape_hatched']} escape-hatched out of the tree)",
+        # Reformulating resets a claim's track record, so the test counts above
+        # are the run's activity, not the tree's standing evidence. Stating both
+        # keeps a digest from reading as better-supported than it is.
+        f"- claims carrying evidence after reformulation: "
+        f"{stats.get('evidenced', 0)}/{stats.get('tree_size', 0)}",
         f"- hidden-variable suggestions: {len(stats['hidden'])}",
         f"- hypothesis drafts written: {stats['consolidate']['hypothesis_files']}",
         "",
@@ -1006,6 +1109,8 @@ def main(argv: Optional[List[str]] = None) -> int:
         "claims": len(made), "unknown": unknown_count,
         "test": test_stats, "modify": modify_stats, "hidden": hidden,
         "consolidate": consolidated,
+        "evidenced": sum(1 for c in tree.claims.values() if c.passed or c.failed),
+        "tree_size": len(tree.claims),
     })
     print()
     print(report)
