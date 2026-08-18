@@ -1,6 +1,6 @@
 # Hypothesis draft — requisite variety and cybernetic regulation
 
-_Regenerated 2026-08-17 by `scripts/hypothesis_engine.py`. Node confidence 0.50; 0 surviving / 8 active / 0 refuted claims._
+_Regenerated 2026-08-18 by `scripts/hypothesis_engine.py`. Node confidence 0.45; 0 surviving / 8 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
 
@@ -10,11 +10,6 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 2020 result
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://doi.org/10.31235/osf.io/3hdn5_v1
-  - reformulated 1x
-- **On topic requisite variety and cybernetic regulation, From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market reports: Quantitative factor strategies routinely excel in backtests and disappoint in production: the flagship live multifactor index earned a Sharpe ratio statistically indistinguishable from zero over seventeen years. (scope narrowed: restricted after failure #1)**
-  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 151 result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: https://doi.org/10.2139/ssrn.7216139
   - reformulated 1x
 - **On topic requisite variety and cybernetic regulation, GeoCausal: A Geometric-Causal World Model Integrating System 1 and System 2 for Embodied Reasoning reports: This paper introduces GeoCausal, a novel theoretical framework for embodied artificial intelligence that unifies geometric deep learning with dual-process cognitive architectures. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result
@@ -26,24 +21,29 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: http://arxiv.org/abs/2509.09508v2
   - reformulated 1x
-- **On topic requisite variety and cybernetic regulation, Model Projects and the Difficulty of Predicting Future Success reports: Chapter 9 draws on the lessons of handpump tubewells, thalidomide, and DDT, to argue that global aid may have unanticipated long-term negative consequences that make predicting the overall future success of aid problematic. (scope narrowed: restricted after failure #1)**
-  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 9 result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: https://doi.org/10.1093/oso/9780192849977.003.0009
-  - reformulated 1x
-- **On topic requisite variety and cybernetic regulation, Plankton: the paradox and the power law reports: Two basic features of assemblages of unicellular plankton: (1) their high biodiversity and (2) the power-law structure of their abundance, can be explained by an allometric scaling of cell growth and mortality with respect to cell size. (scope narrowed: restricted after failure #1)**
-  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: http://arxiv.org/abs/1705.05327v1
-  - reformulated 1x
 - **On topic requisite variety and cybernetic regulation, Requisite Variety For Ai Security reports: Enterprises are deploying large language models and autonomous AI agents into operational control loops-security operations, quality assurance, procurement, infrastructure management-where these systems make thousands of consequential decisions with tool access, external data ingestion, and limited human oversight. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://doi.org/10.2139/ssrn.6255362
   - reformulated 1x
+- **On topic requisite variety and cybernetic regulation, From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market reports: Quantitative factor strategies routinely excel in backtests and disappoint in production: the flagship live multifactor index earned a Sharpe ratio statistically indistinguishable from zero over seventeen years. (scope narrowed: restricted after failure #1)**
+  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 151 result
+  - record: 0 passed / 1 failed, beta-confidence 0.33
+  - source: https://doi.org/10.2139/ssrn.7216139
+  - reformulated 1x
+- **On topic requisite variety and cybernetic regulation, Model Projects and the Difficulty of Predicting Future Success reports: Chapter 9 draws on the lessons of handpump tubewells, thalidomide, and DDT, to argue that global aid may have unanticipated long-term negative consequences that make predicting the overall future success of aid problematic. (scope narrowed: restricted after failure #1)**
+  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 9 result
+  - record: 0 passed / 1 failed, beta-confidence 0.33
+  - source: https://doi.org/10.1093/oso/9780192849977.003.0009
+  - reformulated 1x
+- **On topic requisite variety and cybernetic regulation, Plankton: the paradox and the power law reports: Two basic features of assemblages of unicellular plankton: (1) their high biodiversity and (2) the power-law structure of their abundance, can be explained by an allometric scaling of cell growth and mortality with respect to cell size. (scope narrowed: restricted after failure #1)**
+  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result
+  - record: 0 passed / 1 failed, beta-confidence 0.33
+  - source: http://arxiv.org/abs/1705.05327v1
+  - reformulated 1x
 - **On topic requisite variety and cybernetic regulation, What-If World: A Causal Benchmark for General World Models in Embodied Scenarios reports: Video generation models are increasingly used as world simulators for tasks like driving and robotic manipulation. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 319 result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
+  - record: 0 passed / 1 failed, beta-confidence 0.33
   - source: http://arxiv.org/abs/2605.27589v1
   - reformulated 1x
 

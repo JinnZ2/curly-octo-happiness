@@ -1,6 +1,6 @@
 # Hypothesis draft — calibration and falsifiability of LLM agents
 
-_Regenerated 2026-08-17 by `scripts/hypothesis_engine.py`. Node confidence 0.50; 0 surviving / 18 active / 0 refuted claims._
+_Regenerated 2026-08-18 by `scripts/hypothesis_engine.py`. Node confidence 0.52; 0 surviving / 18 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
 
@@ -8,43 +8,53 @@ Cross-source corroboration is weak evidence — corroboration is not replication
 
 - **On topic calibration and falsifiability of LLM agents, A Survey of Multi-Agent Deep Reinforcement Learning with Communication reports: Communication is an effective mechanism for coordinating the behaviors of multiple agents, broadening their views of the environment, and to support their collaborations. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 9 result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
+  - record: 1 passed / 0 failed, beta-confidence 0.67
   - source: http://arxiv.org/abs/2203.08975v2
   - reformulated 1x
 - **On topic calibration and falsifiability of LLM agents, Abstaining from Abstention: Why Younger Abstention Does Not Apply in 42 U.S.C § 1983 Bail Litigation reports: Advocates of bail reform have repeatedly faced a procedural barrier to wide-spread relief in federal court: Younger abstention. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 70% result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
+  - record: 1 passed / 0 failed, beta-confidence 0.67
   - source: https://doi.org/10.2139/ssrn.4122260
+  - reformulated 1x
+- **On topic calibration and falsifiability of LLM agents, Caging the Agents: A Zero Trust Security Architecture for Autonomous AI in Healthcare reports: Autonomous AI agents powered by large language models are being deployed in production with capabilities including shell execution, file system access, database queries, and multi-party communication. (scope narrowed: restricted after failure #1)**
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 7 result
+  - record: 1 passed / 0 failed, beta-confidence 0.67
+  - source: http://arxiv.org/abs/2603.17419v1
+  - reformulated 1x
+- **On topic calibration and falsifiability of LLM agents, Calibrating the Confidence of Large Language Models by Eliciting Fidelity reports: Large language models optimized with techniques like RLHF have achieved good alignment in being helpful and harmless. (scope narrowed: restricted after failure #1)**
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 6 result
+  - record: 1 passed / 0 failed, beta-confidence 0.67
+  - source: http://arxiv.org/abs/2404.02655v2
+  - reformulated 1x
+- **On topic calibration and falsifiability of LLM agents, Deception and Communication in Autonomous Multi-Agent Systems: An Experimental Study with Among Us reports: As large language models are deployed as autonomous agents, their capacity for strategic deception raises core questions for coordination, reliability, and safety in multi-goal, multi-agent systems. (scope narrowed: restricted after failure #1)**
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 1 result
+  - record: 1 passed / 0 failed, beta-confidence 0.67
+  - source: http://arxiv.org/abs/2603.26635v1
+  - reformulated 1x
+- **On topic calibration and falsifiability of LLM agents, Evidence-Calibrated RAG for Unanswerable Question Answering: Retrieval Coverage, Abstention Calibration, and Hallucination-Proxy Analysis on SQuAD 2.0 reports: This paper presents a controlled and reproducible empirical study of evidence-calibrated retrieval-augmented question answering (RAG) for answerable and unanswerable reading-comprehension tasks using the SQuAD 2.0 benchmark. (scope narrowed: restricted after failure #1)**
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 2.0 result
+  - record: 1 passed / 0 failed, beta-confidence 0.67
+  - source: https://doi.org/10.51903/jtie.v4i2.536
+  - reformulated 1x
+- **On topic calibration and falsifiability of LLM agents, Large Language Model Evaluation Via Multi AI Agents: Preliminary results reports: As Large Language Models (LLMs) have become integral to both research and daily operations, rigorous evaluation is crucial. (scope narrowed: restricted after failure #1)**
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 3.5 result
+  - record: 1 passed / 0 failed, beta-confidence 0.67
+  - source: http://arxiv.org/abs/2404.01023v1
+  - reformulated 1x
+- **On topic calibration and falsifiability of LLM agents, Planning Falsifiable Confirmatory Research reports: Falsifiable research is a basic goal of science and is needed for science to be self-correcting. (scope narrowed: restricted after failure #1)**
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated ≥ result
+  - record: 1 passed / 0 failed, beta-confidence 0.67
+  - source: https://doi.org/10.31234/osf.io/pu2xy
   - reformulated 1x
 - **On topic calibration and falsifiability of LLM agents, Agents of Context: A Methodological Critique and Counter-Evidence Analysis of Adversarial Red-Teaming Claims for Autonomous AI Agents reports: The recent paper Agents of Chaos (Shapira et al., 2026) reports an exploratory red-teaming study of six autonomous language-model-powered agents, documenting eleven vulnerability case studies including unauthorized compliance, sensitive data disclosure, identity spoofing, and multi-agent vulnerability propagation. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 2026 result
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://doi.org/10.65737/airjir2026369
   - reformulated 1x
-- **On topic calibration and falsifiability of LLM agents, Caging the Agents: A Zero Trust Security Architecture for Autonomous AI in Healthcare reports: Autonomous AI agents powered by large language models are being deployed in production with capabilities including shell execution, file system access, database queries, and multi-party communication. (scope narrowed: restricted after failure #1)**
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 7 result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: http://arxiv.org/abs/2603.17419v1
-  - reformulated 1x
 - **On topic calibration and falsifiability of LLM agents, Calibrated Per-Carrier Confidence and Certified Pruning for Gaussian-Splat Assets reports: A 3D Gaussian-splatting asset ships millions of primitives, each carrying a per-primitive confidence — a view count, an opacity — that downstream pruning, streaming, and level-of-detail decisions consume as if it meant something. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 0.0 result
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://doi.org/10.31224/7689
-  - reformulated 1x
-- **On topic calibration and falsifiability of LLM agents, Calibrating the Confidence of Large Language Models by Eliciting Fidelity reports: Large language models optimized with techniques like RLHF have achieved good alignment in being helpful and harmless. (scope narrowed: restricted after failure #1)**
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 6 result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: http://arxiv.org/abs/2404.02655v2
-  - reformulated 1x
-- **On topic calibration and falsifiability of LLM agents, Deception and Communication in Autonomous Multi-Agent Systems: An Experimental Study with Among Us reports: As large language models are deployed as autonomous agents, their capacity for strategic deception raises core questions for coordination, reliability, and safety in multi-goal, multi-agent systems. (scope narrowed: restricted after failure #1)**
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 1 result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: http://arxiv.org/abs/2603.26635v1
-  - reformulated 1x
-- **On topic calibration and falsifiability of LLM agents, Evidence-Calibrated RAG for Unanswerable Question Answering: Retrieval Coverage, Abstention Calibration, and Hallucination-Proxy Analysis on SQuAD 2.0 reports: This paper presents a controlled and reproducible empirical study of evidence-calibrated retrieval-augmented question answering (RAG) for answerable and unanswerable reading-comprehension tasks using the SQuAD 2.0 benchmark. (scope narrowed: restricted after failure #1)**
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 2.0 result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: https://doi.org/10.51903/jtie.v4i2.536
   - reformulated 1x
 - **On topic calibration and falsifiability of LLM agents, Explicit Abstention Knobs for Predictable Reliability in Video Question Answering reports: High-stakes deployment of vision-language models (VLMs) requires selective prediction, where systems abstain when uncertain rather than risk costly errors. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 2.0 result
@@ -68,7 +78,7 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - reformulated 1x
 - **On topic calibration and falsifiability of LLM agents, Hallucination, abstention, and computable inseparability reports: The impossibility of eliminating hallucination, understood here as incorrect definite answers, in sufficiently expressive yes-or-no formal domains is an immediate consequence of classical undecidability theorems. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 0 result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
+  - record: 1 passed / 1 failed, beta-confidence 0.50
   - source: http://arxiv.org/abs/2604.28067v2
   - reformulated 1x
 - **On topic calibration and falsifiability of LLM agents, I-CALM: Incentivizing Confidence-Aware Abstention for LLM Hallucination Mitigation reports: Large language models (LLMs) frequently produce confident but incorrect answers, partly because common binary scoring conventions reward answering over honestly expressing uncertainty. (scope narrowed: restricted after failure #1)**
@@ -76,20 +86,10 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: http://arxiv.org/abs/2604.03904v1
   - reformulated 1x
-- **On topic calibration and falsifiability of LLM agents, Large Language Model Evaluation Via Multi AI Agents: Preliminary results reports: As Large Language Models (LLMs) have become integral to both research and daily operations, rigorous evaluation is crucial. (scope narrowed: restricted after failure #1)**
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 3.5 result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: http://arxiv.org/abs/2404.01023v1
-  - reformulated 1x
 - **On topic calibration and falsifiability of LLM agents, Mitigating Multimodal Hallucination via Phase-wise Self-reward reports: Large Vision-Language Models (LVLMs) still struggle with vision hallucination, where generated responses are inconsistent with the visual input. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 1.5 result
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: http://arxiv.org/abs/2604.17982v1
-  - reformulated 1x
-- **On topic calibration and falsifiability of LLM agents, Planning Falsifiable Confirmatory Research reports: Falsifiable research is a basic goal of science and is needed for science to be self-correcting. (scope narrowed: restricted after failure #1)**
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated ≥ result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: https://doi.org/10.31234/osf.io/pu2xy
   - reformulated 1x
 - **On topic calibration and falsifiability of LLM agents, Semantic Validation Gates: A Computable, Statistically Calibrated Framework for Runtime Verification of Language-Model Outputs reports: As language models and autonomous agents produce long reasoning chains and consequential decisions, deployment requires a verification layer that converts qualitative judgments-wellformed, factual, consistent, safe, on-task-into calibrated, auditable measurements. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 0.990 result
@@ -190,4 +190,8 @@ _none_
 - [unfalsifiable] On topic calibration and falsifiability of LLM agents, abstention, n. reports: no abstract available
   - no measurable falsification condition in the abstract
 - [unfalsifiable] On topic calibration and falsifiability of LLM agents, Hot Contention, Cool Abstention reports: Abstract This chapter presents the findings of the computational analysis.
+  - no measurable falsification condition in the abstract
+- [unfalsifiable] On topic calibration and falsifiability of LLM agents, Fact-Controlled Diagnosis of Hallucinations in Medical Text Summarization reports: Hallucinations in large language models (LLMs) during summarization of patient-clinician dialogues pose significant risks to patient care and clinical decision-making.
+  - no measurable falsification condition in the abstract
+- [unfalsifiable] On topic calibration and falsifiability of LLM agents, LAVENDER: Lightweight Abstention-Aware Verification for Behavioural and Factual Hallucination Detection in Large Language Models reports: no abstract available
   - no measurable falsification condition in the abstract

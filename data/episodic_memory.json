@@ -1358,5 +1358,25 @@
     ],
     "url": "https://doi.org/10.2139/ssrn.6089867",
     "date": "2026"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Fact-Controlled Diagnosis of Hallucinations in Medical Text Summarization",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2506.00448v1",
+    "date": "2025-05-31"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] LAVENDER: Lightweight Abstention-Aware Verification for Behavioural and Factual Hallucination Detection in Large Language Models",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.1109/gcon69192.2026.11648944",
+    "date": "2026-06"
   }
 ]

@@ -1,13 +1,13 @@
 {
   "claims": [
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.6667,
+      "confidence": 0.6,
       "failed": 0,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 3.5 result",
       "id": "64cda870547bd0fa",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
       "reformulation_count": 1,
       "scope": {
@@ -40,18 +40,19 @@
         "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
         "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
         "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
-        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
+        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Large Language Model Evaluation Via Multi AI Agents: Preliminary results reports: As Large Language Models (LLMs) have become integral to both research and daily operations, rigorous evaluation is crucial. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.6667,
+      "confidence": 0.6,
       "failed": 0,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 6 result",
       "id": "9e951858059649c1",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
       "reformulation_count": 1,
       "scope": {
@@ -81,7 +82,8 @@
         "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
         "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
         "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
-        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
+        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Calibrating the Confidence of Large Language Models by Eliciting Fidelity reports: Large language models optimized with techniques like RLHF have achieved good alignment in being helpful and harmless. (scope narrowed: restricted after failure #1)"
     },
@@ -169,13 +171,13 @@
       "text": "On topic calibration and falsifiability of LLM agents, Semantic Validation Gates: A Computable, Statistically Calibrated Framework for Runtime Verification of Language-Model Outputs reports: As language models and autonomous agents produce long reasoning chains and consequential decisions, deployment requires a verification layer that converts qualitative judgments-wellformed, factual, consistent, safe, on-task-into calibrated, auditable measurements. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.6667,
+      "confidence": 0.6,
       "failed": 0,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 7 result",
       "id": "e92338fb0d621d4a",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
       "reformulation_count": 1,
       "scope": {
@@ -207,18 +209,19 @@
         "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
         "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
         "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
-        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
+        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Caging the Agents: A Zero Trust Security Architecture for Autonomous AI in Healthcare reports: Autonomous AI agents powered by large language models are being deployed in production with capabilities including shell execution, file system access, database queries, and multi-party communication. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.6667,
+      "confidence": 0.6,
       "failed": 0,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 1 result",
       "id": "5a903cbc41fb58e1",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
       "reformulation_count": 1,
       "scope": {
@@ -252,18 +255,19 @@
         "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
         "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
         "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
-        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
+        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Deception and Communication in Autonomous Multi-Agent Systems: An Experimental Study with Among Us reports: As large language models are deployed as autonomous agents, their capacity for strategic deception raises core questions for coordination, reliability, and safety in multi-goal, multi-agent systems. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.6667,
+      "confidence": 0.6,
       "failed": 0,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 9 result",
       "id": "a3203da6bc7d0333",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
       "reformulation_count": 1,
       "scope": {
@@ -291,7 +295,8 @@
         "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
         "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
         "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
-        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
+        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, A Survey of Multi-Agent Deep Reinforcement Learning with Communication reports: Communication is an effective mechanism for coordinating the behaviors of multiple agents, broadening their views of the environment, and to support their collaborations. (scope narrowed: restricted after failure #1)"
     },
@@ -343,13 +348,13 @@
       "text": "On topic calibration and falsifiability of LLM agents, Agents of Context: A Methodological Critique and Counter-Evidence Analysis of Adversarial Red-Teaming Claims for Autonomous AI Agents reports: The recent paper Agents of Chaos (Shapira et al., 2026) reports an exploratory red-teaming study of six autonomous language-model-powered agents, documenting eleven vulnerability case studies including unauthorized compliance, sensitive data disclosure, identity spoofing, and multi-agent vulnerability propagation. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.6667,
+      "confidence": 0.6,
       "failed": 0,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated \u2265 result",
       "id": "3b7009c2116b12f4",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "crossref records on 'calibration and falsifiability of LLM agents'",
       "reformulation_count": 1,
       "scope": {
@@ -374,7 +379,8 @@
         "6bd67bf6f0178524488a121cdf3f62314fa6eae85817ebc6ba8c8b9832c378ae",
         "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
         "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
-        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Planning Falsifiable Confirmatory Research reports: Falsifiable research is a basic goal of science and is needed for science to be self-correcting. (scope narrowed: restricted after failure #1)"
     },
@@ -428,12 +434,12 @@
     },
     {
       "beta_confidence": 0.5,
-      "confidence": 0.5,
-      "failed": 0,
+      "confidence": 0.4,
+      "failed": 1,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 0 result",
       "id": "3ea9d4205f92ac1f",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
       "reformulation_count": 1,
       "scope": {
@@ -461,7 +467,9 @@
         "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
         "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
         "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
-        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Hallucination, abstention, and computable inseparability reports: The impossibility of eliminating hallucination, understood here as incorrect definite answers, in sufficiently expressive yes-or-no formal domains is an immediate consequence of classical undecidability theorems. (scope narrowed: restricted after failure #1)"
     },
@@ -640,13 +648,13 @@
       "text": "On topic calibration and falsifiability of LLM agents, Hallucinated Adversarial Learning for Robust Visual Tracking reports: Humans can easily learn new concepts from just a single exemplar, mainly due to their remarkable ability to imagine or hallucinate what the unseen exemplar may look like in different settings. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.6667,
+      "confidence": 0.6,
       "failed": 0,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 2.0 result",
       "id": "27d03e327155c5f1",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "crossref records on 'calibration and falsifiability of LLM agents'",
       "reformulation_count": 1,
       "scope": {
@@ -679,18 +687,19 @@
         "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
         "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
         "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
-        "9f2e3fa3f7274abb286a952eb57cdb2c41df3f7e23b38b8ed88d18d8e4989270"
+        "9f2e3fa3f7274abb286a952eb57cdb2c41df3f7e23b38b8ed88d18d8e4989270",
+        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Evidence-Calibrated RAG for Unanswerable Question Answering: Retrieval Coverage, Abstention Calibration, and Hallucination-Proxy Analysis on SQuAD 2.0 reports: This paper presents a controlled and reproducible empirical study of evidence-calibrated retrieval-augmented question answering (RAG) for answerable and unanswerable reading-comprehension tasks using the SQuAD 2.0 benchmark. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.6667,
+      "confidence": 0.6,
       "failed": 0,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 70% result",
       "id": "30cfe373d2a923f6",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "crossref records on 'calibration and falsifiability of LLM agents'",
       "reformulation_count": 1,
       "scope": {
@@ -718,7 +727,8 @@
         "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
         "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
         "5f29181eaafa615a854a3546527cc468002a13d5942ea6b7e993679bb46d13ef",
-        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023"
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Abstaining from Abstention: Why Younger Abstention Does Not Apply in 42 U.S.C \u00a7 1983 Bail Litigation reports: Advocates of bail reform have repeatedly faced a procedural barrier to wide-spread relief in federal court: Younger abstention. (scope narrowed: restricted after failure #1)"
     },
@@ -1012,9 +1022,9 @@
       "text": "On topic causal states and statistical complexity, Range entropy: A bridge between signal complexity and self-similarity reports: Approximate entropy (ApEn) and sample entropy (SampEn) are widely used for temporal complexity analysis of real-world phenomena."
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
-      "failed": 0,
+      "beta_confidence": 0.3333,
+      "confidence": 0.3,
+      "failed": 1,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result",
       "id": "ec358b0c93660324",
       "meta_flags": [],
@@ -1037,7 +1047,8 @@
         "f12ed9da25eb9462236d56b25f1380266c021da6bf5f578e68e3f50972641a92",
         "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111",
         "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9",
-        "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608"
+        "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608",
+        "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134"
       ],
       "text": "On topic requisite variety and cybernetic regulation, Plankton: the paradox and the power law reports: Two basic features of assemblages of unicellular plankton: (1) their high biodiversity and (2) the power-law structure of their abundance, can be explained by an allometric scaling of cell growth and mortality with respect to cell size. (scope narrowed: restricted after failure #1)"
     },
@@ -1134,9 +1145,9 @@
       "text": "On topic requisite variety and cybernetic regulation, Requisite Variety For Ai Security reports: Enterprises are deploying large language models and autonomous AI agents into operational control loops-security operations, quality assurance, procurement, infrastructure management-where these systems make thousands of consequential decisions with tool access, external data ingestion, and limited human oversight. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
-      "failed": 0,
+      "beta_confidence": 0.3333,
+      "confidence": 0.3,
+      "failed": 1,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 319 result",
       "id": "7b77502b691ca58c",
       "meta_flags": [],
@@ -1159,14 +1170,15 @@
         "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111",
         "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
         "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9",
-        "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608"
+        "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608",
+        "ad445f8c226eb71c037e179743d1feded4c8f12a08f2762febaf4c70b2f8ee2e"
       ],
       "text": "On topic requisite variety and cybernetic regulation, What-If World: A Causal Benchmark for General World Models in Embodied Scenarios reports: Video generation models are increasingly used as world simulators for tasks like driving and robotic manipulation. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
-      "failed": 0,
+      "beta_confidence": 0.3333,
+      "confidence": 0.3,
+      "failed": 1,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 151 result",
       "id": "b42b5c4447dd86ad",
       "meta_flags": [],
@@ -1189,14 +1201,15 @@
         "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111",
         "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134",
         "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
-        "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9"
+        "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9",
+        "ad445f8c226eb71c037e179743d1feded4c8f12a08f2762febaf4c70b2f8ee2e"
       ],
       "text": "On topic requisite variety and cybernetic regulation, From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market reports: Quantitative factor strategies routinely excel in backtests and disappoint in production: the flagship live multifactor index earned a Sharpe ratio statistically indistinguishable from zero over seventeen years. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
-      "failed": 0,
+      "beta_confidence": 0.3333,
+      "confidence": 0.3,
+      "failed": 1,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 9 result",
       "id": "65bb0272d062e853",
       "meta_flags": [],
@@ -1219,7 +1232,8 @@
         "f12ed9da25eb9462236d56b25f1380266c021da6bf5f578e68e3f50972641a92",
         "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111",
         "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
-        "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9"
+        "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9",
+        "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134"
       ],
       "text": "On topic requisite variety and cybernetic regulation, Model Projects and the Difficulty of Predicting Future Success reports: Chapter 9 draws on the lessons of handpump tubewells, thalidomide, and DDT, to argue that global aid may have unanticipated long-term negative consequences that make predicting the overall future success of aid problematic. (scope narrowed: restricted after failure #1)"
     },
@@ -1256,5 +1270,5 @@
       "text": "On topic requisite variety and cybernetic regulation, GeoCausal: A Geometric-Causal World Model Integrating System 1 and System 2 for Embodied Reasoning reports: This paper introduces GeoCausal, a novel theoretical framework for embodied artificial intelligence that unifies geometric deep learning with dual-process cognitive architectures. (scope narrowed: restricted after failure #1)"
     }
   ],
-  "saved_at": "2026-08-17T07:17:36"
+  "saved_at": "2026-08-18T21:53:29"
 }
