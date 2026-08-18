@@ -80,7 +80,15 @@ jobs:
             echo "nothing new this week"
           else
             git commit -m "chore(engine): weekly research digest $(date -u +%Y-%m-%d)"
-            git push
+            # Anything landing on the branch between checkout and here would
+            # otherwise reject the push and lose the week's digest entirely.
+            # Replaying on top is always the right resolution: the digest only
+            # ever appends generated files, and the append-only logs it writes
+            # are designed to merge that way. A genuine conflict fails the step
+            # loudly rather than resolving itself, which is the intended
+            # outcome -- this must never clobber someone else's commit.
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
           fi
 
       - name: Open an issue on new hypotheses
