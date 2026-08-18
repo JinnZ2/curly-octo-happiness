@@ -85,23 +85,46 @@ def test_reformulation_escape_hatch(workspace):
     assert rows[-1]["flag"] == "escape-hatch"
 
 
+def dated_topic(tree, evidence, *, topic="t", extra_findings=()):
+    """Stake one claim per (month, passed, failed), each joined to its finding.
+
+    Claims are placed in time by the finding they came from -- `source_url` on
+    the claim against `url` on the finding -- which is the only thing that makes
+    a residual and a candidate series comparable bucket by bucket.
+    """
+    findings = []
+    for month, passed, failed in evidence:
+        url = f"https://example.org/{topic}/{month}"
+        tree.add_claim(he.Claim(text=f"claim {url}", falsification="x",
+                                passed=passed, failed=failed,
+                                scope={"topic": topic}, source_url=url))
+        findings.append({"date": f"2024-{month:02d}-01", "topic": topic,
+                         "source": "arxiv", "url": url})
+    return findings + list(extra_findings)
+
+
 def test_hidden_variable_scan_triggers(workspace):
+    """Confidence tracking publication rate rather than evidence."""
     hidden = workspace / "data" / "hidden_variables.jsonl"
     tree = he.DependencyTree()
-    # Claims whose residuals rise monotonically (beta_confidence .14 -> .86),
-    # against a findings stream whose volume rises over the same window
-    # (1,1,2,2,3,3 per equal-time bucket). That is the correlation the scan is
-    # meant to catch: confidence tracking publication rate rather than evidence.
-    for i, (p, f) in enumerate([(0, 5), (0, 4), (1, 3), (3, 1), (4, 0), (5, 0)]):
-        tree.add_claim(he.Claim(text=f"claim {i}", falsification="x",
-                                passed=p, failed=f, scope={"topic": "t"}))
-    months = [1, 2, 3, 3, 4, 4, 5, 5, 5, 6, 6, 6]
-    findings = [{"date": f"2024-{m:02d}-01", "topic": "t", "source": "arxiv"}
-                for m in months]
+    # Residuals rise monotonically in time (beta_confidence .14 -> .86), and so
+    # does the volume of findings in the same window.
+    findings = dated_topic(tree, [
+        (1, 0, 5), (3, 0, 4), (5, 1, 3), (7, 3, 1), (9, 4, 0), (11, 5, 0)])
+    # Padding that thickens the stream over the same months, so findings_volume
+    # rises across the buckets instead of being flat at one claim each.
+    findings += [{"date": f"2024-{m:02d}-15", "topic": "t", "source": "arxiv",
+                  "url": f"https://example.org/pad/{m}/{k}"}
+                 for m in (5, 7, 9, 11) for k in range(m // 2)]
+
     suggestions = he.stage_hidden(tree, findings, hidden)
-    assert suggestions, "expected hidden-variable suggestion on correlated series"
+    assert suggestions, "expected a suggestion when a candidate really tracks"
     assert all(s["type"] == "hidden_variable_suggestion" for s in suggestions)
     assert any(s["candidate"] == "findings_volume" for s in suggestions)
+    # The correlation has to clear significance, not just magnitude.
+    for s in suggestions:
+        assert s["corrected_p"] <= he.SIGNIFICANCE
+        assert s["n_buckets"] >= he.MIN_BUCKETS
     assert he.read_jsonl(hidden)
 
 
@@ -111,23 +134,62 @@ def test_hidden_variable_scan_no_trigger_without_a_correlated_candidate(workspac
     tree = he.DependencyTree()
     # Residuals alternate +/-0.36: way past the magnitude gate, but no candidate
     # series correlates with a period-2 sawtooth, so nothing is suggested.
-    for i, (p, f) in enumerate([(5, 0), (0, 5), (5, 0), (0, 5), (5, 0), (0, 5)]):
-        tree.add_claim(he.Claim(text=f"claim {i}", falsification="x",
-                                passed=p, failed=f, scope={"topic": "t"}))
-    findings = [{"date": f"2024-0{(i % 6) + 1}-01", "topic": "t",
-                 "source": "arxiv"} for i in range(12)]
+    findings = dated_topic(tree, [
+        (1, 5, 0), (3, 0, 5), (5, 5, 0), (7, 0, 5), (9, 5, 0), (11, 0, 5)])
     assert he.stage_hidden(tree, findings, hidden) == []
 
 
 def test_hidden_variable_scan_no_trigger_on_flat(workspace):
     hidden = workspace / "data" / "hidden_variables.jsonl"
     tree = he.DependencyTree()
-    for i in range(5):
-        tree.add_claim(he.Claim(text=f"c{i}", falsification="x",
-                                passed=1, failed=1, scope={"topic": "t"}))
-    suggestions = he.stage_hidden(tree, [{"date": "2024-01-01", "source": "arxiv"}],
-                                  hidden)
+    findings = dated_topic(tree, [(m, 1, 1) for m in (1, 3, 5, 7, 9)])
+    suggestions = he.stage_hidden(tree, findings, hidden)
     assert suggestions == []  # mean|residual| = |0.5-0.5| = 0 < 0.1
+
+
+def test_a_residual_that_barely_moves_explains_nothing(workspace):
+    """The first live run's false positive, pinned.
+
+    Seven claims whose residuals spanned 0.097 were reported as tracking
+    `source_diversity` at r=-0.72. On that few near-constant points |r|>0.5 is
+    reached by 46% of random orderings, so magnitude alone cannot be the gate.
+    """
+    hidden = workspace / "data" / "hidden_variables.jsonl"
+    tree = he.DependencyTree()
+    # beta_confidence ~0.78-0.87: a large mean residual that hardly varies.
+    findings = dated_topic(tree, [
+        (1, 7, 2), (2, 8, 2), (3, 7, 2), (4, 6, 2), (5, 6, 2), (6, 6, 2), (7, 7, 2)])
+    suggestions = he.stage_hidden(tree, findings, hidden)
+    assert suggestions == []
+
+
+def test_claims_are_correlated_in_time_not_in_stake_order(workspace):
+    """Reordering how claims were staked must not change the finding.
+
+    The residual series and the candidate series used to be zipped by list
+    position -- claim-stake order against chronological order -- so the same
+    data gave a different answer depending on the order the API happened to
+    return it in.
+    """
+    hidden = workspace / "data" / "hidden_variables.jsonl"
+    evidence = [(1, 0, 5), (3, 0, 4), (5, 1, 3), (7, 3, 1), (9, 4, 0), (11, 5, 0)]
+    padding = [{"date": f"2024-{m:02d}-15", "topic": "t", "source": "arxiv",
+                "url": f"https://example.org/pad/{m}/{k}"}
+               for m in (5, 7, 9, 11) for k in range(m // 2)]
+
+    def scan(order):
+        tree = he.DependencyTree()
+        findings = dated_topic(tree, [evidence[i] for i in order],
+                               extra_findings=padding)
+        return he.stage_hidden(tree, findings, hidden)
+
+    forward = scan(range(len(evidence)))
+    backward = scan(range(len(evidence) - 1, -1, -1))
+    shuffled = scan([3, 0, 5, 1, 4, 2])
+
+    assert forward, "expected the correlation to be found at all"
+    key = lambda rows: sorted((s["candidate"], s["correlation"]) for s in rows)
+    assert key(forward) == key(backward) == key(shuffled)
 
 
 def test_consolidation_writes_hypothesis_md(topics, workspace):
