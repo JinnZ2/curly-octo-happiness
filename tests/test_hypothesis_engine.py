@@ -103,29 +103,92 @@ def dated_topic(tree, evidence, *, topic="t", extra_findings=()):
     return findings + list(extra_findings)
 
 
+def spiky_topic(tree, *, spikes=(3, 6), months=range(1, 8)):
+    """A candidate that deviates from trend, with residuals following it.
+
+    Publication volume spikes in `spikes` and the claims staked there are the
+    well-corroborated ones. Neither series is monotone, so the association
+    survives conditioning on the clock -- which is what distinguishes a driver
+    from two things that both simply grow over time.
+    """
+    evidence = [(m, 8, 1) if m in spikes else (m, 1, 8) for m in months]
+    findings = dated_topic(tree, evidence)
+    findings += [{"date": f"2024-{m:02d}-01", "topic": "t", "source": "crossref",
+                  "url": f"https://example.org/pad/{m}/{k}"}
+                 for m in spikes for k in range(8)]
+    return findings
+
+
 def test_hidden_variable_scan_triggers(workspace):
     """Confidence tracking publication rate rather than evidence."""
     hidden = workspace / "data" / "hidden_variables.jsonl"
     tree = he.DependencyTree()
-    # Residuals rise monotonically in time (beta_confidence .14 -> .86), and so
-    # does the volume of findings in the same window.
-    findings = dated_topic(tree, [
-        (1, 0, 5), (3, 0, 4), (5, 1, 3), (7, 3, 1), (9, 4, 0), (11, 5, 0)])
-    # Padding that thickens the stream over the same months, so findings_volume
-    # rises across the buckets instead of being flat at one claim each.
-    findings += [{"date": f"2024-{m:02d}-15", "topic": "t", "source": "arxiv",
-                  "url": f"https://example.org/pad/{m}/{k}"}
-                 for m in (5, 7, 9, 11) for k in range(m // 2)]
+    findings = spiky_topic(tree)
 
     suggestions = he.stage_hidden(tree, findings, hidden)
     assert suggestions, "expected a suggestion when a candidate really tracks"
     assert all(s["type"] == "hidden_variable_suggestion" for s in suggestions)
     assert any(s["candidate"] == "findings_volume" for s in suggestions)
-    # The correlation has to clear significance, not just magnitude.
     for s in suggestions:
-        assert s["corrected_p"] <= he.SIGNIFICANCE
+        # It has to survive the clock and pay for itself in bits.
+        assert abs(s["partial_correlation"]) > he.CORRELATION_THRESHOLD
+        assert s["description_length_gain_bits"] > 0
         assert s["n_buckets"] >= he.MIN_BUCKETS
+        assert s["standing_tests"] >= he.MIN_STANDING_TESTS
     assert he.read_jsonl(hidden)
+
+
+def test_a_candidate_that_is_just_the_clock_is_refused(workspace):
+    """Reichenbach: two things that both grow with time are not cause and effect.
+
+    Measured on the live corpus, `findings_volume` correlates with elapsed time
+    at r=0.876 all by itself. Accumulating evidence also drifts with time, so a
+    raw correlation between them is guaranteed and means nothing.
+    """
+    hidden = workspace / "data" / "hidden_variables.jsonl"
+    tree = he.DependencyTree()
+    # Residual climbs monotonically; so does the volume of findings.
+    findings = dated_topic(tree, [
+        (1, 1, 8), (2, 2, 7), (3, 4, 6), (4, 6, 4), (5, 7, 2), (6, 8, 1)])
+    findings += [{"date": f"2024-{m:02d}-01", "topic": "t", "source": "crossref",
+                  "url": f"https://example.org/pad/{m}/{k}"}
+                 for m in range(1, 7) for k in range(m)]
+    assert he.stage_hidden(tree, findings, hidden) == []
+
+
+def test_untested_claims_carry_no_information_however_many_there_are(workspace):
+    """Beta(1,1) is a prior, not a measurement.
+
+    This is the live run's false positive at its root: reformulation had reset
+    all seven claims, so every residual was the prior mean. Weighting alone
+    cannot catch it -- equally uninformative claims get equal weights -- so the
+    scan needs an absolute floor on standing evidence.
+    """
+    hidden = workspace / "data" / "hidden_variables.jsonl"
+    tree = he.DependencyTree()
+    findings = spiky_topic(tree)
+    for claim in tree.claims.values():          # wipe the evidence, keep the shape
+        claim.passed = claim.failed = 0
+    assert he.stage_hidden(tree, findings, hidden) == []
+
+
+def test_evidence_free_claims_are_down_weighted_not_counted(workspace):
+    """An untested claim should dilute the effective sample size, not the signal."""
+    hidden = workspace / "data" / "hidden_variables.jsonl"
+    tree = he.DependencyTree()
+    findings = spiky_topic(tree, months=range(1, 11))
+    full = he.stage_hidden(tree, findings, hidden)
+    assert full, "expected the driver to be found with all claims tested"
+
+    tree2 = he.DependencyTree()
+    findings2 = spiky_topic(tree2, months=range(1, 11))
+    for i, claim in enumerate(tree2.claims.values()):
+        if i % 3 == 0 and claim.passed < claim.failed:   # untest some weak ones
+            claim.passed = claim.failed = 0
+    diluted = he.stage_hidden(tree2, findings2, hidden)
+    assert diluted, "the real driver should still show through"
+    assert (diluted[0]["effective_sample_size"]
+            < full[0]["effective_sample_size"]), "n_eff must fall"
 
 
 def test_hidden_variable_scan_no_trigger_without_a_correlated_candidate(workspace):
@@ -172,10 +235,11 @@ def test_claims_are_correlated_in_time_not_in_stake_order(workspace):
     return it in.
     """
     hidden = workspace / "data" / "hidden_variables.jsonl"
-    evidence = [(1, 0, 5), (3, 0, 4), (5, 1, 3), (7, 3, 1), (9, 4, 0), (11, 5, 0)]
-    padding = [{"date": f"2024-{m:02d}-15", "topic": "t", "source": "arxiv",
+    spikes, months = (3, 6), range(1, 8)
+    evidence = [(m, 8, 1) if m in spikes else (m, 1, 8) for m in months]
+    padding = [{"date": f"2024-{m:02d}-01", "topic": "t", "source": "crossref",
                 "url": f"https://example.org/pad/{m}/{k}"}
-               for m in (5, 7, 9, 11) for k in range(m // 2)]
+               for m in spikes for k in range(8)]
 
     def scan(order):
         tree = he.DependencyTree()
@@ -190,6 +254,30 @@ def test_claims_are_correlated_in_time_not_in_stake_order(workspace):
     assert forward, "expected the correlation to be found at all"
     key = lambda rows: sorted((s["candidate"], s["correlation"]) for s in rows)
     assert key(forward) == key(backward) == key(shuffled)
+
+
+def test_a_retraction_withdraws_without_erasing(workspace):
+    """Landauer: erasure is the irreversible operation, so retract by appending.
+
+    Deleting the record would destroy the fact that the engine ever made the
+    error -- the one thing a reader most needs in order to trust the log at all.
+    """
+    hidden = workspace / "data" / "hidden_variables.jsonl"
+    tree = he.DependencyTree()
+    findings = spiky_topic(tree)
+    suggestions = he.stage_hidden(tree, findings, hidden)
+    assert suggestions and he.standing_suggestions(he.read_jsonl(hidden))
+
+    he.retract(hidden, topic="t", candidate=suggestions[0]["candidate"],
+               reason="confounded with the clock", superseded_by="abc123")
+
+    rows = he.read_jsonl(hidden)
+    # The original record is still there, and still says what it said.
+    assert any(r["type"] == "hidden_variable_suggestion" for r in rows)
+    assert any(r["type"] == "retraction" for r in rows)
+    # But it no longer stands, so nothing downstream may cite it.
+    assert not any(s["candidate"] == suggestions[0]["candidate"]
+                   for s in he.standing_suggestions(rows))
 
 
 def test_consolidation_writes_hypothesis_md(topics, workspace):

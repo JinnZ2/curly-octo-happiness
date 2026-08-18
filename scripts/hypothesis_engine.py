@@ -63,8 +63,14 @@ CORRELATION_THRESHOLD = 0.5
 RESIDUAL_SPREAD_FLOOR = 0.05
 # Pearson r on three points is not evidence, whatever its magnitude.
 MIN_BUCKETS = 4
-# Significance is measured by permutation rather than assumed from |r|: the
-# bucket counts here are small enough that the asymptotic t-test does not hold.
+# A residual built from a prior nobody tested is not a measurement. Beta(1,1)
+# carries zero Fisher information about the world, so a topic must have at least
+# this many standing test outcomes before its residuals mean anything at all.
+MIN_STANDING_TESTS = 8
+# Above this, a candidate is indistinguishable from the clock and no amount of
+# data separates the two; refusing is the only honest verdict (Reichenbach).
+COLLINEAR_WITH_CLOCK = 0.98
+# Reported as a measured cross-check on the MDL gate, not gated on.
 PERMUTATIONS = 2000
 SIGNIFICANCE = 0.05
 PERMUTATION_SEED = 20260817
@@ -777,6 +783,100 @@ def candidate_series(rows: List[dict], grid: TimeGrid) -> List[Tuple[str, List[f
     return [("findings_volume", volume), ("source_diversity", diversity)]
 
 
+def beta_precision(passed: int, failed: int) -> float:
+    """Inverse variance of a claim's Beta(1+p, 1+f) posterior: its weight.
+
+    Var = theta(1-theta)/(a+b+1), so the precision rises linearly with the
+    number of tests behind the claim -- the Fisher information of a binomial
+    proportion. This is the whole reason an unweighted mean was wrong: an
+    untested claim and a claim tested twenty times to a dead heat both report
+    `beta_confidence` 0.5, and only the variance tells them apart (1/12 against
+    1/172). Weighting by precision is the minimum-variance combination of
+    measurements -- Gauss-Markov -- and it makes an untested claim contribute
+    almost nothing without needing a rule that says so.
+    """
+    a, b = 1 + passed, 1 + failed
+    return (a + b) ** 2 * (a + b + 1) / (a * b)
+
+
+def weighted_pearson(x: Sequence[float], y: Sequence[float],
+                     w: Sequence[float]) -> float:
+    """Pearson r with per-observation weights. 0.0 when undefined."""
+    if not (len(x) == len(y) == len(w)) or len(x) < 2 or sum(w) <= 0:
+        return 0.0
+    total = sum(w)
+    mx = sum(a * wi for a, wi in zip(x, w)) / total
+    my = sum(b * wi for b, wi in zip(y, w)) / total
+    cov = sum(wi * (a - mx) * (b - my) for a, b, wi in zip(x, y, w))
+    vx = sum(wi * (a - mx) ** 2 for a, wi in zip(x, w))
+    vy = sum(wi * (b - my) ** 2 for b, wi in zip(y, w))
+    denominator = (vx * vy) ** 0.5
+    if denominator <= 0:
+        return 0.0
+    return max(-1.0, min(1.0, cov / denominator))
+
+
+def weighted_partial(x: Sequence[float], y: Sequence[float], z: Sequence[float],
+                     w: Sequence[float]) -> Optional[float]:
+    """r(x, y | z): the correlation left once z explains what it can.
+
+    Here z is the clock. Both candidates are functions of elapsed time -- the
+    literature thickens -- and so is accumulated evidence, so a raw correlation
+    between them is Reichenbach's common cause rather than a driver. Measured on
+    the live corpus, `findings_volume` correlates with time at 0.876 on its own.
+
+    Returns None when the candidate is collinear with the clock: there is then
+    no variation left to attribute, and "cannot tell" is the honest answer
+    rather than a number.
+    """
+    rxy = weighted_pearson(x, y, w)
+    rxz = weighted_pearson(x, z, w)
+    ryz = weighted_pearson(y, z, w)
+    if abs(rxz) > COLLINEAR_WITH_CLOCK:
+        return None
+    denominator = ((1 - rxz ** 2) * (1 - ryz ** 2)) ** 0.5
+    if denominator < 1e-12:
+        return None
+    return max(-1.0, min(1.0, (rxy - rxz * ryz) / denominator))
+
+
+def effective_sample_size(w: Sequence[float]) -> float:
+    """Kish's n_eff = (sum w)^2 / sum w^2.
+
+    How many equally-informative observations the weighted set is worth. Seven
+    claims of which three were never tested are not seven observations, and the
+    description-length gate below is charged against this rather than the raw
+    bucket count.
+    """
+    squares = sum(v * v for v in w)
+    return (sum(w) ** 2 / squares) if squares > 0 else 0.0
+
+
+def description_length_gain(r: Optional[float], n: float, k: int = 1) -> float:
+    """Bits saved by keeping a predictor, minus the bits it costs to state it.
+
+    Rissanen's MDL in its Schwarz/BIC form: coding the residual under a linear
+    model with correlation r saves -(n/2) log2(1-r^2) bits, and naming the
+    parameter costs (k/2) log2(n). Positive means the candidate pays for
+    itself. This replaces a 0.05 significance convention with a quantity that
+    has units, and it tightens on its own as n falls -- |r| must clear 0.49 at
+    seven observations but only 0.21 at a hundred.
+
+    Worth stating plainly: MDL alone would *not* have caught the first live
+    run's false positive (it scores +2.3 bits). The alignment, the precision
+    weighting and the clock are what reject it; MDL's contribution is removing
+    the arbitrary threshold, not doing the rejecting.
+    """
+    if r is None or n <= 1:
+        return 0.0
+    from math import log2
+    # A perfect fit saves unboundedly many bits in the limit; clamp rather than
+    # zero it, since returning 0.0 here would read "worthless" for the one case
+    # that is worth the most.
+    rho = min(abs(r), 1.0 - 1e-12)
+    return -(n / 2) * log2(1 - rho * rho) - (k / 2) * log2(n)
+
+
 def permutation_p(x: Sequence[float], y: Sequence[float], observed: float,
                   trials: int = PERMUTATIONS,
                   seed: int = PERMUTATION_SEED) -> float:
@@ -810,14 +910,26 @@ def stage_hidden(tree: DependencyTree, findings: Sequence, hidden_path,
     is telling you something a topic with random scatter is not.
 
     Each claim is placed in real time by the finding it was staked from, and
-    residuals are averaged per bucket, so a correlation is between two things
-    measured over the same interval. Four gates stand between a correlation and
-    a suggestion: enough occupied buckets, mean |residual| past the HND
-    magnitude threshold, residuals that actually *move* (a flat residual is
-    explained by nothing), and a permutation p-value corrected for the number
-    of candidates tried. The first live run tripped over the absence of the
-    last three -- it reported source_diversity at r=-0.72 on seven claims whose
-    residuals spanned 0.097, a value |r|>0.5 reaches on 46% of random orderings.
+    residuals are combined per bucket, so a correlation is between two things
+    measured over the same interval.
+
+    Every gate here is a quantity rather than a convention. A claim is weighted
+    by the precision of its own posterior, so evidence-free claims fall out of
+    the average on their own (`beta_precision`); a topic must carry standing
+    test outcomes at all, because a residual built from an untouched prior is
+    not a measurement; the candidate is judged on what it explains *after the
+    clock* has explained what it can, since the literature thickening drives
+    both sides; and it is kept only if it pays for itself in bits
+    (`description_length_gain`) charged against Kish's effective sample size
+    rather than the raw bucket count.
+
+    Replayed against the first live run, every topic is now refused and each
+    gate earns its keep on a different one. The topic that produced the
+    reported `source_diversity` driver kept its evidence (51 standing tests)
+    but its seven claims fall into *two* occupied buckets, so there were never
+    seven observations to correlate. The two topics reformulation had reset are
+    stopped earlier, by the standing-evidence floor. Nothing survives to reach
+    the clock test on this corpus, which is the honest outcome for 136 papers.
     """
     rows = [f if isinstance(f, dict) else f.to_dict() for f in findings]
     when_by_url = {}
@@ -832,6 +944,12 @@ def stage_hidden(tree: DependencyTree, findings: Sequence, hidden_path,
                         if c.source_url in when_by_url]
         if len(dated_claims) < MIN_BUCKETS:
             continue
+        # Absolute information floor. Weighting sorts out which claims matter
+        # relative to each other; it cannot rescue a topic where every claim is
+        # an untested prior, because then the weights are merely equal.
+        standing = sum(c.passed + c.failed for _, c in dated_claims)
+        if standing < MIN_STANDING_TESTS:
+            continue
 
         topic_rows = [r for r in rows if r.get("topic") in (topic, None)] or rows
         topic_dates = [d for d in (parse_date(r.get("date", "")) for r in topic_rows)
@@ -843,11 +961,20 @@ def stage_hidden(tree: DependencyTree, findings: Sequence, hidden_path,
         # Residuals onto the same grid, then keep only the buckets that carry a
         # claim -- and drop those buckets from every candidate too, so both
         # sides stay aligned on the interval rather than on list position.
-        binned = grid.bucket((d, c.beta_confidence - 0.5) for d, c in dated_claims)
+        binned = grid.bucket(
+            (d, (c.beta_confidence - 0.5, beta_precision(c.passed, c.failed)))
+            for d, c in dated_claims)
         occupied = [i for i, b in enumerate(binned) if b]
         if len(occupied) < MIN_BUCKETS:
             continue
-        residuals = [sum(binned[i]) / len(binned[i]) for i in occupied]
+        # Information adds, so a bucket's weight is the total precision in it
+        # and its residual is the precision-weighted mean of its claims.
+        residuals, weights = [], []
+        for i in occupied:
+            total = sum(w for _, w in binned[i])
+            residuals.append(sum(v * w for v, w in binned[i]) / total)
+            weights.append(total)
+        clock = [float(i) for i in occupied]
 
         mean_abs = sum(abs(r) for r in residuals) / len(residuals)
         if mean_abs < residual_threshold:
@@ -855,38 +982,81 @@ def stage_hidden(tree: DependencyTree, findings: Sequence, hidden_path,
         spread = max(residuals) - min(residuals)
         if spread < RESIDUAL_SPREAD_FLOOR:
             continue
+        n_eff = effective_sample_size(weights)
 
         candidates = candidate_series(topic_rows, grid)
         for name, full_series in candidates:
             series = [full_series[i] for i in occupied]
-            r = pearson(series, residuals)
+            r = weighted_pearson(series, residuals, weights)
             if abs(r) <= correlation_threshold:
                 continue
-            p = permutation_p(series, residuals, r)
-            # Bonferroni over the candidates tried on this topic.
-            if p * len(candidates) > significance:
+            partial = weighted_partial(series, residuals, clock, weights)
+            if partial is None:
+                continue          # indistinguishable from the clock
+            gain = description_length_gain(partial, n_eff)
+            if gain <= 0:
                 continue
+            p = permutation_p(series, residuals, partial)
             suggestions.append({
                 "type": "hidden_variable_suggestion",
                 "topic": topic,
                 "candidate": name,
                 "correlation": round(r, 4),
+                "partial_correlation": round(partial, 4),
+                "description_length_gain_bits": round(gain, 3),
                 "p_value": round(p, 5),
-                "corrected_p": round(min(1.0, p * len(candidates)), 5),
+                "effective_sample_size": round(n_eff, 2),
+                "standing_tests": standing,
                 "mean_abs_residual": round(mean_abs, 4),
                 "residual_spread": round(spread, 4),
                 "n_buckets": len(occupied),
                 "n_claims": len(dated_claims),
                 "evidence": (f"claim residuals on '{topic}' track {name} "
-                             f"(r={r:.2f}, p={p:.3f} by permutation) across "
-                             f"{len(occupied)} time buckets holding "
-                             f"{len(dated_claims)} claims"),
+                             f"(r={r:.2f}, {partial:+.2f} once the clock is "
+                             f"accounted for) and it pays for itself by "
+                             f"{gain:.1f} bits over {n_eff:.1f} effective "
+                             f"observations from {standing} standing tests"),
                 "logged_at": datetime.now().isoformat(timespec="seconds"),
             })
 
     if suggestions:
         append_jsonl(hidden_path, suggestions)
     return suggestions
+
+
+def retract(hidden_path, topic: str, candidate: str, reason: str,
+            superseded_by: str = "") -> dict:
+    """Withdraw a logged suggestion by *appending*, never by deleting.
+
+    Landauer again, from the direction dormancy.py already argues it: erasure
+    is the irreversible operation, computation is not. Deleting the record
+    destroys the fact that the engine ever made the error, which is precisely
+    the information that makes the correction auditable -- and it is the one
+    bit a reader most needs, because a log that silently loses its mistakes
+    cannot be distinguished from one that never made any. A retraction keeps
+    both states recoverable, so nothing is erased and nothing is hidden. It is
+    the same discipline as the reformulation counter: the escape hatch is
+    counted rather than closed.
+    """
+    row = {
+        "type": "retraction",
+        "topic": topic,
+        "candidate": candidate,
+        "reason": reason,
+        "superseded_by": superseded_by,
+        "logged_at": datetime.now().isoformat(timespec="seconds"),
+    }
+    append_jsonl(hidden_path, [row])
+    return row
+
+
+def standing_suggestions(rows: Sequence[dict]) -> List[dict]:
+    """The suggestions in a hidden-variable log that have not been retracted."""
+    withdrawn = {(r.get("topic"), r.get("candidate")) for r in rows
+                 if r.get("type") == "retraction"}
+    return [r for r in rows
+            if r.get("type") == "hidden_variable_suggestion"
+            and (r.get("topic"), r.get("candidate")) not in withdrawn]
 
 
 # ---------------------------------------------------------------------------
@@ -900,7 +1070,8 @@ def stage_consolidate(tree: DependencyTree, topics: List[dict], unknown_path,
     hypotheses_dir.mkdir(parents=True, exist_ok=True)
 
     unknowns = read_jsonl(unknown_path)
-    hidden = read_jsonl(hidden_path)
+    # Retracted suggestions stay in the log but must not reach a draft.
+    hidden = standing_suggestions(read_jsonl(hidden_path))
     grouped = tree.by_topic()
     tree.propagate()
 
