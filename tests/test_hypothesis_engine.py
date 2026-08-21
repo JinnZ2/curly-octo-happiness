@@ -256,6 +256,65 @@ def test_claims_are_correlated_in_time_not_in_stake_order(workspace):
     assert key(forward) == key(backward) == key(shuffled)
 
 
+# --- stage 6's operating characteristic, measured rather than assumed --------
+
+def test_the_scan_holds_its_false_positive_rate_on_null_corpora():
+    """A detector is worth what its measured error rate says, not its derivation.
+
+    Every gate in stage 6 is principled and the scan still fired on 36% of
+    corpora containing no driver at all, before the n_eff floor was calibrated.
+    This is the same discipline damage.py records for CUSUM, where a designed
+    ARL0 of 1000 delivered an empirical 7.8.
+    """
+    rates = he.scan_operating_characteristic(he.MIN_EFFECTIVE_SAMPLE, trials=250)
+    # The bound, not the point estimate: 250 trials of a true 3% rate return
+    # anything from 1% to 6% by seed, so asserting the estimate would be flaky
+    # in exactly the way this whole exercise is about.
+    assert rates["false_positive_upper"] <= 0.08
+
+
+def test_the_scan_can_still_find_a_driver_that_is_really_there():
+    """The other half: a gate tightened past its target is deaf, not safe."""
+    rates = he.scan_operating_characteristic(he.MIN_EFFECTIVE_SAMPLE, trials=250)
+    assert rates["power"] > 0.4
+
+
+def test_removing_the_floor_lets_the_null_corpora_through():
+    """Pins *why* the floor is there: without it the rate is indefensible."""
+    rates = he.scan_operating_characteristic(0.0, trials=250)
+    assert rates["false_positive_rate"] > 0.10
+
+
+def test_raising_the_floor_trades_power_monotonically():
+    loose = he.scan_operating_characteristic(4.0, trials=250)
+    tight = he.scan_operating_characteristic(8.0, trials=250)
+    assert tight["false_positive_rate"] < loose["false_positive_rate"]
+    assert tight["power"] < loose["power"]
+
+
+def test_calibration_refuses_a_target_it_cannot_reach():
+    """No floor can make a small corpus safe; say so instead of raising it."""
+    # Floors 0 and 3 measure ~20% and ~18%; no bound of theirs reaches 2%.
+    with pytest.raises(ValueError) as excinfo:
+        he.calibrate_scan(target_false_positive=0.02, floors=(0.0, 3.0),
+                          trials=500)
+    assert "no floor" in str(excinfo.value)
+
+
+def test_calibration_refuses_too_few_trials_to_resolve_the_rate():
+    """Estimating a 5% rate off 20 draws is not a measurement."""
+    with pytest.raises(ValueError) as excinfo:
+        he.calibrate_scan(target_false_positive=0.05, trials=20)
+    assert "cannot resolve" in str(excinfo.value)
+
+
+def test_the_shipped_default_is_what_calibration_returns():
+    """The constant in the module must be the measured one, not a leftover."""
+    result = he.calibrate_scan(trials=800)
+    assert result["min_effective"] == he.MIN_EFFECTIVE_SAMPLE
+    assert result["false_positive_upper"] <= result["target_false_positive"]
+
+
 def test_a_retraction_withdraws_without_erasing(workspace):
     """Landauer: erasure is the irreversible operation, so retract by appending.
 

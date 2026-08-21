@@ -27,6 +27,7 @@ import urllib.parse
 import urllib.request
 from dataclasses import dataclass, field
 from datetime import date, datetime
+from math import log2
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 from xml.etree import ElementTree
@@ -70,6 +71,23 @@ MIN_STANDING_TESTS = 8
 # Above this, a candidate is indistinguishable from the clock and no amount of
 # data separates the two; refusing is the only honest verdict (Reichenbach).
 COLLINEAR_WITH_CLOCK = 0.98
+# Floor on Kish's effective sample size, *calibrated* rather than chosen: see
+# `calibrate_scan`, which measures the scan's false-positive rate on synthetic
+# null corpora and returns the loosest floor that holds a 5% rate. Without any
+# floor the scan fired on 36% of corpora containing no driver at all -- the
+# same lesson damage.py records for CUSUM, that a criterion sound in theory has
+# to have its operating characteristic measured on the data it will see.
+#
+# The measurement also corrected a guess. 6.0 looked right by eye, being where
+# the false-positive rate first rounds to zero, but it costs 20 points of power
+# for nothing. Over 4000 trials per point: 5.0 gives 3.65% false positives (95%
+# upper bound 4.28%) at 58.1% power, against 0.4% and 38.6% at 6.0. A gate
+# tightened past its target is not safer, only deafer.
+#
+# Read the power figure before trusting any suggestion this scan makes: at
+# corpus sizes the engine actually sees it misses roughly two drivers in five.
+# That is an argument for the epsilon-machine criterion, not for loosening this.
+MIN_EFFECTIVE_SAMPLE = 5.0
 # Reported as a measured cross-check on the MDL gate, not gated on.
 PERMUTATIONS = 2000
 SIGNIFICANCE = 0.05
@@ -869,7 +887,6 @@ def description_length_gain(r: Optional[float], n: float, k: int = 1) -> float:
     """
     if r is None or n <= 1:
         return 0.0
-    from math import log2
     # A perfect fit saves unboundedly many bits in the limit; clamp rather than
     # zero it, since returning 0.0 here would read "worthless" for the one case
     # that is worth the most.
@@ -901,7 +918,9 @@ def permutation_p(x: Sequence[float], y: Sequence[float], observed: float,
 def stage_hidden(tree: DependencyTree, findings: Sequence, hidden_path,
                  residual_threshold: float = RESIDUAL_THRESHOLD,
                  correlation_threshold: float = CORRELATION_THRESHOLD,
-                 significance: float = SIGNIFICANCE) -> List[dict]:
+                 significance: float = SIGNIFICANCE,
+                 min_effective: float = MIN_EFFECTIVE_SAMPLE,
+                 permutations: int = PERMUTATIONS) -> List[dict]:
     """Scan claim residuals for unmodelled drivers, mirroring modules/hnd.py.
 
     The residual of a claim is how far its calibrated posterior sits from
@@ -983,8 +1002,15 @@ def stage_hidden(tree: DependencyTree, findings: Sequence, hidden_path,
         if spread < RESIDUAL_SPREAD_FLOOR:
             continue
         n_eff = effective_sample_size(weights)
+        if n_eff < min_effective:
+            continue
 
         candidates = candidate_series(topic_rows, grid)
+        # MDL charges for the search as well as the fit: naming which of the
+        # candidates won costs log2(m) bits. Dropping this when the permutation
+        # test's Bonferroni correction was replaced left the scan taking the
+        # best of several shots for free.
+        search_cost = log2(len(candidates)) if len(candidates) > 1 else 0.0
         for name, full_series in candidates:
             series = [full_series[i] for i in occupied]
             r = weighted_pearson(series, residuals, weights)
@@ -993,10 +1019,13 @@ def stage_hidden(tree: DependencyTree, findings: Sequence, hidden_path,
             partial = weighted_partial(series, residuals, clock, weights)
             if partial is None:
                 continue          # indistinguishable from the clock
-            gain = description_length_gain(partial, n_eff)
+            # k=2, not 1: the clock is a fitted term in this model too, and
+            # charging for only the candidate understates what was spent.
+            gain = description_length_gain(partial, n_eff, k=2) - search_cost
             if gain <= 0:
                 continue
-            p = permutation_p(series, residuals, partial)
+            p = (permutation_p(series, residuals, partial, trials=permutations)
+                 if permutations > 0 else None)
             suggestions.append({
                 "type": "hidden_variable_suggestion",
                 "topic": topic,
@@ -1004,7 +1033,7 @@ def stage_hidden(tree: DependencyTree, findings: Sequence, hidden_path,
                 "correlation": round(r, 4),
                 "partial_correlation": round(partial, 4),
                 "description_length_gain_bits": round(gain, 3),
-                "p_value": round(p, 5),
+                "p_value": round(p, 5) if p is not None else None,
                 "effective_sample_size": round(n_eff, 2),
                 "standing_tests": standing,
                 "mean_abs_residual": round(mean_abs, 4),
@@ -1019,9 +1048,192 @@ def stage_hidden(tree: DependencyTree, findings: Sequence, hidden_path,
                 "logged_at": datetime.now().isoformat(timespec="seconds"),
             })
 
-    if suggestions:
+    if suggestions and hidden_path is not None:
         append_jsonl(hidden_path, suggestions)
     return suggestions
+
+
+# ---------------------------------------------------------------------------
+# stage 6 — calibration
+#
+# The scan's gates are only worth what its measured error rates say they are.
+# This mirrors `SequentialDamageDetector.calibrate_from` in grounding/core/
+# damage.py: build streams whose truth is known, run the real detector over
+# them, and set the threshold from what comes back rather than from what the
+# derivation promised.
+# ---------------------------------------------------------------------------
+
+CALIBRATION_SEED = 20260818
+
+
+def synthetic_topic(rng: random.Random, n_claims: int = 8, *,
+                    driver: bool = False, topic: str = "t",
+                    spikes: Sequence[int] = (3, 7, 11)) -> Tuple[Any, List[dict]]:
+    """A corpus whose truth is known, for measuring the scan against.
+
+    With `driver=False` the evidence on each claim is independent of everything
+    else, so any suggestion the scan returns is a false positive by
+    construction. With `driver=True` publication volume spikes in `spikes` and
+    the well-corroborated claims sit on those spikes -- an association that is
+    genuinely there and, because it is not monotone in time, one that survives
+    the clock control rather than being manufactured by it.
+    """
+    tree = DependencyTree()
+    findings: List[dict] = []
+    for i in range(n_claims):
+        month = rng.randint(1, 12)
+        if not driver:
+            passed, failed = rng.randint(0, 10), rng.randint(0, 10)
+        elif month in spikes:
+            passed, failed = rng.randint(7, 10), rng.randint(0, 2)
+        else:
+            passed, failed = rng.randint(0, 2), rng.randint(7, 10)
+        url = f"https://example.invalid/{topic}/{i}"
+        tree.add_claim(Claim(text=f"synthetic claim {i}", falsification="x",
+                             passed=passed, failed=failed,
+                             scope={"topic": topic}, source_url=url))
+        findings.append({"date": f"2024-{month:02d}-{rng.randint(1, 28):02d}",
+                         "topic": topic, "url": url,
+                         "source": rng.choice(["arxiv", "crossref"])})
+    padded = spikes if driver else range(1, 13)
+    for month in padded:
+        for k in range(8 if driver else 2):
+            findings.append({"date": f"2024-{month:02d}-15", "topic": topic,
+                             "url": f"https://example.invalid/pad/{month}/{k}",
+                             "source": rng.choice(["arxiv", "crossref"])})
+    return tree, findings
+
+
+def wilson_upper(successes: int, trials: int, z: float = 1.96) -> float:
+    """Upper bound of the Wilson score interval for a binomial rate.
+
+    A measured false-positive rate is itself an estimate: 300 trials of a true
+    4% rate return anything from 2% to 7% depending on the seed, so calibrating
+    against the point estimate promises a rate the next sample can break. The
+    bound is what the promise should be made on -- and unlike the normal
+    approximation it stays sane when zero events are observed, which is the
+    common case at a high floor.
+    """
+    if trials <= 0:
+        return 1.0
+    p = successes / trials
+    z2 = z * z
+    denominator = 1 + z2 / trials
+    center = (p + z2 / (2 * trials)) / denominator
+    half = z * ((p * (1 - p) / trials + z2 / (4 * trials * trials)) ** 0.5) / denominator
+    return min(1.0, center + half)
+
+
+def scan_operating_characteristic(min_effective: float, *, trials: int = 300,
+                                  n_claims: int = 8, seed: int = CALIBRATION_SEED
+                                  ) -> Dict[str, float]:
+    """Measure (false positive rate, power) of the scan at one n_eff floor.
+
+    Both halves matter and they trade against each other: a floor high enough
+    to silence every null corpus also silences most real drivers, and a scan
+    that never fires is not thereby correct.
+    """
+    rates: Dict[str, float] = {}
+    for label, driver in (("false_positive_rate", False), ("power", True)):
+        rng = random.Random(seed)
+        fired = 0
+        for _ in range(trials):
+            tree, findings = synthetic_topic(
+                rng, n_claims=n_claims + (4 if driver else 0), driver=driver)
+            if _scan_topics(tree, findings, min_effective):
+                fired += 1
+        rates[label] = fired / trials
+        if not driver:
+            rates["false_positive_upper"] = wilson_upper(fired, trials)
+    rates["min_effective"] = min_effective
+    rates["trials"] = trials
+    return rates
+
+
+def _scan_topics(tree, findings, min_effective: float) -> List[dict]:
+    """stage_hidden with no logging and no permutation diagnostic.
+
+    Calibration runs the scan tens of thousands of times, so it skips both the
+    write and the 2000-permutation cross-check. Neither is a gate, so what is
+    measured here is exactly what production decides on.
+    """
+    return stage_hidden(tree, findings, None, min_effective=min_effective,
+                        permutations=0)
+
+
+def calibrate_scan(target_false_positive: float = 0.05,
+                   floors: Sequence[float] = (0.0, 3.0, 4.0, 5.0, 5.5, 6.0,
+                                              6.5, 7.0, 8.0),
+                   trials: int = 800, n_claims: int = 8,
+                   seed: int = CALIBRATION_SEED) -> Dict[str, Any]:
+    """Smallest n_eff floor whose *measured* false-positive rate meets target.
+
+    Smallest, not safest: every increment of the floor costs power, so the
+    honest choice is the loosest gate that still holds the promise. The whole
+    curve is returned with it, because a floor picked without its power cost in
+    view is how a detector ends up sound and useless at the same time.
+
+    Raises when no floor in the grid reaches the target -- that means the scan
+    cannot make the promise on corpora this size, which is a fact to report
+    rather than a threshold to keep raising.
+    """
+    # Enough trials to resolve the rate being promised: fewer than ~10 expected
+    # events and the estimate is noise. damage.py refuses short samples for the
+    # same reason.
+    needed = int(10 / target_false_positive) if target_false_positive > 0 else 0
+    if target_false_positive > 0 and trials < needed:
+        raise ValueError(
+            f"{trials} trials cannot resolve a {target_false_positive:.0%} rate; "
+            f"need ~{needed} so the measurement sees ten false alarms")
+
+    curve = [scan_operating_characteristic(floor, trials=trials,
+                                           n_claims=n_claims, seed=seed)
+             for floor in floors]
+    # Judge on the confidence bound, not the point estimate: the floor has to
+    # hold the promise on the next sample too, not merely on this one.
+    passing = [row for row in curve
+               if row["false_positive_upper"] <= target_false_positive]
+    if not passing:
+        best = min(curve, key=lambda row: row["false_positive_upper"])
+        raise ValueError(
+            f"no floor in {list(floors)} holds a {target_false_positive:.0%} "
+            f"false-positive rate on {n_claims}-claim corpora; the best bound is "
+            f"{best['false_positive_upper']:.1%} at n_eff >= {best['min_effective']}")
+    chosen = min(passing, key=lambda row: row["min_effective"])
+    return {
+        "min_effective": chosen["min_effective"],
+        "false_positive_rate": chosen["false_positive_rate"],
+        "false_positive_upper": chosen["false_positive_upper"],
+        "power": chosen["power"],
+        "trials": trials,
+        "target_false_positive": target_false_positive,
+        "shipped_default": MIN_EFFECTIVE_SAMPLE,
+        "curve": curve,
+    }
+
+
+def _report_calibration(trials: int) -> int:
+    """Print stage 6's measured operating characteristic. Behind --calibrate."""
+    print(f"stage 6 operating characteristic ({trials} trials per point)\n")
+    print(f"{'n_eff floor':>12} {'false pos':>10} {'95% upper':>10} {'power':>8}")
+    try:
+        result = calibrate_scan(trials=trials)
+    except ValueError as exc:
+        print(f"  calibration failed: {exc}")
+        return 1
+    for row in result["curve"]:
+        mark = "  <- calibrated" if row["min_effective"] == result["min_effective"] else ""
+        print(f"{row['min_effective']:12.1f} {row['false_positive_rate']:9.2%} "
+              f"{row['false_positive_upper']:9.2%} {row['power']:7.1%}{mark}")
+    print()
+    print(f"  loosest floor holding a {result['target_false_positive']:.0%} rate: "
+          f"n_eff >= {result['min_effective']}")
+    print(f"  power there: {result['power']:.1%} -- roughly "
+          f"{1 - result['power']:.0%} of real drivers are missed")
+    if result["min_effective"] != result["shipped_default"]:
+        print(f"  NOTE: the module ships {result['shipped_default']}; "
+              f"this measurement says {result['min_effective']}")
+    return 0
 
 
 def retract(hidden_path, topic: str, candidate: str, reason: str,
@@ -1230,7 +1442,14 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--data-dir", default=str(REPO_ROOT / "data"))
     parser.add_argument("--hypotheses-dir", default=str(REPO_ROOT / "hypotheses"))
     parser.add_argument("--sample", default=str(REPO_ROOT / "scripts" / "sample_findings.json"))
+    parser.add_argument("--calibrate", action="store_true",
+                        help="measure stage 6's false-positive rate and power "
+                             "on synthetic corpora, then exit")
+    parser.add_argument("--calibration-trials", type=int, default=4000)
     args = parser.parse_args(argv)
+
+    if args.calibrate:
+        return _report_calibration(args.calibration_trials)
 
     data_dir = Path(args.data_dir)
     data_dir.mkdir(parents=True, exist_ok=True)

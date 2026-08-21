@@ -136,6 +136,30 @@ Workflow: `.github/workflows/hypothesis-engine.yml` (Mondays 06:17 UTC, plus
   needed on top — a residual built from an untouched Beta(1,1) prior is not a
   measurement at all. Replaying the live corpus, every topic is refused and
   each gate earns its keep on a different one.
+- **Every gate being principled did not make the scan correct.** After the four
+  measures above were in, the scan still fired on **36% of corpora containing no
+  driver at all**. Two were bugs in the MDL accounting — `k=1` when conditioning
+  on the clock fits two parameters, and no `log2(m)` charge for picking the best
+  of *m* candidates, which had been silently dropped along with the permutation
+  test's Bonferroni correction. The rest was the absence of a floor on effective
+  sample size. Run `python scripts/hypothesis_engine.py --calibrate`:
+
+  | n_eff floor | false pos | 95% upper | power |
+  |---|---|---|---|
+  | none | 19.6% | 21.4% | 65.6% |
+  | 4.0 | 10.6% | 12.0% | 64.5% |
+  | **5.0** | **3.4%** | **4.2%** | **58.6%** |
+  | 6.0 | 0.4% | 0.7% | 38.8% |
+  | 8.0 | 0.0% | 0.2% | 4.8% |
+
+  `calibrate_scan` returns the *loosest* floor holding the target rate, judged
+  on the Wilson upper bound rather than the point estimate, and refuses a target
+  it cannot resolve with the trials given — the same contract as
+  `SequentialDamageDetector.calibrate_from`. It also corrected a guess: 6.0 was
+  chosen by eye because it is where the rate first rounds to zero, and it costs
+  20 points of power for nothing. **A gate tightened past its target is not
+  safer, only deafer.** Read the power column before trusting any suggestion:
+  even calibrated, the scan misses about two real drivers in five.
 - **ε-machine acceptance is the destination, and the corpus is not there yet.**
   `modules/hnd.py::accept_by_epsilon_machine` is the criterion this scan should
   eventually use — keep a candidate only if conditioning on it drops *both*
