@@ -1378,5 +1378,15 @@
     ],
     "url": "https://doi.org/10.1109/gcon69192.2026.11648944",
     "date": "2026-06"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/2608.20735v1",
+    "date": "2026-08-21"
   }
 ]

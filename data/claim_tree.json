@@ -1053,13 +1053,13 @@
       "text": "On topic requisite variety and cybernetic regulation, Plankton: the paradox and the power law reports: Two basic features of assemblages of unicellular plankton: (1) their high biodiversity and (2) the power-law structure of their abundance, can be explained by an allometric scaling of cell growth and mortality with respect to cell size. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.6667,
+      "confidence": 0.6,
       "failed": 0,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 2023 result",
       "id": "ed6d01ffd3142856",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "arxiv records on 'requisite variety and cybernetic regulation'",
       "reformulation_count": 1,
       "scope": {
@@ -1078,18 +1078,19 @@
         "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111",
         "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134",
         "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
-        "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608"
+        "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608",
+        "b86566efa2181dc4df8cea4c62a4c7d4b97cbe67217d018bdec94e162dc5903c"
       ],
       "text": "On topic requisite variety and cybernetic regulation, Incorporating AI incident reporting into telecommunications law and policy: Insights from India reports: The integration of artificial intelligence (AI) into telecommunications infrastructure introduces novel risks, such as algorithmic bias and unpredictable system behavior, that fall outside the scope of traditional cybersecurity and data protection frameworks. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.6667,
+      "confidence": 0.6,
       "failed": 0,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 2020 result",
       "id": "c36075e5eb90fe6d",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "crossref records on 'requisite variety and cybernetic regulation'",
       "reformulation_count": 1,
       "scope": {
@@ -1108,18 +1109,19 @@
         "f12ed9da25eb9462236d56b25f1380266c021da6bf5f578e68e3f50972641a92",
         "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111",
         "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134",
-        "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed"
+        "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
+        "b86566efa2181dc4df8cea4c62a4c7d4b97cbe67217d018bdec94e162dc5903c"
       ],
       "text": "On topic requisite variety and cybernetic regulation, A Capacity-Based Theory of Complexity Control in Megaprojects: Structural Demands, Regulatory Capacity, and Ashby's Law of Requisite Variety reports: Megaproject research has shown repeatedly that large, technologically demanding, and politically exposed projects are prone to cost escalation, delay, and governance breakdown. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.6667,
+      "confidence": 0.6,
       "failed": 0,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result",
       "id": "16d081300cf321e2",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "crossref records on 'requisite variety and cybernetic regulation'",
       "reformulation_count": 1,
       "scope": {
@@ -1140,18 +1142,19 @@
         "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
         "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9",
         "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608",
-        "8a56e96aad42dff91205cec4b9d184fe5a6836bef9f2d4f300de99f1a501ad12"
+        "8a56e96aad42dff91205cec4b9d184fe5a6836bef9f2d4f300de99f1a501ad12",
+        "b86566efa2181dc4df8cea4c62a4c7d4b97cbe67217d018bdec94e162dc5903c"
       ],
       "text": "On topic requisite variety and cybernetic regulation, Requisite Variety For Ai Security reports: Enterprises are deploying large language models and autonomous AI agents into operational control loops-security operations, quality assurance, procurement, infrastructure management-where these systems make thousands of consequential decisions with tool access, external data ingestion, and limited human oversight. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.3333,
-      "confidence": 0.3,
+      "beta_confidence": 0.5,
+      "confidence": 0.4,
       "failed": 1,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 319 result",
       "id": "7b77502b691ca58c",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "arxiv records on 'requisite variety and cybernetic regulation'",
       "reformulation_count": 1,
       "scope": {
@@ -1171,18 +1174,19 @@
         "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
         "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9",
         "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608",
-        "ad445f8c226eb71c037e179743d1feded4c8f12a08f2762febaf4c70b2f8ee2e"
+        "ad445f8c226eb71c037e179743d1feded4c8f12a08f2762febaf4c70b2f8ee2e",
+        "b86566efa2181dc4df8cea4c62a4c7d4b97cbe67217d018bdec94e162dc5903c"
       ],
       "text": "On topic requisite variety and cybernetic regulation, What-If World: A Causal Benchmark for General World Models in Embodied Scenarios reports: Video generation models are increasingly used as world simulators for tasks like driving and robotic manipulation. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.3333,
-      "confidence": 0.3,
+      "beta_confidence": 0.5,
+      "confidence": 0.4,
       "failed": 1,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 151 result",
       "id": "b42b5c4447dd86ad",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "crossref records on 'requisite variety and cybernetic regulation'",
       "reformulation_count": 1,
       "scope": {
@@ -1202,18 +1206,19 @@
         "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134",
         "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
         "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9",
-        "ad445f8c226eb71c037e179743d1feded4c8f12a08f2762febaf4c70b2f8ee2e"
+        "ad445f8c226eb71c037e179743d1feded4c8f12a08f2762febaf4c70b2f8ee2e",
+        "b86566efa2181dc4df8cea4c62a4c7d4b97cbe67217d018bdec94e162dc5903c"
       ],
       "text": "On topic requisite variety and cybernetic regulation, From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market reports: Quantitative factor strategies routinely excel in backtests and disappoint in production: the flagship live multifactor index earned a Sharpe ratio statistically indistinguishable from zero over seventeen years. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.3333,
-      "confidence": 0.3,
+      "beta_confidence": 0.5,
+      "confidence": 0.4,
       "failed": 1,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 9 result",
       "id": "65bb0272d062e853",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "crossref records on 'requisite variety and cybernetic regulation'",
       "reformulation_count": 1,
       "scope": {
@@ -1233,18 +1238,19 @@
         "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111",
         "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
         "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9",
-        "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134"
+        "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134",
+        "b86566efa2181dc4df8cea4c62a4c7d4b97cbe67217d018bdec94e162dc5903c"
       ],
       "text": "On topic requisite variety and cybernetic regulation, Model Projects and the Difficulty of Predicting Future Success reports: Chapter 9 draws on the lessons of handpump tubewells, thalidomide, and DDT, to argue that global aid may have unanticipated long-term negative consequences that make predicting the overall future success of aid problematic. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.6667,
+      "confidence": 0.6,
       "failed": 0,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result",
       "id": "578ca01497db3e77",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "crossref records on 'requisite variety and cybernetic regulation'",
       "reformulation_count": 1,
       "scope": {
@@ -1265,10 +1271,44 @@
         "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134",
         "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
         "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9",
-        "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608"
+        "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608",
+        "b86566efa2181dc4df8cea4c62a4c7d4b97cbe67217d018bdec94e162dc5903c"
       ],
       "text": "On topic requisite variety and cybernetic regulation, GeoCausal: A Geometric-Causal World Model Integrating System 1 and System 2 for Embodied Reasoning reports: This paper introduces GeoCausal, a novel theoretical framework for embodied artificial intelligence that unifies geometric deep learning with dual-process cognitive architectures. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 5 result",
+      "id": "a4a6a3fc54bac055",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "arxiv records on 'requisite variety and cybernetic regulation'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026-08-21",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "arxiv",
+        "topic": "requisite variety and cybernetic regulation"
+      },
+      "source_url": "http://arxiv.org/abs/2608.20735v1",
+      "status": "active",
+      "tested_against": [
+        "ad445f8c226eb71c037e179743d1feded4c8f12a08f2762febaf4c70b2f8ee2e",
+        "016957bdfcbfc1bf273c07356b3262bfd90b51f4cf738213a94d2f6f797c0482",
+        "f12ed9da25eb9462236d56b25f1380266c021da6bf5f578e68e3f50972641a92",
+        "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111",
+        "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134",
+        "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
+        "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9",
+        "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608",
+        "8a56e96aad42dff91205cec4b9d184fe5a6836bef9f2d4f300de99f1a501ad12"
+      ],
+      "text": "On topic requisite variety and cybernetic regulation, ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation reports: Manipulating moving objects requires a policy to anticipate contact events, yet vision-language-action (VLA) policies are commonly fine-tuned from the current observation alone. (scope narrowed: restricted after failure #1)"
     }
   ],
-  "saved_at": "2026-08-18T21:53:29"
+  "saved_at": "2026-08-24T07:29:37"
 }
