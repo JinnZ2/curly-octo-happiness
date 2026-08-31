@@ -1,6 +1,6 @@
 # Hypothesis draft — requisite variety and cybernetic regulation
 
-_Regenerated 2026-08-24 by `scripts/hypothesis_engine.py`. Node confidence 0.49; 0 surviving / 9 active / 0 refuted claims._
+_Regenerated 2026-08-31 by `scripts/hypothesis_engine.py`. Node confidence 0.53; 0 surviving / 9 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
 
@@ -8,43 +8,43 @@ Cross-source corroboration is weak evidence — corroboration is not replication
 
 - **On topic requisite variety and cybernetic regulation, A Capacity-Based Theory of Complexity Control in Megaprojects: Structural Demands, Regulatory Capacity, and Ashby's Law of Requisite Variety reports: Megaproject research has shown repeatedly that large, technologically demanding, and politically exposed projects are prone to cost escalation, delay, and governance breakdown. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 2020 result
-  - record: 1 passed / 0 failed, beta-confidence 0.67
+  - record: 2 passed / 0 failed, beta-confidence 0.75
   - source: https://doi.org/10.31235/osf.io/3hdn5_v1
   - reformulated 1x
 - **On topic requisite variety and cybernetic regulation, GeoCausal: A Geometric-Causal World Model Integrating System 1 and System 2 for Embodied Reasoning reports: This paper introduces GeoCausal, a novel theoretical framework for embodied artificial intelligence that unifies geometric deep learning with dual-process cognitive architectures. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result
-  - record: 1 passed / 0 failed, beta-confidence 0.67
+  - record: 2 passed / 0 failed, beta-confidence 0.75
   - source: https://doi.org/10.2139/ssrn.6089867
   - reformulated 1x
 - **On topic requisite variety and cybernetic regulation, Incorporating AI incident reporting into telecommunications law and policy: Insights from India reports: The integration of artificial intelligence (AI) into telecommunications infrastructure introduces novel risks, such as algorithmic bias and unpredictable system behavior, that fall outside the scope of traditional cybersecurity and data protection frameworks. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 2023 result
-  - record: 1 passed / 0 failed, beta-confidence 0.67
+  - record: 2 passed / 0 failed, beta-confidence 0.75
   - source: http://arxiv.org/abs/2509.09508v2
   - reformulated 1x
 - **On topic requisite variety and cybernetic regulation, Requisite Variety For Ai Security reports: Enterprises are deploying large language models and autonomous AI agents into operational control loops-security operations, quality assurance, procurement, infrastructure management-where these systems make thousands of consequential decisions with tool access, external data ingestion, and limited human oversight. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result
-  - record: 1 passed / 0 failed, beta-confidence 0.67
+  - record: 2 passed / 0 failed, beta-confidence 0.75
   - source: https://doi.org/10.2139/ssrn.6255362
-  - reformulated 1x
-- **On topic requisite variety and cybernetic regulation, ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation reports: Manipulating moving objects requires a policy to anticipate contact events, yet vision-language-action (VLA) policies are commonly fine-tuned from the current observation alone. (scope narrowed: restricted after failure #1)**
-  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 5 result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: http://arxiv.org/abs/2608.20735v1
   - reformulated 1x
 - **On topic requisite variety and cybernetic regulation, From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market reports: Quantitative factor strategies routinely excel in backtests and disappoint in production: the flagship live multifactor index earned a Sharpe ratio statistically indistinguishable from zero over seventeen years. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 151 result
-  - record: 1 passed / 1 failed, beta-confidence 0.50
+  - record: 2 passed / 1 failed, beta-confidence 0.60
   - source: https://doi.org/10.2139/ssrn.7216139
   - reformulated 1x
 - **On topic requisite variety and cybernetic regulation, Model Projects and the Difficulty of Predicting Future Success reports: Chapter 9 draws on the lessons of handpump tubewells, thalidomide, and DDT, to argue that global aid may have unanticipated long-term negative consequences that make predicting the overall future success of aid problematic. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 9 result
-  - record: 1 passed / 1 failed, beta-confidence 0.50
+  - record: 2 passed / 1 failed, beta-confidence 0.60
   - source: https://doi.org/10.1093/oso/9780192849977.003.0009
   - reformulated 1x
 - **On topic requisite variety and cybernetic regulation, What-If World: A Causal Benchmark for General World Models in Embodied Scenarios reports: Video generation models are increasingly used as world simulators for tasks like driving and robotic manipulation. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 319 result
-  - record: 1 passed / 1 failed, beta-confidence 0.50
+  - record: 2 passed / 1 failed, beta-confidence 0.60
   - source: http://arxiv.org/abs/2605.27589v1
+  - reformulated 1x
+- **On topic requisite variety and cybernetic regulation, ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation reports: Manipulating moving objects requires a policy to anticipate contact events, yet vision-language-action (VLA) policies are commonly fine-tuned from the current observation alone. (scope narrowed: restricted after failure #1)**
+  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 5 result
+  - record: 0 passed / 0 failed, beta-confidence 0.50
+  - source: http://arxiv.org/abs/2608.20735v2
   - reformulated 1x
 - **On topic requisite variety and cybernetic regulation, Plankton: the paradox and the power law reports: Two basic features of assemblages of unicellular plankton: (1) their high biodiversity and (2) the power-law structure of their abundance, can be explained by an allometric scaling of cell growth and mortality with respect to cell size. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result
@@ -117,4 +117,6 @@ _none_
 - [unfalsifiable] On topic requisite variety and cybernetic regulation, The Rybczynski theorem in the three-factor, two-good model reports: no abstract available
   - no measurable falsification condition in the abstract
 - [unfalsifiable] On topic requisite variety and cybernetic regulation, Theorem 1 for the Real-World Model reports: no abstract available
+  - no measurable falsification condition in the abstract
+- [unfalsifiable] On topic requisite variety and cybernetic regulation, Every Good Regulator of a System Must Be a Model of That System reports: no abstract available
   - no measurable falsification condition in the abstract
