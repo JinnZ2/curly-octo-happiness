@@ -55,6 +55,23 @@ Dependencies: the `grounding` package and root playgrounds are stdlib-only. Extr
 
 ## Repository conventions and gotchas
 
+- **`RESEARCH_RENDER.md`** is `META-PROTOCOL.md`'s companion at the other
+  density: the map is how you find and traverse a gap, this is how you render
+  a found one so a stranger with a lab and a semester can start. It fixes the
+  three documents, the id scheme (*three-letter folder prefix + sequence; ids
+  are permanent, never renumber*), the three-value claim status set, and the
+  per-gap fields — including **`What it opens`**, which turns a gap list into
+  something traversable rather than a queue. §5 keeps three vocabularies apart
+  that get mixed: claim status, knowledge state, and `META-PROTOCOL` §4B
+  reading state — a separation this repo already has in code, since
+  `Claim.status` and the `UnknownJournal` answer different questions and
+  `damage.py`'s calibration answers a third. §6 names the schema's own failure
+  mode: *the six-shape section will fill itself if you let it; six is a
+  ceiling, not a quota, and an empty slot is a finding.* That is the same
+  shape as this repo's own `calibrate_scan` result — a gate tightened or
+  loosened toward a target number stops measuring the thing. §8 writes the
+  claim table **last**. Delivered verbatim, CC0.
+
 - **`META-PROTOCOL.md`** is a way of finding out things written as a **map
   instead of a test**, and it is for people rather than for a model.
   Positions, moves, readings, bearings: you are always somewhere, every
