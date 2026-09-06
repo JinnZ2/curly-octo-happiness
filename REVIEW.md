@@ -3,6 +3,20 @@
 > Multi-faceted review of the entire repository (all `.py` and `.md` files, ~8,700 lines of Python).
 > Review date: 2026-07-08. Line numbers refer to the repository state at commit `ce93698` (the commit this review was written against); later commits on this branch apply fixes and may shift line numbers.
 
+## Re-audit — 2026-09-02
+
+Full re-read of the tree at `daae0f6` (after PRs #7, #8, #10 and the weekly engine digests). `python -m pytest tests/`: **272 passed, 5 skipped** (skips are the networkx/numpy-gated SDS and plugin tests on a bare install). All root scripts run to completion from the repository root. Findings, ranked by leverage:
+
+| # | Finding | Where | Effect |
+|---|---|---|---|
+| R1 | `scripts/hypothesis_engine.py --dry-run` writes into the **committed** `data/` and `hypotheses/` directories by default; running the documented offline check dirties ten tracked files. `--data-dir`/`--hypotheses-dir` exist but nothing pointed at them. | `scripts/hypothesis_engine.py`, `CLAUDE.md` | Fixed in docs: `CLAUDE.md` now shows the flags. Consider defaulting `--dry-run` to a temp dir in code. |
+| R2 | CI runs only `tests/test_hypothesis_engine.py`; the other ~250 tests have no automated run. | `.github/workflows/hypothesis-engine.yml` | A second workflow (`pip install -e .[test] && pytest`) closes the gap for ~10 lines. |
+| R3 | `octahedral_canon.py` and four plugin docstrings cite `GEIS/octahedral_state.py` and `Engine/gaussian_splats/octahedral.py` as "two subsystems in this repo". Neither directory exists here. | `octahedral_canon.py`, `plugins/{spatial_canon,gravitational,meta_encoder,physics_discovery}.py` | Docs-only inconsistency; `CLAUDE.md` now states that GEIS/Engine name conventions, not directories. Rewording the canon docstring would finish it. |
+| R4 | `CLAUDE.md` omitted eleven root files (`initiation_loop.py`, `interplay.py`, `self_modeling_explorer.py`, `octahedral_canon.py`, `REVIEW.md`, `Playgrounds.md`, `Expansions_in_progress.md`, `base_plugin_interface.md`, `KEYWORDS.md`, `CITATION.cff`, `metadata.json`), all older than its last edit. | `CLAUDE.md` | Fixed: added to the playground-line and sketches-vs-code entries. |
+| R5 | `CLAUDE.md` is 2.5k words of narrative paragraphs, four times the README. It is accurate, but the highest-value facts (dependency tiers, stdlib rule, what dirties the tree) are buried mid-paragraph. | `CLAUDE.md` | Not changed; a future pass could lift commands, tiers and gotchas into tables and leave the design rationale to `PLAN_FORWARD.md` and `design/notes/`. |
+
+Still open from earlier rounds: §3.16, §3.21, §6.2, §6.9 (see below).
+
 ## Fix log (applied after the review, same branch)
 
 The following findings have been **fixed and verified** (all runnable scripts pass; plugins load and encode):
