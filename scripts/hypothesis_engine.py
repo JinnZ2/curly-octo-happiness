@@ -29,6 +29,8 @@ import urllib.request
 from dataclasses import dataclass, field
 from datetime import date, datetime
 from math import log2
+from statistics import median
+from collections import Counter
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 from xml.etree import ElementTree
@@ -960,6 +962,151 @@ def permutation_p(x: Sequence[float], y: Sequence[float], observed: float,
     return (hits + 1) / (trials + 1)
 
 
+DERIVED = "DERIVED"
+UNDERIVABLE = "UNDERIVABLE"
+UNBOUNDED_BY_THIS_TERM = "UNBOUNDED_BY_THIS_TERM"
+# A topic needs this many claims carrying a residual before an elasticity can be
+# fitted to them at all.
+MIN_CLAIMS_FOR_COUPLING = 4
+# Findings are counted within this many characteristic intervals of a claim, so
+# "volume" is measured on the topic's own clock rather than in calendar years.
+VOLUME_WINDOW_TAUS = 3.0
+
+
+@dataclass
+class TopicClock:
+    """A topic's own timescale, in the form JinnZ2/Simulators `claim-record` uses.
+
+        shelf_life = time_constant / |coupling|
+
+    `tau` is the characteristic interval between arrivals on the topic and
+    `coupling` is a *dimensionless* elasticity, d(log residual)/d(log volume) --
+    dimensionless because a raw partial derivative carries units and a time
+    divided by one of those is not a time.
+
+    The reason this is here rather than in the scan is that the two of them
+    answer different questions. The scan says whether a candidate explains the
+    residuals; the clock says whether the topic can be resolved at all. Without
+    it a topic nobody could look at and a topic that was looked at and came back
+    empty are both reported as silence, which is the one failure the retraction
+    discipline exists to prevent.
+    """
+
+    topic: str
+    state: str
+    tau_years: Optional[float] = None
+    coupling: Optional[float] = None
+    shelf_life_years: Optional[float] = None
+    reason: str = ""
+
+    @property
+    def resolvable(self) -> bool:
+        return self.state == DERIVED
+
+    def to_dict(self) -> dict:
+        return {
+            "type": "topic_clock",
+            "topic": self.topic,
+            "state": self.state,
+            "tau_years": None if self.tau_years is None else round(self.tau_years, 4),
+            "coupling": None if self.coupling is None else round(self.coupling, 4),
+            "shelf_life_years": (None if self.shelf_life_years is None
+                                 else round(self.shelf_life_years, 3)),
+            "reason": self.reason,
+            "logged_at": datetime.now().isoformat(timespec="seconds"),
+        }
+
+
+def topic_clock(topic: str, dated_claims: Sequence[Tuple[date, Any]],
+                topic_dates: Sequence[date]) -> TopicClock:
+    """Derive one topic's clock, or say which term stopped the derivation."""
+    ordered = sorted(topic_dates)
+    gaps = [(b - a).days / 365.25 for a, b in zip(ordered, ordered[1:])
+            if (b - a).days > 0]
+    if not gaps:
+        return TopicClock(topic, UNDERIVABLE,
+                          reason="no two findings sit at different dates")
+    tau = median(gaps)
+
+    if len(dated_claims) < MIN_CLAIMS_FOR_COUPLING:
+        return TopicClock(topic, UNDERIVABLE, tau_years=tau,
+                          reason=(f"{len(dated_claims)} claims cannot support an "
+                                  f"elasticity; need {MIN_CLAIMS_FOR_COUPLING}"))
+    if not any(c.passed or c.failed for _, c in dated_claims):
+        # Distinct from a measured zero: nothing was ever tested here, so there
+        # is no sensitivity to measure rather than a sensitivity of zero.
+        return TopicClock(topic, UNDERIVABLE, tau_years=tau,
+                          reason=("no claim on this topic carries a test "
+                                  "outcome, so there is no sensitivity to fit"))
+
+    # Volume is measured in the topic's *own* time unit, not in calendar years.
+    # A year is arbitrary here and degenerate whenever a topic's whole span is
+    # shorter than one -- every claim then sees the same count and no elasticity
+    # exists. Counting findings within a window of the topic's characteristic
+    # interval makes the measure scale-free, which is the point of giving each
+    # topic a clock in the first place.
+    window_days = max(1.0, tau * 365.25 * VOLUME_WINDOW_TAUS)
+    xs, ys = [], []
+    for when, claim in dated_claims:
+        count = sum(1 for d in topic_dates
+                    if abs((d - when).days) <= window_days)
+        if count > 0:
+            # The claim's standing itself, not the magnitude of its residual.
+            # Beta confidence is strictly inside (0, 1) so its log is defined,
+            # and it moves in the direction the evidence moves -- where
+            # |residual| discards exactly that and reads a topic whose claims
+            # split cleanly for and against as perfectly insensitive.
+            xs.append(log2(count))
+            ys.append(log2(claim.beta_confidence))
+    if len(xs) < MIN_CLAIMS_FOR_COUPLING:
+        return TopicClock(topic, UNDERIVABLE, tau_years=tau,
+                          reason="too few claims fall near any finding")
+
+    mean_x = sum(xs) / len(xs)
+    mean_y = sum(ys) / len(ys)
+    denominator = sum((x - mean_x) ** 2 for x in xs)
+    if denominator < 1e-12:
+        return TopicClock(topic, UNDERIVABLE, tau_years=tau,
+                          reason="findings volume does not vary across the claims")
+    coupling = sum((x - mean_x) * (y - mean_y) for x, y in zip(xs, ys)) / denominator
+
+    if abs(coupling) < 1e-3:
+        # Zero elasticity does not mean "stable forever": it means this term
+        # tells you nothing about the shelf life, so the bound has to come from
+        # somewhere else. Naming which term failed is the point.
+        return TopicClock(topic, UNBOUNDED_BY_THIS_TERM, tau_years=tau,
+                          coupling=coupling,
+                          reason=("residuals are insensitive to findings volume, "
+                                  "so this term bounds nothing"))
+    return TopicClock(topic, DERIVED, tau_years=tau, coupling=coupling,
+                      shelf_life_years=tau / abs(coupling),
+                      reason="")
+
+
+def topic_clocks(tree: DependencyTree, findings: Sequence) -> List[TopicClock]:
+    """One clock per topic, so silence from the scan can be read correctly."""
+    rows = [f if isinstance(f, dict) else f.to_dict() for f in findings]
+    when_by_url = {}
+    for row in rows:
+        parsed = parse_date(row.get("date", ""))
+        if parsed is not None and row.get("url"):
+            when_by_url[row["url"]] = parsed
+
+    clocks = []
+    for topic, claims in sorted(tree.by_topic().items()):
+        dated = [(when_by_url[c.source_url], c) for c in claims
+                 if c.source_url in when_by_url]
+        topic_rows = [r for r in rows if r.get("topic") in (topic, None)] or rows
+        dates = [d for d in (parse_date(r.get("date", "")) for r in topic_rows)
+                 if d is not None]
+        if not dates:
+            clocks.append(TopicClock(topic, UNDERIVABLE,
+                                     reason="no dated findings on this topic"))
+            continue
+        clocks.append(topic_clock(topic, dated, dates))
+    return clocks
+
+
 def stage_hidden(tree: DependencyTree, findings: Sequence, hidden_path,
                  residual_threshold: float = RESIDUAL_THRESHOLD,
                  correlation_threshold: float = CORRELATION_THRESHOLD,
@@ -1441,12 +1588,26 @@ def write_report(path, stats: Dict[str, Any]) -> str:
         f"- claims carrying evidence after reformulation: "
         f"{stats.get('evidenced', 0)}/{stats.get('tree_size', 0)}",
         f"- hidden-variable suggestions: {len(stats['hidden'])}",
+        # Silence from the scan means two different things, and the clock is
+        # what separates them: a topic that was searched and came back empty,
+        # from one whose timescale could not be derived so it was never
+        # searchable in the first place.
+        f"- topics whose clock derives (so a null scan means something): "
+        f"{sum(1 for c in stats.get('clocks', []) if c.resolvable)}"
+        f"/{len(stats.get('clocks', []))}",
         f"- hypothesis drafts written: {stats['consolidate']['hypothesis_files']}",
         "",
     ]
     for row in stats["hidden"]:
         lines.append(f"- hidden variable: {row['evidence']}")
     if stats["hidden"]:
+        lines.append("")
+    unresolved = [c for c in stats.get("clocks", []) if not c.resolvable]
+    if unresolved:
+        lines.append("Topics not searchable this run (no driver can be ruled "
+                     "in *or* out on them):")
+        for clock in unresolved:
+            lines.append(f"- {clock.topic} -- {clock.state}: {clock.reason}")
         lines.append("")
 
     new = stats["consolidate"]["new_hypotheses"]
@@ -1531,8 +1692,18 @@ def main(argv: Optional[List[str]] = None) -> int:
           f"{modify_stats['escape_hatched']} escape-hatched")
 
     print("6. hidden")
-    hidden = stage_hidden(tree, read_jsonl(log_path), hidden_path)
-    print(f"   {len(hidden)} suggestions")
+    findings_log = read_jsonl(log_path)
+    # Clocks first: they say which topics could be looked at, so that a scan
+    # returning nothing can be told apart from a scan that could not run.
+    clocks = topic_clocks(tree, findings_log)
+    append_jsonl(hidden_path, [c.to_dict() for c in clocks])
+    hidden = stage_hidden(tree, findings_log, hidden_path)
+    resolvable = sum(1 for c in clocks if c.resolvable)
+    print(f"   {len(hidden)} suggestions "
+          f"({resolvable}/{len(clocks)} topics resolvable)")
+    for clock in clocks:
+        if not clock.resolvable:
+            print(f"   {clock.state}: {clock.topic} -- {clock.reason}")
 
     print("7. consolidate")
     consolidated = stage_consolidate(tree, topics, unknown_path, hidden_path,
@@ -1544,6 +1715,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         "claims": len(made), "unknown": unknown_count,
         "test": test_stats, "modify": modify_stats, "hidden": hidden,
         "consolidate": consolidated,
+        "clocks": clocks,
         "evidenced": sum(1 for c in tree.claims.values() if c.passed or c.failed),
         "tree_size": len(tree.claims),
     })

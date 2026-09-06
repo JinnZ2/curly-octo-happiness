@@ -256,6 +256,61 @@ def test_claims_are_correlated_in_time_not_in_stake_order(workspace):
     assert key(forward) == key(backward) == key(shuffled)
 
 
+# --- the topic clock: telling "found nothing" from "could not look" ---------
+
+def test_a_clock_derives_when_the_topic_supports_one():
+    """shelf_life = tau / |coupling|, per JinnZ2/Simulators claim-record."""
+    tree = he.DependencyTree()
+    findings = spiky_topic(tree, months=range(1, 11))
+    clock = {c.topic: c for c in he.topic_clocks(tree, findings)}["t"]
+    assert clock.state == he.DERIVED and clock.resolvable
+    assert clock.shelf_life_years == pytest.approx(
+        clock.tau_years / abs(clock.coupling), rel=1e-9)
+
+
+def test_a_topic_with_too_few_claims_is_underivable_not_empty():
+    """The distinction the whole clock exists for."""
+    tree = he.DependencyTree()
+    findings = dated_topic(tree, [(1, 5, 1), (4, 4, 2)])
+    clock = {c.topic: c for c in he.topic_clocks(tree, findings)}["t"]
+    assert clock.state == he.UNDERIVABLE
+    assert not clock.resolvable and "cannot support an elasticity" in clock.reason
+
+
+def test_insensitive_residuals_name_the_term_that_failed():
+    """Zero elasticity is not 'stable forever'; it is 'this term bounds nothing'."""
+    tree = he.DependencyTree()
+    # Every claim carries the same residual, so it cannot vary with volume.
+    findings = dated_topic(tree, [(m, 6, 2) for m in (1, 3, 5, 7, 9, 11)])
+    clock = {c.topic: c for c in he.topic_clocks(tree, findings)}["t"]
+    assert clock.state == he.UNBOUNDED_BY_THIS_TERM
+    assert clock.tau_years is not None      # tau was derivable; the coupling was not
+    assert clock.shelf_life_years is None
+
+
+def test_untested_claims_leave_the_clock_underivable():
+    """Residual-free claims sit exactly at the prior, so no elasticity exists."""
+    tree = he.DependencyTree()
+    findings = spiky_topic(tree, months=range(1, 11))
+    for claim in tree.claims.values():
+        claim.passed = claim.failed = 0
+    clock = {c.topic: c for c in he.topic_clocks(tree, findings)}["t"]
+    assert clock.state == he.UNDERIVABLE
+
+
+def test_a_null_scan_on_a_derived_clock_is_a_real_negative():
+    """Both halves together: searchable, searched, nothing found."""
+    tree = he.DependencyTree()
+    # A resolvable topic whose residuals track nothing in particular.
+    findings = dated_topic(tree, [
+        (1, 6, 2), (3, 2, 6), (5, 5, 3), (7, 3, 5), (9, 6, 2), (11, 2, 6)])
+    clock = {c.topic: c for c in he.topic_clocks(tree, findings)}["t"]
+    suggestions = he.stage_hidden(tree, findings, None)
+    assert suggestions == []
+    # The clock is what licenses reading that empty list as evidence.
+    assert clock.state in (he.DERIVED, he.UNBOUNDED_BY_THIS_TERM)
+
+
 # --- stage 6's operating characteristic, measured rather than assumed --------
 
 def test_the_scan_holds_its_false_positive_rate_on_null_corpora():
