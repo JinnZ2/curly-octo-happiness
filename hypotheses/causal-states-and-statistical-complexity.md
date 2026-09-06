@@ -1,6 +1,6 @@
 # Hypothesis draft — causal states and statistical complexity
 
-_Regenerated 2026-08-24 by `scripts/hypothesis_engine.py`. Node confidence 0.55; 0 surviving / 2 active / 0 refuted claims._
+_Regenerated 2026-08-31 by `scripts/hypothesis_engine.py`. Node confidence 0.61; 6 surviving / 0 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
 
@@ -8,12 +8,28 @@ Cross-source corroboration is weak evidence — corroboration is not replication
 
 - **On topic causal states and statistical complexity, A Scoping Review of Earth Observation and Machine Learning for Causal Inference: Implications for the Geography of Poverty reports: Earth observation (EO) data such as satellite imagery can have far-reaching impacts on our understanding of the geography of poverty, especially when coupled with machine learning (ML) and computer vision.**
   - falsification: An independent source on 'causal states and statistical complexity' reports the opposite effect, or fails to reproduce the stated 1 result
-  - record: 2 passed / 0 failed, beta-confidence 0.75
+  - record: 4 passed / 0 failed, beta-confidence 0.83
   - source: http://arxiv.org/abs/2406.02584v4
+- **On topic causal states and statistical complexity, The Computational Structure of Spike Trains reports: Neurons perform computations, and convey the results of those computations through the statistical structure of their output spike trains.**
+  - falsification: An independent source on 'causal states and statistical complexity' reports the opposite effect, or fails to reproduce the stated 1 result
+  - record: 3 passed / 0 failed, beta-confidence 0.80
+  - source: https://www.semanticscholar.org/paper/1f98df1950c76bde046f7402273fe1b2fc222895
+- **On topic causal states and statistical complexity, Local Geometry-Based Intra Prediction for Octree-Structured Geometry Coding of Point Clouds reports: Point cloud compression (PCC) is crucial for efficient and flexible storage as well as feasible transmission of point clouds in practice.**
+  - falsification: An independent source on 'causal states and statistical complexity' reports the opposite effect, or fails to reproduce the stated 0.8% result
+  - record: 4 passed / 1 failed, beta-confidence 0.71
+  - source: https://www.semanticscholar.org/paper/cd6affd361cf5951c1953c9174bb50abac194cb2
 - **On topic causal states and statistical complexity, Range entropy: A bridge between signal complexity and self-similarity reports: Approximate entropy (ApEn) and sample entropy (SampEn) are widely used for temporal complexity analysis of real-world phenomena.**
   - falsification: An independent source on 'causal states and statistical complexity' reports the opposite effect, or fails to reproduce the stated 0 result
-  - record: 2 passed / 1 failed, beta-confidence 0.60
+  - record: 4 passed / 1 failed, beta-confidence 0.71
   - source: http://arxiv.org/abs/1809.06500v3
+- **On topic causal states and statistical complexity, A Decision Support System for Prediction of Paroxysmal Atrial Fibrillation based on Heart Rate Variability Metrics reports: Paroxysmal atrial fibrillation (PAF) is a temporary arrhythmic condition which is often a precursor of permanent/chronic atrial fibrillation.**
+  - falsification: An independent source on 'causal states and statistical complexity' reports the opposite effect, or fails to reproduce the stated 96.15% result
+  - record: 3 passed / 1 failed, beta-confidence 0.67
+  - source: https://www.semanticscholar.org/paper/3825f009d6a2f32ec89bf76f584414ed440f7836
+- **On topic causal states and statistical complexity, Entropy Rate Estimation for English via a Large Cognitive Experiment Using Mechanical Turk reports: The entropy rate h of a natural language quantifies the complexity underlying the language.**
+  - falsification: An independent source on 'causal states and statistical complexity' reports the opposite effect, or fails to reproduce the stated 1951 result
+  - record: 3 passed / 1 failed, beta-confidence 0.67
+  - source: https://www.semanticscholar.org/paper/166b53765f33d7e5881e7dc73ae481c65fcf6bdc
 
 ## Contradicted/refuted claims
 
@@ -60,4 +76,16 @@ _none_
 - [unfalsifiable] On topic causal states and statistical complexity, Complexity of Networks (reprise) reports: Network or graph structures are ubiquitous in the study of complex systems.
   - no measurable falsification condition in the abstract
 - [unfalsifiable] On topic causal states and statistical complexity, A note on the connection between non-additive entropy and $h$-derivative reports: In order to study as a whole a wide part of entropy measures, we introduce a two-parameter non-extensive entropic form with respect to the $h$-derivative, which generalizes the conventional Newton--Leibniz calculus.
+  - no measurable falsification condition in the abstract
+- [unfalsifiable] On topic causal states and statistical complexity, Divergent Predictive States: The Statistical Complexity Dimension of Stationary, Ergodic Hidden Markov Processes reports: Even simply defined, finite-state generators produce stochastic processes that require tracking an uncountable infinity of probabilistic features for optimal prediction.
+  - no measurable falsification condition in the abstract
+- [unfalsifiable] On topic causal states and statistical complexity, Statistical Learning under Heterogeneous Distribution Shift reports: This paper studies the prediction of a target $\mathbf{z}$ from a pair of random variables $(\mathbf{x},\mathbf{y})$, where the ground-truth predictor is additive $\mathbb{E}[\mathbf{z} \mid \mathbf{x},\mathbf{y}] = f_\star(\mathbf{x}) +g_{\star}(\mathbf{y})$.
+  - no measurable falsification condition in the abstract
+- [unfalsifiable] On topic causal states and statistical complexity, The high forecasting complexity of stochastically perturbed periodic orbits limits the ability to distinguish them from chaos reports: no abstract available
+  - no measurable falsification condition in the abstract
+- [unfalsifiable] On topic causal states and statistical complexity, New algorithm of mortality risk prediction for cardiovascular patients admitted in intensive care unit. reports: no abstract available
+  - no measurable falsification condition in the abstract
+- [unfalsifiable] On topic causal states and statistical complexity, Measurement-induced randomness and structure in controlled qubit processes. reports: When an experimentalist measures a time series of qubits, the outcomes constitute a classical stochastic process.
+  - no measurable falsification condition in the abstract
+- [unfalsifiable] On topic causal states and statistical complexity, Predictor analysis for onboard lossy predictive compression of multispectral and hyperspectral images reports: no abstract available
   - no measurable falsification condition in the abstract
