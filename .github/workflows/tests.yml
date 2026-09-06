@@ -1,0 +1,48 @@
+name: tests
+
+# The full pytest suite. hypothesis-engine.yml runs only
+# tests/test_hypothesis_engine.py as its pre-flight; everything else in
+# tests/ ran locally only before this workflow existed.
+#
+# Two jobs, on purpose:
+#   full   - the `test` extra (pytest, networkx, numpy) so the SDS and
+#            plugin tests run instead of skipping.
+#   tier0  - a bare interpreter plus pytest and nothing else. This is the
+#            stewardship promise from pyproject.toml: grounding/ and the
+#            root playgrounds must work with no wheels to fetch. The
+#            extras-gated tests skip here; everything else must pass.
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  full:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -e ".[test]"
+      - run: python -m pytest tests/ -q
+
+  tier0:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.9"
+      - run: pip install pytest
+      - run: python -m pytest tests/ -q -rs
