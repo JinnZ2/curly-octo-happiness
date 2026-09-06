@@ -1,11 +1,16 @@
 # Hypothesis draft — calibration and falsifiability of LLM agents
 
-_Regenerated 2026-08-31 by `scripts/hypothesis_engine.py`. Node confidence 0.41; 0 surviving / 21 active / 0 refuted claims._
+_Regenerated 2026-09-06 by `scripts/hypothesis_engine.py`. Node confidence 0.41; 0 surviving / 21 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
 
 ## Supporting claims
 
+- **On topic calibration and falsifiability of LLM agents, From Calibrated Confidence to Calibrated Reliance: Human-Aware Confidence Communication for AI-Assisted Decision Making reports: As AI systems increasingly support consequential human decisions, the confidence they display shapes whether users accept or override their recommendations. (scope narrowed: restricted after failure #1)**
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 35 result
+  - record: 1 passed / 0 failed, beta-confidence 0.67
+  - source: https://doi.org/10.1145/3843742
+  - reformulated 1x
 - **On topic calibration and falsifiability of LLM agents, A Survey of Multi-Agent Deep Reinforcement Learning with Communication reports: Communication is an effective mechanism for coordinating the behaviors of multiple agents, broadening their views of the environment, and to support their collaborations. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 9 result
   - record: 2 passed / 1 failed, beta-confidence 0.60
@@ -23,7 +28,7 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - reformulated 1x
 - **On topic calibration and falsifiability of LLM agents, Adversary-Controlled Abstention Adversary-Controlled Abstention: How Unevaluable Outcomes Inflate Reported Detection Rates reports: Detection and verification systems produce a third outcome besides detected and not detected: the episode the checker could not evaluate at all, because the evidence it needed never arrived. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 1 result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
+  - record: 1 passed / 1 failed, beta-confidence 0.50
   - source: https://doi.org/10.2139/ssrn.7338498
   - reformulated 1x
 - **On topic calibration and falsifiability of LLM agents, Caging the Agents: A Zero Trust Security Architecture for Autonomous AI in Healthcare reports: Autonomous AI agents powered by large language models are being deployed in production with capabilities including shell execution, file system access, database queries, and multi-party communication. (scope narrowed: restricted after failure #1)**
@@ -50,11 +55,6 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 2.0 result
   - record: 2 passed / 2 failed, beta-confidence 0.50
   - source: https://doi.org/10.51903/jtie.v4i2.536
-  - reformulated 1x
-- **On topic calibration and falsifiability of LLM agents, From Calibrated Confidence to Calibrated Reliance: Human-Aware Confidence Communication for AI-Assisted Decision Making reports: As AI systems increasingly support consequential human decisions, the confidence they display shapes whether users accept or override their recommendations. (scope narrowed: restricted after failure #1)**
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 35 result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: https://doi.org/10.1145/3843742
   - reformulated 1x
 - **On topic calibration and falsifiability of LLM agents, Hallucinated Adversarial Learning for Robust Visual Tracking reports: Humans can easily learn new concepts from just a single exemplar, mainly due to their remarkable ability to imagine or hallucinate what the unseen exemplar may look like in different settings. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 3 result
@@ -211,4 +211,6 @@ _none_
 - [unfalsifiable] On topic calibration and falsifiability of LLM agents, LAVENDER: Lightweight Abstention-Aware Verification for Behavioural and Factual Hallucination Detection in Large Language Models reports: no abstract available
   - no measurable falsification condition in the abstract
 - [unfalsifiable] On topic calibration and falsifiability of LLM agents, Progressive negotiation for time-constrained autonomous agents reports: no abstract available
+  - no measurable falsification condition in the abstract
+- [unfalsifiable] On topic calibration and falsifiability of LLM agents, falsifiable, adj. reports: no abstract available
   - no measurable falsification condition in the abstract

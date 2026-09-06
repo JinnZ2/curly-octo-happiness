@@ -1416,13 +1416,13 @@
       "text": "On topic calibration and falsifiability of LLM agents, MameLoshnLM: Yiddish Language Model and Evaluation Benchmark reports: We present MameLoshnLM, the first open-source 8B-parameter language model built specifically for Yiddish. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.6667,
+      "confidence": 0.6,
       "failed": 0,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 35 result",
       "id": "36f8f78bf5772eef",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "crossref records on 'calibration and falsifiability of LLM agents'",
       "reformulation_count": 1,
       "scope": {
@@ -1453,18 +1453,19 @@
         "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
         "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
         "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
-        "780fdebf4542d91ae895ca7639dc5909b42b5a8b4e777e2e198d34439f2dbf13"
+        "780fdebf4542d91ae895ca7639dc5909b42b5a8b4e777e2e198d34439f2dbf13",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, From Calibrated Confidence to Calibrated Reliance: Human-Aware Confidence Communication for AI-Assisted Decision Making reports: As AI systems increasingly support consequential human decisions, the confidence they display shapes whether users accept or override their recommendations. (scope narrowed: restricted after failure #1)"
     },
     {
       "beta_confidence": 0.5,
-      "confidence": 0.5,
-      "failed": 0,
+      "confidence": 0.39999999999999997,
+      "failed": 1,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 1 result",
       "id": "5a584bd02ae00d47",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "crossref records on 'calibration and falsifiability of LLM agents'",
       "reformulation_count": 1,
       "scope": {
@@ -1498,7 +1499,9 @@
         "5f29181eaafa615a854a3546527cc468002a13d5942ea6b7e993679bb46d13ef",
         "52c46137da0e11d17b4c988606409a8d4643d0e2368d670bb7dc87a73f3cded2",
         "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
-        "ad781f6f9b071c7f813d76ec86166ed6507fc45a092a384370aa0e3b1fe48e6d"
+        "ad781f6f9b071c7f813d76ec86166ed6507fc45a092a384370aa0e3b1fe48e6d",
+        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa",
+        "3cd837c742964e7fa937b11ba9b3de9a0b1c7f42321695dedeba2188b33dd3ae"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Adversary-Controlled Abstention Adversary-Controlled Abstention: How Unevaluable Outcomes Inflate Reported Detection Rates reports: Detection and verification systems produce a third outcome besides detected and not detected: the episode the checker could not evaluate at all, because the evidence it needed never arrived. (scope narrowed: restricted after failure #1)"
     },
@@ -1603,5 +1606,5 @@
       "text": "On topic causal states and statistical complexity, The Computational Structure of Spike Trains reports: Neurons perform computations, and convey the results of those computations through the statistical structure of their output spike trains."
     }
   ],
-  "saved_at": "2026-08-31T13:52:49"
+  "saved_at": "2026-09-06T03:00:28"
 }

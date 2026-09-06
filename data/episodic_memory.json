@@ -1548,5 +1548,15 @@
     ],
     "url": "https://doi.org/10.1007/978-1-4899-0718-9_37",
     "date": "1991"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] falsifiable, adj.",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.1093/oed/1038365468",
+    "date": "2023-03-02"
   }
 ]
