@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import random
 import re
 import sys
@@ -28,6 +29,8 @@ import urllib.request
 from dataclasses import dataclass, field
 from datetime import date, datetime
 from math import log2
+from statistics import median
+from collections import Counter
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 from xml.etree import ElementTree
@@ -55,6 +58,17 @@ except ImportError:  # pragma: no cover
 USER_AGENT = "curly-octo-happiness-hypothesis-engine/1.0 (+https://github.com/JinnZ2/curly-octo-happiness)"
 TIMEOUT = 20
 DEFAULT_SLEEP = 1.0
+
+# Semantic Scholar answers unauthenticated traffic with HTTP 429 almost every
+# time (the 2026-08-31 live run lost 6 of 7 queries to it). Two remedies, both
+# additive: back off and retry on transient statuses, and send an API key when
+# one is provided. Without a key the source still works when the shared pool
+# has room; with one it gets its own quota.
+S2_HOST = "api.semanticscholar.org"
+S2_API_KEY_ENV = "S2_API_KEY"
+RETRY_STATUSES = frozenset({429, 500, 502, 503, 504})
+RETRY_BACKOFF = (2.0, 4.0, 8.0)   # seconds; also the retry count
+RETRY_AFTER_CAP = 30.0            # never trust a server to hold the run longer
 
 # Stage 6 gates, mirroring modules/hnd.py.
 RESIDUAL_THRESHOLD = 0.1
@@ -429,15 +443,48 @@ def distill_claim(finding: Finding) -> Tuple[str, str, str]:
 # stage 1 — explore
 # ---------------------------------------------------------------------------
 
-def _fetch(url: str) -> Optional[bytes]:
-    """One network read. Every failure is logged and the run continues."""
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+def _request_headers(url: str) -> Dict[str, str]:
+    """User-Agent always; the Semantic Scholar key only to its own host."""
+    headers = {"User-Agent": USER_AGENT}
+    key = os.environ.get(S2_API_KEY_ENV, "").strip()
+    if key and urllib.parse.urlsplit(url).hostname == S2_HOST:
+        headers["x-api-key"] = key
+    return headers
+
+
+def _retry_wait(exc: urllib.error.HTTPError, default: float) -> float:
+    """Honour a numeric Retry-After header, capped; otherwise the schedule."""
+    raw = (exc.headers.get("Retry-After") if exc.headers is not None else None) or ""
     try:
-        with urllib.request.urlopen(request, timeout=TIMEOUT) as response:
-            return response.read()
-    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, OSError) as exc:
-        print(f"  ! fetch failed ({exc}): {url}", file=sys.stderr)
-        return None
+        wait = float(raw)
+    except ValueError:
+        return default
+    return max(0.0, min(wait, RETRY_AFTER_CAP))
+
+
+def _fetch(url: str, backoff: Sequence[float] = RETRY_BACKOFF,
+           sleep=time.sleep) -> Optional[bytes]:
+    """One network read with bounded retries. Every failure is logged and the
+    run continues; a transient status (429, 5xx) is retried on the backoff
+    schedule, anything else is final."""
+    for attempt in range(len(backoff) + 1):
+        request = urllib.request.Request(url, headers=_request_headers(url))
+        try:
+            with urllib.request.urlopen(request, timeout=TIMEOUT) as response:
+                return response.read()
+        except urllib.error.HTTPError as exc:
+            if exc.code in RETRY_STATUSES and attempt < len(backoff):
+                wait = _retry_wait(exc, backoff[attempt])
+                print(f"  ~ HTTP {exc.code}, retry {attempt + 1}/{len(backoff)} "
+                      f"in {wait:.0f}s: {url}", file=sys.stderr)
+                sleep(wait)
+                continue
+            print(f"  ! fetch failed ({exc}): {url}", file=sys.stderr)
+            return None
+        except (urllib.error.URLError, TimeoutError, OSError) as exc:
+            print(f"  ! fetch failed ({exc}): {url}", file=sys.stderr)
+            return None
+    return None  # pragma: no cover - loop always returns
 
 
 def fetch_arxiv(query: str, topic: str, limit: int) -> List[Finding]:
@@ -913,6 +960,151 @@ def permutation_p(x: Sequence[float], y: Sequence[float], observed: float,
         if abs(pearson(x, shuffled)) >= target:
             hits += 1
     return (hits + 1) / (trials + 1)
+
+
+DERIVED = "DERIVED"
+UNDERIVABLE = "UNDERIVABLE"
+UNBOUNDED_BY_THIS_TERM = "UNBOUNDED_BY_THIS_TERM"
+# A topic needs this many claims carrying a residual before an elasticity can be
+# fitted to them at all.
+MIN_CLAIMS_FOR_COUPLING = 4
+# Findings are counted within this many characteristic intervals of a claim, so
+# "volume" is measured on the topic's own clock rather than in calendar years.
+VOLUME_WINDOW_TAUS = 3.0
+
+
+@dataclass
+class TopicClock:
+    """A topic's own timescale, in the form JinnZ2/Simulators `claim-record` uses.
+
+        shelf_life = time_constant / |coupling|
+
+    `tau` is the characteristic interval between arrivals on the topic and
+    `coupling` is a *dimensionless* elasticity, d(log residual)/d(log volume) --
+    dimensionless because a raw partial derivative carries units and a time
+    divided by one of those is not a time.
+
+    The reason this is here rather than in the scan is that the two of them
+    answer different questions. The scan says whether a candidate explains the
+    residuals; the clock says whether the topic can be resolved at all. Without
+    it a topic nobody could look at and a topic that was looked at and came back
+    empty are both reported as silence, which is the one failure the retraction
+    discipline exists to prevent.
+    """
+
+    topic: str
+    state: str
+    tau_years: Optional[float] = None
+    coupling: Optional[float] = None
+    shelf_life_years: Optional[float] = None
+    reason: str = ""
+
+    @property
+    def resolvable(self) -> bool:
+        return self.state == DERIVED
+
+    def to_dict(self) -> dict:
+        return {
+            "type": "topic_clock",
+            "topic": self.topic,
+            "state": self.state,
+            "tau_years": None if self.tau_years is None else round(self.tau_years, 4),
+            "coupling": None if self.coupling is None else round(self.coupling, 4),
+            "shelf_life_years": (None if self.shelf_life_years is None
+                                 else round(self.shelf_life_years, 3)),
+            "reason": self.reason,
+            "logged_at": datetime.now().isoformat(timespec="seconds"),
+        }
+
+
+def topic_clock(topic: str, dated_claims: Sequence[Tuple[date, Any]],
+                topic_dates: Sequence[date]) -> TopicClock:
+    """Derive one topic's clock, or say which term stopped the derivation."""
+    ordered = sorted(topic_dates)
+    gaps = [(b - a).days / 365.25 for a, b in zip(ordered, ordered[1:])
+            if (b - a).days > 0]
+    if not gaps:
+        return TopicClock(topic, UNDERIVABLE,
+                          reason="no two findings sit at different dates")
+    tau = median(gaps)
+
+    if len(dated_claims) < MIN_CLAIMS_FOR_COUPLING:
+        return TopicClock(topic, UNDERIVABLE, tau_years=tau,
+                          reason=(f"{len(dated_claims)} claims cannot support an "
+                                  f"elasticity; need {MIN_CLAIMS_FOR_COUPLING}"))
+    if not any(c.passed or c.failed for _, c in dated_claims):
+        # Distinct from a measured zero: nothing was ever tested here, so there
+        # is no sensitivity to measure rather than a sensitivity of zero.
+        return TopicClock(topic, UNDERIVABLE, tau_years=tau,
+                          reason=("no claim on this topic carries a test "
+                                  "outcome, so there is no sensitivity to fit"))
+
+    # Volume is measured in the topic's *own* time unit, not in calendar years.
+    # A year is arbitrary here and degenerate whenever a topic's whole span is
+    # shorter than one -- every claim then sees the same count and no elasticity
+    # exists. Counting findings within a window of the topic's characteristic
+    # interval makes the measure scale-free, which is the point of giving each
+    # topic a clock in the first place.
+    window_days = max(1.0, tau * 365.25 * VOLUME_WINDOW_TAUS)
+    xs, ys = [], []
+    for when, claim in dated_claims:
+        count = sum(1 for d in topic_dates
+                    if abs((d - when).days) <= window_days)
+        if count > 0:
+            # The claim's standing itself, not the magnitude of its residual.
+            # Beta confidence is strictly inside (0, 1) so its log is defined,
+            # and it moves in the direction the evidence moves -- where
+            # |residual| discards exactly that and reads a topic whose claims
+            # split cleanly for and against as perfectly insensitive.
+            xs.append(log2(count))
+            ys.append(log2(claim.beta_confidence))
+    if len(xs) < MIN_CLAIMS_FOR_COUPLING:
+        return TopicClock(topic, UNDERIVABLE, tau_years=tau,
+                          reason="too few claims fall near any finding")
+
+    mean_x = sum(xs) / len(xs)
+    mean_y = sum(ys) / len(ys)
+    denominator = sum((x - mean_x) ** 2 for x in xs)
+    if denominator < 1e-12:
+        return TopicClock(topic, UNDERIVABLE, tau_years=tau,
+                          reason="findings volume does not vary across the claims")
+    coupling = sum((x - mean_x) * (y - mean_y) for x, y in zip(xs, ys)) / denominator
+
+    if abs(coupling) < 1e-3:
+        # Zero elasticity does not mean "stable forever": it means this term
+        # tells you nothing about the shelf life, so the bound has to come from
+        # somewhere else. Naming which term failed is the point.
+        return TopicClock(topic, UNBOUNDED_BY_THIS_TERM, tau_years=tau,
+                          coupling=coupling,
+                          reason=("residuals are insensitive to findings volume, "
+                                  "so this term bounds nothing"))
+    return TopicClock(topic, DERIVED, tau_years=tau, coupling=coupling,
+                      shelf_life_years=tau / abs(coupling),
+                      reason="")
+
+
+def topic_clocks(tree: DependencyTree, findings: Sequence) -> List[TopicClock]:
+    """One clock per topic, so silence from the scan can be read correctly."""
+    rows = [f if isinstance(f, dict) else f.to_dict() for f in findings]
+    when_by_url = {}
+    for row in rows:
+        parsed = parse_date(row.get("date", ""))
+        if parsed is not None and row.get("url"):
+            when_by_url[row["url"]] = parsed
+
+    clocks = []
+    for topic, claims in sorted(tree.by_topic().items()):
+        dated = [(when_by_url[c.source_url], c) for c in claims
+                 if c.source_url in when_by_url]
+        topic_rows = [r for r in rows if r.get("topic") in (topic, None)] or rows
+        dates = [d for d in (parse_date(r.get("date", "")) for r in topic_rows)
+                 if d is not None]
+        if not dates:
+            clocks.append(TopicClock(topic, UNDERIVABLE,
+                                     reason="no dated findings on this topic"))
+            continue
+        clocks.append(topic_clock(topic, dated, dates))
+    return clocks
 
 
 def stage_hidden(tree: DependencyTree, findings: Sequence, hidden_path,
@@ -1396,12 +1588,26 @@ def write_report(path, stats: Dict[str, Any]) -> str:
         f"- claims carrying evidence after reformulation: "
         f"{stats.get('evidenced', 0)}/{stats.get('tree_size', 0)}",
         f"- hidden-variable suggestions: {len(stats['hidden'])}",
+        # Silence from the scan means two different things, and the clock is
+        # what separates them: a topic that was searched and came back empty,
+        # from one whose timescale could not be derived so it was never
+        # searchable in the first place.
+        f"- topics whose clock derives (so a null scan means something): "
+        f"{sum(1 for c in stats.get('clocks', []) if c.resolvable)}"
+        f"/{len(stats.get('clocks', []))}",
         f"- hypothesis drafts written: {stats['consolidate']['hypothesis_files']}",
         "",
     ]
     for row in stats["hidden"]:
         lines.append(f"- hidden variable: {row['evidence']}")
     if stats["hidden"]:
+        lines.append("")
+    unresolved = [c for c in stats.get("clocks", []) if not c.resolvable]
+    if unresolved:
+        lines.append("Topics not searchable this run (no driver can be ruled "
+                     "in *or* out on them):")
+        for clock in unresolved:
+            lines.append(f"- {clock.topic} -- {clock.state}: {clock.reason}")
         lines.append("")
 
     new = stats["consolidate"]["new_hypotheses"]
@@ -1486,8 +1692,18 @@ def main(argv: Optional[List[str]] = None) -> int:
           f"{modify_stats['escape_hatched']} escape-hatched")
 
     print("6. hidden")
-    hidden = stage_hidden(tree, read_jsonl(log_path), hidden_path)
-    print(f"   {len(hidden)} suggestions")
+    findings_log = read_jsonl(log_path)
+    # Clocks first: they say which topics could be looked at, so that a scan
+    # returning nothing can be told apart from a scan that could not run.
+    clocks = topic_clocks(tree, findings_log)
+    append_jsonl(hidden_path, [c.to_dict() for c in clocks])
+    hidden = stage_hidden(tree, findings_log, hidden_path)
+    resolvable = sum(1 for c in clocks if c.resolvable)
+    print(f"   {len(hidden)} suggestions "
+          f"({resolvable}/{len(clocks)} topics resolvable)")
+    for clock in clocks:
+        if not clock.resolvable:
+            print(f"   {clock.state}: {clock.topic} -- {clock.reason}")
 
     print("7. consolidate")
     consolidated = stage_consolidate(tree, topics, unknown_path, hidden_path,
@@ -1499,6 +1715,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         "claims": len(made), "unknown": unknown_count,
         "test": test_stats, "modify": modify_stats, "hidden": hidden,
         "consolidate": consolidated,
+        "clocks": clocks,
         "evidenced": sum(1 for c in tree.claims.values() if c.passed or c.failed),
         "tree_size": len(tree.claims),
     })

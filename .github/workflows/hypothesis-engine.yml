@@ -50,6 +50,11 @@ jobs:
           python-version: "3.11"
 
       - name: Run the engine
+        env:
+          # Optional. Semantic Scholar rate-limits anonymous traffic hard; a
+          # key (free, https://www.semanticscholar.org/product/api) gives the
+          # engine its own quota. Absent, the source degrades to best-effort.
+          S2_API_KEY: ${{ secrets.S2_API_KEY }}
         run: |
           python scripts/hypothesis_engine.py \
             --config config/topics.json \

@@ -160,6 +160,41 @@ Workflow: `.github/workflows/hypothesis-engine.yml` (Mondays 06:17 UTC, plus
   20 points of power for nothing. **A gate tightened past its target is not
   safer, only deafer.** Read the power column before trusting any suggestion:
   even calibrated, the scan misses about two real drivers in five.
+- **A topic clock separates "found nothing" from "could not look."** Adapted
+  from `JinnZ2/Simulators` `claim-record`, whose clock field is
+  `shelf_life = time_constant / |coupling|` with coupling a *dimensionless*
+  elasticity — dimensionless because a raw partial derivative carries units and
+  a time divided by one of those is not a time. Here τ is the topic's median
+  interval between findings and coupling is d(log beta_confidence)/d(log local
+  volume). It reports the same three states that spec does, and on the live
+  corpus (2 runs, 36 claims) three topics derive — shelf lives 1.40, 2.98 and
+  2.49 years — while the fourth, holding two claims, is `UNDERIVABLE`.
+
+  Two details that were wrong on the first attempt and are worth keeping
+  written down. Volume must be counted in a window of the topic's *own* τ
+  rather than per calendar year: a year is arbitrary, and degenerate whenever a
+  topic's whole span is shorter than one, because every claim then sees the
+  same count and no elasticity exists. And the elasticity has to be fitted to
+  `beta_confidence` itself, not to `|residual|` — the absolute value discards
+  direction, so a topic whose claims split cleanly for and against reads as
+  perfectly insensitive when it is nothing of the kind. τ across the four real
+  topics spans 0.082 to 0.783 years, a tenfold range, which is the measured
+  form of the reason one calendar grid cannot serve them all.
+- **The archival hazard is not measurable from this corpus yet.** Applying the
+  stipulated 0.06/year hazard from `Simulators` `observer-exclusion` drops
+  r(volume, calendar time) from 0.554 to 0.150 and lifts the pre-2015 share of
+  the corpus from 15.3% to 42.2% — i.e. much of the "exponential growth" the
+  clock control exists to screen off may be the index forgetting rather than
+  the field adopting. That figure is *borrowed, not measured*: 0.06/year is a
+  hazard for physical surviving artifacts, and arXiv does not lose papers at
+  6%/year. Two ways to measure it properly were tried and both are blocked
+  today — querying the APIs for year-binned population counts (the sandbox
+  network policy denies both hosts; it would work from the Action, which
+  already reaches them) and capture–recapture between the two sources (exactly
+  **one** title overlaps across 139 findings, so Lincoln–Petersen returns
+  N≈4500 with a useless interval). Overlap grows as the corpus accumulates, so
+  this becomes derivable later. Until then the honest state is `UNDERIVABLE`,
+  and the borrowed number must not be applied as if measured.
 - **ε-machine acceptance is the destination, and the corpus is not there yet.**
   `modules/hnd.py::accept_by_epsilon_machine` is the criterion this scan should
   eventually use — keep a candidate only if conditioning on it drops *both*

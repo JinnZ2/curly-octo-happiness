@@ -256,6 +256,61 @@ def test_claims_are_correlated_in_time_not_in_stake_order(workspace):
     assert key(forward) == key(backward) == key(shuffled)
 
 
+# --- the topic clock: telling "found nothing" from "could not look" ---------
+
+def test_a_clock_derives_when_the_topic_supports_one():
+    """shelf_life = tau / |coupling|, per JinnZ2/Simulators claim-record."""
+    tree = he.DependencyTree()
+    findings = spiky_topic(tree, months=range(1, 11))
+    clock = {c.topic: c for c in he.topic_clocks(tree, findings)}["t"]
+    assert clock.state == he.DERIVED and clock.resolvable
+    assert clock.shelf_life_years == pytest.approx(
+        clock.tau_years / abs(clock.coupling), rel=1e-9)
+
+
+def test_a_topic_with_too_few_claims_is_underivable_not_empty():
+    """The distinction the whole clock exists for."""
+    tree = he.DependencyTree()
+    findings = dated_topic(tree, [(1, 5, 1), (4, 4, 2)])
+    clock = {c.topic: c for c in he.topic_clocks(tree, findings)}["t"]
+    assert clock.state == he.UNDERIVABLE
+    assert not clock.resolvable and "cannot support an elasticity" in clock.reason
+
+
+def test_insensitive_residuals_name_the_term_that_failed():
+    """Zero elasticity is not 'stable forever'; it is 'this term bounds nothing'."""
+    tree = he.DependencyTree()
+    # Every claim carries the same residual, so it cannot vary with volume.
+    findings = dated_topic(tree, [(m, 6, 2) for m in (1, 3, 5, 7, 9, 11)])
+    clock = {c.topic: c for c in he.topic_clocks(tree, findings)}["t"]
+    assert clock.state == he.UNBOUNDED_BY_THIS_TERM
+    assert clock.tau_years is not None      # tau was derivable; the coupling was not
+    assert clock.shelf_life_years is None
+
+
+def test_untested_claims_leave_the_clock_underivable():
+    """Residual-free claims sit exactly at the prior, so no elasticity exists."""
+    tree = he.DependencyTree()
+    findings = spiky_topic(tree, months=range(1, 11))
+    for claim in tree.claims.values():
+        claim.passed = claim.failed = 0
+    clock = {c.topic: c for c in he.topic_clocks(tree, findings)}["t"]
+    assert clock.state == he.UNDERIVABLE
+
+
+def test_a_null_scan_on_a_derived_clock_is_a_real_negative():
+    """Both halves together: searchable, searched, nothing found."""
+    tree = he.DependencyTree()
+    # A resolvable topic whose residuals track nothing in particular.
+    findings = dated_topic(tree, [
+        (1, 6, 2), (3, 2, 6), (5, 5, 3), (7, 3, 5), (9, 6, 2), (11, 2, 6)])
+    clock = {c.topic: c for c in he.topic_clocks(tree, findings)}["t"]
+    suggestions = he.stage_hidden(tree, findings, None)
+    assert suggestions == []
+    # The clock is what licenses reading that empty list as evidence.
+    assert clock.state in (he.DERIVED, he.UNBOUNDED_BY_THIS_TERM)
+
+
 # --- stage 6's operating characteristic, measured rather than assumed --------
 
 def test_the_scan_holds_its_false_positive_rate_on_null_corpora():
@@ -401,3 +456,101 @@ def test_full_dry_run_main(topics, workspace, monkeypatch):
                   "--sample", str(SAMPLE)])
     assert rc == 0
     assert len(he.read_jsonl(workspace / "data" / "findings_log.jsonl")) == 5
+
+
+# ---------------------------------------------------------------------------
+# Network layer: retry/backoff and the Semantic Scholar key. No sockets are
+# opened; urlopen is replaced with a scripted double.
+# ---------------------------------------------------------------------------
+
+import io
+import urllib.error
+from email.message import Message
+
+
+class _Response(io.BytesIO):
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        self.close()
+        return False
+
+
+def _http_error(url, code, retry_after=None):
+    headers = Message()
+    if retry_after is not None:
+        headers["Retry-After"] = str(retry_after)
+    return urllib.error.HTTPError(url, code, f"HTTP {code}", headers, io.BytesIO(b""))
+
+
+def _script_urlopen(monkeypatch, outcomes):
+    """Each call pops the next outcome: an Exception is raised, bytes are served.
+    Returns the list of Request objects seen, for header assertions."""
+    seen = []
+    queue = list(outcomes)
+
+    def fake_urlopen(request, timeout=None):
+        seen.append(request)
+        nxt = queue.pop(0)
+        if isinstance(nxt, Exception):
+            raise nxt
+        return _Response(nxt)
+
+    monkeypatch.setattr(he.urllib.request, "urlopen", fake_urlopen)
+    return seen
+
+
+S2_URL = "https://api.semanticscholar.org/graph/v1/paper/search?query=x"
+ARXIV_URL = "http://export.arxiv.org/api/query?search_query=all:x"
+
+
+def test_fetch_retries_429_then_succeeds(monkeypatch):
+    seen = _script_urlopen(monkeypatch, [_http_error(S2_URL, 429), b'{"data": []}'])
+    slept = []
+    out = he._fetch(S2_URL, backoff=(2.0, 4.0), sleep=slept.append)
+    assert out == b'{"data": []}'
+    assert len(seen) == 2
+    assert slept == [2.0]
+
+
+def test_fetch_gives_up_after_backoff_exhausted(monkeypatch):
+    seen = _script_urlopen(monkeypatch, [_http_error(S2_URL, 429)] * 4)
+    slept = []
+    out = he._fetch(S2_URL, backoff=(1.0, 2.0, 3.0), sleep=slept.append)
+    assert out is None
+    assert len(seen) == 4            # 1 try + 3 retries
+    assert slept == [1.0, 2.0, 3.0]  # the schedule, in order
+
+
+def test_fetch_does_not_retry_permanent_errors(monkeypatch):
+    seen = _script_urlopen(monkeypatch, [_http_error(S2_URL, 404)])
+    slept = []
+    assert he._fetch(S2_URL, sleep=slept.append) is None
+    assert len(seen) == 1 and slept == []
+
+
+def test_fetch_honours_retry_after_within_cap(monkeypatch):
+    _script_urlopen(monkeypatch, [_http_error(S2_URL, 429, retry_after=5),
+                                  _http_error(S2_URL, 429, retry_after=9999),
+                                  b"ok"])
+    slept = []
+    assert he._fetch(S2_URL, backoff=(1.0, 1.0), sleep=slept.append) == b"ok"
+    assert slept == [5.0, he.RETRY_AFTER_CAP]
+
+
+def test_s2_api_key_sent_only_to_semantic_scholar(monkeypatch):
+    monkeypatch.setenv(he.S2_API_KEY_ENV, "secret-key")
+    seen = _script_urlopen(monkeypatch, [b"a", b"b"])
+    he._fetch(S2_URL)
+    he._fetch(ARXIV_URL)
+    assert seen[0].get_header("X-api-key") == "secret-key"
+    assert seen[1].get_header("X-api-key") is None
+    assert seen[1].get_header("User-agent") == he.USER_AGENT
+
+
+def test_no_api_key_header_without_env(monkeypatch):
+    monkeypatch.delenv(he.S2_API_KEY_ENV, raising=False)
+    seen = _script_urlopen(monkeypatch, [b"a"])
+    he._fetch(S2_URL)
+    assert seen[0].get_header("X-api-key") is None
