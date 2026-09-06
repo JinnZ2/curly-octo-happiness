@@ -401,3 +401,101 @@ def test_full_dry_run_main(topics, workspace, monkeypatch):
                   "--sample", str(SAMPLE)])
     assert rc == 0
     assert len(he.read_jsonl(workspace / "data" / "findings_log.jsonl")) == 5
+
+
+# ---------------------------------------------------------------------------
+# Network layer: retry/backoff and the Semantic Scholar key. No sockets are
+# opened; urlopen is replaced with a scripted double.
+# ---------------------------------------------------------------------------
+
+import io
+import urllib.error
+from email.message import Message
+
+
+class _Response(io.BytesIO):
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        self.close()
+        return False
+
+
+def _http_error(url, code, retry_after=None):
+    headers = Message()
+    if retry_after is not None:
+        headers["Retry-After"] = str(retry_after)
+    return urllib.error.HTTPError(url, code, f"HTTP {code}", headers, io.BytesIO(b""))
+
+
+def _script_urlopen(monkeypatch, outcomes):
+    """Each call pops the next outcome: an Exception is raised, bytes are served.
+    Returns the list of Request objects seen, for header assertions."""
+    seen = []
+    queue = list(outcomes)
+
+    def fake_urlopen(request, timeout=None):
+        seen.append(request)
+        nxt = queue.pop(0)
+        if isinstance(nxt, Exception):
+            raise nxt
+        return _Response(nxt)
+
+    monkeypatch.setattr(he.urllib.request, "urlopen", fake_urlopen)
+    return seen
+
+
+S2_URL = "https://api.semanticscholar.org/graph/v1/paper/search?query=x"
+ARXIV_URL = "http://export.arxiv.org/api/query?search_query=all:x"
+
+
+def test_fetch_retries_429_then_succeeds(monkeypatch):
+    seen = _script_urlopen(monkeypatch, [_http_error(S2_URL, 429), b'{"data": []}'])
+    slept = []
+    out = he._fetch(S2_URL, backoff=(2.0, 4.0), sleep=slept.append)
+    assert out == b'{"data": []}'
+    assert len(seen) == 2
+    assert slept == [2.0]
+
+
+def test_fetch_gives_up_after_backoff_exhausted(monkeypatch):
+    seen = _script_urlopen(monkeypatch, [_http_error(S2_URL, 429)] * 4)
+    slept = []
+    out = he._fetch(S2_URL, backoff=(1.0, 2.0, 3.0), sleep=slept.append)
+    assert out is None
+    assert len(seen) == 4            # 1 try + 3 retries
+    assert slept == [1.0, 2.0, 3.0]  # the schedule, in order
+
+
+def test_fetch_does_not_retry_permanent_errors(monkeypatch):
+    seen = _script_urlopen(monkeypatch, [_http_error(S2_URL, 404)])
+    slept = []
+    assert he._fetch(S2_URL, sleep=slept.append) is None
+    assert len(seen) == 1 and slept == []
+
+
+def test_fetch_honours_retry_after_within_cap(monkeypatch):
+    _script_urlopen(monkeypatch, [_http_error(S2_URL, 429, retry_after=5),
+                                  _http_error(S2_URL, 429, retry_after=9999),
+                                  b"ok"])
+    slept = []
+    assert he._fetch(S2_URL, backoff=(1.0, 1.0), sleep=slept.append) == b"ok"
+    assert slept == [5.0, he.RETRY_AFTER_CAP]
+
+
+def test_s2_api_key_sent_only_to_semantic_scholar(monkeypatch):
+    monkeypatch.setenv(he.S2_API_KEY_ENV, "secret-key")
+    seen = _script_urlopen(monkeypatch, [b"a", b"b"])
+    he._fetch(S2_URL)
+    he._fetch(ARXIV_URL)
+    assert seen[0].get_header("X-api-key") == "secret-key"
+    assert seen[1].get_header("X-api-key") is None
+    assert seen[1].get_header("User-agent") == he.USER_AGENT
+
+
+def test_no_api_key_header_without_env(monkeypatch):
+    monkeypatch.delenv(he.S2_API_KEY_ENV, raising=False)
+    seen = _script_urlopen(monkeypatch, [b"a"])
+    he._fetch(S2_URL)
+    assert seen[0].get_header("X-api-key") is None

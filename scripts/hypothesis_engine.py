@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import random
 import re
 import sys
@@ -55,6 +56,17 @@ except ImportError:  # pragma: no cover
 USER_AGENT = "curly-octo-happiness-hypothesis-engine/1.0 (+https://github.com/JinnZ2/curly-octo-happiness)"
 TIMEOUT = 20
 DEFAULT_SLEEP = 1.0
+
+# Semantic Scholar answers unauthenticated traffic with HTTP 429 almost every
+# time (the 2026-08-31 live run lost 6 of 7 queries to it). Two remedies, both
+# additive: back off and retry on transient statuses, and send an API key when
+# one is provided. Without a key the source still works when the shared pool
+# has room; with one it gets its own quota.
+S2_HOST = "api.semanticscholar.org"
+S2_API_KEY_ENV = "S2_API_KEY"
+RETRY_STATUSES = frozenset({429, 500, 502, 503, 504})
+RETRY_BACKOFF = (2.0, 4.0, 8.0)   # seconds; also the retry count
+RETRY_AFTER_CAP = 30.0            # never trust a server to hold the run longer
 
 # Stage 6 gates, mirroring modules/hnd.py.
 RESIDUAL_THRESHOLD = 0.1
@@ -429,15 +441,48 @@ def distill_claim(finding: Finding) -> Tuple[str, str, str]:
 # stage 1 — explore
 # ---------------------------------------------------------------------------
 
-def _fetch(url: str) -> Optional[bytes]:
-    """One network read. Every failure is logged and the run continues."""
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+def _request_headers(url: str) -> Dict[str, str]:
+    """User-Agent always; the Semantic Scholar key only to its own host."""
+    headers = {"User-Agent": USER_AGENT}
+    key = os.environ.get(S2_API_KEY_ENV, "").strip()
+    if key and urllib.parse.urlsplit(url).hostname == S2_HOST:
+        headers["x-api-key"] = key
+    return headers
+
+
+def _retry_wait(exc: urllib.error.HTTPError, default: float) -> float:
+    """Honour a numeric Retry-After header, capped; otherwise the schedule."""
+    raw = (exc.headers.get("Retry-After") if exc.headers is not None else None) or ""
     try:
-        with urllib.request.urlopen(request, timeout=TIMEOUT) as response:
-            return response.read()
-    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, OSError) as exc:
-        print(f"  ! fetch failed ({exc}): {url}", file=sys.stderr)
-        return None
+        wait = float(raw)
+    except ValueError:
+        return default
+    return max(0.0, min(wait, RETRY_AFTER_CAP))
+
+
+def _fetch(url: str, backoff: Sequence[float] = RETRY_BACKOFF,
+           sleep=time.sleep) -> Optional[bytes]:
+    """One network read with bounded retries. Every failure is logged and the
+    run continues; a transient status (429, 5xx) is retried on the backoff
+    schedule, anything else is final."""
+    for attempt in range(len(backoff) + 1):
+        request = urllib.request.Request(url, headers=_request_headers(url))
+        try:
+            with urllib.request.urlopen(request, timeout=TIMEOUT) as response:
+                return response.read()
+        except urllib.error.HTTPError as exc:
+            if exc.code in RETRY_STATUSES and attempt < len(backoff):
+                wait = _retry_wait(exc, backoff[attempt])
+                print(f"  ~ HTTP {exc.code}, retry {attempt + 1}/{len(backoff)} "
+                      f"in {wait:.0f}s: {url}", file=sys.stderr)
+                sleep(wait)
+                continue
+            print(f"  ! fetch failed ({exc}): {url}", file=sys.stderr)
+            return None
+        except (urllib.error.URLError, TimeoutError, OSError) as exc:
+            print(f"  ! fetch failed ({exc}): {url}", file=sys.stderr)
+            return None
+    return None  # pragma: no cover - loop always returns
 
 
 def fetch_arxiv(query: str, topic: str, limit: int) -> List[Finding]:
