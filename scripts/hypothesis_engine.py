@@ -639,15 +639,45 @@ def distill_claim(finding: Finding) -> Tuple[str, str, str]:
     quantity = result_anchor(body)
     hedges = _count_markers(body, HEDGE_MARKERS)
 
-    if not body or not quantity:
+    if not body:
+        # Nothing was reported, so there is nothing to stake.
         return claim_text, "", reference_class
     if hedges >= 2:
         # Hedged past commitment: the text states no condition it would fail.
         return claim_text, "", reference_class
 
-    falsification = (f"An independent source on '{finding.topic}' reports the "
-                     f"opposite effect, or fails to reproduce the stated "
-                     f"{quantity} result")
+    if quantity:
+        falsification = (f"An independent source on '{finding.topic}' reports "
+                         f"the opposite effect, or fails to reproduce the "
+                         f"stated {quantity} result")
+    else:
+        # A measurable anchor is a *label on the claim's sharpness*, not a
+        # licence to enter the tree. It used to be the gate, on the reasoning
+        # that "a claim without one has nothing a replication could disagree
+        # with" -- but stage 4 never reads `falsification` at all. It tests
+        # `claim.text` against other abstracts, so the gate partitioned claims
+        # on a variable the only available oracle is blind to.
+        #
+        # Measured on the live corpus: of 64 in-scope findings the rule
+        # admitted 14 and refused 50, and at matched test counts the two kinds
+        # accrue information indistinguishably (mean |beta - 0.5| 0.105 against
+        # 0.121, paired difference -0.017 +/- 0.077). The refused 50 are not
+        # inert -- 88% of them draw at least one verdict. What the rule bought
+        # was 8 percentage anchors; what it cost was the theory literature this
+        # repo is actually about (epsilon-machine reconstruction, hidden
+        # confounding under multiple environments) and, with it, stage 6: two
+        # of four topics could not reach the calibrated n_eff floor of 5.0 at
+        # all, reading 0.00 and 1.00 against it.
+        #
+        # So the anchor is kept where it exists, because a stated quantity is
+        # a sharper thing to disagree with, and its absence is no longer a
+        # refusal. Theory papers state conditions rather than numbers, and
+        # `grounding.core.epistemics` has always accepted a non-trivial
+        # textual condition; this engine was narrower than its own framework.
+        falsification = (f"An independent source on '{finding.topic}' reports "
+                         f"the stated mechanism does not hold under the "
+                         f"conditions claimed for it, or obtains it only by "
+                         f"assuming what it set out to establish")
     return claim_text, falsification, reference_class
 
 

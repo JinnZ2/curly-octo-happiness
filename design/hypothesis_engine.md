@@ -292,8 +292,47 @@ Workflow: `.github/workflows/hypothesis-engine.yml` (Mondays 06:17 UTC, plus
   miss. `result_anchor` declines years and name-bound numbers, prefers a
   percentage, and otherwise takes a number standing near a word that marks it
   as an outcome.
-- **The digit rule is what gates out the theory literature, and that is a
-  standing decision rather than a defect.** After scope filtering, 65 of 123
+- **The digit rule was resolved by measurement, and it lost.** It gated on a
+  variable stage 4 cannot see: `stage_test` never reads `claim.falsification`
+  at all — it tests `claim.text` against other abstracts, and the falsification
+  string is used only for the claim's id, its serialisation, and the line a
+  human reads in the draft. So "a claim without a number has nothing a
+  replication could disagree with" described a test this engine does not run.
+
+  Staking both kinds on the live corpus and running the real oracle:
+
+  | | numeric | non-numeric |
+  |---|---|---|
+  | in-scope findings | 14 | 50 |
+  | drew at least one verdict | 93% | 88% |
+  | mean \|beta − 0.5\| at *matched* test counts | 0.105 | 0.121 |
+
+  The paired difference at matched test counts is −0.017 ± 0.077, i.e. nothing
+  — exactly what the code fact predicts, since the oracle cannot tell the two
+  apart. The unmatched comparison flatters the non-numeric arm only because a
+  Beta posterior sits further from 0.5 when it has fewer tests, which is why
+  the table conditions on test count.
+
+  What the rule bought was 8 percentage anchors (6 of its 14 "numeric" claims
+  were bare integers like 1, 6, 100 and 670, no more actionable than a
+  sentence). What it cost was the theory literature this repo is about, and
+  with it stage 6: two of four topics could not reach the calibrated `n_eff`
+  floor of 5.0 at all, reading **0.00 and 1.00** against it. Widened, three of
+  four clear the full gate; the fourth clears `n_eff` at 5.83 and is held by
+  standing tests, which is a sparse topic reporting an honest null rather than
+  an artifact.
+
+  So `result_anchor` is now a **label on sharpness, not a licence to enter**.
+  A stated quantity is still preferred when one exists, because it is a
+  sharper thing to disagree with. Its absence no longer refuses the claim:
+  theory papers state conditions rather than numbers, and
+  `grounding.core.epistemics` has always accepted a non-trivial textual
+  falsification condition — the engine was narrower than its own framework.
+  Empty abstracts and abstracts hedged past commitment are still refused, for
+  the reasons they always were: nothing was reported, or the paper declined to
+  commit.
+- **Superseded — kept because the reasoning is the record.** The paragraph
+  below was the standing decision before that measurement was run.** After scope filtering, 65 of 123
   live abstracts belong to their topic; only 15 of those carry a result number.
   The rest are theory and method papers — "Detecting hidden confounding in
   observational data using multiple environments", "Reconstruction of

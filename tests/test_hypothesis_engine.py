@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 import json
 import sys
 from pathlib import Path
@@ -691,3 +692,45 @@ def test_calibration_refuses_a_target_it_cannot_hold():
     with pytest.raises(ValueError):
         he.calibrate_corroboration(corpus, target_false_testimony=0.0,
                                    grids=(0.0, 1.0))
+
+
+def _finding(abstract, topic="t", title="A Paper"):
+    return he.Finding(source="arxiv", title=title, url="http://u",
+                      date="2026-01-01", topic=topic, abstract=abstract)
+
+
+def test_a_numberless_abstract_still_stakes_a_falsifiable_claim():
+    """The digit rule gated on a variable stage 4 cannot see.
+
+    `stage_test` never reads `claim.falsification` -- it tests `claim.text`
+    against other abstracts -- so refusing numberless claims partitioned the
+    corpus on something the only available oracle is blind to. Measured on the
+    live corpus it refused 50 of 64 in-scope findings, which at matched test
+    counts accrue information indistinguishably from the 14 it admitted.
+    """
+    theory = ("We introduce a new algorithm for reconstructing epsilon-machines "
+              "from data, together with the decisional states.")
+    text, falsification, _ = he.distill_claim(_finding(theory))
+    assert falsification
+    assert he.classify_falsifiability(
+        he.Claim(text=text, falsification=falsification)) == "falsifiable"
+    # and it invents no quantity to disagree with
+    assert not re.search(r"\d", falsification)
+
+
+def test_a_stated_quantity_is_still_preferred_when_there_is_one():
+    text, falsification, _ = he.distill_claim(
+        _finding("Our method improves accuracy by 18.1% over the baseline."))
+    assert "18.1%" in falsification
+
+
+def test_hedged_past_commitment_is_still_refused():
+    hedged = ("We believe the effect might perhaps hold, though it may remain "
+              "elusive and we do not commit to a mechanism.")
+    _, falsification, _ = he.distill_claim(_finding(hedged))
+    assert falsification == ""
+
+
+def test_an_empty_abstract_stakes_nothing():
+    _, falsification, _ = he.distill_claim(_finding(""))
+    assert falsification == ""
