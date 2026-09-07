@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 import json
 import sys
 from pathlib import Path
@@ -554,3 +555,182 @@ def test_no_api_key_header_without_env(monkeypatch):
     seen = _script_urlopen(monkeypatch, [b"a"])
     he._fetch(S2_URL)
     assert seen[0].get_header("X-api-key") is None
+
+
+# ---------------------------------------------------------------------------
+# stage 3/4 quality gates -- each test pins a failure the live corpus produced
+# ---------------------------------------------------------------------------
+
+def test_the_verdict_depends_on_the_claim_being_tested():
+    """The bug: `corroboration` read only the *other* abstract.
+
+    On the 2026-09-07 corpus all 52 abstracts that issued a verdict handed the
+    identical one to every claim they were paired with, so each topic's claims
+    converged on a single score and the ranking carried no information. An
+    oracle whose output never varies with its first argument is measuring the
+    prose of the second.
+    """
+    other = ("Calibration fails on agent benchmarks. "
+             "Separately, we confirm the lattice spectra of mesons.")
+    about_calibration = "On topic x, P reports: calibration on agent benchmarks"
+    about_mesons = "On topic x, Q reports: lattice meson spectra results"
+    assert he.corroboration(about_calibration, other) == -1
+    assert he.corroboration(about_mesons, other) == 1
+
+
+def test_markers_are_read_only_where_the_shared_subject_is_discussed():
+    claim = "On topic x, P reports: abstention improves reliability"
+    # The contradiction sits in a sentence about something else entirely.
+    other = ("Abstention improves reliability and we validate this. "
+             "Our unrelated tokenizer fails and does not converge.")
+    assert he.corroboration(claim, other) == 1
+
+
+def test_topic_words_are_not_evidence_of_agreement():
+    """Topic vocabulary is shared by construction, so it cannot testify."""
+    topic = "hidden variable detection / causal discovery from residuals"
+    claim = f"On topic {topic}, P reports: transformer residual gating"
+    other = "We confirm a hidden variable detection result for causal discovery"
+    # Overlap is entirely topic words -> nothing claim-specific is shared.
+    assert he.shared_subject(claim, other, topic) == set()
+    assert he.corroboration(claim, other, topic=topic) == 0
+
+
+def test_information_gate_refuses_agreement_on_ubiquitous_words():
+    claim = "On topic x, P reports: the model improves accuracy"
+    other = "We confirm the model improves accuracy"
+    everywhere = ["the model improves accuracy"] * 40
+    idf = he.idf_map(everywhere)
+    # Every shared word appears in every document, so the overlap is worth ~0
+    # bits and buys no testimony however positively the other text is worded.
+    assert he.corroboration(claim, other, idf=idf) == 0
+
+
+@pytest.mark.parametrize("body,expected", [
+    ("accuracy improves by 18% on the benchmark", "18%"),
+    ("accuracy reaches 96.15% on the test set", "96.15%"),
+    # identifiers, not results -- each produced a live falsification condition
+    ("energy distance defined in Szekely and Rizzo (2013)", ""),
+    ("evaluated on the SQuAD 2.0 reading comprehension benchmark", ""),
+    ("we report OOD@10 across four vendors", ""),
+    ("System 1 and System 2 for embodied reasoning", ""),
+    ("the entropy rate of English, after Shannon 1951", ""),
+])
+def test_result_anchor_takes_measurements_and_declines_identifiers(body, expected):
+    assert he.result_anchor(body) == expected
+
+
+def test_a_percentage_outranks_a_bare_number():
+    body = "we ran 3 seeds and accuracy improved by 12% overall"
+    assert he.result_anchor(body) == "12%"
+
+
+def test_off_topic_retrieval_is_refused_by_phrase_not_by_keyword():
+    """The leak: three de novo protein-binder papers were staked as
+    hidden-variable-detection claims, matching on *latent* (a product name) and
+    *discovery* (drug discovery), and became that topic's top three claims."""
+    phrases = he.topic_phrases(
+        "hidden variable detection / causal discovery from residuals",
+        ["hidden confounder detection model residuals",
+         "causal discovery latent variables time series"])
+    leak = ("Latent-X: An Atom-level Frontier Model for De Novo Protein Binder "
+            "Design. Traditional drug discovery relies on screening millions of "
+            "candidate molecules with low success rates.")
+    real = ("Detecting hidden confounding in observational data using multiple "
+            "environments. A common assumption in causal inference is that "
+            "there is no hidden confounding.")
+    assert not he.in_scope(leak, phrases)
+    assert he.in_scope(real, phrases)
+
+
+def test_scope_refusals_are_journalled_not_dropped(workspace):
+    unknown = workspace / "data" / "unknown_journal.jsonl"
+    tree = he.DependencyTree()
+    finding = he.Finding(source="arxiv", title="Latent-X: De Novo Protein Binder",
+                         url="http://x", date="2026-01-01",
+                         topic="hidden variable detection / causal discovery from residuals",
+                         abstract="Drug discovery screens millions of molecules, 12% succeed.")
+    phrases = {finding.topic: he.topic_phrases(finding.topic,
+                                               ["causal discovery latent variables"])}
+    made, count = he.stage_claim([finding], tree, unknown, scope_phrases=phrases)
+    assert made == [] and count == 1
+    row = he.read_jsonl(unknown)[0]
+    assert row["flag"] == "off-scope"
+    assert row["url"] == "http://x"
+
+
+def test_scope_gate_is_opt_in():
+    """Callers that pass no phrases keep the previous staking behaviour."""
+    tree = he.DependencyTree()
+    finding = he.Finding(source="arxiv", title="Anything At All", url="http://y",
+                         date="2026-01-01", topic="some topic",
+                         abstract="Accuracy improves by 9% over the baseline.")
+    made, count = he.stage_claim([finding], tree, Path("/dev/null"))
+    assert len(made) == 1 and count == 0
+
+
+def test_corroboration_calibration_returns_the_shipped_default():
+    corpus = []
+    for i in range(12):
+        corpus.append({"topic": "alpha", "url": f"a{i}", "title": f"alpha {i}",
+                       "abstract": f"confounder adjustment sensitivity {i} "
+                                   f"confirms the estimator is consistent"})
+        corpus.append({"topic": "beta", "url": f"b{i}", "title": f"beta {i}",
+                       "abstract": f"galactic rotation photometry {i} "
+                                   f"confirms the profile is consistent"})
+    out = he.calibrate_corroboration(corpus, target_false_testimony=0.05)
+    assert out["false_testimony_upper"] <= 0.05
+    # loosest gate meeting the target, not the tightest available
+    assert out["min_bits"] <= min(r["min_bits"] for r in out["curve"]
+                                  if r["false_testimony_upper"] <= 0.05)
+
+
+def test_calibration_refuses_a_target_it_cannot_hold():
+    corpus = [{"topic": "alpha", "url": f"u{i}", "title": "t",
+               "abstract": "confirms consistent supports validated result"}
+              for i in range(8)]
+    with pytest.raises(ValueError):
+        he.calibrate_corroboration(corpus, target_false_testimony=0.0,
+                                   grids=(0.0, 1.0))
+
+
+def _finding(abstract, topic="t", title="A Paper"):
+    return he.Finding(source="arxiv", title=title, url="http://u",
+                      date="2026-01-01", topic=topic, abstract=abstract)
+
+
+def test_a_numberless_abstract_still_stakes_a_falsifiable_claim():
+    """The digit rule gated on a variable stage 4 cannot see.
+
+    `stage_test` never reads `claim.falsification` -- it tests `claim.text`
+    against other abstracts -- so refusing numberless claims partitioned the
+    corpus on something the only available oracle is blind to. Measured on the
+    live corpus it refused 50 of 64 in-scope findings, which at matched test
+    counts accrue information indistinguishably from the 14 it admitted.
+    """
+    theory = ("We introduce a new algorithm for reconstructing epsilon-machines "
+              "from data, together with the decisional states.")
+    text, falsification, _ = he.distill_claim(_finding(theory))
+    assert falsification
+    assert he.classify_falsifiability(
+        he.Claim(text=text, falsification=falsification)) == "falsifiable"
+    # and it invents no quantity to disagree with
+    assert not re.search(r"\d", falsification)
+
+
+def test_a_stated_quantity_is_still_preferred_when_there_is_one():
+    text, falsification, _ = he.distill_claim(
+        _finding("Our method improves accuracy by 18.1% over the baseline."))
+    assert "18.1%" in falsification
+
+
+def test_hedged_past_commitment_is_still_refused():
+    hedged = ("We believe the effect might perhaps hold, though it may remain "
+              "elusive and we do not commit to a mechanism.")
+    _, falsification, _ = he.distill_claim(_finding(hedged))
+    assert falsification == ""
+
+
+def test_an_empty_abstract_stakes_nothing():
+    _, falsification, _ = he.distill_claim(_finding(""))
+    assert falsification == ""

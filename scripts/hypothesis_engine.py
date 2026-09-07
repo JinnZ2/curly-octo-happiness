@@ -355,9 +355,43 @@ CONTRADICTION_MARKERS = (
     "underperforms", "inconsistent", "unreliable", "not reproducible",
 )
 
+# Shared-subject information required before one abstract may testify about
+# another, in bits (see `idf_map`). Calibrated in `calibrate_corroboration`
+# against the same-topic / cross-topic discrimination the gate exists to make;
+# `--calibrate-oracle` reprints that curve.
+MIN_SUBJECT_BITS = 10.0
+
 # A measurable anchor: a number, a percentage, or an explicit inequality. A
 # claim without one has nothing a replication could disagree with.
 MEASURABLE = re.compile(r"(\d+(?:\.\d+)?\s*%|\b\d+(?:\.\d+)?\b|[<>≥≤]=?)")
+
+# Not every number in an abstract is a result. A citation year, a dataset
+# version and a named component are identifiers: they point at a thing rather
+# than measuring one, and "fails to reproduce the stated 2013 result" asks a
+# replication to disagree with a bibliography. These two patterns find the
+# numbers that cannot be results, so `result_anchor` can decline them.
+_YEAR = re.compile(r"^(1[89]\d{2}|20\d{2}|2100)$")
+# A number bound to a name: "SQuAD 2.0", "System 1", "GPT-4", "OOD@10",
+# "Figure 3". The giveaway is the token immediately before it -- a proper noun,
+# an acronym, or an @ -- rather than a measuring word.
+_IDENTIFIER_CONTEXT = re.compile(
+    r"(?:[@#]|\b(?:[A-Z][A-Za-z]*[A-Z0-9][A-Za-z0-9]*|[A-Z][a-z]+|v|version|"
+    r"phase|stage|step|section|figure|table|chapter|appendix|type|level|"
+    r"system|class|part|task|round)\s*[-–]?\s*)$")
+
+# Words that mark a number as a measurement of an outcome. A number sitting
+# near one of these is reporting something a replication could miss.
+RESULT_CONTEXT = (
+    "accuracy", "error", "rate", "improve", "improvement", "improves",
+    "reduce", "reduction", "reduces", "gain", "increase", "decrease",
+    "outperform", "outperforms", "score", "precision", "recall", "f1",
+    "auc", "map", "bleu", "rouge", "perplexity", "loss", "speedup",
+    "faster", "slower", "higher", "lower", "points", "percentage",
+    "percent", "success", "failure", "correlation", "significance",
+    "confidence", "interval", "margin", "average", "mean", "median",
+    "achieves", "achieve", "achieved", "reaches", "yields", "drops",
+    "rises", "falls", "boosts", "cuts", "times", "fold", "x",
+)
 
 
 def _tokens(text: str) -> set:
@@ -378,25 +412,204 @@ def _count_markers(text: str, markers: Sequence[str]) -> int:
     return sum(lowered.count(marker) for marker in markers)
 
 
-def corroboration(claim_text: str, other_text: str, min_overlap: int = 2) -> int:
+_CLAIM_PREFIX = re.compile(r"^on topic\s+(.*?),\s", re.IGNORECASE)
+
+
+def _subject_tokens(claim_text: str, topic: Optional[str] = None) -> set:
+    """The tokens that are *this claim's own*, not its topic's.
+
+    Every claim staked on a topic was retrieved by queries built from that
+    topic's words, and `distill_claim` writes the topic name into the claim
+    text as well. So topic tokens are shared by construction: matching on them
+    tests membership in a search result, not agreement about anything. They are
+    removed here so the overlap that remains is the claim's actual subject.
+    """
+    text = claim_text or ""
+    if topic is None:
+        match = _CLAIM_PREFIX.match(text.strip())
+        topic = match.group(1) if match else ""
+    return _tokens(text) - _tokens(topic or "")
+
+
+def idf_map(documents: Sequence[str]) -> Dict[str, float]:
+    """Information content of each token, in bits, over `documents`.
+
+    A word appearing in every abstract on a topic distinguishes nothing: two
+    papers sharing it are not thereby about the same thing. "Residual" is the
+    live example -- it is in the topic name, so it links a transformer paper to
+    a protein-design paper to a confounder paper, all of which the unweighted
+    gate scored as mutual corroboration. Weighting overlap by log2(N/df) prices
+    each shared word by how much it actually narrows the field.
+    """
+    total = len(documents) or 1
+    freq: Dict[str, int] = {}
+    for doc in documents:
+        for token in _tokens(doc):
+            freq[token] = freq.get(token, 0) + 1
+    return {token: log2(total / (1 + df)) for token, df in freq.items()}
+
+
+def _sentences(text: str) -> List[str]:
+    parts = re.split(r"(?<=[.!?])\s+", " ".join((text or "").split()))
+    return [p for p in parts if p]
+
+
+def shared_subject(claim_text: str, other_text: str,
+                   topic: Optional[str] = None) -> set:
+    """Tokens the two texts genuinely share, topic words excluded."""
+    return _subject_tokens(claim_text, topic) & _tokens(other_text)
+
+
+def corroboration(claim_text: str, other_text: str, min_overlap: int = 2,
+                  idf: Optional[Dict[str, float]] = None,
+                  topic: Optional[str] = None,
+                  min_bits: float = MIN_SUBJECT_BITS) -> int:
     """Does `other_text` corroborate (+1), contradict (-1), or ignore (0) the claim?
 
-    Two gates. First topical overlap -- unrelated work is no evidence either
-    way, however confidently it is worded. Then the balance of corroboration
-    against contradiction markers. Equal counts return 0: agreement with no
-    explicit signal is not replication, and the design doc is blunt that this
-    oracle is weak evidence.
+    Two gates, and the claim has to survive both *as a claim* -- the earlier
+    version's verdict was a pure function of `other_text`, so on the live
+    corpus all 52 abstracts that spoke handed the identical verdict to every
+    claim they were paired with, and every claim on a topic converged to the
+    same score. The claim now enters the decision twice over.
+
+    First relevance: the shared tokens must be the claim's own subject rather
+    than its topic's vocabulary, and must carry `min_bits` of information
+    (`idf`), so agreement on a word common to the whole topic buys nothing.
+
+    Then polarity, read *only in the sentences of `other_text` that discuss the
+    shared subject*. Counting markers across the whole abstract measured how
+    positively that paper was written, which is a fact about its prose. Equal
+    counts still return 0: agreement with no explicit signal is not
+    replication, and this oracle remains weak evidence by design.
     """
-    shared = _tokens(claim_text) & _tokens(other_text)
+    shared = shared_subject(claim_text, other_text, topic)
     if len(shared) < min_overlap:
         return 0
-    positive = _count_markers(other_text, CORROBORATION_MARKERS)
-    negative = _count_markers(other_text, CONTRADICTION_MARKERS)
+    if idf is not None:
+        bits = sum(idf.get(token, 0.0) for token in shared)
+        if bits < min_bits:
+            return 0
+
+    relevant = [s for s in _sentences(other_text) if _tokens(s) & shared]
+    if not relevant:
+        return 0
+    context = " ".join(relevant)
+    positive = _count_markers(context, CORROBORATION_MARKERS)
+    negative = _count_markers(context, CONTRADICTION_MARKERS)
     if negative > positive:
         return -1
     if positive > negative:
         return 1
     return 0
+
+
+# Suffixes stripped when matching topic *phrases*, so that "hidden confounding"
+# and "hidden confounders" are the same phrase. Deliberately separate from
+# `_tokens`, which stage 4 is calibrated against: widening that tokenizer would
+# move every measured number in `calibrate_corroboration` at the same time.
+_PHRASE_SUFFIXES = ("ational", "ation", "ising", "izing", "ing", "edly",
+                    "ers", "er", "ed", "ion", "s")
+
+
+def _phrase_stem(word: str) -> str:
+    for suffix in _PHRASE_SUFFIXES:
+        if word.endswith(suffix) and len(word) - len(suffix) >= 4:
+            return word[:-len(suffix)]
+    return word
+
+
+def _phrase_tokens(text: str) -> List[str]:
+    words = re.findall(r"[a-z0-9]+", (text or "").lower())
+    return [_phrase_stem(w) for w in words
+            if w not in STOPWORDS and len(w) > 2]
+
+
+def _bigrams(text: str) -> set:
+    tokens = _phrase_tokens(text)
+    return set(zip(tokens, tokens[1:]))
+
+
+def topic_phrases(name: str, queries: Iterable[str] = ()) -> set:
+    """The adjacent word pairs that mark membership in a topic."""
+    phrases = _bigrams(name)
+    for query in queries:
+        phrases |= _bigrams(query)
+    return phrases
+
+
+def in_scope(finding_text: str, phrases: Iterable[Tuple[str, str]]) -> bool:
+    """Is this finding about the topic it was filed under?
+
+    A search API returns what matches a string, not what belongs to a subject.
+    The query "causal discovery latent variables time series" retrieved three de
+    novo protein-binder papers on the strength of *latent* (a product name,
+    Latent-X) and *discovery* (drug discovery), and they were staked as claims
+    about hidden-variable detection, where they became the topic's three
+    highest-confidence claims.
+
+    Staking and testing cannot undo that, which is why the gate has to sit
+    here. The design leans on stage 4 to catch a bad claim, and stage 4 can
+    only refute one that something argues *against*: those three papers are a
+    mutually consistent cluster, so they corroborate each other honestly and
+    climb together. Off-topic evidence is not refuted by more of itself.
+
+    Single words cannot make this call at any threshold -- measured on the live
+    corpus, the three leaks carry more topic vocabulary (9.15 bits) than
+    genuinely on-topic work like "Discovery of Causal Additive Models in the
+    Presence of Unobserved Variables" (8.13). Requiring an adjacent pair is
+    what separates the technical phrase from the coincidence: "causal
+    discovery" is a subject, "causal" plus "drug discovery" is a collision.
+
+    The cost is real and one-directional: a paper whose vocabulary never lands
+    adjacent is refused, and on the live corpus that wrongly exiles a few
+    (notably "Hallucination, abstention, and computable inseparability", whose
+    topic query is a keyword bag rather than a phrase). Refusals are logged to
+    the unknown journal, not dropped, because under-inclusion leaves a record a
+    reader can overturn while over-inclusion silently rewrites the drafts.
+    """
+    return bool(_bigrams(finding_text) & set(phrases))
+
+
+def result_anchor(body: str) -> str:
+    """The number in `body` a replication could actually miss, or "".
+
+    `MEASURABLE.findall(...)[0]` took the first number anywhere in the
+    abstract, which on the live corpus produced falsification conditions
+    reading "fails to reproduce the stated 2013 result" (a citation year),
+    "the stated 1951 result" (Shannon's experiment), "the stated 2.0 result"
+    (SQuAD 2.0) and "the stated 10 result" (the @10 of an OOD@10 metric). None
+    of those is a result. An identifier names a thing; only a measurement has
+    a value a replication can fail to reproduce.
+
+    Preference order: a percentage, then a number standing near a word that
+    marks it as an outcome, and nothing otherwise -- an abstract whose only
+    numbers are identifiers has staked no quantity, which is the unknown
+    journal's business rather than the tree's.
+    """
+    text = body or ""
+    candidates = []
+    for match in MEASURABLE.finditer(text):
+        raw = match.group(0).strip()
+        bare = raw.rstrip("%").strip()
+        before = text[max(0, match.start() - 24):match.start()]
+        after = text[match.end():match.end() + 40]
+        if _YEAR.match(bare):
+            continue
+        if _IDENTIFIER_CONTEXT.search(before):
+            continue
+        window = f"{before} {after}".lower()
+        near_result = any(word in window for word in RESULT_CONTEXT)
+        if raw.endswith("%"):
+            rank = 0
+        elif near_result:
+            rank = 1
+        else:
+            continue
+        candidates.append((rank, match.start(), raw))
+    if not candidates:
+        return ""
+    candidates.sort()
+    return candidates[0][2]
 
 
 def first_sentence(text: str, limit: int = 320) -> str:
@@ -423,19 +636,48 @@ def distill_claim(finding: Finding) -> Tuple[str, str, str]:
     reference_class = f"{finding.source} records on '{finding.topic}'"
 
     body = finding.abstract or ""
-    anchors = MEASURABLE.findall(body)
+    quantity = result_anchor(body)
     hedges = _count_markers(body, HEDGE_MARKERS)
 
-    if not body or not anchors:
+    if not body:
+        # Nothing was reported, so there is nothing to stake.
         return claim_text, "", reference_class
     if hedges >= 2:
         # Hedged past commitment: the text states no condition it would fail.
         return claim_text, "", reference_class
 
-    quantity = anchors[0].strip()
-    falsification = (f"An independent source on '{finding.topic}' reports the "
-                     f"opposite effect, or fails to reproduce the stated "
-                     f"{quantity} result")
+    if quantity:
+        falsification = (f"An independent source on '{finding.topic}' reports "
+                         f"the opposite effect, or fails to reproduce the "
+                         f"stated {quantity} result")
+    else:
+        # A measurable anchor is a *label on the claim's sharpness*, not a
+        # licence to enter the tree. It used to be the gate, on the reasoning
+        # that "a claim without one has nothing a replication could disagree
+        # with" -- but stage 4 never reads `falsification` at all. It tests
+        # `claim.text` against other abstracts, so the gate partitioned claims
+        # on a variable the only available oracle is blind to.
+        #
+        # Measured on the live corpus: of 64 in-scope findings the rule
+        # admitted 14 and refused 50, and at matched test counts the two kinds
+        # accrue information indistinguishably (mean |beta - 0.5| 0.105 against
+        # 0.121, paired difference -0.017 +/- 0.077). The refused 50 are not
+        # inert -- 88% of them draw at least one verdict. What the rule bought
+        # was 8 percentage anchors; what it cost was the theory literature this
+        # repo is actually about (epsilon-machine reconstruction, hidden
+        # confounding under multiple environments) and, with it, stage 6: two
+        # of four topics could not reach the calibrated n_eff floor of 5.0 at
+        # all, reading 0.00 and 1.00 against it.
+        #
+        # So the anchor is kept where it exists, because a stated quantity is
+        # a sharper thing to disagree with, and its absence is no longer a
+        # refusal. Theory papers state conditions rather than numbers, and
+        # `grounding.core.epistemics` has always accepted a non-trivial
+        # textual condition; this engine was narrower than its own framework.
+        falsification = (f"An independent source on '{finding.topic}' reports "
+                         f"the stated mechanism does not hold under the "
+                         f"conditions claimed for it, or obtains it only by "
+                         f"assuming what it set out to establish")
     return claim_text, falsification, reference_class
 
 
@@ -664,16 +906,38 @@ def _remember(findings: List[Finding], memory_path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 def stage_claim(findings: List[Finding], tree: DependencyTree,
-                unknown_path) -> Tuple[List[Claim], int]:
-    """Distil findings into claims; route the unfalsifiable ones aside.
+                unknown_path,
+                scope_phrases: Optional[Dict[str, set]] = None,
+                ) -> Tuple[List[Claim], int]:
+    """Distil findings into claims; route the unstakeable ones aside.
 
-    Unfalsifiable content is preserved in the unknown journal, never dropped:
-    a mystery is not a refutation.
+    Two ways to miss. A finding outside the scope it was filed under is
+    refused first, because a claim staked on the wrong topic is not a weak
+    claim but a mis-scoped one, and stage 4 cannot correct it (see
+    `in_scope`). Then the unfalsifiable ones.
+
+    Both are preserved in the unknown journal, never dropped: a mystery is not
+    a refutation, and neither is a filing error.
     """
     made: List[Claim] = []
     unknown_rows: List[dict] = []
 
     for finding in findings:
+        if scope_phrases:
+            phrases = scope_phrases.get(finding.topic)
+            haystack = f"{finding.title} {finding.abstract or ''}"
+            if phrases and not in_scope(haystack, phrases):
+                unknown_rows.append({
+                    "flag": "off-scope",
+                    "topic": finding.topic,
+                    "text": finding.title,
+                    "reason": ("retrieved by keyword match but carries no "
+                               "phrase from the topic it was filed under"),
+                    "source": finding.source,
+                    "url": finding.url,
+                    "logged_at": datetime.now().isoformat(timespec="seconds"),
+                })
+                continue
         text, falsification, reference_class = distill_claim(finding)
         claim = Claim(
             text=text,
@@ -699,6 +963,7 @@ def stage_claim(findings: List[Finding], tree: DependencyTree,
 
     if unknown_rows:
         append_jsonl(unknown_path, unknown_rows)
+    stage_claim.last_breakdown = Counter(row["flag"] for row in unknown_rows)
     return made, len(unknown_rows)
 
 
@@ -717,6 +982,10 @@ def stage_test(tree: DependencyTree, findings: Sequence) -> Dict[str, int]:
     """
     rows = [f if isinstance(f, dict) else f.to_dict() for f in findings]
     stats = {"passed": 0, "failed": 0, "skipped": 0}
+    # Information content is a property of the corpus, so it is measured once
+    # per run over every abstract the engine holds -- not per topic, or a word
+    # ubiquitous inside one topic would look rare and score as strong evidence.
+    idf = idf_map([r.get("abstract", "") or "" for r in rows])
 
     for claim in tree.claims.values():
         for row in rows:
@@ -729,7 +998,8 @@ def stage_test(tree: DependencyTree, findings: Sequence) -> Dict[str, int]:
                                              row.get("url", ""))
             if key in claim.tested_against:
                 continue
-            verdict = corroboration(claim.text, row.get("abstract", "") or "")
+            verdict = corroboration(claim.text, row.get("abstract", "") or "",
+                                    idf=idf, topic=claim.topic)
             if verdict == 0:
                 stats["skipped"] += 1
                 continue
@@ -1353,6 +1623,84 @@ def _scan_topics(tree, findings, min_effective: float) -> List[dict]:
                         permutations=0)
 
 
+def oracle_operating_characteristic(min_bits: float,
+                                    findings: Sequence[dict]) -> Dict[str, Any]:
+    """Testimony rates of the stage-4 gate at `min_bits`, on a real corpus.
+
+    The null is cross-topic pairs: two papers retrieved under different topics
+    are not about the same subject, so any verdict between them is testimony
+    the gate should have refused. It is a *proxy* null and worth naming as one
+    -- the collisions that actually corrupted the live drafts were inside a
+    single topic (transformer residuals against protein design, both filed
+    under residuals) -- but it is the null this corpus can label without a
+    human, and a gate that admits unrelated topics certainly admits those.
+
+    Signal is same-topic pairs. Retention is not accuracy: some same-topic
+    testimony is a collision too. Read it as the cost side of the trade.
+    """
+    rows = [r for r in findings if (r.get("abstract") or "").strip()]
+    idf = idf_map([r["abstract"] for r in rows])
+    null_hits = null_total = sig_hits = sig_total = 0
+    for claim_row in rows:
+        text = (f"On topic {claim_row['topic']}, {claim_row['title']} reports: "
+                f"{first_sentence(claim_row['abstract'])}")
+        for other in rows:
+            if other["url"] == claim_row["url"]:
+                continue
+            spoke = corroboration(text, other["abstract"], idf=idf,
+                                  topic=claim_row["topic"],
+                                  min_bits=min_bits) != 0
+            if other["topic"] == claim_row["topic"]:
+                sig_total += 1
+                sig_hits += spoke
+            else:
+                null_total += 1
+                null_hits += spoke
+    return {
+        "min_bits": min_bits,
+        "false_testimony": null_hits / null_total if null_total else 0.0,
+        "false_testimony_upper": wilson_upper(null_hits, null_total),
+        "retention": sig_hits / sig_total if sig_total else 0.0,
+        "null_pairs": null_total,
+        "signal_pairs": sig_total,
+    }
+
+
+def calibrate_corroboration(findings: Sequence[dict],
+                            target_false_testimony: float = 0.05,
+                            grids: Sequence[float] = (0.0, 4.0, 8.0, 10.0,
+                                                      12.0, 14.0, 16.0, 20.0,
+                                                      24.0, 32.0),
+                            ) -> Dict[str, Any]:
+    """Loosest `min_bits` whose measured cross-topic testimony meets target.
+
+    Same contract as `calibrate_scan`: judge on the Wilson upper bound so the
+    gate holds on the next corpus rather than only this one, return the whole
+    curve because a threshold without its retention cost in view is how a
+    filter ends up sound and deaf, and raise rather than silently tighten when
+    no value on the grid can make the promise.
+    """
+    curve = [oracle_operating_characteristic(bits, findings) for bits in grids]
+    passing = [row for row in curve
+               if row["false_testimony_upper"] <= target_false_testimony]
+    if not passing:
+        best = min(curve, key=lambda row: row["false_testimony_upper"])
+        raise ValueError(
+            f"no min_bits in {list(grids)} holds a {target_false_testimony:.0%} "
+            f"cross-topic testimony rate; best bound is "
+            f"{best['false_testimony_upper']:.1%} at {best['min_bits']} bits")
+    chosen = min(passing, key=lambda row: row["min_bits"])
+    return {
+        "min_bits": chosen["min_bits"],
+        "false_testimony": chosen["false_testimony"],
+        "false_testimony_upper": chosen["false_testimony_upper"],
+        "retention": chosen["retention"],
+        "target_false_testimony": target_false_testimony,
+        "shipped_default": MIN_SUBJECT_BITS,
+        "curve": curve,
+    }
+
+
 def calibrate_scan(target_false_positive: float = 0.05,
                    floors: Sequence[float] = (0.0, 3.0, 4.0, 5.0, 5.5, 6.0,
                                               6.5, 7.0, 8.0),
@@ -1425,6 +1773,42 @@ def _report_calibration(trials: int) -> int:
     if result["min_effective"] != result["shipped_default"]:
         print(f"  NOTE: the module ships {result['shipped_default']}; "
               f"this measurement says {result['min_effective']}")
+    return 0
+
+
+def _report_oracle_calibration(log_path) -> int:
+    """Print stage 4's measured gate. Behind --calibrate-oracle.
+
+    Needs a real corpus: the null is cross-topic pairs, so a synthetic one
+    would only measure the generator. Reads the findings log the engine has
+    already accumulated.
+    """
+    rows = read_jsonl(log_path)
+    rows = [r for r in rows if (r.get("abstract") or "").strip()]
+    if len(rows) < 20:
+        print(f"  only {len(rows)} findings with abstracts in {log_path}; "
+              f"the cross-topic null needs a corpus to measure against")
+        return 1
+    print(f"stage 4 corroboration gate, measured on {len(rows)} real abstracts\n")
+    print(f"{'min_bits':>9} {'cross-topic':>12} {'95% upper':>10} {'same-topic':>11}")
+    try:
+        result = calibrate_corroboration(rows)
+    except ValueError as exc:
+        print(f"  calibration failed: {exc}")
+        return 1
+    for row in result["curve"]:
+        mark = "  <- calibrated" if row["min_bits"] == result["min_bits"] else ""
+        print(f"{row['min_bits']:9.1f} {row['false_testimony']:11.2%} "
+              f"{row['false_testimony_upper']:10.2%} {row['retention']:10.1%}{mark}")
+    print()
+    print(f"  loosest gate holding a {result['target_false_testimony']:.0%} "
+          f"cross-topic testimony rate: {result['min_bits']} bits")
+    print(f"  same-topic testimony retained there: {result['retention']:.1%}")
+    print("  the null is cross-topic pairs, a proxy: the collisions that")
+    print("  corrupted the live drafts were inside a single topic.")
+    if result["min_bits"] != result["shipped_default"]:
+        print(f"  NOTE: the module ships {result['shipped_default']}; "
+              f"this measurement says {result['min_bits']}")
     return 0
 
 
@@ -1576,7 +1960,8 @@ def write_report(path, stats: Dict[str, Any]) -> str:
         f"- findings seen: {stats['found']} ({stats['new']} new, "
         f"{stats['skipped']} already logged)",
         f"- claims staked: {stats['claims']} ({stats['unknown']} routed to the "
-        "unknown journal as unfalsifiable)",
+        f"unknown journal: {stats.get('off_scope', 0)} off-scope, "
+        f"{stats.get('unfalsifiable', stats['unknown'])} unfalsifiable)",
         f"- tests: {stats['test']['passed']} corroborated / "
         f"{stats['test']['failed']} contradicted / "
         f"{stats['test']['skipped']} no signal",
@@ -1648,6 +2033,9 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--data-dir", default=str(REPO_ROOT / "data"))
     parser.add_argument("--hypotheses-dir", default=str(REPO_ROOT / "hypotheses"))
     parser.add_argument("--sample", default=str(REPO_ROOT / "scripts" / "sample_findings.json"))
+    parser.add_argument("--calibrate-oracle", action="store_true",
+                        help="print stage 4's measured corroboration gate "
+                             "and exit")
     parser.add_argument("--calibrate", action="store_true",
                         help="measure stage 6's false-positive rate and power "
                              "on synthetic corpora, then exit")
@@ -1656,6 +2044,8 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     if args.calibrate:
         return _report_calibration(args.calibration_trials)
+    if args.calibrate_oracle:
+        return _report_oracle_calibration(Path(args.data_dir) / "findings_log.jsonl")
 
     data_dir = Path(args.data_dir)
     data_dir.mkdir(parents=True, exist_ok=True)
@@ -1679,8 +2069,12 @@ def main(argv: Optional[List[str]] = None) -> int:
     tree = load_tree(tree_path)
 
     print("3. claim")
-    made, unknown_count = stage_claim(new, tree, unknown_path)
-    print(f"   {len(made)} staked, {unknown_count} unfalsifiable")
+    scope_phrases = {t["name"]: topic_phrases(t["name"], t.get("queries", ()))
+                     for t in topics}
+    made, unknown_count = stage_claim(new, tree, unknown_path,
+                                      scope_phrases=scope_phrases)
+    print(f"   {len(made)} staked, {unknown_count} not stakeable "
+          f"(off-scope or unfalsifiable)")
 
     print("4. test")
     test_stats = stage_test(tree, read_jsonl(log_path))
@@ -1713,6 +2107,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     report = write_report(data_dir / "engine_report.md", {
         "found": len(findings), "new": len(new), "skipped": skipped,
         "claims": len(made), "unknown": unknown_count,
+        "off_scope": getattr(stage_claim, "last_breakdown", {}).get("off-scope", 0),
+        "unfalsifiable": getattr(stage_claim, "last_breakdown", {}).get("unfalsifiable", 0),
         "test": test_stats, "modify": modify_stats, "hidden": hidden,
         "consolidate": consolidated,
         "clocks": clocks,

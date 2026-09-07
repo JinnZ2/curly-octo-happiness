@@ -222,6 +222,127 @@ Workflow: `.github/workflows/hypothesis-engine.yml` (Mondays 06:17 UTC, plus
   tree. The report now states both numbers.
 - **The unfalsifiability test is lexical.** A claim is routed to the unknown
   journal when its abstract contains no measurable anchor (number, percentage,
-  inequality) or is hedged twice over. A confidently-worded abstract with a
-  meaningless number still gets staked — the staking-and-testing loop, not the
-  parser, is what is supposed to catch that.
+  inequality) or is hedged twice over.
+- **"The staking-and-testing loop will catch it" was false, and the
+  2026-09-07 run is the proof.** The design leaned on stage 4 to correct a
+  bad claim from stage 3. Stage 4 could not, for two reasons measured on that
+  run's 123-abstract corpus.
+
+  First, *the oracle never read the claim*. `corroboration` counted
+  agreement markers anywhere in the other abstract, so its verdict was a pure
+  function of that abstract's prose: all 52 abstracts that spoke handed the
+  **identical** verdict to every claim they were paired with, and each topic's
+  claims converged on one score (0.80/0.80/0.80/0.78/0.78/0.78). The relevance
+  gate did not help — `distill_claim` writes the topic name into the claim
+  text, so overlap on topic words is guaranteed by construction, and the gate
+  admitted **53.5% of pairs drawn from different topics**.
+
+  The fix is that the claim now enters the decision twice. Shared tokens are
+  the claim's own subject with topic vocabulary removed, weighted by
+  information content (`idf_map`), and polarity is read only in the sentences
+  of the other abstract that discuss that shared subject. `MIN_SUBJECT_BITS` is
+  measured, not chosen: `calibrate_corroboration` returns the loosest gate
+  holding 5% cross-topic testimony on the Wilson upper bound, and it overrode
+  an eyeballed 12.0 in favour of 10.0 — the same correction `calibrate_scan`
+  made to its own guess, for the same reason. `--calibrate-oracle` prints the
+  curve. The null is cross-topic pairs, which is a **proxy** and named as one
+  in the code: the collisions that actually corrupted the drafts were *inside*
+  a single topic.
+
+  | | before | after |
+  |---|---|---|
+  | cross-topic pairs admitted | 53.5% | 3.1% |
+  | within-topic confidence spread (sd) | 0.032–0.087 | 0.039–0.124 |
+  | verdict varies with the claim | never | yes |
+
+  Second, and the deeper point: **stage 4 can only refute a claim that
+  something argues against.** Three de novo protein-binder papers were
+  retrieved into "hidden variable detection / causal discovery from residuals"
+  by keyword match on *latent* (the product name Latent-X) and *discovery*
+  (drug discovery). They are a mutually consistent cluster, so they corroborate
+  each other honestly and climbed to that topic's top three claims. No amount
+  of testing removes off-topic evidence, because more of it agrees. That is why
+  `in_scope` sits at stake time rather than being left to the loop.
+- **Belonging is a phrase test, not a keyword test.** Single words cannot make
+  the call at any threshold: measured on the live corpus, the three leaked
+  papers carry *more* topic vocabulary (9.15 bits) than genuinely on-topic work
+  such as "Discovery of Causal Additive Models in the Presence of Unobserved
+  Variables" (8.13 bits). Requiring an adjacent stemmed pair separates the
+  technical phrase from the coincidence — "causal discovery" is a subject,
+  "causal" plus "drug discovery" is a collision — and it exiles all three leaks
+  while keeping every real causal-discovery paper in that topic. The phrase
+  tokenizer is deliberately **separate** from `_tokens`, which stage 4 is
+  calibrated against; widening one would silently move every number measured
+  for the other.
+
+  The cost is real, one-directional, and worth stating: a paper whose
+  vocabulary never lands adjacent is refused, which on the live corpus wrongly
+  exiles a few — notably "Hallucination, abstention, and computable
+  inseparability", because the query "hallucination calibration abstention" is
+  a keyword bag whose adjacent pairs are artifacts rather than phrases. Scope
+  refusals are journalled under the flag `off-scope`, never dropped:
+  under-inclusion leaves a record a reader can overturn, over-inclusion
+  silently rewrites the drafts.
+- **A number is not automatically a result.** `MEASURABLE.findall(...)[0]` took
+  the first digit anywhere in the abstract, which produced live falsification
+  conditions reading "fails to reproduce the stated 2013 result" (a citation
+  year), "the stated 1951 result" (Shannon's experiment), "the stated 2.0
+  result" (SQuAD 2.0) and "the stated 10 result" (the @10 of OOD@10). An
+  identifier names a thing; only a measurement has a value a replication can
+  miss. `result_anchor` declines years and name-bound numbers, prefers a
+  percentage, and otherwise takes a number standing near a word that marks it
+  as an outcome.
+- **The digit rule was resolved by measurement, and it lost.** It gated on a
+  variable stage 4 cannot see: `stage_test` never reads `claim.falsification`
+  at all — it tests `claim.text` against other abstracts, and the falsification
+  string is used only for the claim's id, its serialisation, and the line a
+  human reads in the draft. So "a claim without a number has nothing a
+  replication could disagree with" described a test this engine does not run.
+
+  Staking both kinds on the live corpus and running the real oracle:
+
+  | | numeric | non-numeric |
+  |---|---|---|
+  | in-scope findings | 14 | 50 |
+  | drew at least one verdict | 93% | 88% |
+  | mean \|beta − 0.5\| at *matched* test counts | 0.105 | 0.121 |
+
+  The paired difference at matched test counts is −0.017 ± 0.077, i.e. nothing
+  — exactly what the code fact predicts, since the oracle cannot tell the two
+  apart. The unmatched comparison flatters the non-numeric arm only because a
+  Beta posterior sits further from 0.5 when it has fewer tests, which is why
+  the table conditions on test count.
+
+  What the rule bought was 8 percentage anchors (6 of its 14 "numeric" claims
+  were bare integers like 1, 6, 100 and 670, no more actionable than a
+  sentence). What it cost was the theory literature this repo is about, and
+  with it stage 6: two of four topics could not reach the calibrated `n_eff`
+  floor of 5.0 at all, reading **0.00 and 1.00** against it. Widened, three of
+  four clear the full gate; the fourth clears `n_eff` at 5.83 and is held by
+  standing tests, which is a sparse topic reporting an honest null rather than
+  an artifact.
+
+  So `result_anchor` is now a **label on sharpness, not a licence to enter**.
+  A stated quantity is still preferred when one exists, because it is a
+  sharper thing to disagree with. Its absence no longer refuses the claim:
+  theory papers state conditions rather than numbers, and
+  `grounding.core.epistemics` has always accepted a non-trivial textual
+  falsification condition — the engine was narrower than its own framework.
+  Empty abstracts and abstracts hedged past commitment are still refused, for
+  the reasons they always were: nothing was reported, or the paper declined to
+  commit.
+- **Superseded — kept because the reasoning is the record.** The paragraph
+  below was the standing decision before that measurement was run.** After scope filtering, 65 of 123
+  live abstracts belong to their topic; only 15 of those carry a result number.
+  The rest are theory and method papers — "Detecting hidden confounding in
+  observational data using multiple environments", "Reconstruction of
+  Epsilon-Machines in Predictive Frameworks and Decisional States", "Divergent
+  Predictive States", "Leveraging Environmental Correlations: The
+  Thermodynamics of Requisite Variety" — whose abstracts contain **no numbers
+  at all**, so nothing is being mis-parsed. They make falsifiable claims that
+  are not numeric ones, and `grounding.core.epistemics` accepts any non-trivial
+  textual falsification condition; the numeric anchor is this engine's
+  narrowing, not the framework's. Widening it is a real option and is left
+  open deliberately: it would roughly quadruple what the tree can hold on
+  theory-heavy topics, at the cost of falsification conditions no cross-source
+  test can currently check.
