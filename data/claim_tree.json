@@ -1604,7 +1604,43 @@
         "670f37fad5fa4cc3d557ecfc0835dd78b3135e1e6df80995f5dc7e27d7c87021"
       ],
       "text": "On topic causal states and statistical complexity, The Computational Structure of Spike Trains reports: Neurons perform computations, and convey the results of those computations through the statistical structure of their output spike trains."
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 10 result",
+      "id": "b0379ac953acb3cc",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026-08-07",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "arxiv",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "http://arxiv.org/abs/2608.10008v3",
+      "status": "active",
+      "tested_against": [
+        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
+        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
+        "ad781f6f9b071c7f813d76ec86166ed6507fc45a092a384370aa0e3b1fe48e6d"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Do LLM Recommenders Know When They're Hallucinating? Auditing Confidence Calibration in Catalog Faithfulness reports: LLM recommenders for top-K item suggestion regularly emit titles outside the target catalog. (scope narrowed: restricted after failure #1)"
     }
   ],
-  "saved_at": "2026-09-06T03:00:28"
+  "saved_at": "2026-09-07T12:36:43"
 }

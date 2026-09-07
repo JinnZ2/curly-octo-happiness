@@ -1,6 +1,6 @@
 # Hypothesis draft — calibration and falsifiability of LLM agents
 
-_Regenerated 2026-09-06 by `scripts/hypothesis_engine.py`. Node confidence 0.41; 0 surviving / 21 active / 0 refuted claims._
+_Regenerated 2026-09-07 by `scripts/hypothesis_engine.py`. Node confidence 0.41; 0 surviving / 22 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
 
@@ -50,6 +50,11 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 1 result
   - record: 2 passed / 2 failed, beta-confidence 0.50
   - source: http://arxiv.org/abs/2603.26635v1
+  - reformulated 1x
+- **On topic calibration and falsifiability of LLM agents, Do LLM Recommenders Know When They're Hallucinating? Auditing Confidence Calibration in Catalog Faithfulness reports: LLM recommenders for top-K item suggestion regularly emit titles outside the target catalog. (scope narrowed: restricted after failure #1)**
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 10 result
+  - record: 0 passed / 0 failed, beta-confidence 0.50
+  - source: http://arxiv.org/abs/2608.10008v3
   - reformulated 1x
 - **On topic calibration and falsifiability of LLM agents, Evidence-Calibrated RAG for Unanswerable Question Answering: Retrieval Coverage, Abstention Calibration, and Hallucination-Proxy Analysis on SQuAD 2.0 reports: This paper presents a controlled and reproducible empirical study of evidence-calibrated retrieval-augmented question answering (RAG) for answerable and unanswerable reading-comprehension tasks using the SQuAD 2.0 benchmark. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 2.0 result

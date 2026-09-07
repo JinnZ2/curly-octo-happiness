@@ -1558,5 +1558,15 @@
     ],
     "url": "https://doi.org/10.1093/oed/1038365468",
     "date": "2023-03-02"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Do LLM Recommenders Know When They're Hallucinating? Auditing Confidence Calibration in Catalog Faithfulness",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2608.10008v3",
+    "date": "2026-08-07"
   }
 ]

@@ -1,6 +1,6 @@
 # Hypothesis draft — hidden variable detection / causal discovery from residuals
 
-_Regenerated 2026-09-06 by `scripts/hypothesis_engine.py`. Node confidence 0.73; 7 surviving / 0 active / 0 refuted claims._
+_Regenerated 2026-09-07 by `scripts/hypothesis_engine.py`. Node confidence 0.73; 7 surviving / 0 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
 
