@@ -8,3 +8,7 @@
 {"coupling": -0.1723, "logged_at": "2026-09-07T12:36:43", "reason": "", "shelf_life_years": 4.067, "state": "DERIVED", "tau_years": 0.7009, "topic": "causal states and statistical complexity", "type": "topic_clock"}
 {"coupling": -0.0945, "logged_at": "2026-09-07T12:36:43", "reason": "", "shelf_life_years": 2.984, "state": "DERIVED", "tau_years": 0.282, "topic": "hidden variable detection / causal discovery from residuals", "type": "topic_clock"}
 {"coupling": 0.1642, "logged_at": "2026-09-07T12:36:43", "reason": "", "shelf_life_years": 2.559, "state": "DERIVED", "tau_years": 0.4203, "topic": "requisite variety and cybernetic regulation", "type": "topic_clock"}
+{"coupling": -0.0457, "logged_at": "2026-09-07T20:58:47", "reason": "", "shelf_life_years": 1.438, "state": "DERIVED", "tau_years": 0.0657, "topic": "calibration and falsifiability of LLM agents", "type": "topic_clock"}
+{"coupling": -0.1789, "logged_at": "2026-09-07T20:58:47", "reason": "", "shelf_life_years": 3.917, "state": "DERIVED", "tau_years": 0.7009, "topic": "causal states and statistical complexity", "type": "topic_clock"}
+{"coupling": -0.0519, "logged_at": "2026-09-07T20:58:47", "reason": "", "shelf_life_years": 5.093, "state": "DERIVED", "tau_years": 0.2642, "topic": "hidden variable detection / causal discovery from residuals", "type": "topic_clock"}
+{"coupling": 0.1642, "logged_at": "2026-09-07T20:58:47", "reason": "", "shelf_life_years": 2.559, "state": "DERIVED", "tau_years": 0.4203, "topic": "requisite variety and cybernetic regulation", "type": "topic_clock"}

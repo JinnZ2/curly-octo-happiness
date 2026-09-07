@@ -1568,5 +1568,205 @@
     ],
     "url": "http://arxiv.org/abs/2608.10008v3",
     "date": "2026-08-07"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Operationalizing Serendipity: Multi-Agent AI Workflows for Enhanced Materials Characterization with Theory-in-the-Loop",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/5b014f349a093bc770a18858d8afbb21290bfce3",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] A measurement substrate for agentic Kubernetes operations: Methodology and a case study in retrieval-compounding falsification",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/08649f99062f1d9624ec0c9017c4666b6ab3e5ad",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Cryptographically verifiable authorization for autonomous AI agents: A falsifiable hypothesis and proof-of-concept",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/42bfa454a0008fa4d9181b287677f76421917c94",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Agents of Context: A Methodological Critique and Counter-Evidence Analysis of Adversarial Red-Teaming Claims for Autonomous AI Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/ac19b5648449e3608d2f150ac424a77c609661c9",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Evidence-Bound Autonomous Research (EviBound): A Governance Framework for Eliminating False Claims",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/f40edbf79a2ec9732831dfb160d15f6893d80bda",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Digital Identity for Agentic Systems: Toward a Portable Authorization Standard for Autonomous Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/5d53c3bc3d0b798bd09c2da38d15bd6c72ba261f",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] APEX-EM: Non-Parametric Online Learning for Autonomous Agents via Structured Procedural-Episodic Experience Replay",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/16c110756c0f0395fe9cc9568434d9e5621cd464",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] FinPersona-Bench: A Benchmark for Longitudinal Psychometric Stability of Autonomous Financial Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/317d2659a28f8444d297f5020315bcdfc2509ab1",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Artifact-centered Claim-aware Observability for Autonomous Scientific Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/216afde4b8e88c7302d9b78ebdaa1cbd206ae0dc",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] EviGraph: Evidence-Guided Autonomous Research Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/84171611669441638d18bf3266065b796ed5cd5d",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Causal Discovery in High-Dimensional Time Series with Latent Confounders via Score-Based Diffusion Models",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/8be603b3e42d906489745267446de3078512bda4",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Causal discovery from time-series discrete data in the presence of latent confounders.",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/c1cc59c9eae56b382d6b533dc76b6ec45c16ba20",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Causal Discovery for time series from multiple datasets with latent contexts",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/a36cefa2643a9bfa3a40c4543a2ffee3cbfc117e",
+    "date": "2023-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] High-recall causal discovery for autocorrelated time series with latent confounders",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/311c8cc775770257d43b6e4e26f6b6470d0cb02a",
+    "date": "2020-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Causal discovery for time series with latent confounders",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/b6d7bb52558a5ff924fdb995c7f849e5c7feb65b",
+    "date": "2022-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Causal Discovery with Inverted Self-attention for Multivariate Time Series",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/6f9d1f3c3fbf4751b3402e7a4ff4899b148570a2",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Addressing Information Asymmetry: Deep Temporal Causality Discovery for Mixed Time Series",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/8fc7bfbf9fb6b19ef772e6328959e253795ecce7",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Using Domain Knowledge to Overcome Latent Variables in Causal Inference from Time Series",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/1c20be6817e06988735c30cb9eecaf05e0c21c9a",
+    "date": "2019-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Use of prior knowledge to discover causal additive models with unobserved variables and its application to time series data",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/d426a88c16e45e1fe0c56056534b897b53f6dd31",
+    "date": "2024-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Nonlinear Causal Discovery in Time Series",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/53c4012d8f70b8cd28980d7e7ee96be911aeaaad",
+    "date": "2022-01-01"
   }
 ]

@@ -1,6 +1,6 @@
 # Hypothesis draft — hidden variable detection / causal discovery from residuals
 
-_Regenerated 2026-09-07 by `scripts/hypothesis_engine.py`. Node confidence 0.73; 7 surviving / 0 active / 0 refuted claims._
+_Regenerated 2026-09-07 by `scripts/hypothesis_engine.py`. Node confidence 0.56; 10 surviving / 7 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
 
@@ -34,6 +34,47 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 67% result
   - record: 6 passed / 1 failed, beta-confidence 0.78
   - source: http://arxiv.org/abs/2603.29727v2
+- **On topic hidden variable detection / causal discovery from residuals, Causal Discovery in High-Dimensional Time Series with Latent Confounders via Score-Based Diffusion Models reports: The identification of causal relationships from observational time series data constitutes a fundamental challenge across scientific disciplines, ranging from climate science to econometrics and systems biology.**
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 4 passed / 2 failed, beta-confidence 0.62
+  - source: https://www.semanticscholar.org/paper/8be603b3e42d906489745267446de3078512bda4
+- **On topic hidden variable detection / causal discovery from residuals, Causal discovery from time-series discrete data in the presence of latent confounders. reports: Learning causal structures from discrete time series data presents significant challenges, particularly in the presence of unobserved variables, or latent confounders, which are frequently encountered in real-world scenarios.**
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 4 passed / 2 failed, beta-confidence 0.62
+  - source: https://www.semanticscholar.org/paper/c1cc59c9eae56b382d6b533dc76b6ec45c16ba20
+- **On topic hidden variable detection / causal discovery from residuals, Causal discovery for time series with latent confounders reports: Reconstructing the causal relationships behind the phenomena we observe is a fundamental challenge in all areas of science.**
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 2 passed / 1 failed, beta-confidence 0.60
+  - source: https://www.semanticscholar.org/paper/b6d7bb52558a5ff924fdb995c7f849e5c7feb65b
+- **On topic hidden variable detection / causal discovery from residuals, Using Domain Knowledge to Overcome Latent Variables in Causal Inference from Time Series reports: Increasingly large observational datasets from healthcare and social media may allow new types of causal inference.**
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 2 passed / 1 failed, beta-confidence 0.60
+  - source: https://www.semanticscholar.org/paper/1c20be6817e06988735c30cb9eecaf05e0c21c9a
+- **On topic hidden variable detection / causal discovery from residuals, High-recall causal discovery for autocorrelated time series with latent confounders reports: We present a new method for linear and nonlinear, lagged and contemporaneous constraint-based causal discovery from observational time series in the presence of latent confounders.**
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 3 passed / 2 failed, beta-confidence 0.57
+  - source: https://www.semanticscholar.org/paper/311c8cc775770257d43b6e4e26f6b6470d0cb02a
+- **On topic hidden variable detection / causal discovery from residuals, Causal Discovery for time series from multiple datasets with latent contexts reports: Causal discovery from time series data is a typical problem setting across the sciences.**
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 1 passed / 1 failed, beta-confidence 0.50
+  - source: https://www.semanticscholar.org/paper/a36cefa2643a9bfa3a40c4543a2ffee3cbfc117e
+- **On topic hidden variable detection / causal discovery from residuals, Nonlinear Causal Discovery in Time Series reports: Recent years have witnessed the proliferation of the Functional Causal Model (FCM) for causal learning due to its intuitive representation and accurate learning results.**
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 0 passed / 0 failed, beta-confidence 0.50
+  - source: https://www.semanticscholar.org/paper/53c4012d8f70b8cd28980d7e7ee96be911aeaaad
+- **On topic hidden variable detection / causal discovery from residuals, Use of prior knowledge to discover causal additive models with unobserved variables and its application to time series data reports: This paper proposes two methods for causal additive models with unobserved variables (CAM-UV). (scope narrowed: restricted after failure #1)**
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 0 passed / 0 failed, beta-confidence 0.50
+  - source: https://www.semanticscholar.org/paper/d426a88c16e45e1fe0c56056534b897b53f6dd31
+  - reformulated 1x
+- **On topic hidden variable detection / causal discovery from residuals, Addressing Information Asymmetry: Deep Temporal Causality Discovery for Mixed Time Series reports: While existing causal discovery methods mostly focus on continuous time series, causal discovery for mixed time series encompassing both continuous variables (CVs) and discrete variables (DVs) is a fundamental yet underexplored problem.**
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 0 passed / 2 failed, beta-confidence 0.25
+  - source: https://www.semanticscholar.org/paper/8fc7bfbf9fb6b19ef772e6328959e253795ecce7
+- **On topic hidden variable detection / causal discovery from residuals, Causal Discovery with Inverted Self-attention for Multivariate Time Series reports: Causal discovery in multivariate time series data is challenging due to complex interactions, high dimensionality, and nonlinear dependencies among variables.**
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 0 passed / 2 failed, beta-confidence 0.25
+  - source: https://www.semanticscholar.org/paper/6f9d1f3c3fbf4751b3402e7a4ff4899b148570a2
 
 ## Contradicted/refuted claims
 

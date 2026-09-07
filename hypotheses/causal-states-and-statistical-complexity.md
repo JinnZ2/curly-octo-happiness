@@ -1,6 +1,6 @@
 # Hypothesis draft — causal states and statistical complexity
 
-_Regenerated 2026-09-07 by `scripts/hypothesis_engine.py`. Node confidence 0.61; 6 surviving / 0 active / 0 refuted claims._
+_Regenerated 2026-09-07 by `scripts/hypothesis_engine.py`. Node confidence 0.59; 6 surviving / 0 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
 
@@ -14,10 +14,6 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'causal states and statistical complexity' reports the opposite effect, or fails to reproduce the stated 1 result
   - record: 3 passed / 0 failed, beta-confidence 0.80
   - source: https://www.semanticscholar.org/paper/1f98df1950c76bde046f7402273fe1b2fc222895
-- **On topic causal states and statistical complexity, Local Geometry-Based Intra Prediction for Octree-Structured Geometry Coding of Point Clouds reports: Point cloud compression (PCC) is crucial for efficient and flexible storage as well as feasible transmission of point clouds in practice.**
-  - falsification: An independent source on 'causal states and statistical complexity' reports the opposite effect, or fails to reproduce the stated 0.8% result
-  - record: 4 passed / 1 failed, beta-confidence 0.71
-  - source: https://www.semanticscholar.org/paper/cd6affd361cf5951c1953c9174bb50abac194cb2
 - **On topic causal states and statistical complexity, Range entropy: A bridge between signal complexity and self-similarity reports: Approximate entropy (ApEn) and sample entropy (SampEn) are widely used for temporal complexity analysis of real-world phenomena.**
   - falsification: An independent source on 'causal states and statistical complexity' reports the opposite effect, or fails to reproduce the stated 0 result
   - record: 4 passed / 1 failed, beta-confidence 0.71
@@ -30,6 +26,10 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'causal states and statistical complexity' reports the opposite effect, or fails to reproduce the stated 1951 result
   - record: 3 passed / 1 failed, beta-confidence 0.67
   - source: https://www.semanticscholar.org/paper/166b53765f33d7e5881e7dc73ae481c65fcf6bdc
+- **On topic causal states and statistical complexity, Local Geometry-Based Intra Prediction for Octree-Structured Geometry Coding of Point Clouds reports: Point cloud compression (PCC) is crucial for efficient and flexible storage as well as feasible transmission of point clouds in practice.**
+  - falsification: An independent source on 'causal states and statistical complexity' reports the opposite effect, or fails to reproduce the stated 0.8% result
+  - record: 4 passed / 2 failed, beta-confidence 0.62
+  - source: https://www.semanticscholar.org/paper/cd6affd361cf5951c1953c9174bb50abac194cb2
 
 ## Contradicted/refuted claims
 
