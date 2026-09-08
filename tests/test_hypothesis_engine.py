@@ -734,3 +734,75 @@ def test_hedged_past_commitment_is_still_refused():
 def test_an_empty_abstract_stakes_nothing():
     _, falsification, _ = he.distill_claim(_finding(""))
     assert falsification == ""
+
+
+def test_rescope_retires_legacy_claims_the_current_gate_would_refuse(workspace):
+    """A stake-time gate is prospective; the tree is not.
+
+    On the first live run after `in_scope` shipped, the drafts still opened
+    with transformer residual gating at 0.88 and three protein-binder papers,
+    because those were staked the week before and reloaded from
+    data/claim_tree.json.
+    """
+    unknown = workspace / "data" / "unknown_journal.jsonl"
+    topic = "hidden variable detection / causal discovery from residuals"
+    phrases = {topic: he.topic_phrases(topic, ["causal discovery latent variables"])}
+    tree = he.DependencyTree()
+    leak = he.Claim(text=f"On topic {topic}, Latent-X: De Novo Protein Binder "
+                         f"reports: drug discovery screens molecules.",
+                    falsification="f", scope={"topic": topic},
+                    source_url="http://leak")
+    leak.test(True); leak.test(True)
+    good = he.Claim(text=f"On topic {topic}, Causal discovery for time series "
+                         f"with latent confounders reports: reconstructing "
+                         f"causal relationships is fundamental.",
+                    falsification="f", scope={"topic": topic},
+                    source_url="http://good")
+    tree.add_claim(leak); tree.add_claim(good)
+
+    findings = [
+        {"url": "http://leak", "title": "Latent-X: De Novo Protein Binder",
+         "abstract": "Traditional drug discovery screens millions of molecules."},
+        {"url": "http://good", "title": "Causal discovery for time series with "
+                                       "latent confounders",
+         "abstract": "Reconstructing the causal relationships behind phenomena."},
+    ]
+    n = he.stage_rescope(tree, phrases, findings, unknown)
+    assert n == 1
+    assert [c.source_url for c in tree.claims.values()] == ["http://good"]
+    row = he.read_jsonl(unknown)[0]
+    assert row["flag"] == "off-scope"
+    # the record it accrued is preserved, not erased
+    assert row["standing_record"]["passed"] == 2
+
+
+def test_rescope_judges_old_claims_on_the_same_evidence_as_new_ones(workspace):
+    """A persisted claim keeps only title + first sentence, which is less than
+    the stake-time gate reads. Judging it on that alone retires work for having
+    been stored rather than for being off-topic."""
+    unknown = workspace / "data" / "unknown_journal.jsonl"
+    topic = "causal states and statistical complexity"
+    phrases = {topic: he.topic_phrases(topic, ["statistical complexity entropy rate"])}
+    tree = he.DependencyTree()
+    # first sentence carries no topic phrase; the abstract does
+    c = he.Claim(text=f"On topic {topic}, The Computational Structure of Spike "
+                      f"Trains reports: Neurons perform computations.",
+                 falsification="f", scope={"topic": topic},
+                 source_url="http://spikes")
+    tree.add_claim(c)
+    thin = [{"url": "http://spikes", "title": "The Computational Structure of "
+                                              "Spike Trains", "abstract": ""}]
+    full = [{"url": "http://spikes", "title": "The Computational Structure of "
+                                              "Spike Trains",
+             "abstract": "We measure the statistical complexity of spike trains."}]
+    assert he.stage_rescope(tree, phrases, thin, unknown) == 1   # thin -> retired
+    tree.add_claim(c)
+    assert he.stage_rescope(tree, phrases, full, unknown) == 0   # full -> kept
+
+
+def test_rescope_is_a_noop_without_phrases(workspace):
+    tree = he.DependencyTree()
+    tree.add_claim(he.Claim(text="On topic t, X reports: y", falsification="f",
+                            scope={"topic": "t"}, source_url="http://x"))
+    assert he.stage_rescope(tree, {}, [], workspace / "u.jsonl") == 0
+    assert len(tree.claims) == 1

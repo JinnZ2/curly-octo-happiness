@@ -905,6 +905,67 @@ def _remember(findings: List[Finding], memory_path: Path) -> None:
 # stage 3 — claim
 # ---------------------------------------------------------------------------
 
+def stage_rescope(tree: DependencyTree, scope_phrases: Dict[str, set],
+                  findings: Sequence[dict], unknown_path) -> int:
+    """Apply the current scope gate to claims staked under an older one.
+
+    The tree is persisted and reloaded every run, so a gate added at stake time
+    is prospective only: it never sees the claims already in the file. On the
+    first live run after `in_scope` shipped, the drafts still opened with
+    transformer residual gating at 0.88 and three de novo protein-binder papers
+    at 0.78, because those were staked the week before and simply reloaded.
+    A filter that cannot reach the existing contamination has not cleaned
+    anything a reader will see.
+
+    Scope is re-tested against the finding's **full abstract**, rejoined from
+    the log by url. A persisted claim keeps only the title and first sentence,
+    which is strictly less than the stake-time gate reads, and judging old
+    claims on less evidence than new ones would retire work for having been
+    stored rather than for being off-topic -- it drops "The Computational
+    Structure of Spike Trains", which belongs.
+
+    Retired claims are appended to the unknown journal and removed from the
+    tree, never deleted: the record that the engine once staked them, and what
+    they accrued, is the part a reader needs to judge the log.
+    """
+    if not scope_phrases:
+        return 0
+    by_url = {r["url"]: r for r in findings if r.get("url")}
+    retired: List[dict] = []
+
+    for claim in list(tree.claims.values()):
+        phrases = scope_phrases.get(claim.topic)
+        if not phrases:
+            continue
+        finding = by_url.get(claim.source_url or "")
+        if finding:
+            subject = f"{finding.get('title', '')} {finding.get('abstract') or ''}"
+        else:
+            # No finding to rejoin -- fall back to the claim's own text, minus
+            # the "On topic X," prefix, which embeds the topic's own phrases
+            # and would otherwise pass everything by construction.
+            subject = _CLAIM_PREFIX.sub("", claim.text.strip())
+        if in_scope(subject, phrases):
+            continue
+        retired.append({
+            "flag": "off-scope",
+            "topic": claim.topic,
+            "text": claim.text,
+            "reason": ("retired by a scope gate added after it was staked; "
+                       "carries no phrase from the topic it was filed under"),
+            "source": (claim.scope or {}).get("source", ""),
+            "url": claim.source_url or "",
+            "standing_record": {"passed": claim.passed, "failed": claim.failed,
+                                "beta_confidence": claim.beta_confidence},
+            "logged_at": datetime.now().isoformat(timespec="seconds"),
+        })
+        tree.remove(claim)
+
+    if retired:
+        append_jsonl(unknown_path, retired)
+    return len(retired)
+
+
 def stage_claim(findings: List[Finding], tree: DependencyTree,
                 unknown_path,
                 scope_phrases: Optional[Dict[str, set]] = None,
@@ -2067,10 +2128,17 @@ def main(argv: Optional[List[str]] = None) -> int:
     print(f"   {len(new)} new, {skipped} already logged")
 
     tree = load_tree(tree_path)
-
-    print("3. claim")
     scope_phrases = {t["name"]: topic_phrases(t["name"], t.get("queries", ()))
                      for t in topics}
+    # The tree outlives any single run, so a gate added at stake time has to be
+    # applied backwards once or the drafts keep opening with what it was built
+    # to exclude.
+    retired = stage_rescope(tree, scope_phrases, read_jsonl(log_path),
+                            unknown_path)
+    if retired:
+        print(f"   {retired} existing claims retired as off-scope")
+
+    print("3. claim")
     made, unknown_count = stage_claim(new, tree, unknown_path,
                                       scope_phrases=scope_phrases)
     print(f"   {len(made)} staked, {unknown_count} not stakeable "

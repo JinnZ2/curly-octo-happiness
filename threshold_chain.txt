@@ -1,0 +1,20 @@
+# CC0 1.0 Universal.
+# threshold_chain.txt
+#
+# APPEND-ONLY provenance. One entry per threshold change.
+# Superseded entries are NEVER removed and NEVER edited.
+# To change a threshold: edit the value in thresholds.txt, then append a
+# new entry here. Leave every earlier entry exactly as it stands.
+
+--- entry 1
+threshold: check3_failure_assertions_min
+value:     1
+who:       builder of gate_check.py, initial delivery
+when:      2026-09-08
+reasoning: 1 is the lowest value that separates "at least one assertion
+           sits on a failure or null path" from "none does". It is a
+           placeholder chosen to make the config mechanism concrete and
+           to give the checker one key to read. It is not derived from
+           any measurement of any repo, and nothing about this codebase
+           was consulted in picking it. Anyone with a reason to set a
+           different number should set it and append entry 2.

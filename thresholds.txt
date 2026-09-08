@@ -1,0 +1,19 @@
+# CC0 1.0 Universal.
+# thresholds.txt
+#
+# DATA ONLY. Never code.
+# key = value, one per line.
+# Lines beginning with # are ignored. Blank lines are ignored.
+
+check3_failure_assertions_min = 1
+
+# ---------------------------------------------------------------------
+# Context.
+# Every value in this file is policy. None of it is measurement.
+# The numbers live here. The reasons do not.
+#
+# Who set each value, when, and why is recorded in threshold_chain.txt,
+# one entry per change. That file is append-only: superseded entries are
+# never removed and never edited, so the value in force here can always
+# be traced to the entry that put it there.
+# ---------------------------------------------------------------------

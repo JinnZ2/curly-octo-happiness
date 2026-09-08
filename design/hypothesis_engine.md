@@ -331,6 +331,23 @@ Workflow: `.github/workflows/hypothesis-engine.yml` (Mondays 06:17 UTC, plus
   Empty abstracts and abstracts hedged past commitment are still refused, for
   the reasons they always were: nothing was reported, or the paper declined to
   commit.
+- **A stake-time gate is prospective; the tree is not.** `data/claim_tree.json`
+  is persisted and reloaded every run, so `in_scope` never saw the claims
+  already in it. The first live run after it shipped was green and its drafts
+  still opened with transformer residual gating at 0.88 and three de novo
+  protein-binder papers at 0.78 — staked the week before, reloaded untouched.
+  A filter that cannot reach the existing contamination has not cleaned
+  anything a reader will see. `stage_rescope` applies the current gate
+  backwards once per run: 61 claims to 40, and every topic then leads with
+  work that belongs to it.
+
+  It re-tests against the finding's **full abstract**, rejoined from the log by
+  url, because a persisted claim keeps only title and first sentence — strictly
+  less than the stake-time gate reads. Judged on that alone it retires "The
+  Computational Structure of Spike Trains", which belongs; rejoined, it keeps
+  it. Retiring a claim for having been *stored* rather than for being off-topic
+  is the failure mode here, and the asymmetry is the cause. Retired claims are
+  appended to the unknown journal with the record they accrued, never deleted.
 - **Superseded — kept because the reasoning is the record.** The paragraph
   below was the standing decision before that measurement was run.** After scope filtering, 65 of 123
   live abstracts belong to their topic; only 15 of those carry a result number.
