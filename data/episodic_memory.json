@@ -1768,5 +1768,115 @@
     ],
     "url": "https://www.semanticscholar.org/paper/53c4012d8f70b8cd28980d7e7ee96be911aeaaad",
     "date": "2022-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] MICE for CATs: Model-Internal Confidence Estimation for Calibrating Agents with Tools",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/4f9ea82e5eccb871f3fc2907485d0e087044b2e3",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Calibrated Language Models and How to Find Them with Label Smoothing",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/4c04624c0a0c0c5c45a67a85829db08818ac03bb",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] The Calibration Gap: Model-Specific Confidence Thresholds for Reliable Customer Service LLMs",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/234b078f2646d8e90d5823b0c5aefb0c22d9c125",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] On Verbalized Confidence Scores for LLMs",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/4fd8ded3fd8942fb9e8a557ac37722b9f7add8b8",
+    "date": "2024-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Demystifying Multi-Agent Debate: The Role of Confidence and Diversity",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/73d2d6732aa4f9e6f7589ce17d07b77201eb340a",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Uncertainty-Calibrated Trust Modelling for LLM-Generated Misinformation Detection",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/0e3d9323132170e70973401847692a80bf95a611",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Agent-ToM: Learning to Monitor Autonomous LLM Agents via Theory-of-Mind Reasoning",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/42d39b83a9f9f4ee96c62134afffe83cc28699e1",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Search-G1: Grounded Search Agents via Representation-Based Intrinsic Rewards",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/0eca9e11e49c0576f597a1bc97b98f4a6f4310f6",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Herd Behavior: Investigating Peer Influence in LLM-based Multi-Agent Systems",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/1b645935ae20e2fb21aad6aac5dc0d95bb500a36",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] DiscoUQ: Structured Disagreement Analysis for Uncertainty Quantification in LLM Agent Ensembles",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/21e2855510b09e9f548010b7dfba81dd579e87d4",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] The Law of Requisite Variety",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.1007/978-94-011-0377-0_4",
+    "date": "1995"
   }
 ]

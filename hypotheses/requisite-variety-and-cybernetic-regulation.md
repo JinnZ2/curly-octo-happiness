@@ -1,6 +1,6 @@
 # Hypothesis draft — requisite variety and cybernetic regulation
 
-_Regenerated 2026-09-07 by `scripts/hypothesis_engine.py`. Node confidence 0.53; 0 surviving / 9 active / 0 refuted claims._
+_Regenerated 2026-09-14 by `scripts/hypothesis_engine.py`. Node confidence 0.55; 0 surviving / 6 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
 
@@ -16,11 +16,6 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 2 passed / 0 failed, beta-confidence 0.75
   - source: https://doi.org/10.2139/ssrn.6089867
   - reformulated 1x
-- **On topic requisite variety and cybernetic regulation, Incorporating AI incident reporting into telecommunications law and policy: Insights from India reports: The integration of artificial intelligence (AI) into telecommunications infrastructure introduces novel risks, such as algorithmic bias and unpredictable system behavior, that fall outside the scope of traditional cybersecurity and data protection frameworks. (scope narrowed: restricted after failure #1)**
-  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 2023 result
-  - record: 2 passed / 0 failed, beta-confidence 0.75
-  - source: http://arxiv.org/abs/2509.09508v2
-  - reformulated 1x
 - **On topic requisite variety and cybernetic regulation, Requisite Variety For Ai Security reports: Enterprises are deploying large language models and autonomous AI agents into operational control loops-security operations, quality assurance, procurement, infrastructure management-where these systems make thousands of consequential decisions with tool access, external data ingestion, and limited human oversight. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result
   - record: 2 passed / 0 failed, beta-confidence 0.75
@@ -31,11 +26,6 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 2 passed / 1 failed, beta-confidence 0.60
   - source: https://doi.org/10.2139/ssrn.7216139
   - reformulated 1x
-- **On topic requisite variety and cybernetic regulation, Model Projects and the Difficulty of Predicting Future Success reports: Chapter 9 draws on the lessons of handpump tubewells, thalidomide, and DDT, to argue that global aid may have unanticipated long-term negative consequences that make predicting the overall future success of aid problematic. (scope narrowed: restricted after failure #1)**
-  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 9 result
-  - record: 2 passed / 1 failed, beta-confidence 0.60
-  - source: https://doi.org/10.1093/oso/9780192849977.003.0009
-  - reformulated 1x
 - **On topic requisite variety and cybernetic regulation, What-If World: A Causal Benchmark for General World Models in Embodied Scenarios reports: Video generation models are increasingly used as world simulators for tasks like driving and robotic manipulation. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 319 result
   - record: 2 passed / 1 failed, beta-confidence 0.60
@@ -45,11 +35,6 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 5 result
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: http://arxiv.org/abs/2608.20735v2
-  - reformulated 1x
-- **On topic requisite variety and cybernetic regulation, Plankton: the paradox and the power law reports: Two basic features of assemblages of unicellular plankton: (1) their high biodiversity and (2) the power-law structure of their abundance, can be explained by an allometric scaling of cell growth and mortality with respect to cell size. (scope narrowed: restricted after failure #1)**
-  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result
-  - record: 0 passed / 1 failed, beta-confidence 0.33
-  - source: http://arxiv.org/abs/1705.05327v1
   - reformulated 1x
 
 ## Contradicted/refuted claims
@@ -119,4 +104,12 @@ _none_
 - [unfalsifiable] On topic requisite variety and cybernetic regulation, Theorem 1 for the Real-World Model reports: no abstract available
   - no measurable falsification condition in the abstract
 - [unfalsifiable] On topic requisite variety and cybernetic regulation, Every Good Regulator of a System Must Be a Model of That System reports: no abstract available
+  - no measurable falsification condition in the abstract
+- [off-scope] On topic requisite variety and cybernetic regulation, Plankton: the paradox and the power law reports: Two basic features of assemblages of unicellular plankton: (1) their high biodiversity and (2) the power-law structure of their abundance, can be explained by an allometric scaling of cell growth and mortality with respect to cell size. (scope narrowed: restricted after failure #1)
+  - retired by a scope gate added after it was staked; carries no phrase from the topic it was filed under
+- [off-scope] On topic requisite variety and cybernetic regulation, Incorporating AI incident reporting into telecommunications law and policy: Insights from India reports: The integration of artificial intelligence (AI) into telecommunications infrastructure introduces novel risks, such as algorithmic bias and unpredictable system behavior, that fall outside the scope of traditional cybersecurity and data protection frameworks. (scope narrowed: restricted after failure #1)
+  - retired by a scope gate added after it was staked; carries no phrase from the topic it was filed under
+- [off-scope] On topic requisite variety and cybernetic regulation, Model Projects and the Difficulty of Predicting Future Success reports: Chapter 9 draws on the lessons of handpump tubewells, thalidomide, and DDT, to argue that global aid may have unanticipated long-term negative consequences that make predicting the overall future success of aid problematic. (scope narrowed: restricted after failure #1)
+  - retired by a scope gate added after it was staked; carries no phrase from the topic it was filed under
+- [unfalsifiable] On topic requisite variety and cybernetic regulation, The Law of Requisite Variety reports: no abstract available
   - no measurable falsification condition in the abstract

@@ -1,39 +1,15 @@
 # Hypothesis draft — hidden variable detection / causal discovery from residuals
 
-_Regenerated 2026-09-07 by `scripts/hypothesis_engine.py`. Node confidence 0.56; 10 surviving / 7 active / 0 refuted claims._
+_Regenerated 2026-09-14 by `scripts/hypothesis_engine.py`. Node confidence 0.47; 4 surviving / 7 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
 
 ## Supporting claims
 
-- **On topic hidden variable detection / causal discovery from residuals, Review Residuals: Update-Conditioned Residual Gating for Transformers reports: Residual connections add every sublayer's proposed update with a fixed coefficient of one; the network never evaluates whether an update is reliable before committing it.**
-  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 1 result
-  - record: 6 passed / 0 failed, beta-confidence 0.88
-  - source: http://arxiv.org/abs/2606.31859v1
 - **On topic hidden variable detection / causal discovery from residuals, Clustering Multivariate Time Series using Energy Distance reports: A novel methodology is proposed for clustering multivariate time series data using energy distance defined in Székely and Rizzo (2013).**
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 2013 result
   - record: 7 passed / 1 failed, beta-confidence 0.80
   - source: http://arxiv.org/abs/2303.14295v1
-- **On topic hidden variable detection / causal discovery from residuals, Personalized Residuals for Concept-Driven Text-to-Image Generation reports: We present personalized residuals and localized attention-guided sampling for efficient concept-driven generation using text-to-image diffusion models.**
-  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 3 result
-  - record: 7 passed / 1 failed, beta-confidence 0.80
-  - source: http://arxiv.org/abs/2405.12978v1
-- **On topic hidden variable detection / causal discovery from residuals, Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation reports: Vision-Language Model (VLM) have gained widespread adoption in Open-Vocabulary (OV) object detection and segmentation tasks.**
-  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 1 result
-  - record: 7 passed / 1 failed, beta-confidence 0.80
-  - source: http://arxiv.org/abs/2504.09480v1
-- **On topic hidden variable detection / causal discovery from residuals, Drug-like antibodies with low immunogenicity in human panels designed with Latent-X2 reports: Drug discovery has long sought computational systems capable of designing drug-like molecules directly: developable and non-immunogenic from the start.**
-  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 4 result
-  - record: 6 passed / 1 failed, beta-confidence 0.78
-  - source: http://arxiv.org/abs/2512.20263v1
-- **On topic hidden variable detection / causal discovery from residuals, Latent-X: An Atom-level Frontier Model for De Novo Protein Binder Design reports: Traditional drug discovery relies on rounds of screening millions of candidate molecules with low success rates, making drug discovery time and resource intensive.**
-  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 30 result
-  - record: 6 passed / 1 failed, beta-confidence 0.78
-  - source: http://arxiv.org/abs/2507.19375v1
-- **On topic hidden variable detection / causal discovery from residuals, Latent-Y: A Lab-Validated Autonomous Agent for De Novo Drug Design reports: Drug discovery relies on iterative expert workflows that are slow to parallelize and difficult to scale.**
-  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 67% result
-  - record: 6 passed / 1 failed, beta-confidence 0.78
-  - source: http://arxiv.org/abs/2603.29727v2
 - **On topic hidden variable detection / causal discovery from residuals, Causal Discovery in High-Dimensional Time Series with Latent Confounders via Score-Based Diffusion Models reports: The identification of causal relationships from observational time series data constitutes a fundamental challenge across scientific disciplines, ranging from climate science to econometrics and systems biology.**
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 4 passed / 2 failed, beta-confidence 0.62
@@ -54,10 +30,6 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 3 passed / 2 failed, beta-confidence 0.57
   - source: https://www.semanticscholar.org/paper/311c8cc775770257d43b6e4e26f6b6470d0cb02a
-- **On topic hidden variable detection / causal discovery from residuals, Causal Discovery for time series from multiple datasets with latent contexts reports: Causal discovery from time series data is a typical problem setting across the sciences.**
-  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
-  - record: 1 passed / 1 failed, beta-confidence 0.50
-  - source: https://www.semanticscholar.org/paper/a36cefa2643a9bfa3a40c4543a2ffee3cbfc117e
 - **On topic hidden variable detection / causal discovery from residuals, Nonlinear Causal Discovery in Time Series reports: Recent years have witnessed the proliferation of the Functional Causal Model (FCM) for causal learning due to its intuitive representation and accurate learning results.**
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 0 passed / 0 failed, beta-confidence 0.50
@@ -67,6 +39,10 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://www.semanticscholar.org/paper/d426a88c16e45e1fe0c56056534b897b53f6dd31
   - reformulated 1x
+- **On topic hidden variable detection / causal discovery from residuals, Causal Discovery for time series from multiple datasets with latent contexts reports: Causal discovery from time series data is a typical problem setting across the sciences.**
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 1 passed / 2 failed, beta-confidence 0.40
+  - source: https://www.semanticscholar.org/paper/a36cefa2643a9bfa3a40c4543a2ffee3cbfc117e
 - **On topic hidden variable detection / causal discovery from residuals, Addressing Information Asymmetry: Deep Temporal Causality Discovery for Mixed Time Series reports: While existing causal discovery methods mostly focus on continuous time series, causal discovery for mixed time series encompassing both continuous variables (CVs) and discrete variables (DVs) is a fundamental yet underexplored problem.**
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 0 passed / 2 failed, beta-confidence 0.25
@@ -112,3 +88,15 @@ _none_
   - no measurable falsification condition in the abstract
 - [unfalsifiable] On topic hidden variable detection / causal discovery from residuals, Score matching through the roof: linear, nonlinear, and latent variables causal discovery reports: Causal discovery from observational data holds great promise, but existing methods rely on strong assumptions about the underlying causal structure, often requiring full observability of all relevant variables.
   - no measurable falsification condition in the abstract
+- [off-scope] On topic hidden variable detection / causal discovery from residuals, Personalized Residuals for Concept-Driven Text-to-Image Generation reports: We present personalized residuals and localized attention-guided sampling for efficient concept-driven generation using text-to-image diffusion models.
+  - retired by a scope gate added after it was staked; carries no phrase from the topic it was filed under
+- [off-scope] On topic hidden variable detection / causal discovery from residuals, Review Residuals: Update-Conditioned Residual Gating for Transformers reports: Residual connections add every sublayer's proposed update with a fixed coefficient of one; the network never evaluates whether an update is reliable before committing it.
+  - retired by a scope gate added after it was staked; carries no phrase from the topic it was filed under
+- [off-scope] On topic hidden variable detection / causal discovery from residuals, Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation reports: Vision-Language Model (VLM) have gained widespread adoption in Open-Vocabulary (OV) object detection and segmentation tasks.
+  - retired by a scope gate added after it was staked; carries no phrase from the topic it was filed under
+- [off-scope] On topic hidden variable detection / causal discovery from residuals, Latent-Y: A Lab-Validated Autonomous Agent for De Novo Drug Design reports: Drug discovery relies on iterative expert workflows that are slow to parallelize and difficult to scale.
+  - retired by a scope gate added after it was staked; carries no phrase from the topic it was filed under
+- [off-scope] On topic hidden variable detection / causal discovery from residuals, Latent-X: An Atom-level Frontier Model for De Novo Protein Binder Design reports: Traditional drug discovery relies on rounds of screening millions of candidate molecules with low success rates, making drug discovery time and resource intensive.
+  - retired by a scope gate added after it was staked; carries no phrase from the topic it was filed under
+- [off-scope] On topic hidden variable detection / causal discovery from residuals, Drug-like antibodies with low immunogenicity in human panels designed with Latent-X2 reports: Drug discovery has long sought computational systems capable of designing drug-like molecules directly: developable and non-immunogenic from the start.
+  - retired by a scope gate added after it was staked; carries no phrase from the topic it was filed under
