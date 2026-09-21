@@ -1878,5 +1878,15 @@
     ],
     "url": "https://doi.org/10.1007/978-94-011-0377-0_4",
     "date": "1995"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Condence, Calibration, and Abstention in Small Open-Weight Language Models on Psychiatric Knowledge Questions: A Cross-Domain Replication",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.21203/rs.3.rs-11012222/v1",
+    "date": "2026-09-15"
   }
 ]
