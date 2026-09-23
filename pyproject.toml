@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "AI grounding & claim-falsification playgrounds: falsifiable-claim agents, dependency-confidence trees, hidden-node detection, geometric system diagnostics, Gray-coded sensor encoders."
 readme = "README.md"
 requires-python = ">=3.9"
-license = { text = "CC0-1.0" }
+license = "CC0-1.0"
 # The core package and root playgrounds are stdlib-only.
 # Tier 0 — the core is stdlib-only, on purpose. The whole point of the
 # hardware-stewardship line is running where parts and bandwidth are scarce, so
