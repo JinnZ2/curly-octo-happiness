@@ -45,7 +45,7 @@ python -m pytest tests/     # 294 tests (2 skipped: plotly, and a numpy-only gua
 | Systems Diagnostic Suite | `modules/`, `diagnostic/` | GAE (geometry fit + structural complexity/attack tolerance), HND (hidden variables from residuals, ε-machine acceptance), FDM (root tracing) |
 | Complexity & cybernetics | `grounding/core/epsilon_machine.py`, `variety.py`, `vsm.py`, `regulator.py`, `allostasis.py` | Causal-state reconstruction (C_mu, h_mu), Ashby's requisite-variety alarm, Beer's five systems with a bypassing algedonic channel, good-regulator homomorphism checks, allostatic bands |
 | Safety & repurposing | `grounding/core/safety.py` | Control-barrier safety filter (no QP dependency) and a runtime-assurance fallback catalog that recomputes each envelope on degraded dynamics |
-| Damage & self-model | `grounding/core/damage.py` | Changepoint detection on prediction residuals,. No attribution required to the interoceptive signal that explains it |
+| Damage & self-model | `grounding/core/damage.py` | Changepoint detection on prediction residuals, with attribution to the interoceptive signal that explains it |
 | Dormancy & reverse bloom | `grounding/core/dormancy.py` | Fold a cut-off component to a scale-free seed, measure how long it keeps (Ellis & Roberts), re-bloom at whatever scale returns |
 | Coupling & synchronizability | `grounding/core/coupling.py`, `linalg.py` | Master Stability Function: when a network of units can hold together, when a partition is structural, and when no coupling strength can help |
 | Worlds | `grounding/worlds/` | `BumpyWorld` (1-D physics toy) and `ThermalWorld` — bounded, stationary, body-in-the-loop, with a causal DAG checked against the code |
