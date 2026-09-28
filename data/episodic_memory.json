@@ -1888,5 +1888,145 @@
     ],
     "url": "https://doi.org/10.21203/rs.3.rs-11012222/v1",
     "date": "2026-09-15"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/42bfa454a0008fa4d9181b287677f76421917c94",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.3389/fcomp.2026.1966725",
+    "date": "2026-09-24"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] XChronos OS as a Temporal-operating Layer: Architecture, Falsifiable Hypotheses, and an Experimental Program for Persistent Memory and Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.2139/ssrn.7517899",
+    "date": "2026"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Evidence-Calibrated RAG for Unanswerable Question Answering: Retrieval Coverage, Abstention Calibration, and Hallucination-Proxy Analysis on SQuAD 2.0",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/92001ad8be74c14f8feca0b2bdf33f2f73829b2e",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/5fc6a54544f6b704a9fdcfabfae4ec5d2220c7f7",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Efficiency Hallucination: Formalizing and Measuring Behavioral Calibration in LLM-Based Code Optimization",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/062743e52f4e4403c1eda0591ef11ead6aabbbef",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] S-AI-ANTI HALLUCINATION: A BIO-INSPIRED AND CONFIDENCE-AWARE SPARSE AI FRAMEWORK FOR RELIABLE GENERATIVE SYSTEMS",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/5f6f3a7c94113257fe8e6b0736e2918621dbf403",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Mathematical Analysis of Hallucination Dynamics in Large Language Models: Uncertainty Quantification, Advanced Decoding, and Principled Mitigation",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/55fc275598aa95cff62e1c0246a7c3c0faaeb8a1",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] SAVOR: Self-Aware Visual Grounding via Confidence-Calibrated Reinforcement Learning for Multimodal Hallucination Mitigation",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/304c3fc9ade77a8b94d4ef788f563648fa2577a1",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Beyond Component Strength: Synergistic Integration and Adaptive Calibration in Multi-Agent RAG Systems",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/a051d8ce716132d22deedf6ed7351b0161f95764",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] From Sampling to Cognition: Modeling Internal Cognitive Confidence in Language Models for Robust Uncertainty Calibration",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/65ce1fc3a07d73774872ac573cc567435474a2d8",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Computational Psychopathology of AI: A Clinical-Computational Framework for Diagnosing and Preventing Failure Modes",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/3658a236ad1d932e67f9f0d4793dfcbcf8abc901",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Cross-Modal Attention Calibration for LVLM Hallucination Mitigation",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/d58102f6acc7a1bc354cdd0a5c9f7178329ab6f0",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.20944/preprints202609.1967.v1",
+    "date": "2026-09-23"
   }
 ]

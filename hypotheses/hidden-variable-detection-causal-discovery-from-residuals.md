@@ -1,6 +1,6 @@
 # Hypothesis draft — hidden variable detection / causal discovery from residuals
 
-_Regenerated 2026-09-21 by `scripts/hypothesis_engine.py`. Node confidence 0.47; 4 surviving / 7 active / 0 refuted claims._
+_Regenerated 2026-09-28 by `scripts/hypothesis_engine.py`. Node confidence 0.47; 4 surviving / 7 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
 
@@ -30,6 +30,10 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 3 passed / 2 failed, beta-confidence 0.57
   - source: https://www.semanticscholar.org/paper/311c8cc775770257d43b6e4e26f6b6470d0cb02a
+- **On topic hidden variable detection / causal discovery from residuals, Causal Discovery for time series from multiple datasets with latent contexts reports: Causal discovery from time series data is a typical problem setting across the sciences.**
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 2 passed / 2 failed, beta-confidence 0.50
+  - source: https://www.semanticscholar.org/paper/a36cefa2643a9bfa3a40c4543a2ffee3cbfc117e
 - **On topic hidden variable detection / causal discovery from residuals, Nonlinear Causal Discovery in Time Series reports: Recent years have witnessed the proliferation of the Functional Causal Model (FCM) for causal learning due to its intuitive representation and accurate learning results.**
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 0 passed / 0 failed, beta-confidence 0.50
@@ -39,10 +43,6 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://www.semanticscholar.org/paper/d426a88c16e45e1fe0c56056534b897b53f6dd31
   - reformulated 1x
-- **On topic hidden variable detection / causal discovery from residuals, Causal Discovery for time series from multiple datasets with latent contexts reports: Causal discovery from time series data is a typical problem setting across the sciences.**
-  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
-  - record: 1 passed / 2 failed, beta-confidence 0.40
-  - source: https://www.semanticscholar.org/paper/a36cefa2643a9bfa3a40c4543a2ffee3cbfc117e
 - **On topic hidden variable detection / causal discovery from residuals, Addressing Information Asymmetry: Deep Temporal Causality Discovery for Mixed Time Series reports: While existing causal discovery methods mostly focus on continuous time series, causal discovery for mixed time series encompassing both continuous variables (CVs) and discrete variables (DVs) is a fundamental yet underexplored problem.**
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 0 passed / 2 failed, beta-confidence 0.25

@@ -1,6 +1,6 @@
 # Hypothesis draft — requisite variety and cybernetic regulation
 
-_Regenerated 2026-09-21 by `scripts/hypothesis_engine.py`. Node confidence 0.55; 0 surviving / 6 active / 0 refuted claims._
+_Regenerated 2026-09-28 by `scripts/hypothesis_engine.py`. Node confidence 0.54; 0 surviving / 7 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
 
@@ -36,6 +36,10 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: http://arxiv.org/abs/2608.20735v2
   - reformulated 1x
+- **On topic requisite variety and cybernetic regulation, The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World reports: The idea that successful regulation requires an internal world model helps motivate both the generative models of active inference and the modeling engine of Kolmogorov Theory's algorithmic agent.**
+  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 1 passed / 1 failed, beta-confidence 0.50
+  - source: https://doi.org/10.20944/preprints202609.1967.v1
 
 ## Contradicted/refuted claims
 
