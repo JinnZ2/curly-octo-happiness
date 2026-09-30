@@ -102,3 +102,17 @@ Dependencies: the `grounding` package and root playgrounds are stdlib-only. Extr
 - No packages outside `grounding/`: `modules/`, `plugins/`, `diagnostic/`, `project/` rely on their own directory being on `sys.path` (scripts there assume CWD or add paths themselves; `tests/conftest.py` handles it for tests).
 - When adding an encoder plugin, use `grounding.core.graycode.gray_bits` semantics for banding and declare `class_name` in `PLUGIN_META`; adaptive banding goes in an `init_bands(samples)` method.
 - License is CC0 1.0 (public domain).
+
+<!-- clone-refspec-note v1 -->
+## Cloning and pushing
+Shallow clones are single-branch by default.
+Before pushing any branch other than main, run:
+
+    git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+    git fetch --depth 1
+
+Or clone with: git clone --depth 1 --no-single-branch <url>
+Without this, the first push of a new branch
+fails the tracking-ref check even when the
+commit landed.
+<!-- /clone-refspec-note v1 -->
