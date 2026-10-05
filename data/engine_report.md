@@ -1,10 +1,10 @@
-# Hypothesis engine report — 2026-09-28
+# Hypothesis engine report — 2026-10-05
 
-- findings seen: 70 (14 new, 56 already logged)
-- claims staked: 11 (3 routed to the unknown journal: 3 off-scope, 0 unfalsifiable)
-- tests: 149 corroborated / 161 contradicted / 3639 no signal
-- reformulations: 25 (11 escape-hatched out of the tree)
-- claims carrying evidence after reformulation: 30/49
+- findings seen: 140 (4 new, 136 already logged)
+- claims staked: 2 (2 routed to the unknown journal: 2 off-scope, 0 unfalsifiable)
+- tests: 16 corroborated / 64 contradicted / 3132 no signal
+- reformulations: 15 (3 escape-hatched out of the tree)
+- claims carrying evidence after reformulation: 32/48
 - hidden-variable suggestions: 0
 - topics whose clock derives (so a null scan means something): 3/4
 - hypothesis drafts written: 4

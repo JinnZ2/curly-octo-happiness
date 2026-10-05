@@ -1,6 +1,6 @@
 # Hypothesis draft — causal states and statistical complexity
 
-_Regenerated 2026-09-28 by `scripts/hypothesis_engine.py`. Node confidence 0.60; 2 surviving / 0 active / 0 refuted claims._
+_Regenerated 2026-10-05 by `scripts/hypothesis_engine.py`. Node confidence 0.60; 2 surviving / 0 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
 
@@ -81,3 +81,5 @@ _none_
   - retired by a scope gate added after it was staked; carries no phrase from the topic it was filed under
 - [off-scope] On topic causal states and statistical complexity, Local Geometry-Based Intra Prediction for Octree-Structured Geometry Coding of Point Clouds reports: Point cloud compression (PCC) is crucial for efficient and flexible storage as well as feasible transmission of point clouds in practice.
   - retired by a scope gate added after it was staked; carries no phrase from the topic it was filed under
+- [off-scope] Long Story Short: Omitted Variable Bias in Causal Machine Learning
+  - retrieved by keyword match but carries no phrase from the topic it was filed under

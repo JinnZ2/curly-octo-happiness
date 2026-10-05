@@ -1,6 +1,6 @@
 # Hypothesis draft — requisite variety and cybernetic regulation
 
-_Regenerated 2026-09-28 by `scripts/hypothesis_engine.py`. Node confidence 0.54; 0 surviving / 7 active / 0 refuted claims._
+_Regenerated 2026-10-05 by `scripts/hypothesis_engine.py`. Node confidence 0.55; 1 surviving / 6 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
 
@@ -21,6 +21,10 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 2 passed / 0 failed, beta-confidence 0.75
   - source: https://doi.org/10.2139/ssrn.6255362
   - reformulated 1x
+- **On topic requisite variety and cybernetic regulation, The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World reports: The idea that successful regulation requires an internal world model helps motivate both the generative models of active inference and the modeling engine of Kolmogorov Theory's algorithmic agent.**
+  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 3 passed / 1 failed, beta-confidence 0.67
+  - source: https://doi.org/10.20944/preprints202609.1967.v1
 - **On topic requisite variety and cybernetic regulation, From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market reports: Quantitative factor strategies routinely excel in backtests and disappoint in production: the flagship live multifactor index earned a Sharpe ratio statistically indistinguishable from zero over seventeen years. (scope narrowed: restricted after failure #1)**
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 151 result
   - record: 2 passed / 1 failed, beta-confidence 0.60
@@ -36,10 +40,6 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: http://arxiv.org/abs/2608.20735v2
   - reformulated 1x
-- **On topic requisite variety and cybernetic regulation, The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World reports: The idea that successful regulation requires an internal world model helps motivate both the generative models of active inference and the modeling engine of Kolmogorov Theory's algorithmic agent.**
-  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
-  - record: 1 passed / 1 failed, beta-confidence 0.50
-  - source: https://doi.org/10.20944/preprints202609.1967.v1
 
 ## Contradicted/refuted claims
 
@@ -117,3 +117,5 @@ _none_
   - retired by a scope gate added after it was staked; carries no phrase from the topic it was filed under
 - [unfalsifiable] On topic requisite variety and cybernetic regulation, The Law of Requisite Variety reports: no abstract available
   - no measurable falsification condition in the abstract
+- [off-scope] A Multi-Index Markov Chain Monte Carlo Method
+  - retrieved by keyword match but carries no phrase from the topic it was filed under
