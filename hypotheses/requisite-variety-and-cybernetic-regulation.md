@@ -1,41 +1,41 @@
 # Hypothesis draft — requisite variety and cybernetic regulation
 
-_Regenerated 2026-10-05 by `scripts/hypothesis_engine.py`. Node confidence 0.55; 1 surviving / 6 active / 0 refuted claims._
+_Regenerated 2026-10-08 by `scripts/hypothesis_engine.py`. Node confidence 0.55; 1 surviving / 6 active / 0 refuted claims._
 
-Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
+Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding. Open questions with methods and falsifiers are in [RESEARCH_GAPS.md](RESEARCH_GAPS.md).
 
 ## Supporting claims
 
-- **On topic requisite variety and cybernetic regulation, A Capacity-Based Theory of Complexity Control in Megaprojects: Structural Demands, Regulatory Capacity, and Ashby's Law of Requisite Variety reports: Megaproject research has shown repeatedly that large, technologically demanding, and politically exposed projects are prone to cost escalation, delay, and governance breakdown. (scope narrowed: restricted after failure #1)**
+- **A Capacity-Based Theory of Complexity Control in Megaprojects: Structural Demands, Regulatory Capacity, and Ashby's Law of Requisite Variety** — Megaproject research has shown repeatedly that large, technologically demanding, and politically exposed projects are prone to cost escalation, delay, and governance breakdown.
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 2020 result
   - record: 2 passed / 0 failed, beta-confidence 0.75
   - source: https://doi.org/10.31235/osf.io/3hdn5_v1
   - reformulated 1x
-- **On topic requisite variety and cybernetic regulation, GeoCausal: A Geometric-Causal World Model Integrating System 1 and System 2 for Embodied Reasoning reports: This paper introduces GeoCausal, a novel theoretical framework for embodied artificial intelligence that unifies geometric deep learning with dual-process cognitive architectures. (scope narrowed: restricted after failure #1)**
+- **GeoCausal: A Geometric-Causal World Model Integrating System 1 and System 2 for Embodied Reasoning** — This paper introduces GeoCausal, a novel theoretical framework for embodied artificial intelligence that unifies geometric deep learning with dual-process cognitive architectures.
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result
   - record: 2 passed / 0 failed, beta-confidence 0.75
   - source: https://doi.org/10.2139/ssrn.6089867
   - reformulated 1x
-- **On topic requisite variety and cybernetic regulation, Requisite Variety For Ai Security reports: Enterprises are deploying large language models and autonomous AI agents into operational control loops-security operations, quality assurance, procurement, infrastructure management-where these systems make thousands of consequential decisions with tool access, external data ingestion, and limited human oversight. (scope narrowed: restricted after failure #1)**
+- **Requisite Variety For Ai Security** — Enterprises are deploying large language models and autonomous AI agents into operational control loops-security operations, quality assurance, procurement, infrastructure management-where these systems make thousands of consequential decisions with tool access, external data ingestion, and limited human oversight.
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result
   - record: 2 passed / 0 failed, beta-confidence 0.75
   - source: https://doi.org/10.2139/ssrn.6255362
   - reformulated 1x
-- **On topic requisite variety and cybernetic regulation, The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World reports: The idea that successful regulation requires an internal world model helps motivate both the generative models of active inference and the modeling engine of Kolmogorov Theory's algorithmic agent.**
+- **The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World** — The idea that successful regulation requires an internal world model helps motivate both the generative models of active inference and the modeling engine of Kolmogorov Theory's algorithmic agent.
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 3 passed / 1 failed, beta-confidence 0.67
   - source: https://doi.org/10.20944/preprints202609.1967.v1
-- **On topic requisite variety and cybernetic regulation, From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market reports: Quantitative factor strategies routinely excel in backtests and disappoint in production: the flagship live multifactor index earned a Sharpe ratio statistically indistinguishable from zero over seventeen years. (scope narrowed: restricted after failure #1)**
+- **From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market** — Quantitative factor strategies routinely excel in backtests and disappoint in production: the flagship live multifactor index earned a Sharpe ratio statistically indistinguishable from zero over seventeen years.
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 151 result
   - record: 2 passed / 1 failed, beta-confidence 0.60
   - source: https://doi.org/10.2139/ssrn.7216139
   - reformulated 1x
-- **On topic requisite variety and cybernetic regulation, What-If World: A Causal Benchmark for General World Models in Embodied Scenarios reports: Video generation models are increasingly used as world simulators for tasks like driving and robotic manipulation. (scope narrowed: restricted after failure #1)**
+- **What-If World: A Causal Benchmark for General World Models in Embodied Scenarios** — Video generation models are increasingly used as world simulators for tasks like driving and robotic manipulation.
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 319 result
   - record: 2 passed / 1 failed, beta-confidence 0.60
   - source: http://arxiv.org/abs/2605.27589v1
   - reformulated 1x
-- **On topic requisite variety and cybernetic regulation, ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation reports: Manipulating moving objects requires a policy to anticipate contact events, yet vision-language-action (VLA) policies are commonly fine-tuned from the current observation alone. (scope narrowed: restricted after failure #1)**
+- **ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation** — Manipulating moving objects requires a policy to anticipate contact events, yet vision-language-action (VLA) policies are commonly fine-tuned from the current observation alone.
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 5 result
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: http://arxiv.org/abs/2608.20735v2

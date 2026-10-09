@@ -806,3 +806,93 @@ def test_rescope_is_a_noop_without_phrases(workspace):
                             scope={"topic": "t"}, source_url="http://x"))
     assert he.stage_rescope(tree, {}, [], workspace / "u.jsonl") == 0
     assert len(tree.claims) == 1
+
+
+# ---------------------------------------------------------------------------
+# stage 8: render gaps for experimenters
+# ---------------------------------------------------------------------------
+
+def _gap_claim(topic, title, passed, failed, url="http://x/1"):
+    return he.Claim(text=f"On topic {topic}, {title} reports: Something holds.",
+                    falsification="f", scope={"topic": topic},
+                    passed=passed, failed=failed, source_url=url)
+
+
+def _render(workspace, tree, topics, unknown_rows=(), today="2026-10-01"):
+    data = workspace / "data"
+    unknown = data / "unknown_journal.jsonl"
+    hidden = data / "hidden_variables.jsonl"
+    he.append_jsonl(unknown, list(unknown_rows))
+    hidden.touch()
+    result = he.stage_render(tree, topics, unknown, hidden,
+                             workspace / "hyp", data / "gap_registry.json",
+                             today=today)
+    text = (workspace / "hyp" / "RESEARCH_GAPS.md").read_text(encoding="utf-8")
+    return result, text
+
+
+def test_split_claim_text_drops_scope_notes():
+    title, body = he.split_claim_text(
+        "On topic t, A Paper reports: X rises. (scope narrowed: restricted "
+        "after failure #1)")
+    assert title == "A Paper" and body == "X rises."
+
+
+def test_topic_prefix_is_unique():
+    first = he.topic_prefix("calibration and falsifiability of LLM agents")
+    assert first == "CFA"
+    assert he.topic_prefix("calibration and falsifiability of LLM agents",
+                           [first]) != first
+
+
+def test_render_only_two_sided_testimony_becomes_a_gap(workspace, topics):
+    topic = topics[0]["name"]
+    tree = he.DependencyTree()
+    tree.add_claim(_gap_claim(topic, "Split", 2, 2, "http://x/a"))
+    tree.add_claim(_gap_claim(topic, "Untested", 0, 0, "http://x/b"))
+    tree.add_claim(_gap_claim(topic, "Clean", 5, 0, "http://x/c"))
+    result, text = _render(workspace, tree, topics)
+    assert result["open_gaps"] == 1
+    assert "CFA_001" in text and "Split" in text
+    # untested claims are markers about the sample, not gaps
+    assert "Markers — untested in this sample" in text and "Untested" in text
+    # the method is written once, in the protocol, not per gap
+    assert text.count("Replicate again varying only the separating condition") == 1
+
+
+def test_render_ids_are_permanent_and_retire_instead_of_renumbering(workspace, topics):
+    topic = topics[0]["name"]
+    tree = he.DependencyTree()
+    a = tree.add_claim(_gap_claim(topic, "Alpha", 2, 2, "http://x/a"))
+    tree.add_claim(_gap_claim(topic, "Beta", 3, 3, "http://x/b"))
+    first, _ = _render(workspace, tree, topics, today="2026-10-01")
+    assert sorted(first["new_ids"]) == ["CFA_001", "CFA_002"]
+    reg = json.loads((workspace / "data" / "gap_registry.json").read_text())
+    alpha_id = reg["gaps"][f"contested:{a.id}"]["id"]
+
+    tree.remove(a)                       # Alpha resolves / leaves the tree
+    tree.add_claim(_gap_claim(topic, "Gamma", 2, 2, "http://x/g"))
+    second, text = _render(workspace, tree, topics, today="2026-10-08")
+    assert second["new_ids"] == ["CFA_003"]          # next number, never reused
+    assert second["retired"] == 1
+    retired = text.split("## Retired ids", 1)[1]
+    assert f"`{alpha_id}`" in retired and "Alpha" in retired
+
+
+def test_render_dedupes_escape_hatches_by_paper(workspace, topics):
+    topic = topics[0]["name"]
+    row = {"flag": "escape-hatch", "topic": topic, "reason": "r",
+           "text": f"On topic {topic}, Same Paper reports: Y."}
+    rows = [dict(row, url="http://arxiv/1"), dict(row, url="http://s2/1")]
+    result, text = _render(workspace, he.DependencyTree(), topics, rows)
+    assert result["open_gaps"] == 1
+    assert "METHODOLOGICAL" in text and "Protocol M" in text
+
+
+def test_render_writes_an_index(workspace, topics):
+    topic = topics[0]["name"]
+    tree = he.DependencyTree()
+    tree.add_claim(_gap_claim(topic, "Split", 2, 2))
+    _render(workspace, tree, topics)
+    index = (workspace / "hyp" / "README.md").read_text(encoding="utf-8")
+    assert "RESEARCH_GAPS.md" in index and "`CFA`" in index

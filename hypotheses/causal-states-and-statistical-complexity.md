@@ -1,16 +1,16 @@
 # Hypothesis draft — causal states and statistical complexity
 
-_Regenerated 2026-10-05 by `scripts/hypothesis_engine.py`. Node confidence 0.60; 2 surviving / 0 active / 0 refuted claims._
+_Regenerated 2026-10-08 by `scripts/hypothesis_engine.py`. Node confidence 0.60; 2 surviving / 0 active / 0 refuted claims._
 
-Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding.
+Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding. Open questions with methods and falsifiers are in [RESEARCH_GAPS.md](RESEARCH_GAPS.md).
 
 ## Supporting claims
 
-- **On topic causal states and statistical complexity, The Computational Structure of Spike Trains reports: Neurons perform computations, and convey the results of those computations through the statistical structure of their output spike trains.**
+- **The Computational Structure of Spike Trains** — Neurons perform computations, and convey the results of those computations through the statistical structure of their output spike trains.
   - falsification: An independent source on 'causal states and statistical complexity' reports the opposite effect, or fails to reproduce the stated 1 result
   - record: 3 passed / 0 failed, beta-confidence 0.80
   - source: https://www.semanticscholar.org/paper/1f98df1950c76bde046f7402273fe1b2fc222895
-- **On topic causal states and statistical complexity, Entropy Rate Estimation for English via a Large Cognitive Experiment Using Mechanical Turk reports: The entropy rate h of a natural language quantifies the complexity underlying the language.**
+- **Entropy Rate Estimation for English via a Large Cognitive Experiment Using Mechanical Turk** — The entropy rate h of a natural language quantifies the complexity underlying the language.
   - falsification: An independent source on 'causal states and statistical complexity' reports the opposite effect, or fails to reproduce the stated 1951 result
   - record: 3 passed / 1 failed, beta-confidence 0.67
   - source: https://www.semanticscholar.org/paper/166b53765f33d7e5881e7dc73ae481c65fcf6bdc

@@ -1960,7 +1960,8 @@ def _claim_lines(claims: List[Claim]) -> List[str]:
         return ["_none_"]
     lines = []
     for claim in sorted(claims, key=lambda c: (-c.beta_confidence, c.text)):
-        lines.append(f"- **{claim.text}**")
+        title, body = split_claim_text(claim.text)
+        lines.append(f"- **{title}** — {body}" if title else f"- **{body}**")
         lines.append(f"  - falsification: {claim.falsification}")
         lines.append(f"  - record: {claim.passed} passed / {claim.failed} failed, "
                      f"beta-confidence {claim.beta_confidence:.2f}")
@@ -1987,7 +1988,8 @@ def _hypothesis_markdown(topic: str, confidence: float, surviving: List[Claim],
         "",
         "Cross-source corroboration is weak evidence — corroboration is not "
         "replication. Treat this as a starting point for human review, not a "
-        "finding.",
+        "finding. Open questions with methods and falsifiers are in "
+        "[RESEARCH_GAPS.md](RESEARCH_GAPS.md).",
         "",
         "## Supporting claims",
         "",
@@ -2042,8 +2044,15 @@ def write_report(path, stats: Dict[str, Any]) -> str:
         f"{sum(1 for c in stats.get('clocks', []) if c.resolvable)}"
         f"/{len(stats.get('clocks', []))}",
         f"- hypothesis drafts written: {stats['consolidate']['hypothesis_files']}",
-        "",
     ]
+    render = stats.get("render")
+    if render:
+        lines.append(f"- research gaps open: {render['open_gaps']} "
+                     f"({len(render['new_ids'])} new ids, {render['retired']} "
+                     f"retired) → `hypotheses/RESEARCH_GAPS.md`")
+        if render["new_ids"]:
+            lines.append(f"- new gap ids: {', '.join(render['new_ids'])}")
+    lines.append("")
     for row in stats["hidden"]:
         lines.append(f"- hidden variable: {row['evidence']}")
     if stats["hidden"]:
@@ -2070,6 +2079,443 @@ def write_report(path, stats: Dict[str, Any]) -> str:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(report, encoding="utf-8")
     return report
+
+
+# ---------------------------------------------------------------------------
+# stage 8: render gaps for experimenters (RESEARCH_RENDER.md §3)
+# ---------------------------------------------------------------------------
+#
+# The per-topic drafts face the claim tree. A person with a lab needs the
+# other direction: what is open, how to go get it, and what settles it. This
+# stage renders the tree's real gap material -- claims the corpus splits on,
+# claims it mostly contradicts, claims that could not hold a fixed falsifier,
+# standing hidden-variable suggestions -- into RESEARCH_RENDER's gap fields,
+# under ids that never renumber. Untested claims are markers, not gaps: no
+# source in the sample touched them, which is a fact about the sample.
+
+GAP_SPLIT_BAND = (0.3, 0.7)
+GAP_MIN_TESTS = 2
+_KIND_ORDER = {"contested": 0, "contradicted": 1, "escape": 2, "hidden": 3}
+_CLAIM_TEXT = re.compile(
+    r"^On topic (?P<topic>.+?), (?P<title>.+?) reports: (?P<body>.*)$", re.S)
+_PREFIX_STOP = {"and", "of", "the", "a", "an", "for", "from", "in", "on",
+                "to", "with", "by", "llm"}
+
+
+_SCOPE_NOTE = re.compile(r"\s*\(scope narrowed:[^)]*\)")
+
+
+def split_claim_text(text: str) -> Tuple[str, str]:
+    """('title', 'reported sentence') from the engine's claim phrasing.
+
+    Reformulation appends "(scope narrowed: ...)" notes; they stay in the tree
+    and are dropped here, because the reformulation count is reported on its
+    own and the notes say nothing a reader can act on.
+    """
+    m = _CLAIM_TEXT.match(text or "")
+    if not m:
+        return "", _SCOPE_NOTE.sub("", text or "").strip()
+    return m.group("title").strip(), _SCOPE_NOTE.sub("", m.group("body")).strip()
+
+
+def topic_prefix(name: str, taken: Iterable[str] = ()) -> str:
+    """Three-letter id prefix from a topic name, unique against `taken`."""
+    taken = set(taken)
+    words = [w for w in re.findall(r"[A-Za-z]+", name)
+             if w.lower() not in _PREFIX_STOP] or ["GAP"]
+    candidates = ["".join(w[0] for w in words[:3]).upper().ljust(3, "X")]
+    letters = "".join(words).upper()
+    candidates += [letters[0] + a + b for a, b in zip(letters[1:], letters[2:])]
+    for cand in candidates:
+        if cand not in taken:
+            return cand
+    n = 2
+    while f"{candidates[0][:2]}{n}" in taken:
+        n += 1
+    return f"{candidates[0][:2]}{n}"
+
+
+def load_gap_registry(path) -> dict:
+    path = Path(path)
+    if path.exists():
+        reg = json.loads(path.read_text(encoding="utf-8"))
+    else:
+        reg = {}
+    reg.setdefault("prefixes", {})
+    reg.setdefault("next", {})
+    reg.setdefault("gaps", {})
+    return reg
+
+
+def save_gap_registry(path, reg: dict) -> None:
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(reg, indent=2, sort_keys=True), encoding="utf-8")
+
+
+def assign_gap_id(reg: dict, topic: str, key: str, today: str) -> Tuple[str, bool]:
+    """Permanent id for `key`; returns (id, is_new). Never renumbers."""
+    if key in reg["gaps"]:
+        reg["gaps"][key]["last_seen"] = today
+        return reg["gaps"][key]["id"], False
+    prefix = reg["prefixes"].get(topic)
+    if prefix is None:
+        prefix = topic_prefix(topic, reg["prefixes"].values())
+        reg["prefixes"][topic] = prefix
+    n = reg["next"].get(prefix, 1)
+    reg["next"][prefix] = n + 1
+    gap_id = f"{prefix}_{n:03d}"
+    reg["gaps"][key] = {"id": gap_id, "topic": topic, "first_seen": today,
+                        "last_seen": today}
+    return gap_id, True
+
+
+def classify_gap(claim) -> Optional[str]:
+    """'contested' / 'contradicted' / None. Needs real testimony both ways."""
+    tests = claim.passed + claim.failed
+    if tests < GAP_MIN_TESTS:
+        return None
+    lo, hi = GAP_SPLIT_BAND
+    if claim.passed and claim.failed and lo <= claim.beta_confidence <= hi:
+        return "contested"
+    if claim.failed > claim.passed:
+        return "contradicted"
+    return None
+
+
+def gap_entries(tree: DependencyTree, unknowns: Sequence[dict],
+                hidden: Sequence[dict]) -> List[dict]:
+    """Every gap the current tree and logs support, unnumbered."""
+    entries: List[dict] = []
+    for claim in tree.claims.values():
+        kind = classify_gap(claim)
+        if kind is None:
+            continue
+        title, body = split_claim_text(claim.text)
+        entries.append({
+            "key": f"{kind}:{claim.id}", "kind": kind, "topic": claim.topic,
+            "title": title, "body": body, "url": claim.source_url or "",
+            "passed": claim.passed, "failed": claim.failed,
+            "beta": claim.beta_confidence,
+            "tested_against": list(claim.tested_against),
+            "reformulated": claim.reformulation_count,
+        })
+    seen_escape = set()
+    for row in unknowns:
+        if row.get("flag") != "escape-hatch":
+            continue
+        # The journal is append-only, so a claim re-staked and escape-hatched
+        # again appears twice, and one paper arrives from several sources under
+        # different urls; the paper is the identity, not the log line.
+        title, body = split_claim_text(row.get("text", ""))
+        ident = (" ".join(title.lower().split()) or row.get("url")
+                 or row.get("text", ""))
+        if ident in seen_escape:
+            continue
+        seen_escape.add(ident)
+        entries.append({
+            "key": "escape:" + _digest(ident)[:16],
+            "kind": "escape", "topic": row.get("topic", "unscoped"),
+            "title": title, "body": body, "url": row.get("url", ""),
+            "passed": 0, "failed": 0, "beta": 0.5, "tested_against": [],
+            "reason": row.get("reason", ""),
+        })
+    for row in hidden:
+        cand = row.get("candidate", "unknown")
+        entries.append({
+            "key": f"hidden:{row.get('topic', 'unscoped')}:{cand}",
+            "kind": "hidden", "topic": row.get("topic", "unscoped"),
+            "title": cand, "body": row.get("evidence", ""), "url": "",
+            "passed": 0, "failed": 0, "beta": 0.5, "tested_against": [],
+        })
+    # A deterministic order is what makes newly assigned ids reproducible.
+    entries.sort(key=lambda e: (e["topic"], _KIND_ORDER[e["kind"]],
+                                -(e["passed"] + e["failed"]), e["key"]))
+    return entries
+
+
+# Shared protocols. Every gap of a kind is run the same way, so the steps are
+# written once and each entry carries only what is specific to it -- the same
+# method pasted thirty times is what made the old drafts unreadable.
+GAP_PROTOCOLS = {
+    "R": {
+        "name": "Replication split",
+        "kinds": ("contested", "contradicted"),
+        "class": "EMPIRICAL", "state": "UNDER_STUDY",
+        "method": [
+            "Read the source and every cross-read source in full, not the abstract.",
+            "Tabulate per source: data, scale, metric, setting, assumptions.",
+            "Find the condition that differs between corroborating and contradicting sources.",
+            "Replicate the source once under its own stated conditions.",
+            "Replicate again varying only the separating condition.",
+        ],
+        "own": "rerun the stated method, data or benchmark under the source's own conditions",
+        "hands": "the authors of the source and of the cross-read sources",
+        "deliverable": "A condition table across sources plus one replication "
+                       "under the stated conditions.",
+        "falsifier": "The replication under stated conditions fails to "
+                     "reproduce the reported result (claim refuted as stated); "
+                     "or it reproduces and varying the separating condition "
+                     "changes nothing (the split came from the reading, not "
+                     "the world).",
+        "opens": "A separating condition is a hidden-variable candidate for the "
+                 "topic — stake it as a claim. A claim that holds becomes an "
+                 "anchor other claims can be tested against.",
+    },
+    "M": {
+        "name": "Operationalise",
+        "kinds": ("escape",),
+        "class": "METHODOLOGICAL", "state": "UNDEFINED",
+        "method": [
+            "List every operational term in the claim.",
+            "For each, find whether the field has an agreed measurement protocol.",
+            "Write the claim's falsifier in measured terms.",
+            "Test the rewritten claim once against existing data.",
+        ],
+        "own": "operational definitions for each term the claim relies on",
+        "hands": "the source's authors; practitioners who measure its key terms",
+        "deliverable": "An operational definition and a falsifiable restatement "
+                       "— or a documented finding that none exists yet.",
+        "falsifier": "A measurable falsifier is written and existing data can "
+                     "evaluate it (gap closes). If no term can be "
+                     "operationalised, the claim stays a marker and that is the "
+                     "recorded result.",
+        "opens": "A falsifiable restatement re-enters the claim tree and is "
+                 "tested like any other claim.",
+    },
+    "H": {
+        "name": "Driver check",
+        "kinds": ("hidden",),
+        "class": "EMPIRICAL", "state": "UNMEASURED",
+        "method": [
+            "Place the topic's claims and the candidate on one shared time grid.",
+            "Control for elapsed time.",
+            "Test on a held-out later window.",
+            "Look for a mechanism in the literature.",
+        ],
+        "own": "the candidate series and the claims on one time grid",
+        "hands": "researchers who track the candidate quantity",
+        "deliverable": "A held-out test with time controlled, and a mechanism "
+                       "search.",
+        "falsifier": "The association vanishes on the held-out window or after "
+                     "controlling for time.",
+        "opens": "A surviving driver becomes a scoped claim; a vanished one is "
+                 "retracted — logged, never deleted.",
+    },
+}
+_PROTOCOL_OF = {k: code for code, p in GAP_PROTOCOLS.items() for k in p["kinds"]}
+
+
+def _protocol_markdown() -> List[str]:
+    lines = ["## Protocols", "",
+             "Each gap names one. The steps are shared; what differs per gap "
+             "is the claim, its sources and its record.", ""]
+    for code, p in GAP_PROTOCOLS.items():
+        lines += [f'<a id="protocol-{code.lower()}"></a>', "",
+                  f"### Protocol {code} — {p['name']} "
+                  f"({p['class']}, `{p['state']}`)", "", "**Method:**"]
+        lines += [f"{i}. {step}" for i, step in enumerate(p["method"], 1)]
+        lines += ["",
+                  f"**Your own data:** {p['own']}  ",
+                  f"**Someone's hands:** {p['hands']}  ",
+                  f"**Expected deliverable:** {p['deliverable']}  ",
+                  f"**Falsifier:** {p['falsifier']}  ",
+                  f"**What it opens:** {p['opens']}", ""]
+    return lines
+
+
+def _gap_markdown(gap_id: str, e: dict, disciplines: str,
+                  sources: Dict[str, Tuple[str, str]]) -> List[str]:
+    code = _PROTOCOL_OF[e["kind"]]
+    p = GAP_PROTOCOLS[code]
+    label = (e["title"] or e["body"] or e["key"])[:110]
+    lines = [f"### {gap_id} · {p['class']} · `{p['state']}` — {label}", ""]
+    if e["kind"] in ("contested", "contradicted"):
+        lean = "splits on" if e["kind"] == "contested" else "mostly contradicts"
+        lines.append(f"**Gap:** the sample {lean} this claim — "
+                     f"{e['passed']} corroborating / {e['failed']} contradicting "
+                     f"readings, beta {e['beta']:.2f}"
+                     + (f", reformulated {e['reformulated']}×"
+                        if e.get("reformulated") else "") + ".")
+        lines.append("")
+        lines.append(f"**Question:** does the result in “{e['title'] or 'the source'}” "
+                     "hold under its stated conditions, and which condition "
+                     "separates the sources that disagree?")
+    elif e["kind"] == "escape":
+        lines.append("**Gap:** failed, was reformulated, failed again until it "
+                     "left the tree — no fixed falsifier held."
+                     + (f" {e['reason']}" if e.get("reason") else ""))
+        lines.append("")
+        lines.append("**Question:** what measurement would make this claim "
+                     "falsifiable — what result would count against it?")
+    else:
+        lines.append(f"**Gap:** {e['body'] or 'standing hidden-variable suggestion'}")
+        lines.append("")
+        lines.append(f"**Question:** does “{e['title']}” drive this topic's claim "
+                     "residuals, or does the association come from elapsed "
+                     "time or retrieval?")
+    lines.append("")
+    if e["body"] and e["kind"] != "hidden":
+        lines.append(f"**Claim as extracted:** {e['body']}")
+        lines.append("")
+    lines.append(f"**Disciplines:** {disciplines}")
+    lines.append("")
+    lines.append("**Existing record:**")
+    if e["url"]:
+        lines.append(f"- source: [{e['title'] or e['url']}]({e['url']})")
+    for h in e["tested_against"][:6]:
+        title, url = sources.get(h, ("", ""))
+        if url:
+            lines.append(f"- cross-read: [{title or url}]({url})")
+    if len(e["tested_against"]) > 6:
+        lines.append(f"- … {len(e['tested_against']) - 6} more in "
+                     "`data/findings_log.jsonl`")
+    lines.append("")
+    lines.append(f"**Run:** [Protocol {code} — {p['name']}](#protocol-{code.lower()})")
+    lines.append("")
+    return lines
+
+
+def stage_render(tree: DependencyTree, topics: List[dict], unknown_path,
+                 hidden_path, hypotheses_dir, registry_path,
+                 today: Optional[str] = None,
+                 findings_path=None) -> Dict[str, Any]:
+    """Write RESEARCH_GAPS.md and the hypotheses/ index from the live tree."""
+    today = today or date.today().isoformat()
+    hypotheses_dir = Path(hypotheses_dir)
+    hypotheses_dir.mkdir(parents=True, exist_ok=True)
+    reg = load_gap_registry(registry_path)
+    unknowns = read_jsonl(unknown_path)
+    hidden = standing_suggestions(read_jsonl(hidden_path))
+    entries = gap_entries(tree, unknowns, hidden)
+
+    disciplines = {t["name"]: ", ".join(t.get("disciplines", [])) for t in topics}
+    # tested_against holds finding hashes; resolve them to titled links.
+    sources = {row.get("hash", ""): (row.get("title", ""), row.get("url", ""))
+               for row in read_jsonl(findings_path)} if findings_path else {}
+    order = [t["name"] for t in topics]
+    seen_keys, new_ids = set(), []
+    numbered: Dict[str, List[Tuple[str, dict]]] = {}
+    for e in entries:
+        gap_id, is_new = assign_gap_id(reg, e["topic"], e["key"], today)
+        reg["gaps"][e["key"]]["kind"] = e["kind"]
+        reg["gaps"][e["key"]]["label"] = (e["title"] or e["body"])[:110]
+        seen_keys.add(e["key"])
+        if is_new:
+            new_ids.append(gap_id)
+        numbered.setdefault(e["topic"], []).append((gap_id, e))
+    for key, row in reg["gaps"].items():
+        row["standing"] = key in seen_keys
+
+    grouped = tree.by_topic()
+    untested = {name: [c for c in claims if c.passed + c.failed == 0]
+                for name, claims in grouped.items()}
+    names = order + sorted(set(numbered) - set(order))
+
+    lines = [
+        "# RESEARCH_GAPS.md",
+        "",
+        "**This is an automated triage of a literature sample, not a set of "
+        "findings.** Each claim is the first sentence of an abstract — often "
+        "background rather than the paper's result, so read the source before "
+        "running anything. "
+        "“Corroborating” and “contradicting” mean another abstract's sentences "
+        "on a shared subject lean for or against it — cross-reading, not "
+        "replication. Every entry is a starting point someone with a lab, "
+        "data, or a desk can pick up.",
+        "",
+        f"_Regenerated {today} by `scripts/hypothesis_engine.py` (stage 8). "
+        "Format: `RESEARCH_RENDER.md` §3. Ids are permanent: a gap that drops "
+        "out keeps its id and moves to **Retired ids**; ids are never "
+        "renumbered._",
+        "",
+        "**Classes:** EMPIRICAL — a measurement nobody has made · "
+        "METHODOLOGICAL — a procedure nobody has defined.  ",
+        "**Knowledge states:** `UNDER_STUDY` sources disagree, value "
+        "provisional · `UNDEFINED` no agreed falsifier · `UNMEASURED` no "
+        "value.",
+        "",
+        "**To pick one up:** choose a gap, open its source, run the protocol it "
+        "names, and report the result against the gap id (an issue titled "
+        "with the id is enough).",
+        "",
+        "## Contents",
+        "",
+    ]
+    for name in names:
+        prefix = reg["prefixes"].get(name, "—")
+        n = len(numbered.get(name, []))
+        lines.append(f"- [{name}](#{slugify(name)}) · `{prefix}` · {n} open "
+                     f"gap{'s' if n != 1 else ''} · "
+                     f"{len(untested.get(name, []))} untested markers")
+    lines.append("- [Protocols](#protocols) · [Retired ids](#retired-ids)")
+    lines.append("")
+    lines += _protocol_markdown()
+
+    for name in names:
+        prefix = reg["prefixes"].get(name)
+        lines += [f'<a id="{slugify(name)}"></a>', "",
+                  f"## {name}" + (f" (`{prefix}`)" if prefix else ""), ""]
+        disc = disciplines.get(name) or ("not set — add a `disciplines` list "
+                                         "to this topic in config/topics.json")
+        rows = numbered.get(name, [])
+        if not rows:
+            lines += ["_No open gaps: no claim here has testimony both ways "
+                      "yet._", ""]
+        for gap_id, e in rows:
+            lines += _gap_markdown(gap_id, e, disc, sources)
+        markers = untested.get(name, [])
+        if markers:
+            lines += ["#### Markers — untested in this sample", "",
+                      "No source in the sample spoke to these. That is a fact "
+                      "about the sample, not about the claim.", ""]
+            for c in sorted(markers, key=lambda c: c.text):
+                title, body = split_claim_text(c.text)
+                link = f" — [source]({c.source_url})" if c.source_url else ""
+                lines.append(f"- {title or body[:110]}{link}")
+            lines.append("")
+
+    retired = sorted((row for row in reg["gaps"].values()
+                      if not row.get("standing")), key=lambda r: r["id"])
+    lines += ['<a id="retired-ids"></a>', "", "## Retired ids", ""]
+    if retired:
+        lines.append("Ids that no longer qualify as open (claim resolved, "
+                     "retired off-scope, or re-staked). Kept so a citation "
+                     "never points at a reused id.")
+        lines.append("")
+        for row in retired:
+            lines.append(f"- `{row['id']}` · {row.get('kind', '?')} · "
+                         f"last seen {row['last_seen']} · {row.get('label', '')}")
+    else:
+        lines.append("_none yet_")
+    lines.append("")
+    (hypotheses_dir / "RESEARCH_GAPS.md").write_text("\n".join(lines),
+                                                     encoding="utf-8")
+
+    index = [
+        "# hypotheses/",
+        "",
+        "Generated weekly by `scripts/hypothesis_engine.py`. **Start at "
+        "[RESEARCH_GAPS.md](RESEARCH_GAPS.md)** — open questions with a "
+        "method, a falsifier, and what each one opens.",
+        "",
+        "| topic | id prefix | open gaps | untested markers | claim draft |",
+        "|---|---|---|---|---|",
+    ]
+    for name in names:
+        draft = hypotheses_dir / f"{slugify(name)}.md"
+        link = f"[{draft.name}]({draft.name})" if draft.exists() else "—"
+        index.append(f"| {name} | `{reg['prefixes'].get(name, '—')}` | "
+                     f"{len(numbered.get(name, []))} | "
+                     f"{len(untested.get(name, []))} | {link} |")
+    index += ["",
+              "Claim drafts face the claim tree (what the sample says); "
+              "RESEARCH_GAPS faces forward (what to go measure). Neither is "
+              "a finding.", ""]
+    (hypotheses_dir / "README.md").write_text("\n".join(index), encoding="utf-8")
+    save_gap_registry(registry_path, reg)
+    return {"open_gaps": len(entries), "new_ids": new_ids,
+            "retired": len(retired)}
 
 
 # ---------------------------------------------------------------------------
@@ -2172,6 +2618,13 @@ def main(argv: Optional[List[str]] = None) -> int:
                                      args.hypotheses_dir)
     save_tree(tree, tree_path)
 
+    print("8. render")
+    rendered = stage_render(tree, topics, unknown_path, hidden_path,
+                            args.hypotheses_dir, data_dir / "gap_registry.json",
+                            findings_path=log_path)
+    print(f"   {rendered['open_gaps']} open gaps "
+          f"({len(rendered['new_ids'])} new ids, {rendered['retired']} retired)")
+
     report = write_report(data_dir / "engine_report.md", {
         "found": len(findings), "new": len(new), "skipped": skipped,
         "claims": len(made), "unknown": unknown_count,
@@ -2179,6 +2632,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         "unfalsifiable": getattr(stage_claim, "last_breakdown", {}).get("unfalsifiable", 0),
         "test": test_stats, "modify": modify_stats, "hidden": hidden,
         "consolidate": consolidated,
+        "render": rendered,
         "clocks": clocks,
         "evidenced": sum(1 for c in tree.claims.values() if c.passed or c.failed),
         "tree_size": len(tree.claims),
