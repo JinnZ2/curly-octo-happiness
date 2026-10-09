@@ -33,6 +33,122 @@ class HiddenNodeSuggestion:
     category: str  # "causal", "correlational", "buffer"
     diagnostics: Dict[str, Any] = field(default_factory=dict)
 
+# ---------------------------------------------------------------------------
+# Reading profiles: several structurally different readings per candidate
+# ---------------------------------------------------------------------------
+#
+# The detectors below each trust one reading -- a Pearson correlation on
+# levels. A single reading has blind regions that are structural, not noisy:
+# it scores a candidate that sets the *size* of the error (either sign) at ~0,
+# it scores a shared trend as coupling, and it misses a coupling that arrives
+# a few steps late. Several readings that fail in different places cover each
+# other, and the pattern of where they disagree names the kind of coupling.
+# (Worked toy: a single similarity reading reads some coupled pairs at chance
+# or inverted; the disagreement between structurally different readings found
+# them all -- JinnZ2/measurement-scope-gaps, cut-recoverability run 9.)
+
+READINGS = ("levels", "differences", "rank", "magnitude", "lagged")
+
+
+def _pearson(x: List[float], y: List[float]) -> float:
+    n = min(len(x), len(y))
+    if n < 3:
+        return 0.0
+    x, y = x[:n], y[:n]
+    mx, my = sum(x) / n, sum(y) / n
+    sxy = sum((a - mx) * (b - my) for a, b in zip(x, y))
+    sxx = sum((a - mx) ** 2 for a in x)
+    syy = sum((b - my) ** 2 for b in y)
+    if sxx == 0 or syy == 0:
+        return 0.0
+    return sxy / (sxx * syy) ** 0.5
+
+
+def _ranks(xs: List[float]) -> List[float]:
+    order = sorted(range(len(xs)), key=lambda i: xs[i])
+    ranks = [0.0] * len(xs)
+    i = 0
+    while i < len(order):
+        j = i
+        while j + 1 < len(order) and xs[order[j + 1]] == xs[order[i]]:
+            j += 1
+        for k in range(i, j + 1):
+            ranks[order[k]] = (i + j) / 2.0
+        i = j + 1
+    return ranks
+
+
+@dataclass
+class ReadingProfile:
+    """One candidate read five ways, plus what their disagreement says."""
+    name: str
+    readings: Dict[str, float]
+    lag: int
+    spread: float          # strongest minus weakest |reading|
+    shape: str             # what the pattern of agreement points at
+    single_reading_miss: bool  # levels-Pearson alone would have dropped it
+
+
+def reading_profile(name: str, residuals: List[float], candidate: List[float],
+                    threshold: float = 0.5, max_lag: int = 3) -> ReadingProfile:
+    """Read one candidate against the residuals five structurally different ways.
+
+    levels       Pearson on the raw series (what the detectors use today)
+    differences  Pearson on first differences -- a shared trend drops out
+    rank         Spearman -- monotone but nonlinear coupling
+    magnitude    |residual - mean| vs the candidate, or vs the candidate's own
+                 distance from typical -- sets the error's size, either sign
+    lagged       strongest Pearson with the candidate leading by 1..max_lag
+    """
+    n = min(len(residuals), len(candidate))
+    r, c = list(residuals[:n]), list(candidate[:n])
+    mean_r = sum(r) / n if n else 0.0
+    mean_c = sum(c) / n if n else 0.0
+    abs_r = [abs(v - mean_r) for v in r]
+    # A candidate can set the error's size through its value (a volatility
+    # driver) or through its own distance from typical (both extremes hurt);
+    # keep whichever is stronger.
+    mag_value = _pearson(abs_r, c)
+    mag_extreme = _pearson(abs_r, [abs(v - mean_c) for v in c])
+    readings = {
+        "levels": _pearson(r, c),
+        "differences": _pearson([b - a for a, b in zip(r, r[1:])],
+                                [b - a for a, b in zip(c, c[1:])]),
+        "rank": _pearson(_ranks(r), _ranks(c)),
+        "magnitude": mag_value if abs(mag_value) >= abs(mag_extreme) else mag_extreme,
+    }
+    best, lag = 0.0, 0
+    for k in range(1, max_lag + 1):
+        if n - k < 3:
+            break
+        v = _pearson(r[k:], c[:-k])
+        if abs(v) > abs(best):
+            best, lag = v, k
+    readings["lagged"] = best
+    mags = {k: abs(v) for k, v in readings.items()}
+    spread = max(mags.values()) - min(mags.values())
+    strong = {k for k, v in mags.items() if v >= threshold}
+    signs = {readings[k] > 0 for k in strong if k != "magnitude"}
+
+    if not strong:
+        shape = "silent"
+    elif len(signs) > 1:
+        shape = "sign split"
+    elif "levels" in strong and "differences" not in strong and mags["differences"] < threshold / 2:
+        shape = "shared trend (clock)"
+    elif "levels" not in strong and "magnitude" in strong:
+        shape = "magnitude coupling"
+    elif "levels" not in strong and "lagged" in strong:
+        shape = f"lagged coupling (lag {lag})"
+    elif "levels" not in strong and "rank" in strong:
+        shape = "monotone nonlinear"
+    else:
+        shape = "agreeing"
+    return ReadingProfile(name=name, readings=readings, lag=lag, spread=spread,
+                          shape=shape,
+                          single_reading_miss=bool(strong) and "levels" not in strong)
+
+
 class HiddenNodeDetector:
     """Detects hidden nodes from model residuals."""
 
@@ -297,6 +413,24 @@ class HiddenNodeDetector:
                         evidence=f"Unexpected improvement of {avg_improvement:.2%} correlated with rising {var_name}",
                         category="buffer"
                     ))
+
+    def scan_readings(self, residuals: List[float], threshold: float = 0.5,
+                      max_lag: int = 3) -> List[ReadingProfile]:
+        """Read every environment series against the residuals five ways.
+
+        Does not add suggestions: it reports, per candidate, which readings
+        see it and what the disagreement points at. `single_reading_miss`
+        marks candidates the levels-Pearson detectors would have dropped.
+        A "shared trend (clock)" profile is a warning, not a find: two series
+        that both drift correlate on levels and stop correlating once the
+        trend is differenced out (Reichenbach -- control for the clock).
+        """
+        series = self.environment.get("time_series", {})
+        profiles = [reading_profile(name, residuals, data, threshold, max_lag)
+                    for name, data in series.items()]
+        profiles.sort(key=lambda p: (-max(abs(v) for v in p.readings.values()),
+                                     p.name))
+        return profiles
 
     def _pearson_correlation(self, x: List[float], y: List[float]) -> float:
         """Calculate Pearson correlation coefficient."""
