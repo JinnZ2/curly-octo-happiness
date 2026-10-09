@@ -354,3 +354,23 @@ def test_scan_readings_reports_every_candidate_without_adding_suggestions():
     assert [p.name for p in profiles][0] == "Late"
     assert {p.name for p in profiles} == {"Late", "Noise"}
     assert hnd.suggestions == []
+
+
+def test_scan_readings_population_disagreement_ranks_the_hidden_coupling_first():
+    rng, d = _rng_series(8)
+    residuals = [0.0, 0.0] + [d[i - 2] + 0.2 * rng.gauss(0, 1) for i in range(2, 200)]
+    series = {"Late": d}
+    series.update({f"Noise{k}": _rng_series(20 + k)[1] for k in range(8)})
+    hnd = HiddenNodeDetector(model={"nodes": ["A"], "dependencies": {}},
+                             environment={"time_series": series})
+    profiles = hnd.scan_readings(residuals, rank_by="disagreement")
+    assert profiles[0].name == "Late"
+    assert profiles[0].disagreement > max(p.disagreement for p in profiles[1:])
+
+
+def test_scan_readings_leaves_disagreement_unset_on_a_tiny_population():
+    _, d = _rng_series(9)
+    hnd = HiddenNodeDetector(model={"nodes": ["A"], "dependencies": {}},
+                             environment={"time_series": {"X": d}})
+    p = hnd.scan_readings(d)[0]
+    assert p.disagreement is None and p.max_abs_z is None

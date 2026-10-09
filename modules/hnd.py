@@ -87,6 +87,10 @@ class ReadingProfile:
     spread: float          # strongest minus weakest |reading|
     shape: str             # what the pattern of agreement points at
     single_reading_miss: bool  # levels-Pearson alone would have dropped it
+    # Population-relative fields, set by HiddenNodeDetector.scan_readings when
+    # there are enough candidates to z-score against (None otherwise).
+    disagreement: Optional[float] = None   # std of this candidate's z-scores
+    max_abs_z: Optional[float] = None      # strongest reading, in z units
 
 
 def reading_profile(name: str, residuals: List[float], candidate: List[float],
@@ -415,7 +419,8 @@ class HiddenNodeDetector:
                     ))
 
     def scan_readings(self, residuals: List[float], threshold: float = 0.5,
-                      max_lag: int = 3) -> List[ReadingProfile]:
+                      max_lag: int = 3,
+                      rank_by: str = "strength") -> List[ReadingProfile]:
         """Read every environment series against the residuals five ways.
 
         Does not add suggestions: it reports, per candidate, which readings
@@ -424,13 +429,51 @@ class HiddenNodeDetector:
         A "shared trend (clock)" profile is a warning, not a find: two series
         that both drift correlate on levels and stop correlating once the
         trend is differenced out (Reichenbach -- control for the clock).
+
+        With at least MIN_CANDIDATES_FOR_Z candidates each profile also gets
+        `disagreement` and `max_abs_z`; `rank_by="disagreement"` orders by it.
         """
         series = self.environment.get("time_series", {})
         profiles = [reading_profile(name, residuals, data, threshold, max_lag)
                     for name, data in series.items()]
-        profiles.sort(key=lambda p: (-max(abs(v) for v in p.readings.values()),
-                                     p.name))
+        self._population_disagreement(profiles)
+        if rank_by == "disagreement" and all(p.disagreement is not None
+                                             for p in profiles):
+            profiles.sort(key=lambda p: (-p.disagreement, p.name))
+        elif rank_by in ("strength", "disagreement"):
+            profiles.sort(key=lambda p: (-max(abs(v) for v in p.readings.values()),
+                                         p.name))
+        else:
+            raise ValueError(f"unknown rank_by: {rank_by!r}")
         return profiles
+
+    # Below this many candidates a z-score is a statement about two or three
+    # numbers, not a population; the fields stay None rather than pretend.
+    MIN_CANDIDATES_FOR_Z = 5
+
+    def _population_disagreement(self, profiles: List[ReadingProfile]) -> None:
+        """Z-score each reading across candidates; spread of a candidate's z's.
+
+        A coupled candidate that most readings miss still stands out on the
+        one or two readings that catch it, so its z-scores spread; noise
+        candidates sit near zero on all of them. Signed readings are kept
+        signed: an inverted reading is information, not absence. The score is
+        population-relative -- it assumes coupled candidates are a minority.
+        """
+        if len(profiles) < self.MIN_CANDIDATES_FOR_Z:
+            return
+        z: Dict[str, Dict[str, float]] = {p.name: {} for p in profiles}
+        for reading in READINGS:
+            vals = [p.readings[reading] for p in profiles]
+            mean = sum(vals) / len(vals)
+            sd = (sum((v - mean) ** 2 for v in vals) / len(vals)) ** 0.5
+            for p in profiles:
+                z[p.name][reading] = (p.readings[reading] - mean) / sd if sd else 0.0
+        for p in profiles:
+            zs = list(z[p.name].values())
+            m = sum(zs) / len(zs)
+            p.disagreement = (sum((v - m) ** 2 for v in zs) / len(zs)) ** 0.5
+            p.max_abs_z = max(abs(v) for v in zs)
 
     def _pearson_correlation(self, x: List[float], y: List[float]) -> float:
         """Calculate Pearson correlation coefficient."""
