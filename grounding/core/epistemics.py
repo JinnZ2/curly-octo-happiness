@@ -18,9 +18,17 @@ Covers, in stdlib-only form:
 * §5.4 Falsifiability paradox: `classify_falsifiability` sorts claims into
   machine-checkable / falsifiable / unfalsifiable, so unfalsifiable ones
   can be routed to the UnknownJournal instead of the dependency tree.
+
+* §5.6 Carrier check: `carrier_check` applies a claim's OWN criterion to
+  what the claim needs in order to be stated at all (its carrier) and to
+  what it leans on (its supports), following dependency chains. A claim
+  whose carrier fails its own rule SELF_DELETES; one that can be stated
+  but whose supports fail is HOLLOW. Passes earned only by an exemption the
+  claim grants itself are counted, and dependencies missing from the graph
+  are reported as unrecorded rather than read as passing.
 """
 
-from typing import Any, Dict, List
+from typing import Any, Callable, Dict, Iterable, List
 
 # ---------------------------------------------------------------------------
 # §5.1 — structured logical forms
@@ -155,3 +163,88 @@ def classify_falsifiability(claim) -> str:
     if text in UNFALSIFIABLE_MARKERS or len(text) < 4:
         return "unfalsifiable"
     return "falsifiable"
+
+
+# ---------------------------------------------------------------------------
+# §5.6 — carrier check: a claim's own criterion, applied to itself
+# ---------------------------------------------------------------------------
+#
+# Most audits check a claim's supports. Almost none check its carrier: the
+# language, medium, institution or method the claim needs in order to be
+# stated. "Only what is measured is real" is not itself measured; "trust only
+# peer-reviewed evidence" was never reviewed. Running the claim's criterion on
+# its own carrier is a cheap test with three outcomes worth keeping apart.
+
+SELF_DELETES = "SELF_DELETES"   # the carrier fails the claim's own criterion
+HOLLOW = "HOLLOW"               # stateable, but some support fails it
+CONSISTENT = "CONSISTENT"       # carrier and supports pass
+
+
+def carrier_check(criterion: Callable[[Dict[str, Any]], bool],
+                  carrier: Iterable[str], supports: Iterable[str],
+                  graph: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
+    """Apply `criterion(attrs)` to the carrier and supports, down every chain.
+
+    `graph` maps node name -> {"attrs": {...}, "deps": [...], "note": str,
+    "exempted": bool}. A node fails when its own attrs fail the criterion or
+    any dependency fails; every failing chain is kept, not just the first.
+
+    `exempted: True` marks an exemption the claim grants itself ("heirs
+    count as originals"). Such a node is passed, as the claim asks -- and
+    recorded, because a pass that exists only by self-exemption is the soft
+    spot an outside reader needs to see. `exemption_load` is the share of
+    passing nodes that pass only that way.
+
+    A dependency named but absent from `graph` is NOT read as passing: an
+    unrecorded link is an unknown, and reading it as clean is the false pass
+    this check exists to avoid. It is listed under `unrecorded`.
+    """
+    carrier, supports = list(carrier), list(supports)
+    memo: Dict[str, List[List[str]]] = {}
+    exempted: set = set()
+    unrecorded: set = set()
+
+    def chains(name: str, stack: tuple = ()) -> List[List[str]]:
+        if name in memo:
+            return memo[name]
+        if name in stack:
+            return []                     # cycle: nothing new down this path
+        node = graph.get(name)
+        if node is None:
+            unrecorded.add(name)
+            return []
+        found: List[List[str]] = []
+        if not criterion(node.get("attrs", {})):
+            if node.get("exempted"):
+                exempted.add(name)
+            else:
+                found.append([name])
+        for dep in node.get("deps", []):
+            found += [[name] + c for c in chains(dep, stack + (name,))]
+        memo[name] = found
+        return found
+
+    results = {n: chains(n) for n in carrier + supports}
+    carrier_fail = {n: results[n] for n in carrier if results[n]}
+    support_fail = {n: results[n] for n in supports if results[n]}
+    if carrier_fail:
+        status = SELF_DELETES
+    elif support_fail:
+        status = HOLLOW
+    else:
+        status = CONSISTENT
+    retained = [n for n in carrier + supports if not results[n]]
+    passing_nodes = {m for m in memo if not memo[m]}
+    return {
+        "status": status,
+        "carrier_failures": carrier_fail,
+        "support_failures": support_fail,
+        "retained": retained,
+        "exempted": sorted(exempted),
+        "exemption_load": (len(exempted & passing_nodes) / len(passing_nodes)
+                           if passing_nodes else 0.0),
+        "unrecorded": sorted(unrecorded),
+        "notes": {n: graph[n].get("note", "") for c in
+                  list(carrier_fail.values()) + list(support_fail.values())
+                  for chain in c for n in [chain[-1]] if n in graph},
+    }

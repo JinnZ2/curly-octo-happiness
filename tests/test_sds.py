@@ -298,3 +298,59 @@ def test_diagnostic_shim_exports():
     suggestions = hnd.scan(residuals, {"Hidden_X": [0.1 * i for i in range(10)]})
     assert any(s.name == "Hidden_X" for s in suggestions)
     assert FDM(KNOWLEDGE_BASE).trace("Glass").max_depth == 1
+
+
+# ---------------------------------------------------------------------------
+# HND reading profiles: several structurally different readings per candidate
+# ---------------------------------------------------------------------------
+
+import random as _random                          # noqa: E402
+from hnd import reading_profile                   # noqa: E402
+
+
+def _rng_series(seed, n=200):
+    rng = _random.Random(seed)
+    return rng, [rng.gauss(0, 1) for _ in range(n)]
+
+
+def test_reading_profile_catches_magnitude_coupling_levels_misses():
+    rng, c = _rng_series(1)
+    residuals = [abs(x) * rng.choice([-1, 1]) + 0.1 * rng.gauss(0, 1) for x in c]
+    p = reading_profile("Size", residuals, c)
+    assert abs(p.readings["levels"]) < 0.5      # the detectors' reading misses it
+    assert p.shape == "magnitude coupling" and p.single_reading_miss
+
+
+def test_reading_profile_flags_shared_trend_as_clock_not_coupling():
+    rng = _random.Random(2)
+    a = [0.05 * i + rng.gauss(0, 1) for i in range(200)]
+    b = [0.05 * i + rng.gauss(0, 1) for i in range(200)]
+    p = reading_profile("Drift", a, b)
+    assert p.readings["levels"] > 0.5 and abs(p.readings["differences"]) < 0.25
+    assert p.shape == "shared trend (clock)"
+
+
+def test_reading_profile_finds_lagged_coupling():
+    rng, d = _rng_series(3)
+    residuals = [0.0, 0.0] + [d[i - 2] + 0.2 * rng.gauss(0, 1) for i in range(2, 200)]
+    p = reading_profile("Late", residuals, d)
+    assert p.shape == "lagged coupling (lag 2)" and p.lag == 2
+    assert p.single_reading_miss
+
+
+def test_reading_profile_is_silent_on_noise():
+    _, a = _rng_series(4)
+    _, b = _rng_series(5)
+    assert reading_profile("Noise", a, b).shape == "silent"
+
+
+def test_scan_readings_reports_every_candidate_without_adding_suggestions():
+    rng, d = _rng_series(6)
+    residuals = [0.0] + [d[i - 1] + 0.2 * rng.gauss(0, 1) for i in range(1, 200)]
+    hnd = HiddenNodeDetector(model={"nodes": ["A"], "dependencies": {}},
+                             environment={"time_series": {"Late": d,
+                                                          "Noise": _rng_series(7)[1]}})
+    profiles = hnd.scan_readings(residuals)
+    assert [p.name for p in profiles][0] == "Late"
+    assert {p.name for p in profiles} == {"Late", "Noise"}
+    assert hnd.suggestions == []

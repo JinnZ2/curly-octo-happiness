@@ -243,3 +243,52 @@ def test_format_renders_the_reading():
     text = format_coupling(coupling_coherence(1.0, SPLIT, CLASS_III))
     assert "FRAGMENTED_STRUCTURALLY" in text
     assert "Some systems should not synchronize" in text
+
+
+# ---------------------------------------------------------------------------
+# path parity: which readings can see a coupled pair
+# ---------------------------------------------------------------------------
+
+from grounding.core.coupling import (  # noqa: E402
+    pair_visibility, parity, reading_blindspots, shared_neighbour_similarity)
+
+
+def _path(n):
+    A = [[0.0] * n for _ in range(n)]
+    for k in range(n - 1):
+        A[k][k + 1] = A[k + 1][k] = 1.0
+    return A
+
+
+def test_parity_colours_a_path_and_classes_pairs_by_distance_parity():
+    A = _path(5)                                   # 0-1-2-3-4, bipartite
+    r = parity(A)
+    assert r.bipartite_components == [[0, 1, 2, 3, 4]] and not r.odd_cycle_components
+    assert pair_visibility(A, 0, 2, r) == "even-only"
+    assert pair_visibility(A, 0, 3, r) == "odd-only"
+
+
+def test_shared_neighbour_reading_is_structurally_blind_to_odd_pairs():
+    A = _path(6)
+    assert shared_neighbour_similarity(A, 0, 2) > 0      # even distance: seen
+    assert shared_neighbour_similarity(A, 0, 3) == 0.0   # odd distance: zero
+    blind = reading_blindspots(A, [(0, 3), (0, 5), (0, 4)])
+    assert {row["pair"] for row in blind} == {(0, 3), (0, 5), (0, 4)}
+    by_pair = {row["pair"]: row for row in blind}
+    assert by_pair[(0, 3)]["blind_by_structure"]
+    assert not by_pair[(0, 4)]["blind_by_structure"]      # even, merely far
+
+
+def test_an_odd_cycle_opens_both_parities():
+    A = _path(5)
+    A[0][2] = A[2][0] = 1.0                          # triangle 0-1-2
+    r = parity(A)
+    assert r.odd_cycle_components == [[0, 1, 2, 3, 4]]
+    assert pair_visibility(A, 0, 3, r) == "both"
+
+
+def test_disconnected_pair_is_invisible_to_every_reading():
+    A = [[0.0, 1.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0],
+         [0.0, 0.0, 0.0, 1.0], [0.0, 0.0, 1.0, 0.0]]
+    assert pair_visibility(A, 0, 2) == "none"
+    assert reading_blindspots(A, [(0, 2)]) == []

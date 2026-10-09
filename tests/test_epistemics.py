@@ -167,3 +167,73 @@ def test_plugin_manager_unit_checks():
         "interference_intensity": [0.7], "photon_spin": ["R"]})
     assert binary is not None
     assert "spectrum_nm" in report and "units" in report
+
+
+# ---------------------------------------------------------------------------
+# §5.6 carrier check
+# ---------------------------------------------------------------------------
+
+from grounding.core.epistemics import (  # noqa: E402
+    CONSISTENT, HOLLOW, SELF_DELETES, carrier_check)
+
+
+def _athens_graph():
+    return {
+        "speech": {"attrs": {"origin": "US"}, "deps": ["English", "paper"]},
+        "English": {"attrs": {"origin": "Germanic"}, "deps": ["Latin alphabet"]},
+        "Latin alphabet": {"attrs": {"origin": "Rome"}, "deps": ["Greek alphabet"]},
+        "Greek alphabet": {"attrs": {"origin": "Phoenicia"},
+                           "note": "adapted from Phoenician script"},
+        "paper": {"attrs": {"origin": "China"}},
+        "columns": {"attrs": {"origin": "Athens"}},
+    }
+
+
+def _athens_only(attrs):
+    return attrs.get("origin") == "Athens"
+
+
+def test_carrier_check_self_deletes_and_keeps_every_chain():
+    graph = _athens_graph()
+    graph["speech"]["exempted"] = True        # "the US counts as heir"
+    out = carrier_check(_athens_only, ["speech"], ["columns"], graph)
+    assert out["status"] == SELF_DELETES
+    chains = out["carrier_failures"]["speech"]
+    assert ["speech", "English", "Latin alphabet", "Greek alphabet"] in chains
+    assert ["speech", "paper"] in chains
+    assert out["retained"] == ["columns"]
+    assert out["exempted"] == ["speech"]
+    assert out["notes"]["Greek alphabet"] == "adapted from Phoenician script"
+
+
+def test_carrier_check_hollow_when_only_supports_fail():
+    graph = {"coinage": {"attrs": {"tokens": True}},
+             "superintelligence": {"attrs": {"tokens": True}, "deps": ["electricity"]},
+             "electricity": {"attrs": {"tokens": False}, "note": "billed by physics"}}
+    out = carrier_check(lambda a: a.get("tokens"), ["coinage"],
+                        ["superintelligence"], graph)
+    assert out["status"] == HOLLOW
+    assert out["support_failures"]["superintelligence"] == [
+        ["superintelligence", "electricity"]]
+
+
+def test_carrier_check_consistent_and_exemption_load():
+    graph = {"rule": {"attrs": {"ok": True}},
+             "a": {"attrs": {"ok": False}, "exempted": True},
+             "b": {"attrs": {"ok": True}}}
+    out = carrier_check(lambda x: x["ok"], ["rule"], ["a", "b"], graph)
+    assert out["status"] == CONSISTENT
+    assert out["exemption_load"] == pytest.approx(1 / 3)
+
+
+def test_carrier_check_unrecorded_dependency_is_not_a_pass():
+    graph = {"claim": {"attrs": {"ok": True}, "deps": ["ghost"]}}
+    out = carrier_check(lambda x: x["ok"], ["claim"], [], graph)
+    assert out["status"] == CONSISTENT
+    assert out["unrecorded"] == ["ghost"]
+
+
+def test_carrier_check_survives_cycles():
+    graph = {"a": {"attrs": {"ok": True}, "deps": ["b"]},
+             "b": {"attrs": {"ok": True}, "deps": ["a"]}}
+    assert carrier_check(lambda x: x["ok"], ["a"], [], graph)["status"] == CONSISTENT

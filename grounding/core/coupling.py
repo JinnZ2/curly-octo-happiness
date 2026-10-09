@@ -58,7 +58,7 @@ Stdlib only (numpy accelerates the eigensolve, see `core/linalg.py`).
 
 from dataclasses import dataclass, field
 from math import inf, isinf, log, sqrt
-from typing import Callable, Dict, List, Optional, Sequence, Tuple
+from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple
 
 from grounding.core.linalg import symmetric_eigenvalues
 
@@ -341,6 +341,116 @@ def spectrum(adjacency: Matrix) -> SpectrumReading:
                            lambda_n=lambda_n, eigenratio=ratio,
                            connected=connected, n_components=n_zero,
                            warnings=warnings)
+
+
+# ---------------------------------------------------------------------------
+# path parity: which similarity readings can see a coupled pair at all
+# ---------------------------------------------------------------------------
+#
+# A Laplacian spectrum says whether units can hold together. A different
+# question comes up whenever a network is *read* for relatedness -- by
+# shared neighbours, by a factorization, by an embedding: can the reading see
+# that two units are coupled? In a two-colourable (bipartite) component every
+# path between two units has the same parity. Readings built from even powers
+# of the adjacency (shared neighbours, A^2, unsigned SVD of A) link only
+# same-colour pairs; readings built from odd powers (direct links, A, the
+# signed metric) link only opposite-colour pairs. Each family is blind to the
+# other half of the coupled pairs, exactly, at any distance. One odd cycle in
+# the component opens both parities and the blindness becomes a matter of
+# degree. (Worked toy: PPMI->SVD read every even path at 1.00 and every odd
+# path at or below chance; JinnZ2/measurement-scope-gaps, cut-recoverability
+# runs 6-8.)
+
+@dataclass
+class ParityReading:
+    """Two-colouring of each component; None where an odd cycle exists."""
+
+    colouring: Dict[int, int]            # unit -> 0/1, bipartite components only
+    bipartite_components: List[List[int]]
+    odd_cycle_components: List[List[int]]
+
+
+def parity(adjacency: Matrix) -> ParityReading:
+    """Two-colour each connected component by BFS, or report its odd cycle."""
+    rows = [list(row) for row in adjacency]
+    n = len(rows)
+    colouring: Dict[int, int] = {}
+    bipartite, odd = [], []
+    for group in components(adjacency):
+        local = {group[0]: 0}
+        frontier, ok = [group[0]], True
+        while frontier and ok:
+            node = frontier.pop()
+            for other in range(n):
+                if other == node or rows[node][other] <= 0:
+                    continue
+                if other not in local:
+                    local[other] = 1 - local[node]
+                    frontier.append(other)
+                elif local[other] == local[node]:
+                    ok = False
+                    break
+        if ok:
+            colouring.update(local)
+            bipartite.append(group)
+        else:
+            odd.append(group)
+    return ParityReading(colouring=colouring, bipartite_components=bipartite,
+                         odd_cycle_components=odd)
+
+
+def pair_visibility(adjacency: Matrix, i: int, j: int,
+                    reading: Optional[ParityReading] = None) -> str:
+    """Which reading family can see the coupling between units i and j.
+
+    "none"       no path: different components (no reading can recover it)
+    "even-only"  bipartite, same colour: shared-neighbour / A^2 readings see
+                 it, direct / odd readings cannot
+    "odd-only"   bipartite, opposite colours: the reverse
+    "both"       the component holds an odd cycle, so paths of both parities
+                 exist (strength still varies by reading)
+    """
+    reading = reading or parity(adjacency)
+    for group in reading.odd_cycle_components:
+        if i in group:
+            return "both" if j in group else "none"
+    for group in reading.bipartite_components:
+        if i in group:
+            if j not in group:
+                return "none"
+            same = reading.colouring[i] == reading.colouring[j]
+            return "even-only" if same else "odd-only"
+    return "none"
+
+
+def shared_neighbour_similarity(adjacency: Matrix, i: int, j: int) -> float:
+    """Cosine of adjacency rows -- the even-path (A^2) reading of a pair."""
+    a, b = list(adjacency[i]), list(adjacency[j])
+    a[i] = a[j] = b[i] = b[j] = 0.0       # direct link is the odd-path reading
+    dot = sum(x * y for x, y in zip(a, b))
+    na = sum(x * x for x in a) ** 0.5
+    nb = sum(y * y for y in b) ** 0.5
+    return dot / (na * nb) if na and nb else 0.0
+
+
+def reading_blindspots(adjacency: Matrix,
+                       pairs: Sequence[Tuple[int, int]]) -> List[Dict[str, Any]]:
+    """Coupled pairs a shared-neighbour reading scores at zero, and why.
+
+    Each row: the pair, its visibility class, the even-path score. A pair that
+    is connected but scores 0 is not unrelated -- if its class is "odd-only"
+    the reading is structurally blind to it, not merely weak.
+    """
+    reading = parity(adjacency)
+    out = []
+    for i, j in pairs:
+        vis = pair_visibility(adjacency, i, j, reading)
+        score = shared_neighbour_similarity(adjacency, i, j)
+        if vis != "none" and score == 0.0:
+            out.append({"pair": (i, j), "visibility": vis,
+                        "shared_neighbour": score,
+                        "blind_by_structure": vis == "odd-only"})
+    return out
 
 
 # ---------------------------------------------------------------------------

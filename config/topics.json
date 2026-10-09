@@ -1,5 +1,5 @@
 {
-  "_comment": "Topics the hypothesis engine explores. Append an entry and commit; the next scheduled run picks it up. See design/hypothesis_engine.md.",
+  "_comment": "Topics the hypothesis engine explores. Append an entry and commit; the next scheduled run picks it up. See design/hypothesis_engine.md. `disciplines` (optional) is shown on each gap in hypotheses/RESEARCH_GAPS.md.",
   "topics": [
     {
       "name": "calibration and falsifiability of LLM agents",
@@ -8,7 +8,16 @@
         "falsifiable claims autonomous agents",
         "hallucination calibration abstention"
       ],
-      "sources": ["arxiv", "semantic_scholar", "crossref"]
+      "sources": [
+        "arxiv",
+        "semantic_scholar",
+        "crossref"
+      ],
+      "disciplines": [
+        "machine learning",
+        "statistics (calibration, forecasting)",
+        "philosophy of science"
+      ]
     },
     {
       "name": "hidden variable detection / causal discovery from residuals",
@@ -16,7 +25,16 @@
         "hidden confounder detection model residuals",
         "causal discovery latent variables time series"
       ],
-      "sources": ["arxiv", "semantic_scholar"]
+      "sources": [
+        "arxiv",
+        "semantic_scholar"
+      ],
+      "disciplines": [
+        "causal inference",
+        "statistics",
+        "econometrics",
+        "climate and earth-system science"
+      ]
     },
     {
       "name": "causal states and statistical complexity",
@@ -24,7 +42,15 @@
         "epsilon machine causal state reconstruction",
         "statistical complexity entropy rate prediction"
       ],
-      "sources": ["arxiv", "semantic_scholar"]
+      "sources": [
+        "arxiv",
+        "semantic_scholar"
+      ],
+      "disciplines": [
+        "computational mechanics",
+        "information theory",
+        "dynamical systems"
+      ]
     },
     {
       "name": "requisite variety and cybernetic regulation",
@@ -32,7 +58,15 @@
         "requisite variety regulator law Ashby",
         "good regulator theorem causal world model"
       ],
-      "sources": ["arxiv", "crossref"]
+      "sources": [
+        "arxiv",
+        "crossref"
+      ],
+      "disciplines": [
+        "cybernetics",
+        "control theory",
+        "systems engineering"
+      ]
     }
   ]
 }
