@@ -9,12 +9,12 @@
 |---|---|---|---|
 | G1 | Stage 8 `stage_render` writes `hypotheses/RESEARCH_GAPS.md` (RESEARCH_RENDER §3 fields, permanent ids in `data/gap_registry.json`, shared protocols R/M/H, retired ids kept) and `hypotheses/README.md` (index). Engine report and issue body carry gap count and new ids. | `scripts/hypothesis_engine.py`, `config/topics.json` | The weekly output was meant to surface proposals for experimenters. It listed abstract first sentences with one boilerplate falsification line per entry and 100+ unfalsifiable abstracts; the tree's 15 contested, 6 contradicted and 14 escape-hatched claims were buried. First render on the committed tree: 30 open gaps across 4 topics. |
 | G2 | Drafts show title + sentence and drop `(scope narrowed: …)` notes; escape hatches dedupe by paper title. | same | One paper escape-hatched under two urls rendered twice. |
-| G3 | `reading_profile` / `scan_readings`: five structurally different readings per HND candidate and the shape of their disagreement. | `modules/hnd.py` | Levels-Pearson scores magnitude coupling and late coupling near zero and reads a shared trend as coupling. |
+| G3 | `reading_profile` / `scan_readings`: five structurally different readings per HND candidate, the shape of their disagreement, and (≥5 candidates) a population-level `disagreement` score to rank by. | `modules/hnd.py` | Levels-Pearson scores magnitude coupling and late coupling near zero and reads a shared trend as coupling. |
 | G4 | `carrier_check` (§5.6): a claim's own criterion applied to its carrier and supports; exemptions counted, unrecorded links not read as passes. | `grounding/core/epistemics.py` | Audits check supports; the carrier is where self-undermining claims fail. |
 | G5 | `parity` / `pair_visibility` / `reading_blindspots`: which reading family can see a coupled pair. | `grounding/core/coupling.py` | A bipartite component makes even- and odd-power readings exactly blind to complementary halves of the coupled pairs. |
 | G6 | `CLAUDE.md` carried the hypothesis-engine paragraph twice (an older copy without `topic_clocks`); the older copy is removed. | `CLAUDE.md` | Partial progress on R5. |
 
-Tests: 20 new (6 engine, 5 HND, 5 carrier, 4 parity). Full suite 362 passed, 2 skipped (plotly; numpy guard) — run with a stdlib pytest stand-in because pytest could not be installed in this round's workspace; CI's engine job runs real pytest.
+Tests: 22 new (6 engine, 7 HND, 5 carrier, 4 parity). Full suite 364 passed, 2 skipped (plotly; numpy guard) — run with a stdlib pytest stand-in because pytest could not be installed in this round's workspace; CI's engine job runs real pytest.
 
 ## Re-audit — 2026-09-02
 
