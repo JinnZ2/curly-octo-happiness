@@ -2068,5 +2068,55 @@
     ],
     "url": "http://arxiv.org/abs/1704.00117v3",
     "date": "2017-04-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Confidence Composition for Multiagent Language Model Systems",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/35bcf942450e50382abea4f20844bf5c4adb2c2c",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA Constraints",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/e1442988917859798b9c8966dd7c08531ae7387e",
+    "date": "2024-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] SearchJev: A Fast and Calibrated System-1 Model for Search Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/25c97215ea9ab363eec9d30543fa28b985f1b246",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] TapGuard: Temperature-Calibrated Execute\u2013Confirm\u2013Block Routing for LLM-Powered Mobile Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/455aff2b876a266a14e412f4d4ff3071da1bb7d3",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/a4eadda8b5fa6316b0b0ef5d60c40ea021835f59",
+    "date": "2026-01-01"
   }
 ]

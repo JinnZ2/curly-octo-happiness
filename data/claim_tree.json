@@ -1,9 +1,9 @@
 {
   "claims": [
     {
-      "beta_confidence": 0.3333,
-      "confidence": 0.3,
-      "failed": 1,
+      "beta_confidence": 0.25,
+      "confidence": 0.09999999999999998,
+      "failed": 2,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 3.5 result",
       "id": "64cda870547bd0fa",
       "meta_flags": [],
@@ -50,65 +50,15 @@
         "27ff05c52c3844865c166df3e251ea5625e440972a9db53931274141c60319d2",
         "9d47272f6215e922f0b5c1d9d44965949ac4e74a4a25a011b7f40a43f1ac7946",
         "2963e3d25570eeed9fe736fee4bcf33d7d4815b4495e80d80bfaa8040d8cb67c",
-        "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18"
+        "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18",
+        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Large Language Model Evaluation Via Multi AI Agents: Preliminary results reports: As Large Language Models (LLMs) have become integral to both research and daily operations, rigorous evaluation is crucial. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.29999999999999993,
+      "beta_confidence": 0.5714,
+      "confidence": 0.39999999999999986,
       "failed": 2,
-      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 6 result",
-      "id": "9e951858059649c1",
-      "meta_flags": [],
-      "passed": 2,
-      "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
-      "reformulation_count": 2,
-      "scope": {
-        "date": "2024-04-03",
-        "restrictions": [
-          "restricted after failure #1",
-          "restricted after failure #2"
-        ],
-        "source": "arxiv",
-        "topic": "calibration and falsifiability of LLM agents"
-      },
-      "source_url": "http://arxiv.org/abs/2404.02655v2",
-      "status": "active",
-      "tested_against": [
-        "77356001590c2882340663d5584834ba5ca3d016fc1f43919d3c6461d8d743e7",
-        "fa921cc3072b40375b4dc010fbec1268cb7d6d8840ab78e9f01beac079f5d854",
-        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
-        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
-        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
-        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
-        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
-        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
-        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
-        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
-        "06cfccec4fe6e7af58d2759bba58edbe446e0283d8833ce362d9126d60c17ce4",
-        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab",
-        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
-        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
-        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
-        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
-        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
-        "186d8913a8de942cc13a171e42db7d368510d022792ef973671b7397347645fa",
-        "3cd837c742964e7fa937b11ba9b3de9a0b1c7f42321695dedeba2188b33dd3ae",
-        "ad781f6f9b071c7f813d76ec86166ed6507fc45a092a384370aa0e3b1fe48e6d",
-        "780fdebf4542d91ae895ca7639dc5909b42b5a8b4e777e2e198d34439f2dbf13",
-        "167ca2798bb19bb6538390b569235e875b0e803d29f717ace295eecd789bbc09",
-        "c6d429af3e9dab232a9fe92b6b728bd7ff0faaa3ec9e874fe9a896e2e0296774",
-        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
-        "2390453a55d87e7aa4cc04852e22a83f8f1a43fa815a9fb342d0b3917e4caed2",
-        "9a56a1495ed0f3819e8b3f7ee5ddafcf1b9fd2e2eaa0261e2cf0a7c4e3de3ff6"
-      ],
-      "text": "On topic calibration and falsifiability of LLM agents, Calibrating the Confidence of Large Language Models by Eliciting Fidelity reports: Large language models optimized with techniques like RLHF have achieved good alignment in being helpful and harmless. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
-    },
-    {
-      "beta_confidence": 0.8,
-      "confidence": 0.7999999999999999,
-      "failed": 0,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 0.0 result",
       "id": "da60ac8b37d43ee4",
       "meta_flags": [],
@@ -149,7 +99,9 @@
         "4452aefc6559771b0c16f39effb9f42a027a8d4cd126b2903c0a105300093519",
         "c6d429af3e9dab232a9fe92b6b728bd7ff0faaa3ec9e874fe9a896e2e0296774",
         "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
-        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9"
+        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
+        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61",
+        "6f0d03f14747fa13d07282180353e057b66965809c755ed06ac9b35a3728a1e9"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Calibrated Per-Carrier Confidence and Certified Pruning for Gaussian-Splat Assets reports: A 3D Gaussian-splatting asset ships millions of primitives, each carrying a per-primitive confidence \u2014 a view count, an opacity \u2014 that downstream pruning, streaming, and level-of-detail decisions consume as if it meant something. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
@@ -383,9 +335,9 @@
       "text": "On topic requisite variety and cybernetic regulation, ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation reports: Manipulating moving objects requires a policy to anticipate contact events, yet vision-language-action (VLA) policies are commonly fine-tuned from the current observation alone. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.6,
-      "confidence": 0.49999999999999994,
-      "failed": 1,
+      "beta_confidence": 0.5,
+      "confidence": 0.29999999999999993,
+      "failed": 2,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 3.1 result",
       "id": "c7567907ed54e475",
       "meta_flags": [],
@@ -433,14 +385,15 @@
         "4a5afd672b56b5a910d8e9096d0c0469f3a5f84c73953f7b646306d44b7f557c",
         "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
         "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
-        "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18"
+        "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18",
+        "a7b3504690fe666e11e80ebba8cd3fb5ae9630314d188ceafbe9afe68b3ad33b"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, MameLoshnLM: Yiddish Language Model and Evaluation Benchmark reports: We present MameLoshnLM, the first open-source 8B-parameter language model built specifically for Yiddish. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
-      "beta_confidence": 0.8,
-      "confidence": 0.7999999999999999,
-      "failed": 0,
+      "beta_confidence": 0.5714,
+      "confidence": 0.39999999999999986,
+      "failed": 2,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 35 result",
       "id": "36f8f78bf5772eef",
       "meta_flags": [],
@@ -490,7 +443,9 @@
         "4452aefc6559771b0c16f39effb9f42a027a8d4cd126b2903c0a105300093519",
         "c6d429af3e9dab232a9fe92b6b728bd7ff0faaa3ec9e874fe9a896e2e0296774",
         "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
-        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9"
+        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
+        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61",
+        "6f0d03f14747fa13d07282180353e057b66965809c755ed06ac9b35a3728a1e9"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, From Calibrated Confidence to Calibrated Reliance: Human-Aware Confidence Communication for AI-Assisted Decision Making reports: As AI systems increasingly support consequential human decisions, the confidence they display shapes whether users accept or override their recommendations. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
@@ -580,9 +535,9 @@
       "text": "On topic calibration and falsifiability of LLM agents, Operationalizing Serendipity: Multi-Agent AI Workflows for Enhanced Materials Characterization with Theory-in-the-Loop reports: The history of science is punctuated by serendipitous discoveries, where unexpected observations, rather than targeted hypotheses, opened new fields of inquiry. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
-      "beta_confidence": 0.6667,
-      "confidence": 0.6,
-      "failed": 0,
+      "beta_confidence": 0.5,
+      "confidence": 0.39999999999999997,
+      "failed": 1,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 19% result",
       "id": "8ae7a2b71bc60e04",
       "meta_flags": [],
@@ -611,14 +566,15 @@
         "9d47272f6215e922f0b5c1d9d44965949ac4e74a4a25a011b7f40a43f1ac7946",
         "4452aefc6559771b0c16f39effb9f42a027a8d4cd126b2903c0a105300093519",
         "0791fce7862feb54debf2674d6ebb93361cec4e2712fa5c30ae1baad1b665009",
-        "1becd37bd03ce4f4e3cd4eb41686e98cb6a9e24315563af5881b2f928758f525"
+        "1becd37bd03ce4f4e3cd4eb41686e98cb6a9e24315563af5881b2f928758f525",
+        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, A measurement substrate for agentic Kubernetes operations: Methodology and a case study in retrieval-compounding falsification reports: Empirical claims about autonomous Kubernetes operations agents are largely unfalsifiable. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
-      "beta_confidence": 0.6667,
-      "confidence": 0.6,
-      "failed": 0,
+      "beta_confidence": 0.4,
+      "confidence": 0.19999999999999996,
+      "failed": 2,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 7.6 result",
       "id": "fbea11aaf4952ac1",
       "meta_flags": [],
@@ -650,57 +606,11 @@
         "2963e3d25570eeed9fe736fee4bcf33d7d4815b4495e80d80bfaa8040d8cb67c",
         "e9e4e5521b0d53ac803e1fcaa83ad420739de20ab78c9bf8b7817b7334f60188",
         "4452aefc6559771b0c16f39effb9f42a027a8d4cd126b2903c0a105300093519",
-        "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d"
+        "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
+        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61",
+        "6f0d03f14747fa13d07282180353e057b66965809c755ed06ac9b35a3728a1e9"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, APEX-EM: Non-Parametric Online Learning for Autonomous Agents via Structured Procedural-Episodic Experience Replay reports: LLM agents rerun full reasoning for every task, even one they solved moments earlier. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
-    },
-    {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
-      "failed": 0,
-      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 4 result",
-      "id": "1900bf49f861fb53",
-      "meta_flags": [],
-      "passed": 0,
-      "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
-      "reformulation_count": 2,
-      "scope": {
-        "date": "2026-01-01",
-        "restrictions": [
-          "restricted after failure #1",
-          "restricted after failure #2"
-        ],
-        "source": "semantic_scholar",
-        "topic": "calibration and falsifiability of LLM agents"
-      },
-      "source_url": "https://www.semanticscholar.org/paper/317d2659a28f8444d297f5020315bcdfc2509ab1",
-      "status": "active",
-      "tested_against": [
-        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
-        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
-        "a4696e3fb9ea9f965d629daa30ccf7de2a2d7e2df83ecf4ae63c3103918dedf9",
-        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
-        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
-        "c3a179430a4cfd42d2fed24f4eb16d7ebb571841e2db927f3edec4c229d356ec",
-        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
-        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
-        "ad781f6f9b071c7f813d76ec86166ed6507fc45a092a384370aa0e3b1fe48e6d",
-        "2ad45948acea864741148bb5b041025aaebb314a06063ebbb63f03037c486a6f",
-        "167ca2798bb19bb6538390b569235e875b0e803d29f717ace295eecd789bbc09",
-        "88453bb36168fc91ec665feca3a6c8b53c7655ac30368648073cf448fca29086",
-        "9d47272f6215e922f0b5c1d9d44965949ac4e74a4a25a011b7f40a43f1ac7946",
-        "4452aefc6559771b0c16f39effb9f42a027a8d4cd126b2903c0a105300093519",
-        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
-        "e9e4e5521b0d53ac803e1fcaa83ad420739de20ab78c9bf8b7817b7334f60188",
-        "4a5afd672b56b5a910d8e9096d0c0469f3a5f84c73953f7b646306d44b7f557c",
-        "c6d429af3e9dab232a9fe92b6b728bd7ff0faaa3ec9e874fe9a896e2e0296774",
-        "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
-        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
-        "2d7834d661722828cd48045ab12c8c6f3176156aac0b28ab145611f84548d378",
-        "2390453a55d87e7aa4cc04852e22a83f8f1a43fa815a9fb342d0b3917e4caed2",
-        "9a56a1495ed0f3819e8b3f7ee5ddafcf1b9fd2e2eaa0261e2cf0a7c4e3de3ff6"
-      ],
-      "text": "On topic calibration and falsifiability of LLM agents, FinPersona-Bench: A Benchmark for Longitudinal Psychometric Stability of Autonomous Financial Agents reports: Large Language Models (LLMs) are increasingly deployed as autonomous financial agents initialized with explicit behavioral mandates such as\"preserve capital\"or\"avoid speculative bets\"that are meant to govern every decision throughout deployment. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
       "beta_confidence": 0.625,
@@ -952,13 +862,13 @@
       "text": "On topic hidden variable detection / causal discovery from residuals, Nonlinear Causal Discovery in Time Series reports: Recent years have witnessed the proliferation of the Functional Causal Model (FCM) for causal learning due to its intuitive representation and accurate learning results."
     },
     {
-      "beta_confidence": 0.6667,
-      "confidence": 0.6,
+      "beta_confidence": 0.75,
+      "confidence": 0.7,
       "failed": 0,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish",
       "id": "27109a399014a522",
       "meta_flags": [],
-      "passed": 1,
+      "passed": 2,
       "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
       "reformulation_count": 0,
       "scope": {
@@ -969,14 +879,15 @@
       "source_url": "https://www.semanticscholar.org/paper/4f9ea82e5eccb871f3fc2907485d0e087044b2e3",
       "status": "active",
       "tested_against": [
-        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4"
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "d44357e2bffd855b53be8fd2edf2102a0aa2cff6aa5573282b5359557f0f022b"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, MICE for CATs: Model-Internal Confidence Estimation for Calibrating Agents with Tools reports: Tool-using agents that act in the world need to be both useful and safe."
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
-      "failed": 0,
+      "beta_confidence": 0.25,
+      "confidence": 0.09999999999999998,
+      "failed": 2,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 0.183 result",
       "id": "c4a4bf7a71a8874d",
       "meta_flags": [],
@@ -1008,41 +919,47 @@
         "3cd837c742964e7fa937b11ba9b3de9a0b1c7f42321695dedeba2188b33dd3ae",
         "167ca2798bb19bb6538390b569235e875b0e803d29f717ace295eecd789bbc09",
         "2963e3d25570eeed9fe736fee4bcf33d7d4815b4495e80d80bfaa8040d8cb67c",
-        "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18"
+        "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18",
+        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61",
+        "6f0d03f14747fa13d07282180353e057b66965809c755ed06ac9b35a3728a1e9"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, The Calibration Gap: Model-Specific Confidence Thresholds for Reliable Customer Service LLMs reports: Every automated reply in customer service is a bet on a model's self-belief. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
-      "beta_confidence": 0.625,
-      "confidence": 0.49999999999999994,
-      "failed": 2,
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish",
       "id": "b06c4ab4998bce26",
       "meta_flags": [],
-      "passed": 4,
+      "passed": 0,
       "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
-      "reformulation_count": 0,
+      "reformulation_count": 1,
       "scope": {
         "date": "2024-01-01",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
         "source": "semantic_scholar",
         "topic": "calibration and falsifiability of LLM agents"
       },
       "source_url": "https://www.semanticscholar.org/paper/4fd8ded3fd8942fb9e8a557ac37722b9f7add8b8",
-      "status": "survived",
+      "status": "active",
       "tested_against": [
         "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
         "87967ba924a42a7c2c60a0b66ea0da3cc940c86185e769fbb31cb0654e1a8650",
         "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
         "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
         "2390453a55d87e7aa4cc04852e22a83f8f1a43fa815a9fb342d0b3917e4caed2",
-        "9a56a1495ed0f3819e8b3f7ee5ddafcf1b9fd2e2eaa0261e2cf0a7c4e3de3ff6"
+        "9a56a1495ed0f3819e8b3f7ee5ddafcf1b9fd2e2eaa0261e2cf0a7c4e3de3ff6",
+        "a7b3504690fe666e11e80ebba8cd3fb5ae9630314d188ceafbe9afe68b3ad33b"
       ],
-      "text": "On topic calibration and falsifiability of LLM agents, On Verbalized Confidence Scores for LLMs reports: The rise of large language models (LLMs) and their tight integration into our daily life make it essential to dedicate efforts towards their trustworthiness."
+      "text": "On topic calibration and falsifiability of LLM agents, On Verbalized Confidence Scores for LLMs reports: The rise of large language models (LLMs) and their tight integration into our daily life make it essential to dedicate efforts towards their trustworthiness. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.3333,
-      "confidence": 0.3,
-      "failed": 1,
+      "beta_confidence": 0.25,
+      "confidence": 0.09999999999999998,
+      "failed": 2,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish",
       "id": "e8f8ffa3e0ec2412",
       "meta_flags": [],
@@ -1072,164 +989,19 @@
         "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
         "c0df077a7b82976484f6c7e55c0184e9397c516a1ba75222c69c03cf79e9b141",
         "9a56a1495ed0f3819e8b3f7ee5ddafcf1b9fd2e2eaa0261e2cf0a7c4e3de3ff6",
-        "a4696e3fb9ea9f965d629daa30ccf7de2a2d7e2df83ecf4ae63c3103918dedf9"
+        "a4696e3fb9ea9f965d629daa30ccf7de2a2d7e2df83ecf4ae63c3103918dedf9",
+        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Agent-ToM: Learning to Monitor Autonomous LLM Agents via Theory-of-Mind Reasoning reports: Monitoring autonomous large language model (LLM) agents for covert malicious behavior is challenging due to delayed, context-dependent, and long-horizon attack patterns. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.4,
-      "confidence": 0.19999999999999996,
-      "failed": 2,
-      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish",
-      "id": "466de0eab224db50",
-      "meta_flags": [],
-      "passed": 1,
-      "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
-      "reformulation_count": 2,
-      "scope": {
-        "date": "2025-01-01",
-        "restrictions": [
-          "restricted after failure #1",
-          "restricted after failure #2"
-        ],
-        "source": "semantic_scholar",
-        "topic": "calibration and falsifiability of LLM agents"
-      },
-      "source_url": "https://www.semanticscholar.org/paper/1b645935ae20e2fb21aad6aac5dc0d95bb500a36",
-      "status": "active",
-      "tested_against": [
-        "4921020a936632ff16c861dfa2c10f4d2bb236d6450601fed6d0712f43978c61",
-        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
-        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
-        "6bd67bf6f0178524488a121cdf3f62314fa6eae85817ebc6ba8c8b9832c378ae",
-        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
-        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
-        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
-        "1e90ae6642e87b85feceebe09b6dfea37b576c7f8b91fde60b01ab9655d94bac",
-        "780fdebf4542d91ae895ca7639dc5909b42b5a8b4e777e2e198d34439f2dbf13",
-        "373cb78117f7b44499b1f770ed63a32e45225f164ae0b8be01764574a60889aa",
-        "2963e3d25570eeed9fe736fee4bcf33d7d4815b4495e80d80bfaa8040d8cb67c",
-        "4a5afd672b56b5a910d8e9096d0c0469f3a5f84c73953f7b646306d44b7f557c",
-        "c6d429af3e9dab232a9fe92b6b728bd7ff0faaa3ec9e874fe9a896e2e0296774",
-        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
-        "a4696e3fb9ea9f965d629daa30ccf7de2a2d7e2df83ecf4ae63c3103918dedf9",
-        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
-        "e9e4e5521b0d53ac803e1fcaa83ad420739de20ab78c9bf8b7817b7334f60188",
-        "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
-        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
-        "9a56a1495ed0f3819e8b3f7ee5ddafcf1b9fd2e2eaa0261e2cf0a7c4e3de3ff6",
-        "2d7834d661722828cd48045ab12c8c6f3176156aac0b28ab145611f84548d378"
-      ],
-      "text": "On topic calibration and falsifiability of LLM agents, Herd Behavior: Investigating Peer Influence in LLM-based Multi-Agent Systems reports: Recent advancements in Large Language Models (LLMs) have enabled the emergence of multi-agent systems where LLMs interact, collaborate, and make decisions in shared environments. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
-    },
-    {
-      "beta_confidence": 0.5,
-      "confidence": 0.29999999999999993,
-      "failed": 2,
-      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 5 result",
-      "id": "9d55616af13cd895",
-      "meta_flags": [],
-      "passed": 2,
-      "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
-      "reformulation_count": 2,
-      "scope": {
-        "date": "2026-01-01",
-        "restrictions": [
-          "restricted after failure #1",
-          "restricted after failure #2"
-        ],
-        "source": "semantic_scholar",
-        "topic": "calibration and falsifiability of LLM agents"
-      },
-      "source_url": "https://www.semanticscholar.org/paper/21e2855510b09e9f548010b7dfba81dd579e87d4",
-      "status": "active",
-      "tested_against": [
-        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
-        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
-        "a4696e3fb9ea9f965d629daa30ccf7de2a2d7e2df83ecf4ae63c3103918dedf9",
-        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
-        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
-        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
-        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
-        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
-        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
-        "3cd837c742964e7fa937b11ba9b3de9a0b1c7f42321695dedeba2188b33dd3ae",
-        "780fdebf4542d91ae895ca7639dc5909b42b5a8b4e777e2e198d34439f2dbf13",
-        "4a5afd672b56b5a910d8e9096d0c0469f3a5f84c73953f7b646306d44b7f557c",
-        "87967ba924a42a7c2c60a0b66ea0da3cc940c86185e769fbb31cb0654e1a8650",
-        "167ca2798bb19bb6538390b569235e875b0e803d29f717ace295eecd789bbc09",
-        "9d47272f6215e922f0b5c1d9d44965949ac4e74a4a25a011b7f40a43f1ac7946",
-        "2963e3d25570eeed9fe736fee4bcf33d7d4815b4495e80d80bfaa8040d8cb67c",
-        "e9e4e5521b0d53ac803e1fcaa83ad420739de20ab78c9bf8b7817b7334f60188",
-        "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
-        "01148ad827adc7f3e5f207d3ea2b995bb2c7f6f0f72840ee8410b8319163a1d5",
-        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
-        "2390453a55d87e7aa4cc04852e22a83f8f1a43fa815a9fb342d0b3917e4caed2",
-        "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18"
-      ],
-      "text": "On topic calibration and falsifiability of LLM agents, DiscoUQ: Structured Disagreement Analysis for Uncertainty Quantification in LLM Agent Ensembles reports: Multi-agent LLM systems, where multiple prompted instances of a language model independently answer questions, are increasingly used for complex reasoning tasks. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
-    },
-    {
-      "beta_confidence": 0.3333,
-      "confidence": 0.3,
-      "failed": 1,
-      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 3% result",
-      "id": "7144ffd1fed98cf8",
-      "meta_flags": [],
-      "passed": 0,
-      "reference_class": "crossref records on 'calibration and falsifiability of LLM agents'",
-      "reformulation_count": 2,
-      "scope": {
-        "date": "2026-09-15",
-        "restrictions": [
-          "restricted after failure #1",
-          "restricted after failure #2"
-        ],
-        "source": "crossref",
-        "topic": "calibration and falsifiability of LLM agents"
-      },
-      "source_url": "https://doi.org/10.21203/rs.3.rs-11012222/v1",
-      "status": "active",
-      "tested_against": [
-        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
-        "a4696e3fb9ea9f965d629daa30ccf7de2a2d7e2df83ecf4ae63c3103918dedf9",
-        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
-        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
-        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
-        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
-        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
-        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
-        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
-        "3cd837c742964e7fa937b11ba9b3de9a0b1c7f42321695dedeba2188b33dd3ae",
-        "ad781f6f9b071c7f813d76ec86166ed6507fc45a092a384370aa0e3b1fe48e6d",
-        "780fdebf4542d91ae895ca7639dc5909b42b5a8b4e777e2e198d34439f2dbf13",
-        "27ff05c52c3844865c166df3e251ea5625e440972a9db53931274141c60319d2",
-        "9d47272f6215e922f0b5c1d9d44965949ac4e74a4a25a011b7f40a43f1ac7946",
-        "4a5afd672b56b5a910d8e9096d0c0469f3a5f84c73953f7b646306d44b7f557c",
-        "87967ba924a42a7c2c60a0b66ea0da3cc940c86185e769fbb31cb0654e1a8650",
-        "c6d429af3e9dab232a9fe92b6b728bd7ff0faaa3ec9e874fe9a896e2e0296774",
-        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
-        "167ca2798bb19bb6538390b569235e875b0e803d29f717ace295eecd789bbc09",
-        "2963e3d25570eeed9fe736fee4bcf33d7d4815b4495e80d80bfaa8040d8cb67c",
-        "4452aefc6559771b0c16f39effb9f42a027a8d4cd126b2903c0a105300093519",
-        "01148ad827adc7f3e5f207d3ea2b995bb2c7f6f0f72840ee8410b8319163a1d5",
-        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
-        "833db41e39c5084cf44373c4165c54585684103328b8c0e22bf1651adb328dc7",
-        "2d7834d661722828cd48045ab12c8c6f3176156aac0b28ab145611f84548d378",
-        "2390453a55d87e7aa4cc04852e22a83f8f1a43fa815a9fb342d0b3917e4caed2",
-        "9a56a1495ed0f3819e8b3f7ee5ddafcf1b9fd2e2eaa0261e2cf0a7c4e3de3ff6",
-        "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18"
-      ],
-      "text": "On topic calibration and falsifiability of LLM agents, Condence, Calibration, and Abstention in Small Open-Weight Language Models on Psychiatric Knowledge Questions: A Cross-Domain Replication reports: Abstract Small, locally deployable language models are increasingly proposed for psychiatric clinical decision support on privacy and compute grounds; two contemporaneous 2026 systems (ClinMPO; PKFAR) report accuracy or reasoning-quality gains from augmenting such models, and a 120-study taxonomy of LLMs in mental heal (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
-    },
-    {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.6667,
+      "confidence": 0.6,
       "failed": 0,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish",
       "id": "b979b64332a2f43d",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
       "reformulation_count": 2,
       "scope": {
@@ -1253,18 +1025,19 @@
         "3cd837c742964e7fa937b11ba9b3de9a0b1c7f42321695dedeba2188b33dd3ae",
         "e9e4e5521b0d53ac803e1fcaa83ad420739de20ab78c9bf8b7817b7334f60188",
         "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18",
-        "59e92e78bec4901541d2a4e303f6eb0ad39c228fe6b6ed95d56c87add2ebd83a"
+        "59e92e78bec4901541d2a4e303f6eb0ad39c228fe6b6ed95d56c87add2ebd83a",
+        "d44357e2bffd855b53be8fd2edf2102a0aa2cff6aa5573282b5359557f0f022b"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept reports: Autonomous AI agents increasingly execute actions, invoke tools, and operate on protected resources with limited human oversight. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.6667,
+      "confidence": 0.6,
       "failed": 0,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish",
       "id": "102d400e3586e370",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 1,
       "reference_class": "crossref records on 'calibration and falsifiability of LLM agents'",
       "reformulation_count": 2,
       "scope": {
@@ -1289,14 +1062,15 @@
         "3cd837c742964e7fa937b11ba9b3de9a0b1c7f42321695dedeba2188b33dd3ae",
         "e9e4e5521b0d53ac803e1fcaa83ad420739de20ab78c9bf8b7817b7334f60188",
         "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18",
-        "59e92e78bec4901541d2a4e303f6eb0ad39c228fe6b6ed95d56c87add2ebd83a"
+        "59e92e78bec4901541d2a4e303f6eb0ad39c228fe6b6ed95d56c87add2ebd83a",
+        "d44357e2bffd855b53be8fd2edf2102a0aa2cff6aa5573282b5359557f0f022b"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept reports: Autonomous AI agents increasingly execute actions, invoke tools, and operate on protected resources with limited human oversight. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
-      "failed": 0,
+      "beta_confidence": 0.3333,
+      "confidence": 0.3,
+      "failed": 1,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish",
       "id": "5791127e693abad5",
       "meta_flags": [],
@@ -1343,24 +1117,26 @@
         "9d47272f6215e922f0b5c1d9d44965949ac4e74a4a25a011b7f40a43f1ac7946",
         "e9e4e5521b0d53ac803e1fcaa83ad420739de20ab78c9bf8b7817b7334f60188",
         "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18",
-        "59e92e78bec4901541d2a4e303f6eb0ad39c228fe6b6ed95d56c87add2ebd83a"
+        "59e92e78bec4901541d2a4e303f6eb0ad39c228fe6b6ed95d56c87add2ebd83a",
+        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, XChronos OS as a Temporal-operating Layer: Architecture, Falsifiable Hypotheses, and an Experimental Program for Persistent Memory and Agents reports: Recent progress in language-model-based agents has shifted part of the artificial-intelligence problem from isolated models toward architectures that preserve memory, context, tools, goals, and state across time. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
-      "beta_confidence": 0.3333,
-      "confidence": 0.3,
-      "failed": 1,
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 18.1% result",
       "id": "6a93697f7e9f702a",
       "meta_flags": [],
       "passed": 0,
       "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
-      "reformulation_count": 1,
+      "reformulation_count": 2,
       "scope": {
         "date": "2025-01-01",
         "restrictions": [
-          "restricted after failure #1"
+          "restricted after failure #1",
+          "restricted after failure #2"
         ],
         "source": "semantic_scholar",
         "topic": "calibration and falsifiability of LLM agents"
@@ -1395,14 +1171,18 @@
         "2390453a55d87e7aa4cc04852e22a83f8f1a43fa815a9fb342d0b3917e4caed2",
         "9a56a1495ed0f3819e8b3f7ee5ddafcf1b9fd2e2eaa0261e2cf0a7c4e3de3ff6",
         "47667e7054e0fb27370de0863d0a1c0d9ce509b68d27ffa6d5e202e70b3c20dc",
-        "2963e3d25570eeed9fe736fee4bcf33d7d4815b4495e80d80bfaa8040d8cb67c"
+        "2963e3d25570eeed9fe736fee4bcf33d7d4815b4495e80d80bfaa8040d8cb67c",
+        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61",
+        "a7b3504690fe666e11e80ebba8cd3fb5ae9630314d188ceafbe9afe68b3ad33b",
+        "d44357e2bffd855b53be8fd2edf2102a0aa2cff6aa5573282b5359557f0f022b",
+        "6f0d03f14747fa13d07282180353e057b66965809c755ed06ac9b35a3728a1e9"
       ],
-      "text": "On topic calibration and falsifiability of LLM agents, Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval reports: Large language models (LLMs) can generate fluent yet unsupported content (\u201challucinations\u201d), which undermines trust and complicates downstream decision making. (scope narrowed: restricted after failure #1)"
+      "text": "On topic calibration and falsifiability of LLM agents, Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval reports: Large language models (LLMs) can generate fluent yet unsupported content (\u201challucinations\u201d), which undermines trust and complicates downstream decision making. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
-      "failed": 0,
+      "beta_confidence": 0.3333,
+      "confidence": 0.3,
+      "failed": 1,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 100% result",
       "id": "80354ede1febc056",
       "meta_flags": [],
@@ -1449,62 +1229,10 @@
         "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
         "9d47272f6215e922f0b5c1d9d44965949ac4e74a4a25a011b7f40a43f1ac7946",
         "e9e4e5521b0d53ac803e1fcaa83ad420739de20ab78c9bf8b7817b7334f60188",
-        "4452aefc6559771b0c16f39effb9f42a027a8d4cd126b2903c0a105300093519"
+        "4452aefc6559771b0c16f39effb9f42a027a8d4cd126b2903c0a105300093519",
+        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Efficiency Hallucination: Formalizing and Measuring Behavioral Calibration in LLM-Based Code Optimization reports: The integration of Large Language Models (LLMs) into automated code optimization introduces a critical reliability risk we term the Efficiency Hallucination: an LLM's tendency to issue non-functional mutations with unsubstantiated performance claims on already-optimized code. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
-    },
-    {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
-      "failed": 0,
-      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish",
-      "id": "5a6fe9f941750b10",
-      "meta_flags": [],
-      "passed": 0,
-      "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
-      "reformulation_count": 2,
-      "scope": {
-        "date": "2025-01-01",
-        "restrictions": [
-          "restricted after failure #1",
-          "restricted after failure #2"
-        ],
-        "source": "semantic_scholar",
-        "topic": "calibration and falsifiability of LLM agents"
-      },
-      "source_url": "https://www.semanticscholar.org/paper/5f6f3a7c94113257fe8e6b0736e2918621dbf403",
-      "status": "active",
-      "tested_against": [
-        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
-        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
-        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
-        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
-        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab",
-        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
-        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
-        "3cd837c742964e7fa937b11ba9b3de9a0b1c7f42321695dedeba2188b33dd3ae",
-        "ad781f6f9b071c7f813d76ec86166ed6507fc45a092a384370aa0e3b1fe48e6d",
-        "27ff05c52c3844865c166df3e251ea5625e440972a9db53931274141c60319d2",
-        "167ca2798bb19bb6538390b569235e875b0e803d29f717ace295eecd789bbc09",
-        "2963e3d25570eeed9fe736fee4bcf33d7d4815b4495e80d80bfaa8040d8cb67c",
-        "e9e4e5521b0d53ac803e1fcaa83ad420739de20ab78c9bf8b7817b7334f60188",
-        "4452aefc6559771b0c16f39effb9f42a027a8d4cd126b2903c0a105300093519",
-        "4a5afd672b56b5a910d8e9096d0c0469f3a5f84c73953f7b646306d44b7f557c",
-        "87967ba924a42a7c2c60a0b66ea0da3cc940c86185e769fbb31cb0654e1a8650",
-        "0791fce7862feb54debf2674d6ebb93361cec4e2712fa5c30ae1baad1b665009",
-        "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
-        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
-        "833db41e39c5084cf44373c4165c54585684103328b8c0e22bf1651adb328dc7",
-        "2d7834d661722828cd48045ab12c8c6f3176156aac0b28ab145611f84548d378",
-        "1becd37bd03ce4f4e3cd4eb41686e98cb6a9e24315563af5881b2f928758f525",
-        "2390453a55d87e7aa4cc04852e22a83f8f1a43fa815a9fb342d0b3917e4caed2",
-        "9a56a1495ed0f3819e8b3f7ee5ddafcf1b9fd2e2eaa0261e2cf0a7c4e3de3ff6",
-        "47667e7054e0fb27370de0863d0a1c0d9ce509b68d27ffa6d5e202e70b3c20dc",
-        "a4696e3fb9ea9f965d629daa30ccf7de2a2d7e2df83ecf4ae63c3103918dedf9",
-        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
-        "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18"
-      ],
-      "text": "On topic calibration and falsifiability of LLM agents, S-AI-ANTI HALLUCINATION: A BIO-INSPIRED AND CONFIDENCE-AWARE SPARSE AI FRAMEWORK FOR RELIABLE GENERATIVE SYSTEMS reports: Large Language Models (LLMs) exhibit impressive generative capabilities but remain prone to hallucinations \u2014 plausible yet false statements produced with high confidence. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
       "beta_confidence": 0.5,
@@ -1558,77 +1286,9 @@
       "text": "On topic calibration and falsifiability of LLM agents, Mathematical Analysis of Hallucination Dynamics in Large Language Models: Uncertainty Quantification, Advanced Decoding, and Principled Mitigation reports: Large Language Models (LLMs) are powerful linguistic engines but remain susceptible to hallucinations: plausible-sounding outputs that are factually incorrect or unsupported. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
-      "failed": 0,
-      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish",
-      "id": "20133dea205d2a7e",
-      "meta_flags": [],
-      "passed": 0,
-      "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
-      "reformulation_count": 2,
-      "scope": {
-        "date": "2026-01-01",
-        "restrictions": [
-          "restricted after failure #1",
-          "restricted after failure #2"
-        ],
-        "source": "semantic_scholar",
-        "topic": "calibration and falsifiability of LLM agents"
-      },
-      "source_url": "https://www.semanticscholar.org/paper/304c3fc9ade77a8b94d4ef788f563648fa2577a1",
-      "status": "active",
-      "tested_against": [
-        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
-        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
-        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
-        "fc32e522a289235c2b26429049ea7ebb84b8b95fdd0b2eabf0dfae33dd0879ae",
-        "321f972d4376b2af1c12b07cf62cf14d0efcc40b6ad6a8e05662fe17967208c0",
-        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
-        "c3a179430a4cfd42d2fed24f4eb16d7ebb571841e2db927f3edec4c229d356ec",
-        "97f1d08afaeb77aeb7778dcac8f5be79ae4424c169553f176f65d36535be1823",
-        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab",
-        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
-        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
-        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
-        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
-        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
-        "ad781f6f9b071c7f813d76ec86166ed6507fc45a092a384370aa0e3b1fe48e6d",
-        "780fdebf4542d91ae895ca7639dc5909b42b5a8b4e777e2e198d34439f2dbf13",
-        "27ff05c52c3844865c166df3e251ea5625e440972a9db53931274141c60319d2",
-        "a33a9486b7569948a82b130ec038f2013dba847185d0b1275554543ff753177b",
-        "2ad45948acea864741148bb5b041025aaebb314a06063ebbb63f03037c486a6f",
-        "167ca2798bb19bb6538390b569235e875b0e803d29f717ace295eecd789bbc09",
-        "9d47272f6215e922f0b5c1d9d44965949ac4e74a4a25a011b7f40a43f1ac7946",
-        "2963e3d25570eeed9fe736fee4bcf33d7d4815b4495e80d80bfaa8040d8cb67c",
-        "e9e4e5521b0d53ac803e1fcaa83ad420739de20ab78c9bf8b7817b7334f60188",
-        "4452aefc6559771b0c16f39effb9f42a027a8d4cd126b2903c0a105300093519",
-        "4a5afd672b56b5a910d8e9096d0c0469f3a5f84c73953f7b646306d44b7f557c",
-        "0791fce7862feb54debf2674d6ebb93361cec4e2712fa5c30ae1baad1b665009",
-        "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
-        "04479b41a50bcae1f00b2c23bddb5b9e74099c3b8041781aa83e52ca5b3ef0bc",
-        "40fe56c6a696912be6f9955f0cdcef2ff76e71996561049435b8c9af84b7241b",
-        "ca52f2ac5da51a2da8b8d4ea6f9a5a9a664e73811490d53f0ad9a45e037e4e14",
-        "01148ad827adc7f3e5f207d3ea2b995bb2c7f6f0f72840ee8410b8319163a1d5",
-        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
-        "833db41e39c5084cf44373c4165c54585684103328b8c0e22bf1651adb328dc7",
-        "1becd37bd03ce4f4e3cd4eb41686e98cb6a9e24315563af5881b2f928758f525",
-        "2390453a55d87e7aa4cc04852e22a83f8f1a43fa815a9fb342d0b3917e4caed2",
-        "9a56a1495ed0f3819e8b3f7ee5ddafcf1b9fd2e2eaa0261e2cf0a7c4e3de3ff6",
-        "47667e7054e0fb27370de0863d0a1c0d9ce509b68d27ffa6d5e202e70b3c20dc",
-        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
-        "a4696e3fb9ea9f965d629daa30ccf7de2a2d7e2df83ecf4ae63c3103918dedf9",
-        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
-        "3cd837c742964e7fa937b11ba9b3de9a0b1c7f42321695dedeba2188b33dd3ae",
-        "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18",
-        "59e92e78bec4901541d2a4e303f6eb0ad39c228fe6b6ed95d56c87add2ebd83a"
-      ],
-      "text": "On topic calibration and falsifiability of LLM agents, SAVOR: Self-Aware Visual Grounding via Confidence-Calibrated Reinforcement Learning for Multimodal Hallucination Mitigation reports: Multimodal large language models (MLLMs) have made strong progress on visual question answering and image captioning, yet they still produce fluent claims about objects, attributes, or relations that are not grounded in the image. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
-    },
-    {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
-      "failed": 0,
+      "beta_confidence": 0.25,
+      "confidence": 0.09999999999999998,
+      "failed": 2,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish",
       "id": "a9ce5dcf253a0e07",
       "meta_flags": [],
@@ -1671,7 +1331,9 @@
         "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
         "167ca2798bb19bb6538390b569235e875b0e803d29f717ace295eecd789bbc09",
         "9d47272f6215e922f0b5c1d9d44965949ac4e74a4a25a011b7f40a43f1ac7946",
-        "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18"
+        "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18",
+        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61",
+        "6f0d03f14747fa13d07282180353e057b66965809c755ed06ac9b35a3728a1e9"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, From Sampling to Cognition: Modeling Internal Cognitive Confidence in Language Models for Robust Uncertainty Calibration reports: Large Language Models (LLMs) have demonstrated remarkable performance across a wide range of tasks, yet they generally lack self-awareness, often displaying overconfidence when confronted with questions beyond their knowledge boundaries. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
@@ -1736,9 +1398,9 @@
       "text": "On topic requisite variety and cybernetic regulation, The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World reports: The idea that successful regulation requires an internal world model helps motivate both the generative models of active inference and the modeling engine of Kolmogorov Theory's algorithmic agent."
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
-      "failed": 0,
+      "beta_confidence": 0.25,
+      "confidence": 0.09999999999999998,
+      "failed": 2,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish",
       "id": "e2314f87f23d9603",
       "meta_flags": [],
@@ -1766,7 +1428,9 @@
         "2963e3d25570eeed9fe736fee4bcf33d7d4815b4495e80d80bfaa8040d8cb67c",
         "4a5afd672b56b5a910d8e9096d0c0469f3a5f84c73953f7b646306d44b7f557c",
         "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
-        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9"
+        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
+        "167ca2798bb19bb6538390b569235e875b0e803d29f717ace295eecd789bbc09",
+        "a7b3504690fe666e11e80ebba8cd3fb5ae9630314d188ceafbe9afe68b3ad33b"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, MameLoshnLM: Yiddish Language Model and Evaluation Benchmark reports: We present MameLoshnLM, the first open-source 8B-parameter language model built specifically for Yiddish. (scope narrowed: restricted after failure #1)"
     },
@@ -1779,11 +1443,12 @@
       "meta_flags": [],
       "passed": 0,
       "reference_class": "arxiv records on 'calibration and falsifiability of LLM agents'",
-      "reformulation_count": 1,
+      "reformulation_count": 2,
       "scope": {
         "date": "2026-07-23",
         "restrictions": [
-          "restricted after failure #1"
+          "restricted after failure #1",
+          "restricted after failure #2"
         ],
         "source": "arxiv",
         "topic": "calibration and falsifiability of LLM agents"
@@ -1796,10 +1461,199 @@
         "2963e3d25570eeed9fe736fee4bcf33d7d4815b4495e80d80bfaa8040d8cb67c",
         "4452aefc6559771b0c16f39effb9f42a027a8d4cd126b2903c0a105300093519",
         "04479b41a50bcae1f00b2c23bddb5b9e74099c3b8041781aa83e52ca5b3ef0bc",
-        "40fe56c6a696912be6f9955f0cdcef2ff76e71996561049435b8c9af84b7241b"
+        "40fe56c6a696912be6f9955f0cdcef2ff76e71996561049435b8c9af84b7241b",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "3cd837c742964e7fa937b11ba9b3de9a0b1c7f42321695dedeba2188b33dd3ae",
+        "e9e4e5521b0d53ac803e1fcaa83ad420739de20ab78c9bf8b7817b7334f60188",
+        "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18",
+        "d44357e2bffd855b53be8fd2edf2102a0aa2cff6aa5573282b5359557f0f022b"
       ],
-      "text": "On topic calibration and falsifiability of LLM agents, Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept reports: Autonomous AI agents increasingly execute actions, invoke tools, and operate on protected resources with limited human oversight. (scope narrowed: restricted after failure #1)"
+      "text": "On topic calibration and falsifiability of LLM agents, Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept reports: Autonomous AI agents increasingly execute actions, invoke tools, and operate on protected resources with limited human oversight. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish",
+      "id": "c06f1b8c0c5dc936",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026-01-01",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "semantic_scholar",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "https://www.semanticscholar.org/paper/35bcf942450e50382abea4f20844bf5c4adb2c2c",
+      "status": "active",
+      "tested_against": [
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
+        "780fdebf4542d91ae895ca7639dc5909b42b5a8b4e777e2e198d34439f2dbf13",
+        "373cb78117f7b44499b1f770ed63a32e45225f164ae0b8be01764574a60889aa",
+        "27ff05c52c3844865c166df3e251ea5625e440972a9db53931274141c60319d2",
+        "4a5afd672b56b5a910d8e9096d0c0469f3a5f84c73953f7b646306d44b7f557c",
+        "c6d429af3e9dab232a9fe92b6b728bd7ff0faaa3ec9e874fe9a896e2e0296774",
+        "0791fce7862feb54debf2674d6ebb93361cec4e2712fa5c30ae1baad1b665009",
+        "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
+        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
+        "2d7834d661722828cd48045ab12c8c6f3176156aac0b28ab145611f84548d378",
+        "2390453a55d87e7aa4cc04852e22a83f8f1a43fa815a9fb342d0b3917e4caed2",
+        "a7b3504690fe666e11e80ebba8cd3fb5ae9630314d188ceafbe9afe68b3ad33b",
+        "6f0d03f14747fa13d07282180353e057b66965809c755ed06ac9b35a3728a1e9"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Confidence Composition for Multiagent Language Model Systems reports: Multiagent language model systems, such as collaborative reasoning and debate, produce multiple correlated candidate answers and confidence signals. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 34.9 result",
+      "id": "c0aa2f56269137e4",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2024-01-01",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "semantic_scholar",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "https://www.semanticscholar.org/paper/e1442988917859798b9c8966dd7c08531ae7387e",
+      "status": "active",
+      "tested_against": [
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
+        "ad781f6f9b071c7f813d76ec86166ed6507fc45a092a384370aa0e3b1fe48e6d",
+        "167ca2798bb19bb6538390b569235e875b0e803d29f717ace295eecd789bbc09",
+        "4a5afd672b56b5a910d8e9096d0c0469f3a5f84c73953f7b646306d44b7f557c",
+        "87967ba924a42a7c2c60a0b66ea0da3cc940c86185e769fbb31cb0654e1a8650",
+        "c6d429af3e9dab232a9fe92b6b728bd7ff0faaa3ec9e874fe9a896e2e0296774",
+        "164fe64b513e790e684efbc140ff7e259d06c83c4838fd1f1979627ad9a604c7",
+        "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
+        "01148ad827adc7f3e5f207d3ea2b995bb2c7f6f0f72840ee8410b8319163a1d5",
+        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
+        "a7b3504690fe666e11e80ebba8cd3fb5ae9630314d188ceafbe9afe68b3ad33b",
+        "d44357e2bffd855b53be8fd2edf2102a0aa2cff6aa5573282b5359557f0f022b",
+        "6f0d03f14747fa13d07282180353e057b66965809c755ed06ac9b35a3728a1e9"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA Constraints reports: Large language model (LLM) triage agents in security operations centres (SOCs) are evaluated on verdict accuracy. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 74% result",
+      "id": "6b0eaddef58bef43",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026-01-01",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "semantic_scholar",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "https://www.semanticscholar.org/paper/25c97215ea9ab363eec9d30543fa28b985f1b246",
+      "status": "active",
+      "tested_against": [
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
+        "ad781f6f9b071c7f813d76ec86166ed6507fc45a092a384370aa0e3b1fe48e6d",
+        "780fdebf4542d91ae895ca7639dc5909b42b5a8b4e777e2e198d34439f2dbf13",
+        "27ff05c52c3844865c166df3e251ea5625e440972a9db53931274141c60319d2",
+        "e9e4e5521b0d53ac803e1fcaa83ad420739de20ab78c9bf8b7817b7334f60188",
+        "c6d429af3e9dab232a9fe92b6b728bd7ff0faaa3ec9e874fe9a896e2e0296774",
+        "0791fce7862feb54debf2674d6ebb93361cec4e2712fa5c30ae1baad1b665009",
+        "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
+        "01148ad827adc7f3e5f207d3ea2b995bb2c7f6f0f72840ee8410b8319163a1d5",
+        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
+        "2d7834d661722828cd48045ab12c8c6f3176156aac0b28ab145611f84548d378"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, SearchJev: A Fast and Calibrated System-1 Model for Search Agents reports: Search agents repeatedly make short decisions about relevance, evidence sufficiency, and search actions. (scope narrowed: restricted after failure #1)"
+    },
+    {
+      "beta_confidence": 0.5714,
+      "confidence": 0.4,
+      "failed": 2,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 35.7% result",
+      "id": "15d96749ff14b55d",
+      "meta_flags": [],
+      "passed": 3,
+      "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 0,
+      "scope": {
+        "date": "2026-01-01",
+        "source": "semantic_scholar",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "https://www.semanticscholar.org/paper/455aff2b876a266a14e412f4d4ff3071da1bb7d3",
+      "status": "survived",
+      "tested_against": [
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
+        "4a5afd672b56b5a910d8e9096d0c0469f3a5f84c73953f7b646306d44b7f557c",
+        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, TapGuard: Temperature-Calibrated Execute\u2013Confirm\u2013Block Routing for LLM-Powered Mobile Agents reports: Large language model-powered mobile agents can compose messages, manage files, operate financial applications, and act on content from other applications."
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 10% result",
+      "id": "979d93bcc43a2264",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026-01-01",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "semantic_scholar",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "https://www.semanticscholar.org/paper/a4eadda8b5fa6316b0b0ef5d60c40ea021835f59",
+      "status": "active",
+      "tested_against": [
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "bb31105cf0c74fb4948bd4a520372c6c7ab19fdf9233ca20231894a60fb44d4e",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
+        "ad781f6f9b071c7f813d76ec86166ed6507fc45a092a384370aa0e3b1fe48e6d",
+        "780fdebf4542d91ae895ca7639dc5909b42b5a8b4e777e2e198d34439f2dbf13",
+        "373cb78117f7b44499b1f770ed63a32e45225f164ae0b8be01764574a60889aa",
+        "27ff05c52c3844865c166df3e251ea5625e440972a9db53931274141c60319d2",
+        "9d47272f6215e922f0b5c1d9d44965949ac4e74a4a25a011b7f40a43f1ac7946",
+        "4a5afd672b56b5a910d8e9096d0c0469f3a5f84c73953f7b646306d44b7f557c",
+        "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
+        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
+        "c0df077a7b82976484f6c7e55c0184e9397c516a1ba75222c69c03cf79e9b141",
+        "833db41e39c5084cf44373c4165c54585684103328b8c0e22bf1651adb328dc7",
+        "2d7834d661722828cd48045ab12c8c6f3176156aac0b28ab145611f84548d378",
+        "2390453a55d87e7aa4cc04852e22a83f8f1a43fa815a9fb342d0b3917e4caed2",
+        "a7b3504690fe666e11e80ebba8cd3fb5ae9630314d188ceafbe9afe68b3ad33b"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents reports: Reliable confidence estimation is increasingly central to the trustworthy deployment of language models: a calibrated estimate of the probability that an output is correct decides what to ship, what to escalate, and what to retry. (scope narrowed: restricted after failure #1)"
     }
   ],
-  "saved_at": "2026-10-05T14:42:36"
+  "saved_at": "2026-10-12T15:29:00"
 }
