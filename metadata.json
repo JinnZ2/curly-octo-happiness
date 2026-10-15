@@ -6,5 +6,6 @@
   "codeRepository": "https://github.com/JinnZ2/curly-octo-happiness",
   "programmingLanguage": "Python",
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "copyrightNotice": "CC0 1.0 applies to owner-authored repository work. Scholarly source records and excerpts retain their source terms; see LICENSE_HISTORY.md.",
   "keywords": ["AI grounding", "claim verification", "falsifiability", "systems analysis", "sensor fusion"]
 }
