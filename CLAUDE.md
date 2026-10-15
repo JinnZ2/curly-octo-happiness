@@ -104,7 +104,7 @@ Dependencies: the `grounding` package and root playgrounds are stdlib-only. Extr
 - **Dependency tiers** (stated in `pyproject.toml`): `grounding/` and the root playgrounds are **stdlib-only, deliberately** — the stewardship line is about running where parts and bandwidth are scarce, so the core must work on a bare Python install. Nothing in the core may import an optional dependency *even guarded*, since `try: import numpy` makes core behaviour depend on what happens to be installed. Everything heavier goes behind an extra and must **add** capability rather than replace it: `modules/gae.py::graph_energy` is the pattern — numpy when present, a stdlib Jacobi solver when not, with a test asserting the two agree to 1e-8. Phase 3.3/3.4 (flow-matching policy, learned latent planner) are the first items that genuinely need the `ml` extra; everything through Phase 3.2 and 3.5 fits in tier 0.
 - No packages outside `grounding/`: `modules/`, `plugins/`, `diagnostic/`, `project/` rely on their own directory being on `sys.path` (scripts there assume CWD or add paths themselves; `tests/conftest.py` handles it for tests).
 - When adding an encoder plugin, use `grounding.core.graycode.gray_bits` semantics for banding and declare `class_name` in `PLUGIN_META`; adaptive banding goes in an `init_bands(samples)` method.
-- License is CC0 1.0 (public domain).
+- License: owner-authored repository work is CC0 1.0 (public domain); scholarly source records and excerpts retain their source terms (see `LICENSE_HISTORY.md`).
 
 <!-- clone-refspec-note v1.1 -->
 ## Cloning and pushing

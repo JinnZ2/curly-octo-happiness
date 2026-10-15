@@ -95,4 +95,4 @@ cause plans to fail.
 ## License
 
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
-Released under **CC0 1.0** (public domain dedication) — use it for anything, no attribution required.
+Owner-authored repository work is released under **CC0 1.0** (public domain dedication) — use it for anything, no attribution required. Scholarly source records and excerpts retain their source terms; see [LICENSE_HISTORY.md](LICENSE_HISTORY.md).
