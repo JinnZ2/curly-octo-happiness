@@ -108,7 +108,6 @@ Dependencies: the `grounding` package and root playgrounds are stdlib-only. Extr
 
 <!-- clone-refspec-note v1.1 -->
 ## Cloning and pushing
-
 Shallow clones are single-branch by default.
 Before pushing any branch other than the default
 branch, run:
