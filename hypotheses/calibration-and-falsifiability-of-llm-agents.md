@@ -1,6 +1,6 @@
 # Hypothesis draft — calibration and falsifiability of LLM agents
 
-_Regenerated 2026-10-12 by `scripts/hypothesis_engine.py`. Node confidence 0.45; 3 surviving / 23 active / 0 refuted claims._
+_Regenerated 2026-10-19 by `scripts/hypothesis_engine.py`. Node confidence 0.45; 3 surviving / 23 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding. Open questions with methods and falsifiers are in [RESEARCH_GAPS.md](RESEARCH_GAPS.md).
 
@@ -48,17 +48,17 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 10% result
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://www.semanticscholar.org/paper/a4eadda8b5fa6316b0b0ef5d60c40ea021835f59
-  - reformulated 1x
+  - reformulated 2x
 - **Confidence Composition for Multiagent Language Model Systems** — Multiagent language model systems, such as collaborative reasoning and debate, produce multiple correlated candidate answers and confidence signals.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://www.semanticscholar.org/paper/35bcf942450e50382abea4f20844bf5c4adb2c2c
-  - reformulated 1x
+  - reformulated 2x
 - **Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA Constraints** — Large language model (LLM) triage agents in security operations centres (SOCs) are evaluated on verdict accuracy.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 34.9 result
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://www.semanticscholar.org/paper/e1442988917859798b9c8966dd7c08531ae7387e
-  - reformulated 1x
+  - reformulated 2x
 - **Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept** — Autonomous AI agents increasingly execute actions, invoke tools, and operate on protected resources with limited human oversight.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 0 passed / 0 failed, beta-confidence 0.50
@@ -83,7 +83,7 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://www.semanticscholar.org/paper/4fd8ded3fd8942fb9e8a557ac37722b9f7add8b8
-  - reformulated 1x
+  - reformulated 2x
 - **Operationalizing Serendipity: Multi-Agent AI Workflows for Enhanced Materials Characterization with Theory-in-the-Loop** — The history of science is punctuated by serendipitous discoveries, where unexpected observations, rather than targeted hypotheses, opened new fields of inquiry.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 0 passed / 0 failed, beta-confidence 0.50
@@ -93,7 +93,7 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 74% result
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://www.semanticscholar.org/paper/25c97215ea9ab363eec9d30543fa28b985f1b246
-  - reformulated 1x
+  - reformulated 2x
 - **APEX-EM: Non-Parametric Online Learning for Autonomous Agents via Structured Procedural-Episodic Experience Replay** — LLM agents rerun full reasoning for every task, even one they solved moments earlier.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 7.6 result
   - record: 1 passed / 2 failed, beta-confidence 0.40

@@ -2,7 +2,7 @@
 
 **This is an automated triage of a literature sample, not a set of findings.** Each claim is the first sentence of an abstract — often background rather than the paper's result, so read the source before running anything. “Corroborating” and “contradicting” mean another abstract's sentences on a shared subject lean for or against it — cross-reading, not replication. Every entry is a starting point someone with a lab, data, or a desk can pick up.
 
-_Regenerated 2026-10-12 by `scripts/hypothesis_engine.py` (stage 8). Format: `RESEARCH_RENDER.md` §3. Ids are permanent: a gap that drops out keeps its id and moves to **Retired ids**; ids are never renumbered._
+_Regenerated 2026-10-19 by `scripts/hypothesis_engine.py` (stage 8). Format: `RESEARCH_RENDER.md` §3. Ids are permanent: a gap that drops out keeps its id and moves to **Retired ids**; ids are never renumbered._
 
 **Classes:** EMPIRICAL — a measurement nobody has made · METHODOLOGICAL — a procedure nobody has defined.  
 **Knowledge states:** `UNDER_STUDY` sources disagree, value provisional · `UNDEFINED` no agreed falsifier · `UNMEASURED` no value.

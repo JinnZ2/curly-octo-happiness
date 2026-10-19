@@ -934,11 +934,12 @@
       "meta_flags": [],
       "passed": 0,
       "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
-      "reformulation_count": 1,
+      "reformulation_count": 2,
       "scope": {
         "date": "2024-01-01",
         "restrictions": [
-          "restricted after failure #1"
+          "restricted after failure #1",
+          "restricted after failure #2"
         ],
         "source": "semantic_scholar",
         "topic": "calibration and falsifiability of LLM agents"
@@ -952,9 +953,15 @@
         "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
         "2390453a55d87e7aa4cc04852e22a83f8f1a43fa815a9fb342d0b3917e4caed2",
         "9a56a1495ed0f3819e8b3f7ee5ddafcf1b9fd2e2eaa0261e2cf0a7c4e3de3ff6",
-        "a7b3504690fe666e11e80ebba8cd3fb5ae9630314d188ceafbe9afe68b3ad33b"
+        "a7b3504690fe666e11e80ebba8cd3fb5ae9630314d188ceafbe9afe68b3ad33b",
+        "9e96584708a50e8dc4fb86442c4b7f988a85817759ea51865a05a516bdf86a52",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
+        "167ca2798bb19bb6538390b569235e875b0e803d29f717ace295eecd789bbc09",
+        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61"
       ],
-      "text": "On topic calibration and falsifiability of LLM agents, On Verbalized Confidence Scores for LLMs reports: The rise of large language models (LLMs) and their tight integration into our daily life make it essential to dedicate efforts towards their trustworthiness. (scope narrowed: restricted after failure #1)"
+      "text": "On topic calibration and falsifiability of LLM agents, On Verbalized Confidence Scores for LLMs reports: The rise of large language models (LLMs) and their tight integration into our daily life make it essential to dedicate efforts towards their trustworthiness. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
       "beta_confidence": 0.25,
@@ -1479,11 +1486,12 @@
       "meta_flags": [],
       "passed": 0,
       "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
-      "reformulation_count": 1,
+      "reformulation_count": 2,
       "scope": {
         "date": "2026-01-01",
         "restrictions": [
-          "restricted after failure #1"
+          "restricted after failure #1",
+          "restricted after failure #2"
         ],
         "source": "semantic_scholar",
         "topic": "calibration and falsifiability of LLM agents"
@@ -1505,9 +1513,16 @@
         "2d7834d661722828cd48045ab12c8c6f3176156aac0b28ab145611f84548d378",
         "2390453a55d87e7aa4cc04852e22a83f8f1a43fa815a9fb342d0b3917e4caed2",
         "a7b3504690fe666e11e80ebba8cd3fb5ae9630314d188ceafbe9afe68b3ad33b",
-        "6f0d03f14747fa13d07282180353e057b66965809c755ed06ac9b35a3728a1e9"
+        "6f0d03f14747fa13d07282180353e057b66965809c755ed06ac9b35a3728a1e9",
+        "6b7361540b084cc3e44c62d7bfc96eff9611f9a330d7a91d1a380dd9bc0b2ebe",
+        "a4696e3fb9ea9f965d629daa30ccf7de2a2d7e2df83ecf4ae63c3103918dedf9",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
+        "167ca2798bb19bb6538390b569235e875b0e803d29f717ace295eecd789bbc09",
+        "9d47272f6215e922f0b5c1d9d44965949ac4e74a4a25a011b7f40a43f1ac7946"
       ],
-      "text": "On topic calibration and falsifiability of LLM agents, Confidence Composition for Multiagent Language Model Systems reports: Multiagent language model systems, such as collaborative reasoning and debate, produce multiple correlated candidate answers and confidence signals. (scope narrowed: restricted after failure #1)"
+      "text": "On topic calibration and falsifiability of LLM agents, Confidence Composition for Multiagent Language Model Systems reports: Multiagent language model systems, such as collaborative reasoning and debate, produce multiple correlated candidate answers and confidence signals. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
       "beta_confidence": 0.5,
@@ -1518,11 +1533,12 @@
       "meta_flags": [],
       "passed": 0,
       "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
-      "reformulation_count": 1,
+      "reformulation_count": 2,
       "scope": {
         "date": "2024-01-01",
         "restrictions": [
-          "restricted after failure #1"
+          "restricted after failure #1",
+          "restricted after failure #2"
         ],
         "source": "semantic_scholar",
         "topic": "calibration and falsifiability of LLM agents"
@@ -1545,9 +1561,12 @@
         "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
         "a7b3504690fe666e11e80ebba8cd3fb5ae9630314d188ceafbe9afe68b3ad33b",
         "d44357e2bffd855b53be8fd2edf2102a0aa2cff6aa5573282b5359557f0f022b",
-        "6f0d03f14747fa13d07282180353e057b66965809c755ed06ac9b35a3728a1e9"
+        "6f0d03f14747fa13d07282180353e057b66965809c755ed06ac9b35a3728a1e9",
+        "a4696e3fb9ea9f965d629daa30ccf7de2a2d7e2df83ecf4ae63c3103918dedf9",
+        "9d47272f6215e922f0b5c1d9d44965949ac4e74a4a25a011b7f40a43f1ac7946",
+        "9a56a1495ed0f3819e8b3f7ee5ddafcf1b9fd2e2eaa0261e2cf0a7c4e3de3ff6"
       ],
-      "text": "On topic calibration and falsifiability of LLM agents, Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA Constraints reports: Large language model (LLM) triage agents in security operations centres (SOCs) are evaluated on verdict accuracy. (scope narrowed: restricted after failure #1)"
+      "text": "On topic calibration and falsifiability of LLM agents, Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA Constraints reports: Large language model (LLM) triage agents in security operations centres (SOCs) are evaluated on verdict accuracy. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
       "beta_confidence": 0.5,
@@ -1558,11 +1577,12 @@
       "meta_flags": [],
       "passed": 0,
       "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
-      "reformulation_count": 1,
+      "reformulation_count": 2,
       "scope": {
         "date": "2026-01-01",
         "restrictions": [
-          "restricted after failure #1"
+          "restricted after failure #1",
+          "restricted after failure #2"
         ],
         "source": "semantic_scholar",
         "topic": "calibration and falsifiability of LLM agents"
@@ -1581,9 +1601,12 @@
         "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
         "01148ad827adc7f3e5f207d3ea2b995bb2c7f6f0f72840ee8410b8319163a1d5",
         "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
-        "2d7834d661722828cd48045ab12c8c6f3176156aac0b28ab145611f84548d378"
+        "2d7834d661722828cd48045ab12c8c6f3176156aac0b28ab145611f84548d378",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "167ca2798bb19bb6538390b569235e875b0e803d29f717ace295eecd789bbc09",
+        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61"
       ],
-      "text": "On topic calibration and falsifiability of LLM agents, SearchJev: A Fast and Calibrated System-1 Model for Search Agents reports: Search agents repeatedly make short decisions about relevance, evidence sufficiency, and search actions. (scope narrowed: restricted after failure #1)"
+      "text": "On topic calibration and falsifiability of LLM agents, SearchJev: A Fast and Calibrated System-1 Model for Search Agents reports: Search agents repeatedly make short decisions about relevance, evidence sufficiency, and search actions. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
       "beta_confidence": 0.5714,
@@ -1620,11 +1643,12 @@
       "meta_flags": [],
       "passed": 0,
       "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
-      "reformulation_count": 1,
+      "reformulation_count": 2,
       "scope": {
         "date": "2026-01-01",
         "restrictions": [
-          "restricted after failure #1"
+          "restricted after failure #1",
+          "restricted after failure #2"
         ],
         "source": "semantic_scholar",
         "topic": "calibration and falsifiability of LLM agents"
@@ -1650,10 +1674,16 @@
         "833db41e39c5084cf44373c4165c54585684103328b8c0e22bf1651adb328dc7",
         "2d7834d661722828cd48045ab12c8c6f3176156aac0b28ab145611f84548d378",
         "2390453a55d87e7aa4cc04852e22a83f8f1a43fa815a9fb342d0b3917e4caed2",
-        "a7b3504690fe666e11e80ebba8cd3fb5ae9630314d188ceafbe9afe68b3ad33b"
+        "a7b3504690fe666e11e80ebba8cd3fb5ae9630314d188ceafbe9afe68b3ad33b",
+        "a4696e3fb9ea9f965d629daa30ccf7de2a2d7e2df83ecf4ae63c3103918dedf9",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "167ca2798bb19bb6538390b569235e875b0e803d29f717ace295eecd789bbc09",
+        "2963e3d25570eeed9fe736fee4bcf33d7d4815b4495e80d80bfaa8040d8cb67c",
+        "4452aefc6559771b0c16f39effb9f42a027a8d4cd126b2903c0a105300093519",
+        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61"
       ],
-      "text": "On topic calibration and falsifiability of LLM agents, Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents reports: Reliable confidence estimation is increasingly central to the trustworthy deployment of language models: a calibrated estimate of the probability that an output is correct decides what to ship, what to escalate, and what to retry. (scope narrowed: restricted after failure #1)"
+      "text": "On topic calibration and falsifiability of LLM agents, Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents reports: Reliable confidence estimation is increasingly central to the trustworthy deployment of language models: a calibrated estimate of the probability that an output is correct decides what to ship, what to escalate, and what to retry. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     }
   ],
-  "saved_at": "2026-10-12T15:29:00"
+  "saved_at": "2026-10-19T13:19:06"
 }

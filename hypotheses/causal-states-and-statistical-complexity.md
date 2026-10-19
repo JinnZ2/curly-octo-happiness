@@ -1,6 +1,6 @@
 # Hypothesis draft — causal states and statistical complexity
 
-_Regenerated 2026-10-12 by `scripts/hypothesis_engine.py`. Node confidence 0.60; 2 surviving / 0 active / 0 refuted claims._
+_Regenerated 2026-10-19 by `scripts/hypothesis_engine.py`. Node confidence 0.60; 2 surviving / 0 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding. Open questions with methods and falsifiers are in [RESEARCH_GAPS.md](RESEARCH_GAPS.md).
 
