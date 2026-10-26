@@ -1,6 +1,6 @@
 # Hypothesis draft — calibration and falsifiability of LLM agents
 
-_Regenerated 2026-10-19 by `scripts/hypothesis_engine.py`. Node confidence 0.45; 3 surviving / 23 active / 0 refuted claims._
+_Regenerated 2026-10-26 by `scripts/hypothesis_engine.py`. Node confidence 0.45; 3 surviving / 23 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding. Open questions with methods and falsifiers are in [RESEARCH_GAPS.md](RESEARCH_GAPS.md).
 
@@ -25,6 +25,10 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 1 passed / 0 failed, beta-confidence 0.67
   - source: https://doi.org/10.3389/fcomp.2026.1966725
   - reformulated 2x
+- **TapGuard: Temperature-Calibrated Execute–Confirm–Block Routing for LLM-Powered Mobile Agents** — Large language model-powered mobile agents can compose messages, manage files, operate financial applications, and act on content from other applications.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 35.7% result
+  - record: 4 passed / 2 failed, beta-confidence 0.62
+  - source: https://www.semanticscholar.org/paper/455aff2b876a266a14e412f4d4ff3071da1bb7d3
 - **Calibrated Per-Carrier Confidence and Certified Pruning for Gaussian-Splat Assets** — A 3D Gaussian-splatting asset ships millions of primitives, each carrying a per-primitive confidence — a view count, an opacity — that downstream pruning, streaming, and level-of-detail decisions consume as if it meant something.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 0.0 result
   - record: 3 passed / 2 failed, beta-confidence 0.57
@@ -35,10 +39,6 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 3 passed / 2 failed, beta-confidence 0.57
   - source: https://doi.org/10.1145/3843742
   - reformulated 2x
-- **TapGuard: Temperature-Calibrated Execute–Confirm–Block Routing for LLM-Powered Mobile Agents** — Large language model-powered mobile agents can compose messages, manage files, operate financial applications, and act on content from other applications.
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 35.7% result
-  - record: 3 passed / 2 failed, beta-confidence 0.57
-  - source: https://www.semanticscholar.org/paper/455aff2b876a266a14e412f4d4ff3071da1bb7d3
 - **A measurement substrate for agentic Kubernetes operations: Methodology and a case study in retrieval-compounding falsification** — Empirical claims about autonomous Kubernetes operations agents are largely unfalsifiable.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 19% result
   - record: 1 passed / 1 failed, beta-confidence 0.50

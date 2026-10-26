@@ -1,6 +1,6 @@
 # Hypothesis draft — hidden variable detection / causal discovery from residuals
 
-_Regenerated 2026-10-19 by `scripts/hypothesis_engine.py`. Node confidence 0.47; 4 surviving / 7 active / 0 refuted claims._
+_Regenerated 2026-10-26 by `scripts/hypothesis_engine.py`. Node confidence 0.47; 4 surviving / 8 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding. Open questions with methods and falsifiers are in [RESEARCH_GAPS.md](RESEARCH_GAPS.md).
 
@@ -43,6 +43,10 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://www.semanticscholar.org/paper/d426a88c16e45e1fe0c56056534b897b53f6dd31
   - reformulated 1x
+- **Causal discovery from nonstationary subsample time series.** — Causal discovery from nonstationary subsample time series is a fundamental yet challenging problem in many scientific domains.
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 0 passed / 1 failed, beta-confidence 0.33
+  - source: https://www.semanticscholar.org/paper/6913e14057b29808d2a46c9b40aed62194883717
 - **Addressing Information Asymmetry: Deep Temporal Causality Discovery for Mixed Time Series** — While existing causal discovery methods mostly focus on continuous time series, causal discovery for mixed time series encompassing both continuous variables (CVs) and discrete variables (DVs) is a fundamental yet underexplored problem.
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 0 passed / 2 failed, beta-confidence 0.25
@@ -100,3 +104,5 @@ _none_
   - retired by a scope gate added after it was staked; carries no phrase from the topic it was filed under
 - [off-scope] On topic hidden variable detection / causal discovery from residuals, Drug-like antibodies with low immunogenicity in human panels designed with Latent-X2 reports: Drug discovery has long sought computational systems capable of designing drug-like molecules directly: developable and non-immunogenic from the start.
   - retired by a scope gate added after it was staked; carries no phrase from the topic it was filed under
+- [unfalsifiable] On topic hidden variable detection / causal discovery from residuals, Supplementary material: High-recall causal discovery for autocorrelated time series with latent confounders reports: no abstract available
+  - no measurable falsification condition in the abstract

@@ -2118,5 +2118,35 @@
     ],
     "url": "https://www.semanticscholar.org/paper/a4eadda8b5fa6316b0b0ef5d60c40ea021835f59",
     "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Causal discovery from nonstationary subsample time series.",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/6913e14057b29808d2a46c9b40aed62194883717",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Supplementary material: High-recall causal discovery for autocorrelated time series with latent confounders",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/a9b1e341c08fd0f88e428dc36640fd074a0d03dc",
+    "date": "2020-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Auditing World-Model Explanations in Retail Forecasting: Faithfulness, Accuracy and Causal Validity",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.2139/ssrn.7627720",
+    "date": "2026"
   }
 ]

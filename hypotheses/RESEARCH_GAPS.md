@@ -2,7 +2,7 @@
 
 **This is an automated triage of a literature sample, not a set of findings.** Each claim is the first sentence of an abstract — often background rather than the paper's result, so read the source before running anything. “Corroborating” and “contradicting” mean another abstract's sentences on a shared subject lean for or against it — cross-reading, not replication. Every entry is a starting point someone with a lab, data, or a desk can pick up.
 
-_Regenerated 2026-10-19 by `scripts/hypothesis_engine.py` (stage 8). Format: `RESEARCH_RENDER.md` §3. Ids are permanent: a gap that drops out keeps its id and moves to **Retired ids**; ids are never renumbered._
+_Regenerated 2026-10-26 by `scripts/hypothesis_engine.py` (stage 8). Format: `RESEARCH_RENDER.md` §3. Ids are permanent: a gap that drops out keeps its id and moves to **Retired ids**; ids are never renumbered._
 
 **Classes:** EMPIRICAL — a measurement nobody has made · METHODOLOGICAL — a procedure nobody has defined.  
 **Knowledge states:** `UNDER_STUDY` sources disagree, value provisional · `UNDEFINED` no agreed falsifier · `UNMEASURED` no value.
@@ -14,7 +14,7 @@ _Regenerated 2026-10-19 by `scripts/hypothesis_engine.py` (stage 8). Format: `RE
 - [calibration and falsifiability of LLM agents](#calibration-and-falsifiability-of-llm-agents) · `CFA` · 31 open gaps · 9 untested markers
 - [hidden variable detection / causal discovery from residuals](#hidden-variable-detection-causal-discovery-from-residuals) · `HVD` · 8 open gaps · 2 untested markers
 - [causal states and statistical complexity](#causal-states-and-statistical-complexity) · `CSS` · 1 open gap · 0 untested markers
-- [requisite variety and cybernetic regulation](#requisite-variety-and-cybernetic-regulation) · `RVC` · 3 open gaps · 1 untested markers
+- [requisite variety and cybernetic regulation](#requisite-variety-and-cybernetic-regulation) · `RVC` · 5 open gaps · 1 untested markers
 - [Protocols](#protocols) · [Retired ids](#retired-ids)
 
 ## Protocols
@@ -76,7 +76,7 @@ Each gap names one. The steps are shared; what differs per gap is the claim, its
 
 ### CFA_019 · EMPIRICAL · `UNDER_STUDY` — TapGuard: Temperature-Calibrated Execute–Confirm–Block Routing for LLM-Powered Mobile Agents
 
-**Gap:** the sample splits on this claim — 3 corroborating / 2 contradicting readings, beta 0.57.
+**Gap:** the sample splits on this claim — 4 corroborating / 2 contradicting readings, beta 0.62.
 
 **Question:** does the result in “TapGuard: Temperature-Calibrated Execute–Confirm–Block Routing for LLM-Powered Mobile Agents” hold under its stated conditions, and which condition separates the sources that disagree?
 
@@ -91,6 +91,7 @@ Each gap names one. The steps are shared; what differs per gap is the claim, its
 - cross-read: [Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval](https://doi.org/10.69987/aimlr.2025.60401)
 - cross-read: [Demystifying Multi-Agent Debate: The Role of Confidence and Diversity](https://www.semanticscholar.org/paper/73d2d6732aa4f9e6f7589ce17d07b77201eb340a)
 - cross-read: [Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval](https://www.semanticscholar.org/paper/5fc6a54544f6b704a9fdcfabfae4ec5d2220c7f7)
+- cross-read: [Mitigating Multimodal Hallucination via Phase-wise Self-reward](http://arxiv.org/abs/2604.17982v1)
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
@@ -817,6 +818,25 @@ No source in the sample spoke to these. That is a fact about the sample, not abo
 
 ## requisite variety and cybernetic regulation (`RVC`)
 
+### RVC_004 · EMPIRICAL · `UNDER_STUDY` — Auditing World-Model Explanations in Retail Forecasting: Faithfulness, Accuracy and Causal Validity
+
+**Gap:** the sample splits on this claim — 2 corroborating / 2 contradicting readings, beta 0.50.
+
+**Question:** does the result in “Auditing World-Model Explanations in Retail Forecasting: Faithfulness, Accuracy and Causal Validity” hold under its stated conditions, and which condition separates the sources that disagree?
+
+**Claim as extracted:** Retail forecasting models that see the price and promotion plan can explain each forecast as a baseline, what would sell with nothing planned, plus the lift each part of the plan adds.
+
+**Disciplines:** cybernetics, control theory, systems engineering
+
+**Existing record:**
+- source: [Auditing World-Model Explanations in Retail Forecasting: Faithfulness, Accuracy and Causal Validity](https://doi.org/10.2139/ssrn.7627720)
+- cross-read: [What-If World: A Causal Benchmark for General World Models in Embodied Scenarios](http://arxiv.org/abs/2605.27589v1)
+- cross-read: [From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market](https://doi.org/10.2139/ssrn.7216139)
+- cross-read: [ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation](http://arxiv.org/abs/2608.20735v1)
+- cross-read: [ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation](http://arxiv.org/abs/2608.20735v2)
+
+**Run:** [Protocol R — Replication split](#protocol-r)
+
 ### RVC_001 · EMPIRICAL · `UNDER_STUDY` — The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World
 
 **Gap:** the sample splits on this claim — 3 corroborating / 1 contradicting readings, beta 0.67.
@@ -838,7 +858,7 @@ No source in the sample spoke to these. That is a fact about the sample, not abo
 
 ### RVC_002 · EMPIRICAL · `UNDER_STUDY` — What-If World: A Causal Benchmark for General World Models in Embodied Scenarios
 
-**Gap:** the sample splits on this claim — 2 corroborating / 1 contradicting readings, beta 0.60, reformulated 1×.
+**Gap:** the sample splits on this claim — 2 corroborating / 2 contradicting readings, beta 0.50, reformulated 1×.
 
 **Question:** does the result in “What-If World: A Causal Benchmark for General World Models in Embodied Scenarios” hold under its stated conditions, and which condition separates the sources that disagree?
 
@@ -854,13 +874,13 @@ No source in the sample spoke to these. That is a fact about the sample, not abo
 - cross-read: [WorldGym: World Model as An Environment for Policy Evaluation](http://arxiv.org/abs/2506.00613v3)
 - cross-read: [Multi-Domain Causal Discovery in Bijective Causal Models](http://arxiv.org/abs/2504.21261v1)
 - cross-read: [From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market](https://doi.org/10.2139/ssrn.7216139)
-- … 3 more in `data/findings_log.jsonl`
+- … 4 more in `data/findings_log.jsonl`
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
 ### RVC_003 · EMPIRICAL · `UNDER_STUDY` — From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market
 
-**Gap:** the sample splits on this claim — 2 corroborating / 1 contradicting readings, beta 0.60, reformulated 1×.
+**Gap:** the sample splits on this claim — 2 corroborating / 2 contradicting readings, beta 0.50, reformulated 1×.
 
 **Question:** does the result in “From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market” hold under its stated conditions, and which condition separates the sources that disagree?
 
@@ -876,7 +896,29 @@ No source in the sample spoke to these. That is a fact about the sample, not abo
 - cross-read: [What-If World: A Causal Benchmark for General World Models in Embodied Scenarios](http://arxiv.org/abs/2605.27589v1)
 - cross-read: [WorldGym: World Model as An Environment for Policy Evaluation](http://arxiv.org/abs/2506.00613v3)
 - cross-read: [Multi-Domain Causal Discovery in Bijective Causal Models](http://arxiv.org/abs/2504.21261v1)
-- … 3 more in `data/findings_log.jsonl`
+- … 4 more in `data/findings_log.jsonl`
+
+**Run:** [Protocol R — Replication split](#protocol-r)
+
+### RVC_005 · EMPIRICAL · `UNDER_STUDY` — Requisite Variety For Ai Security
+
+**Gap:** the sample splits on this claim — 2 corroborating / 1 contradicting readings, beta 0.60, reformulated 1×.
+
+**Question:** does the result in “Requisite Variety For Ai Security” hold under its stated conditions, and which condition separates the sources that disagree?
+
+**Claim as extracted:** Enterprises are deploying large language models and autonomous AI agents into operational control loops-security operations, quality assurance, procurement, infrastructure management-where these systems make thousands of consequential decisions with tool access, external data ingestion, and limited human oversight.
+
+**Disciplines:** cybernetics, control theory, systems engineering
+
+**Existing record:**
+- source: [Requisite Variety For Ai Security](https://doi.org/10.2139/ssrn.6255362)
+- cross-read: [Incorporating AI incident reporting into telecommunications law and policy: Insights from India](http://arxiv.org/abs/2509.09508v2)
+- cross-read: [Data-Dependent Goal Modeling for ML-Enabled Law Enforcement Systems](http://arxiv.org/abs/2601.06237v1)
+- cross-read: [D'Zilva's Addition to Ashby's Law of Requisite Variety](https://doi.org/10.2139/ssrn.6452601)
+- cross-read: [What-If World: A Causal Benchmark for General World Models in Embodied Scenarios](http://arxiv.org/abs/2605.27589v1)
+- cross-read: [WorldGym: World Model as An Environment for Policy Evaluation](http://arxiv.org/abs/2506.00613v3)
+- cross-read: [Multi-Domain Causal Discovery in Bijective Causal Models](http://arxiv.org/abs/2504.21261v1)
+- … 5 more in `data/findings_log.jsonl`
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 

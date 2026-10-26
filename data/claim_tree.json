@@ -167,9 +167,9 @@
       "text": "On topic requisite variety and cybernetic regulation, A Capacity-Based Theory of Complexity Control in Megaprojects: Structural Demands, Regulatory Capacity, and Ashby's Law of Requisite Variety reports: Megaproject research has shown repeatedly that large, technologically demanding, and politically exposed projects are prone to cost escalation, delay, and governance breakdown. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.75,
-      "confidence": 0.7,
-      "failed": 0,
+      "beta_confidence": 0.6,
+      "confidence": 0.49999999999999994,
+      "failed": 1,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result",
       "id": "16d081300cf321e2",
       "meta_flags": [],
@@ -196,14 +196,15 @@
         "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608",
         "8a56e96aad42dff91205cec4b9d184fe5a6836bef9f2d4f300de99f1a501ad12",
         "b86566efa2181dc4df8cea4c62a4c7d4b97cbe67217d018bdec94e162dc5903c",
-        "2654a97b3f1246ef02fcf0d35a082928cd0f0f9460b38fcd4d4537fe760aab44"
+        "2654a97b3f1246ef02fcf0d35a082928cd0f0f9460b38fcd4d4537fe760aab44",
+        "996fb9c2a10549f94be2b8d70bcd7ed426825dd31e8e748ccafab334852cdbf9"
       ],
       "text": "On topic requisite variety and cybernetic regulation, Requisite Variety For Ai Security reports: Enterprises are deploying large language models and autonomous AI agents into operational control loops-security operations, quality assurance, procurement, infrastructure management-where these systems make thousands of consequential decisions with tool access, external data ingestion, and limited human oversight. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.6,
-      "confidence": 0.5,
-      "failed": 1,
+      "beta_confidence": 0.5,
+      "confidence": 0.3,
+      "failed": 2,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 319 result",
       "id": "7b77502b691ca58c",
       "meta_flags": [],
@@ -229,14 +230,15 @@
         "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608",
         "ad445f8c226eb71c037e179743d1feded4c8f12a08f2762febaf4c70b2f8ee2e",
         "b86566efa2181dc4df8cea4c62a4c7d4b97cbe67217d018bdec94e162dc5903c",
-        "2654a97b3f1246ef02fcf0d35a082928cd0f0f9460b38fcd4d4537fe760aab44"
+        "2654a97b3f1246ef02fcf0d35a082928cd0f0f9460b38fcd4d4537fe760aab44",
+        "996fb9c2a10549f94be2b8d70bcd7ed426825dd31e8e748ccafab334852cdbf9"
       ],
       "text": "On topic requisite variety and cybernetic regulation, What-If World: A Causal Benchmark for General World Models in Embodied Scenarios reports: Video generation models are increasingly used as world simulators for tasks like driving and robotic manipulation. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.6,
-      "confidence": 0.5,
-      "failed": 1,
+      "beta_confidence": 0.5,
+      "confidence": 0.3,
+      "failed": 2,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 151 result",
       "id": "b42b5c4447dd86ad",
       "meta_flags": [],
@@ -262,7 +264,8 @@
         "48cb123423db3f10d47bf4b1744bfa254a0ec4268ac2941c17186d21a63622e9",
         "ad445f8c226eb71c037e179743d1feded4c8f12a08f2762febaf4c70b2f8ee2e",
         "b86566efa2181dc4df8cea4c62a4c7d4b97cbe67217d018bdec94e162dc5903c",
-        "2654a97b3f1246ef02fcf0d35a082928cd0f0f9460b38fcd4d4537fe760aab44"
+        "2654a97b3f1246ef02fcf0d35a082928cd0f0f9460b38fcd4d4537fe760aab44",
+        "996fb9c2a10549f94be2b8d70bcd7ed426825dd31e8e748ccafab334852cdbf9"
       ],
       "text": "On topic requisite variety and cybernetic regulation, From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market reports: Quantitative factor strategies routinely excel in backtests and disappoint in production: the flagship live multifactor index earned a Sharpe ratio statistically indistinguishable from zero over seventeen years. (scope narrowed: restricted after failure #1)"
     },
@@ -1609,13 +1612,13 @@
       "text": "On topic calibration and falsifiability of LLM agents, SearchJev: A Fast and Calibrated System-1 Model for Search Agents reports: Search agents repeatedly make short decisions about relevance, evidence sufficiency, and search actions. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
-      "beta_confidence": 0.5714,
-      "confidence": 0.4,
+      "beta_confidence": 0.625,
+      "confidence": 0.5,
       "failed": 2,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 35.7% result",
       "id": "15d96749ff14b55d",
       "meta_flags": [],
-      "passed": 3,
+      "passed": 4,
       "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
       "reformulation_count": 0,
       "scope": {
@@ -1630,7 +1633,8 @@
         "6c363e81df3a45b2c001c8b906e33c22e42eb1649125da6201044d5bc98fbe05",
         "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
         "4a5afd672b56b5a910d8e9096d0c0469f3a5f84c73953f7b646306d44b7f557c",
-        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9"
+        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
+        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, TapGuard: Temperature-Calibrated Execute\u2013Confirm\u2013Block Routing for LLM-Powered Mobile Agents reports: Large language model-powered mobile agents can compose messages, manage files, operate financial applications, and act on content from other applications."
     },
@@ -1683,7 +1687,54 @@
         "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents reports: Reliable confidence estimation is increasingly central to the trustworthy deployment of language models: a calibrated estimate of the probability that an output is correct decides what to ship, what to escalate, and what to retry. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
+    },
+    {
+      "beta_confidence": 0.3333,
+      "confidence": 0.3,
+      "failed": 1,
+      "falsification": "An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish",
+      "id": "516ba2dce3365caf",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "semantic_scholar records on 'hidden variable detection / causal discovery from residuals'",
+      "reformulation_count": 0,
+      "scope": {
+        "date": "2026-01-01",
+        "source": "semantic_scholar",
+        "topic": "hidden variable detection / causal discovery from residuals"
+      },
+      "source_url": "https://www.semanticscholar.org/paper/6913e14057b29808d2a46c9b40aed62194883717",
+      "status": "active",
+      "tested_against": [
+        "b4c9f67dd3ab55b1839866ef48f9684cd08b27d83117466889a7d6a35c0095ff"
+      ],
+      "text": "On topic hidden variable detection / causal discovery from residuals, Causal discovery from nonstationary subsample time series. reports: Causal discovery from nonstationary subsample time series is a fundamental yet challenging problem in many scientific domains."
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.3,
+      "failed": 2,
+      "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 6% result",
+      "id": "4a2d90891c0b23e6",
+      "meta_flags": [],
+      "passed": 2,
+      "reference_class": "crossref records on 'requisite variety and cybernetic regulation'",
+      "reformulation_count": 0,
+      "scope": {
+        "date": "2026",
+        "source": "crossref",
+        "topic": "requisite variety and cybernetic regulation"
+      },
+      "source_url": "https://doi.org/10.2139/ssrn.7627720",
+      "status": "active",
+      "tested_against": [
+        "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134",
+        "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608",
+        "b86566efa2181dc4df8cea4c62a4c7d4b97cbe67217d018bdec94e162dc5903c",
+        "2654a97b3f1246ef02fcf0d35a082928cd0f0f9460b38fcd4d4537fe760aab44"
+      ],
+      "text": "On topic requisite variety and cybernetic regulation, Auditing World-Model Explanations in Retail Forecasting: Faithfulness, Accuracy and Causal Validity reports: Retail forecasting models that see the price and promotion plan can explain each forecast as a baseline, what would sell with nothing planned, plus the lift each part of the plan adds."
     }
   ],
-  "saved_at": "2026-10-19T13:19:06"
+  "saved_at": "2026-10-26T13:08:16"
 }
