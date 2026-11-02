@@ -135,13 +135,13 @@
       "text": "On topic hidden variable detection / causal discovery from residuals, Clustering Multivariate Time Series using Energy Distance reports: A novel methodology is proposed for clustering multivariate time series data using energy distance defined in Sz\u00e9kely and Rizzo (2013)."
     },
     {
-      "beta_confidence": 0.75,
-      "confidence": 0.7,
+      "beta_confidence": 0.8,
+      "confidence": 0.7999999999999999,
       "failed": 0,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 2020 result",
       "id": "c36075e5eb90fe6d",
       "meta_flags": [],
-      "passed": 2,
+      "passed": 3,
       "reference_class": "crossref records on 'requisite variety and cybernetic regulation'",
       "reformulation_count": 1,
       "scope": {
@@ -153,7 +153,7 @@
         "topic": "requisite variety and cybernetic regulation"
       },
       "source_url": "https://doi.org/10.31235/osf.io/3hdn5_v1",
-      "status": "active",
+      "status": "survived",
       "tested_against": [
         "ad445f8c226eb71c037e179743d1feded4c8f12a08f2762febaf4c70b2f8ee2e",
         "016957bdfcbfc1bf273c07356b3262bfd90b51f4cf738213a94d2f6f797c0482",
@@ -162,18 +162,19 @@
         "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134",
         "b46ba90c1330b0c69d1ba1135c4ef6085dac690c19ebda98f23480f078aa41ed",
         "b86566efa2181dc4df8cea4c62a4c7d4b97cbe67217d018bdec94e162dc5903c",
-        "2654a97b3f1246ef02fcf0d35a082928cd0f0f9460b38fcd4d4537fe760aab44"
+        "2654a97b3f1246ef02fcf0d35a082928cd0f0f9460b38fcd4d4537fe760aab44",
+        "502d83da9143f6af4a5cbcc43ab4f32b869aa772d8c1e9ede0fe84b1a4fb597b"
       ],
       "text": "On topic requisite variety and cybernetic regulation, A Capacity-Based Theory of Complexity Control in Megaprojects: Structural Demands, Regulatory Capacity, and Ashby's Law of Requisite Variety reports: Megaproject research has shown repeatedly that large, technologically demanding, and politically exposed projects are prone to cost escalation, delay, and governance breakdown. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.6,
-      "confidence": 0.49999999999999994,
+      "beta_confidence": 0.6667,
+      "confidence": 0.6,
       "failed": 1,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result",
       "id": "16d081300cf321e2",
       "meta_flags": [],
-      "passed": 2,
+      "passed": 3,
       "reference_class": "crossref records on 'requisite variety and cybernetic regulation'",
       "reformulation_count": 1,
       "scope": {
@@ -185,7 +186,7 @@
         "topic": "requisite variety and cybernetic regulation"
       },
       "source_url": "https://doi.org/10.2139/ssrn.6255362",
-      "status": "active",
+      "status": "survived",
       "tested_against": [
         "ad445f8c226eb71c037e179743d1feded4c8f12a08f2762febaf4c70b2f8ee2e",
         "016957bdfcbfc1bf273c07356b3262bfd90b51f4cf738213a94d2f6f797c0482",
@@ -197,7 +198,8 @@
         "8a56e96aad42dff91205cec4b9d184fe5a6836bef9f2d4f300de99f1a501ad12",
         "b86566efa2181dc4df8cea4c62a4c7d4b97cbe67217d018bdec94e162dc5903c",
         "2654a97b3f1246ef02fcf0d35a082928cd0f0f9460b38fcd4d4537fe760aab44",
-        "996fb9c2a10549f94be2b8d70bcd7ed426825dd31e8e748ccafab334852cdbf9"
+        "996fb9c2a10549f94be2b8d70bcd7ed426825dd31e8e748ccafab334852cdbf9",
+        "502d83da9143f6af4a5cbcc43ab4f32b869aa772d8c1e9ede0fe84b1a4fb597b"
       ],
       "text": "On topic requisite variety and cybernetic regulation, Requisite Variety For Ai Security reports: Enterprises are deploying large language models and autonomous AI agents into operational control loops-security operations, quality assurance, procurement, infrastructure management-where these systems make thousands of consequential decisions with tool access, external data ingestion, and limited human oversight. (scope narrowed: restricted after failure #1)"
     },
@@ -1383,13 +1385,13 @@
       "text": "On topic calibration and falsifiability of LLM agents, Cross-Modal Attention Calibration for LVLM Hallucination Mitigation reports: Large vision-language models (LVLMs) have shown remarkable capabilities in visual-language understanding. (scope narrowed: restricted after failure #1)"
     },
     {
-      "beta_confidence": 0.6667,
-      "confidence": 0.6,
+      "beta_confidence": 0.7143,
+      "confidence": 0.7,
       "failed": 1,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish",
       "id": "6c5efa556196b2d0",
       "meta_flags": [],
-      "passed": 3,
+      "passed": 4,
       "reference_class": "crossref records on 'requisite variety and cybernetic regulation'",
       "reformulation_count": 0,
       "scope": {
@@ -1403,7 +1405,8 @@
         "016957bdfcbfc1bf273c07356b3262bfd90b51f4cf738213a94d2f6f797c0482",
         "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111",
         "b86566efa2181dc4df8cea4c62a4c7d4b97cbe67217d018bdec94e162dc5903c",
-        "2654a97b3f1246ef02fcf0d35a082928cd0f0f9460b38fcd4d4537fe760aab44"
+        "2654a97b3f1246ef02fcf0d35a082928cd0f0f9460b38fcd4d4537fe760aab44",
+        "502d83da9143f6af4a5cbcc43ab4f32b869aa772d8c1e9ede0fe84b1a4fb597b"
       ],
       "text": "On topic requisite variety and cybernetic regulation, The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World reports: The idea that successful regulation requires an internal world model helps motivate both the generative models of active inference and the modeling engine of Kolmogorov Theory's algorithmic agent."
     },
@@ -1528,9 +1531,9 @@
       "text": "On topic calibration and falsifiability of LLM agents, Confidence Composition for Multiagent Language Model Systems reports: Multiagent language model systems, such as collaborative reasoning and debate, produce multiple correlated candidate answers and confidence signals. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
-      "failed": 0,
+      "beta_confidence": 0.25,
+      "confidence": 0.09999999999999998,
+      "failed": 2,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 34.9 result",
       "id": "c0aa2f56269137e4",
       "meta_flags": [],
@@ -1567,7 +1570,9 @@
         "6f0d03f14747fa13d07282180353e057b66965809c755ed06ac9b35a3728a1e9",
         "a4696e3fb9ea9f965d629daa30ccf7de2a2d7e2df83ecf4ae63c3103918dedf9",
         "9d47272f6215e922f0b5c1d9d44965949ac4e74a4a25a011b7f40a43f1ac7946",
-        "9a56a1495ed0f3819e8b3f7ee5ddafcf1b9fd2e2eaa0261e2cf0a7c4e3de3ff6"
+        "9a56a1495ed0f3819e8b3f7ee5ddafcf1b9fd2e2eaa0261e2cf0a7c4e3de3ff6",
+        "04c1fb13164f214d0e996c8cbd2a802ce6f43fd233f0f9f08437674afc1de7db",
+        "2d7834d661722828cd48045ab12c8c6f3176156aac0b28ab145611f84548d378"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA Constraints reports: Large language model (LLM) triage agents in security operations centres (SOCs) are evaluated on verdict accuracy. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
@@ -1639,13 +1644,13 @@
       "text": "On topic calibration and falsifiability of LLM agents, TapGuard: Temperature-Calibrated Execute\u2013Confirm\u2013Block Routing for LLM-Powered Mobile Agents reports: Large language model-powered mobile agents can compose messages, manage files, operate financial applications, and act on content from other applications."
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.75,
+      "confidence": 0.7,
       "failed": 0,
       "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 10% result",
       "id": "979d93bcc43a2264",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 2,
       "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
       "reformulation_count": 2,
       "scope": {
@@ -1684,7 +1689,9 @@
         "167ca2798bb19bb6538390b569235e875b0e803d29f717ace295eecd789bbc09",
         "2963e3d25570eeed9fe736fee4bcf33d7d4815b4495e80d80bfaa8040d8cb67c",
         "4452aefc6559771b0c16f39effb9f42a027a8d4cd126b2903c0a105300093519",
-        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61"
+        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61",
+        "c3a179430a4cfd42d2fed24f4eb16d7ebb571841e2db927f3edec4c229d356ec",
+        "2ad45948acea864741148bb5b041025aaebb314a06063ebbb63f03037c486a6f"
       ],
       "text": "On topic calibration and falsifiability of LLM agents, Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents reports: Reliable confidence estimation is increasingly central to the trustworthy deployment of language models: a calibrated estimate of the probability that an output is correct decides what to ship, what to escalate, and what to retry. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
@@ -1711,13 +1718,13 @@
       "text": "On topic hidden variable detection / causal discovery from residuals, Causal discovery from nonstationary subsample time series. reports: Causal discovery from nonstationary subsample time series is a fundamental yet challenging problem in many scientific domains."
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.3,
+      "beta_confidence": 0.5714,
+      "confidence": 0.4,
       "failed": 2,
       "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 6% result",
       "id": "4a2d90891c0b23e6",
       "meta_flags": [],
-      "passed": 2,
+      "passed": 3,
       "reference_class": "crossref records on 'requisite variety and cybernetic regulation'",
       "reformulation_count": 0,
       "scope": {
@@ -1726,15 +1733,38 @@
         "topic": "requisite variety and cybernetic regulation"
       },
       "source_url": "https://doi.org/10.2139/ssrn.7627720",
-      "status": "active",
+      "status": "survived",
       "tested_against": [
         "ca57aad2bce1a1bb77f60b3d0e1ef9bec593cae3ebf935a6e3c249d14d004134",
         "96e7255cdb91a9caed81b1e21fa3df451736dfad8b34981214cec01a0b0ed608",
         "b86566efa2181dc4df8cea4c62a4c7d4b97cbe67217d018bdec94e162dc5903c",
-        "2654a97b3f1246ef02fcf0d35a082928cd0f0f9460b38fcd4d4537fe760aab44"
+        "2654a97b3f1246ef02fcf0d35a082928cd0f0f9460b38fcd4d4537fe760aab44",
+        "502d83da9143f6af4a5cbcc43ab4f32b869aa772d8c1e9ede0fe84b1a4fb597b"
       ],
       "text": "On topic requisite variety and cybernetic regulation, Auditing World-Model Explanations in Retail Forecasting: Faithfulness, Accuracy and Causal Validity reports: Retail forecasting models that see the price and promotion plan can explain each forecast as a baseline, what would sell with nothing planned, plus the lift each part of the plan adds."
+    },
+    {
+      "beta_confidence": 0.3333,
+      "confidence": 0.3,
+      "failed": 1,
+      "falsification": "An independent source on 'requisite variety and cybernetic regulation' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish",
+      "id": "a982132c07f474b3",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "crossref records on 'requisite variety and cybernetic regulation'",
+      "reformulation_count": 0,
+      "scope": {
+        "date": "2026-10-26",
+        "source": "crossref",
+        "topic": "requisite variety and cybernetic regulation"
+      },
+      "source_url": "https://doi.org/10.3390/e28111182",
+      "status": "active",
+      "tested_against": [
+        "591bd6c6d5842076fad19304db27ce3b56f10c91506dd903eb8aa17270c12111"
+      ],
+      "text": "On topic requisite variety and cybernetic regulation, The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World reports: Regulation can make a system\u2019s behavior much simpler despite changing disturbances."
     }
   ],
-  "saved_at": "2026-10-26T13:08:16"
+  "saved_at": "2026-11-02T15:56:09"
 }

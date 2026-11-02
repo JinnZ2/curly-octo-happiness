@@ -2148,5 +2148,55 @@
     ],
     "url": "https://doi.org/10.2139/ssrn.7627720",
     "date": "2026"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] The Mirage of Calibrated Confidence: Trajectory-Independence of Verbalized Confidence in Vision-Language Models",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.18653/2026.emnlp-main.1506",
+    "date": "2026"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Causal Discovery in Action: Learning Chain-Reaction Mechanisms from Interventions",
+    "tags": [
+      "finding",
+      "causal states and statistical complexity"
+    ],
+    "url": "http://arxiv.org/abs/2603.22620v2",
+    "date": "2026-03-23"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Using Agency Law to Tame AI Agents",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/2502.18359v2",
+    "date": "2025-02-25"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] AgiBot World Colosseo: A Large-scale Manipulation Platform for Scalable and Intelligent Embodied Systems",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/2503.06669v5",
+    "date": "2025-03-09"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "https://doi.org/10.3390/e28111182",
+    "date": "2026-10-26"
   }
 ]

@@ -2,7 +2,7 @@
 
 **This is an automated triage of a literature sample, not a set of findings.** Each claim is the first sentence of an abstract — often background rather than the paper's result, so read the source before running anything. “Corroborating” and “contradicting” mean another abstract's sentences on a shared subject lean for or against it — cross-reading, not replication. Every entry is a starting point someone with a lab, data, or a desk can pick up.
 
-_Regenerated 2026-10-26 by `scripts/hypothesis_engine.py` (stage 8). Format: `RESEARCH_RENDER.md` §3. Ids are permanent: a gap that drops out keeps its id and moves to **Retired ids**; ids are never renumbered._
+_Regenerated 2026-11-02 by `scripts/hypothesis_engine.py` (stage 8). Format: `RESEARCH_RENDER.md` §3. Ids are permanent: a gap that drops out keeps its id and moves to **Retired ids**; ids are never renumbered._
 
 **Classes:** EMPIRICAL — a measurement nobody has made · METHODOLOGICAL — a procedure nobody has defined.  
 **Knowledge states:** `UNDER_STUDY` sources disagree, value provisional · `UNDEFINED` no agreed falsifier · `UNMEASURED` no value.
@@ -11,10 +11,10 @@ _Regenerated 2026-10-26 by `scripts/hypothesis_engine.py` (stage 8). Format: `RE
 
 ## Contents
 
-- [calibration and falsifiability of LLM agents](#calibration-and-falsifiability-of-llm-agents) · `CFA` · 31 open gaps · 9 untested markers
+- [calibration and falsifiability of LLM agents](#calibration-and-falsifiability-of-llm-agents) · `CFA` · 32 open gaps · 7 untested markers
 - [hidden variable detection / causal discovery from residuals](#hidden-variable-detection-causal-discovery-from-residuals) · `HVD` · 8 open gaps · 2 untested markers
 - [causal states and statistical complexity](#causal-states-and-statistical-complexity) · `CSS` · 1 open gap · 0 untested markers
-- [requisite variety and cybernetic regulation](#requisite-variety-and-cybernetic-regulation) · `RVC` · 5 open gaps · 1 untested markers
+- [requisite variety and cybernetic regulation](#requisite-variety-and-cybernetic-regulation) · `RVC` · 4 open gaps · 1 untested markers
 - [Protocols](#protocols) · [Retired ids](#retired-ids)
 
 ## Protocols
@@ -246,6 +246,28 @@ Each gap names one. The steps are shared; what differs per gap is the claim, its
 - cross-read: [Mitigating Multimodal Hallucination via Phase-wise Self-reward](http://arxiv.org/abs/2604.17982v1)
 - cross-read: [An Explainable Agentic AI Framework for Uncertainty-Aware and Abstention-Enabled Acute Ischemic Stroke Imaging Decisions](http://arxiv.org/abs/2601.01008v1)
 - … 21 more in `data/findings_log.jsonl`
+
+**Run:** [Protocol R — Replication split](#protocol-r)
+
+### CFA_036 · EMPIRICAL · `UNDER_STUDY` — Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA
+
+**Gap:** the sample mostly contradicts this claim — 0 corroborating / 2 contradicting readings, beta 0.25, reformulated 2×.
+
+**Question:** does the result in “Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA Constraints” hold under its stated conditions, and which condition separates the sources that disagree?
+
+**Claim as extracted:** Large language model (LLM) triage agents in security operations centres (SOCs) are evaluated on verdict accuracy.
+
+**Disciplines:** machine learning, statistics (calibration, forecasting), philosophy of science
+
+**Existing record:**
+- source: [Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA Constraints](https://www.semanticscholar.org/paper/e1442988917859798b9c8966dd7c08531ae7387e)
+- cross-read: [Calibrated Per-Carrier Confidence and Certified Pruning for Gaussian-Splat Assets](https://doi.org/10.31224/7689)
+- cross-read: [Caging the Agents: A Zero Trust Security Architecture for Autonomous AI in Healthcare](http://arxiv.org/abs/2603.17419v1)
+- cross-read: [Evidence-Calibrated RAG for Unanswerable Question Answering: Retrieval Coverage, Abstention Calibration, and Hallucination-Proxy Analysis on SQuAD 2.0](https://doi.org/10.51903/jtie.v4i2.536)
+- cross-read: [Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval](https://doi.org/10.69987/aimlr.2025.60401)
+- cross-read: [From Calibrated Confidence to Calibrated Reliance: Human-Aware Confidence Communication for AI-Assisted Decision Making](https://doi.org/10.1145/3843742)
+- cross-read: [Evidence-Bound Autonomous Research (EviBound): A Governance Framework for Eliminating False Claims](https://www.semanticscholar.org/paper/f40edbf79a2ec9732831dfb160d15f6893d80bda)
+- … 15 more in `data/findings_log.jsonl`
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
@@ -619,9 +641,7 @@ Each gap names one. The steps are shared; what differs per gap is the claim, its
 
 No source in the sample spoke to these. That is a fact about the sample, not about the claim.
 
-- Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents — [source](https://www.semanticscholar.org/paper/a4eadda8b5fa6316b0b0ef5d60c40ea021835f59)
 - Confidence Composition for Multiagent Language Model Systems — [source](https://www.semanticscholar.org/paper/35bcf942450e50382abea4f20844bf5c4adb2c2c)
-- Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA Constraints — [source](https://www.semanticscholar.org/paper/e1442988917859798b9c8966dd7c08531ae7387e)
 - Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept — [source](http://arxiv.org/abs/2607.21325v3)
 - Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval — [source](https://www.semanticscholar.org/paper/5fc6a54544f6b704a9fdcfabfae4ec5d2220c7f7)
 - Mathematical Analysis of Hallucination Dynamics in Large Language Models: Uncertainty Quantification, Advanced Decoding, and Principled Mitigation — [source](https://www.semanticscholar.org/paper/55fc275598aa95cff62e1c0246a7c3c0faaeb8a1)
@@ -820,7 +840,7 @@ No source in the sample spoke to these. That is a fact about the sample, not abo
 
 ### RVC_004 · EMPIRICAL · `UNDER_STUDY` — Auditing World-Model Explanations in Retail Forecasting: Faithfulness, Accuracy and Causal Validity
 
-**Gap:** the sample splits on this claim — 2 corroborating / 2 contradicting readings, beta 0.50.
+**Gap:** the sample splits on this claim — 3 corroborating / 2 contradicting readings, beta 0.57.
 
 **Question:** does the result in “Auditing World-Model Explanations in Retail Forecasting: Faithfulness, Accuracy and Causal Validity” hold under its stated conditions, and which condition separates the sources that disagree?
 
@@ -834,25 +854,29 @@ No source in the sample spoke to these. That is a fact about the sample, not abo
 - cross-read: [From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market](https://doi.org/10.2139/ssrn.7216139)
 - cross-read: [ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation](http://arxiv.org/abs/2608.20735v1)
 - cross-read: [ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation](http://arxiv.org/abs/2608.20735v2)
+- cross-read: [The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World](https://doi.org/10.3390/e28111182)
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
-### RVC_001 · EMPIRICAL · `UNDER_STUDY` — The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World
+### RVC_005 · EMPIRICAL · `UNDER_STUDY` — Requisite Variety For Ai Security
 
-**Gap:** the sample splits on this claim — 3 corroborating / 1 contradicting readings, beta 0.67.
+**Gap:** the sample splits on this claim — 3 corroborating / 1 contradicting readings, beta 0.67, reformulated 1×.
 
-**Question:** does the result in “The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World” hold under its stated conditions, and which condition separates the sources that disagree?
+**Question:** does the result in “Requisite Variety For Ai Security” hold under its stated conditions, and which condition separates the sources that disagree?
 
-**Claim as extracted:** The idea that successful regulation requires an internal world model helps motivate both the generative models of active inference and the modeling engine of Kolmogorov Theory's algorithmic agent.
+**Claim as extracted:** Enterprises are deploying large language models and autonomous AI agents into operational control loops-security operations, quality assurance, procurement, infrastructure management-where these systems make thousands of consequential decisions with tool access, external data ingestion, and limited human oversight.
 
 **Disciplines:** cybernetics, control theory, systems engineering
 
 **Existing record:**
-- source: [The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World](https://doi.org/10.20944/preprints202609.1967.v1)
+- source: [Requisite Variety For Ai Security](https://doi.org/10.2139/ssrn.6255362)
+- cross-read: [Incorporating AI incident reporting into telecommunications law and policy: Insights from India](http://arxiv.org/abs/2509.09508v2)
 - cross-read: [Data-Dependent Goal Modeling for ML-Enabled Law Enforcement Systems](http://arxiv.org/abs/2601.06237v1)
-- cross-read: [Requisite Variety For Ai Security](https://doi.org/10.2139/ssrn.6255362)
-- cross-read: [ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation](http://arxiv.org/abs/2608.20735v1)
-- cross-read: [ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation](http://arxiv.org/abs/2608.20735v2)
+- cross-read: [D'Zilva's Addition to Ashby's Law of Requisite Variety](https://doi.org/10.2139/ssrn.6452601)
+- cross-read: [What-If World: A Causal Benchmark for General World Models in Embodied Scenarios](http://arxiv.org/abs/2605.27589v1)
+- cross-read: [WorldGym: World Model as An Environment for Policy Evaluation](http://arxiv.org/abs/2506.00613v3)
+- cross-read: [Multi-Domain Causal Discovery in Bijective Causal Models](http://arxiv.org/abs/2504.21261v1)
+- … 6 more in `data/findings_log.jsonl`
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
@@ -900,28 +924,6 @@ No source in the sample spoke to these. That is a fact about the sample, not abo
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
-### RVC_005 · EMPIRICAL · `UNDER_STUDY` — Requisite Variety For Ai Security
-
-**Gap:** the sample splits on this claim — 2 corroborating / 1 contradicting readings, beta 0.60, reformulated 1×.
-
-**Question:** does the result in “Requisite Variety For Ai Security” hold under its stated conditions, and which condition separates the sources that disagree?
-
-**Claim as extracted:** Enterprises are deploying large language models and autonomous AI agents into operational control loops-security operations, quality assurance, procurement, infrastructure management-where these systems make thousands of consequential decisions with tool access, external data ingestion, and limited human oversight.
-
-**Disciplines:** cybernetics, control theory, systems engineering
-
-**Existing record:**
-- source: [Requisite Variety For Ai Security](https://doi.org/10.2139/ssrn.6255362)
-- cross-read: [Incorporating AI incident reporting into telecommunications law and policy: Insights from India](http://arxiv.org/abs/2509.09508v2)
-- cross-read: [Data-Dependent Goal Modeling for ML-Enabled Law Enforcement Systems](http://arxiv.org/abs/2601.06237v1)
-- cross-read: [D'Zilva's Addition to Ashby's Law of Requisite Variety](https://doi.org/10.2139/ssrn.6452601)
-- cross-read: [What-If World: A Causal Benchmark for General World Models in Embodied Scenarios](http://arxiv.org/abs/2605.27589v1)
-- cross-read: [WorldGym: World Model as An Environment for Policy Evaluation](http://arxiv.org/abs/2506.00613v3)
-- cross-read: [Multi-Domain Causal Discovery in Bijective Causal Models](http://arxiv.org/abs/2504.21261v1)
-- … 5 more in `data/findings_log.jsonl`
-
-**Run:** [Protocol R — Replication split](#protocol-r)
-
 #### Markers — untested in this sample
 
 No source in the sample spoke to these. That is a fact about the sample, not about the claim.
@@ -938,3 +940,4 @@ Ids that no longer qualify as open (claim resolved, retired off-scope, or re-sta
 - `CFA_002` · contested · last seen 2026-10-08 · DiscoUQ: Structured Disagreement Analysis for Uncertainty Quantification in LLM Agent Ensembles
 - `CFA_003` · contested · last seen 2026-10-08 · Calibrating the Confidence of Large Language Models by Eliciting Fidelity
 - `CFA_004` · contested · last seen 2026-10-08 · Herd Behavior: Investigating Peer Influence in LLM-based Multi-Agent Systems
+- `RVC_001` · contested · last seen 2026-10-26 · The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World

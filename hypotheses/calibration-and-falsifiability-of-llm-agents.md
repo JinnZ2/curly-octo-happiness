@@ -1,11 +1,16 @@
 # Hypothesis draft — calibration and falsifiability of LLM agents
 
-_Regenerated 2026-10-26 by `scripts/hypothesis_engine.py`. Node confidence 0.45; 3 surviving / 23 active / 0 refuted claims._
+_Regenerated 2026-11-02 by `scripts/hypothesis_engine.py`. Node confidence 0.44; 3 surviving / 23 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding. Open questions with methods and falsifiers are in [RESEARCH_GAPS.md](RESEARCH_GAPS.md).
 
 ## Supporting claims
 
+- **Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents** — Reliable confidence estimation is increasingly central to the trustworthy deployment of language models: a calibrated estimate of the probability that an output is correct decides what to ship, what to escalate, and what to retry.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 10% result
+  - record: 2 passed / 0 failed, beta-confidence 0.75
+  - source: https://www.semanticscholar.org/paper/a4eadda8b5fa6316b0b0ef5d60c40ea021835f59
+  - reformulated 2x
 - **MICE for CATs: Model-Internal Confidence Estimation for Calibrating Agents with Tools** — Tool-using agents that act in the world need to be both useful and safe.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 2 passed / 0 failed, beta-confidence 0.75
@@ -44,20 +49,10 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 1 passed / 1 failed, beta-confidence 0.50
   - source: https://www.semanticscholar.org/paper/08649f99062f1d9624ec0c9017c4666b6ab3e5ad
   - reformulated 2x
-- **Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents** — Reliable confidence estimation is increasingly central to the trustworthy deployment of language models: a calibrated estimate of the probability that an output is correct decides what to ship, what to escalate, and what to retry.
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 10% result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: https://www.semanticscholar.org/paper/a4eadda8b5fa6316b0b0ef5d60c40ea021835f59
-  - reformulated 2x
 - **Confidence Composition for Multiagent Language Model Systems** — Multiagent language model systems, such as collaborative reasoning and debate, produce multiple correlated candidate answers and confidence signals.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://www.semanticscholar.org/paper/35bcf942450e50382abea4f20844bf5c4adb2c2c
-  - reformulated 2x
-- **Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA Constraints** — Large language model (LLM) triage agents in security operations centres (SOCs) are evaluated on verdict accuracy.
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 34.9 result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: https://www.semanticscholar.org/paper/e1442988917859798b9c8966dd7c08531ae7387e
   - reformulated 2x
 - **Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept** — Autonomous AI agents increasingly execute actions, invoke tools, and operate on protected resources with limited human oversight.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
@@ -114,6 +109,11 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 0 passed / 2 failed, beta-confidence 0.25
   - source: https://www.semanticscholar.org/paper/42d39b83a9f9f4ee96c62134afffe83cc28699e1
   - reformulated 1x
+- **Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA Constraints** — Large language model (LLM) triage agents in security operations centres (SOCs) are evaluated on verdict accuracy.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 34.9 result
+  - record: 0 passed / 2 failed, beta-confidence 0.25
+  - source: https://www.semanticscholar.org/paper/e1442988917859798b9c8966dd7c08531ae7387e
+  - reformulated 2x
 - **From Sampling to Cognition: Modeling Internal Cognitive Confidence in Language Models for Robust Uncertainty Calibration** — Large Language Models (LLMs) have demonstrated remarkable performance across a wide range of tasks, yet they generally lack self-awareness, often displaying overconfidence when confronted with questions beyond their knowledge boundaries.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 0 passed / 2 failed, beta-confidence 0.25
@@ -311,3 +311,5 @@ _none_
   - reformulated 3x without surviving a test
 - [escape-hatch] On topic calibration and falsifiability of LLM agents, SAVOR: Self-Aware Visual Grounding via Confidence-Calibrated Reinforcement Learning for Multimodal Hallucination Mitigation reports: Multimodal large language models (MLLMs) have made strong progress on visual question answering and image captioning, yet they still produce fluent claims about objects, attributes, or relations that are not grounded in the image. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2) (scope narrowed: restricted after failure #3)
   - reformulated 3x without surviving a test
+- [unfalsifiable] On topic calibration and falsifiability of LLM agents, The Mirage of Calibrated Confidence: Trajectory-Independence of Verbalized Confidence in Vision-Language Models reports: no abstract available
+  - no measurable falsification condition in the abstract
