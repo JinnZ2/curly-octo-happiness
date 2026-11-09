@@ -1,6 +1,6 @@
 # Hypothesis draft — hidden variable detection / causal discovery from residuals
 
-_Regenerated 2026-11-02 by `scripts/hypothesis_engine.py`. Node confidence 0.47; 4 surviving / 8 active / 0 refuted claims._
+_Regenerated 2026-11-09 by `scripts/hypothesis_engine.py`. Node confidence 0.49; 5 surviving / 12 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding. Open questions with methods and falsifiers are in [RESEARCH_GAPS.md](RESEARCH_GAPS.md).
 
@@ -12,37 +12,58 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - source: http://arxiv.org/abs/2303.14295v1
 - **Causal Discovery in High-Dimensional Time Series with Latent Confounders via Score-Based Diffusion Models** — The identification of causal relationships from observational time series data constitutes a fundamental challenge across scientific disciplines, ranging from climate science to econometrics and systems biology.
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
-  - record: 4 passed / 2 failed, beta-confidence 0.62
+  - record: 6 passed / 2 failed, beta-confidence 0.70
   - source: https://www.semanticscholar.org/paper/8be603b3e42d906489745267446de3078512bda4
 - **Causal discovery from time-series discrete data in the presence of latent confounders.** — Learning causal structures from discrete time series data presents significant challenges, particularly in the presence of unobserved variables, or latent confounders, which are frequently encountered in real-world scenarios.
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
-  - record: 4 passed / 2 failed, beta-confidence 0.62
+  - record: 6 passed / 2 failed, beta-confidence 0.70
   - source: https://www.semanticscholar.org/paper/c1cc59c9eae56b382d6b533dc76b6ec45c16ba20
 - **Causal discovery for time series with latent confounders** — Reconstructing the causal relationships behind the phenomena we observe is a fundamental challenge in all areas of science.
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
-  - record: 2 passed / 1 failed, beta-confidence 0.60
+  - record: 3 passed / 1 failed, beta-confidence 0.67
   - source: https://www.semanticscholar.org/paper/b6d7bb52558a5ff924fdb995c7f849e5c7feb65b
+- **Use of prior knowledge to discover causal additive models with unobserved variables and its application to time series data** — This paper proposes two methods for causal additive models with unobserved variables (CAM-UV).
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 1 passed / 0 failed, beta-confidence 0.67
+  - source: https://www.semanticscholar.org/paper/d426a88c16e45e1fe0c56056534b897b53f6dd31
+  - reformulated 1x
+- **High-recall causal discovery for autocorrelated time series with latent confounders** — We present a new method for linear and nonlinear, lagged and contemporaneous constraint-based causal discovery from observational time series in the presence of latent confounders.
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 4 passed / 2 failed, beta-confidence 0.62
+  - source: https://www.semanticscholar.org/paper/311c8cc775770257d43b6e4e26f6b6470d0cb02a
+- **Learning Kernelized Hypothesis for Hidden Confounder Detection** — Detecting hidden confounding is crucial for reliable causal analysis from observational data, directly determining which downstream causal inference method to be deployed.
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 2 passed / 1 failed, beta-confidence 0.60
+  - source: https://www.semanticscholar.org/paper/c06977bd0c67e2417773881919f1669845c25522
 - **Using Domain Knowledge to Overcome Latent Variables in Causal Inference from Time Series** — Increasingly large observational datasets from healthcare and social media may allow new types of causal inference.
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 2 passed / 1 failed, beta-confidence 0.60
   - source: https://www.semanticscholar.org/paper/1c20be6817e06988735c30cb9eecaf05e0c21c9a
-- **High-recall causal discovery for autocorrelated time series with latent confounders** — We present a new method for linear and nonlinear, lagged and contemporaneous constraint-based causal discovery from observational time series in the presence of latent confounders.
-  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
-  - record: 3 passed / 2 failed, beta-confidence 0.57
-  - source: https://www.semanticscholar.org/paper/311c8cc775770257d43b6e4e26f6b6470d0cb02a
+- **An Enhanced Autoencoder-Based Anomaly Detection Model for Time Series Data From Wearable Medical Devices** — In today's era of rapidly advancing technologies, such as sensors and the Internet of Things (IoT), and the increasing focus on promoting healthy lifestyles, smart wearable devices play a crucial role in real-time detection and diagnosis of physical health conditions.
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 95.37% result
+  - record: 0 passed / 0 failed, beta-confidence 0.50
+  - source: https://www.semanticscholar.org/paper/1efeb8fb3c359c4d27b0bfa1b62a7479d9b575c9
+  - reformulated 1x
 - **Causal Discovery for time series from multiple datasets with latent contexts** — Causal discovery from time series data is a typical problem setting across the sciences.
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 2 passed / 2 failed, beta-confidence 0.50
   - source: https://www.semanticscholar.org/paper/a36cefa2643a9bfa3a40c4543a2ffee3cbfc117e
+- **LNML-based Causal Discovery with Latent Confounders: Theory and Experiments** — Causal discovery with nonlinear mechanisms and latent confounders remains challenging.
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 2 passed / 2 failed, beta-confidence 0.50
+  - source: http://arxiv.org/abs/2607.04133v2
 - **Nonlinear Causal Discovery in Time Series** — Recent years have witnessed the proliferation of the Functional Causal Model (FCM) for causal learning due to its intuitive representation and accurate learning results.
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://www.semanticscholar.org/paper/53c4012d8f70b8cd28980d7e7ee96be911aeaaad
-- **Use of prior knowledge to discover causal additive models with unobserved variables and its application to time series data** — This paper proposes two methods for causal additive models with unobserved variables (CAM-UV).
-  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+- **Research based on improved DE-YOLOv8 helmet wear detection model** — In order to prevent head injuries caused by falling objects or collision with objects when entering construction sites or production workshops, it is stipulated that helmets should be worn when entering the relevant occasions.
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 2.1% result
   - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: https://www.semanticscholar.org/paper/d426a88c16e45e1fe0c56056534b897b53f6dd31
-  - reformulated 1x
+  - source: https://www.semanticscholar.org/paper/25d7fb9c55205b2e2591fc3756b9d09dcf7baf7e
+- **SeiAttentionNet: An Epilepsy Detection Model Using Attention-based Graph Convolutional Network** — Accurate and timely prediction of epileptic seizures is crucial in preventing unintended harm to patients.
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 12.64% result
+  - record: 1 passed / 1 failed, beta-confidence 0.50
+  - source: https://www.semanticscholar.org/paper/bc0c288a855fcc5e4b403500b2d88fb3dc20f4c2
 - **Causal discovery from nonstationary subsample time series.** — Causal discovery from nonstationary subsample time series is a fundamental yet challenging problem in many scientific domains.
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 0 passed / 1 failed, beta-confidence 0.33
@@ -106,3 +127,15 @@ _none_
   - retired by a scope gate added after it was staked; carries no phrase from the topic it was filed under
 - [unfalsifiable] On topic hidden variable detection / causal discovery from residuals, Supplementary material: High-recall causal discovery for autocorrelated time series with latent confounders reports: no abstract available
   - no measurable falsification condition in the abstract
+- [off-scope] Detection of Image Tampering Using Deep Learning, Error Levels and Noise Residuals
+  - retrieved by keyword match but carries no phrase from the topic it was filed under
+- [off-scope] Reducing Alarm Fatigue in Dam Pendulum Monitoring: Streak Detection of Prediction-Band Transgressions with a Two-State Hidden Markov Model
+  - retrieved by keyword match but carries no phrase from the topic it was filed under
+- [off-scope] Hidden Markov model for acoustic pesticide exposure detection and hive identification in stingless bees
+  - retrieved by keyword match but carries no phrase from the topic it was filed under
+- [off-scope] Application of Illusion Enhanced Large Model Hint Segmentation in Hidden Attack Target Detection
+  - retrieved by keyword match but carries no phrase from the topic it was filed under
+- [off-scope] ICR Probe: Tracking Hidden State Dynamics for Reliable Hallucination Detection in LLMs
+  - retrieved by keyword match but carries no phrase from the topic it was filed under
+- [off-scope] Pulsar Glitch Detection with a Hidden Markov Model
+  - retrieved by keyword match but carries no phrase from the topic it was filed under

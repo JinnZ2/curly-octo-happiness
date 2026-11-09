@@ -2198,5 +2198,145 @@
     ],
     "url": "https://doi.org/10.3390/e28111182",
     "date": "2026-10-26"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Confidence and Calibration of Activation Oracles for Reliable Interpretation of Language Model Internals",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "http://arxiv.org/abs/2605.26045v3",
+    "date": "2026-05-25"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] SearchJev: A Calibrated System-1 Model for Search Agents",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/fe0e5cd06e1323b137c04fdb00f17b043419ee18",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] An Exploration of Abstention and Calibration in Assurance of Multi-class Classifiers",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.1609/aaaiss.v10i1.43413",
+    "date": "2026-11-06"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Learning Kernelized Hypothesis for Hidden Confounder Detection",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/c06977bd0c67e2417773881919f1669845c25522",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Detection of Image Tampering Using Deep Learning, Error Levels and Noise Residuals",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/a5cb5069610feeb78df5b35b6f86e6297cd45230",
+    "date": "2024-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Reducing Alarm Fatigue in Dam Pendulum Monitoring: Streak Detection of Prediction-Band Transgressions with a Two-State Hidden Markov Model",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/62bb229a71cb1de2f2ebe782fcd50d6ec1206caa",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] An Enhanced Autoencoder-Based Anomaly Detection Model for Time Series Data From Wearable Medical Devices",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/1efeb8fb3c359c4d27b0bfa1b62a7479d9b575c9",
+    "date": "2024-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Hidden Markov model for acoustic pesticide exposure detection and hive identification in stingless bees",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/5d897493748f8b6f947ee0fa50481e40ee98f983",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Application of Illusion Enhanced Large Model Hint Segmentation in Hidden Attack Target Detection",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/223288b667c4e49566eb1d448293e78e8cf94e66",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] ICR Probe: Tracking Hidden State Dynamics for Reliable Hallucination Detection in LLMs",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/bb419a4952376815243456a7d44fa8c3eb78330f",
+    "date": "2025-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Research based on improved DE-YOLOv8 helmet wear detection model",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/25d7fb9c55205b2e2591fc3756b9d09dcf7baf7e",
+    "date": "2024-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] SeiAttentionNet: An Epilepsy Detection Model Using Attention-based Graph Convolutional Network",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/bc0c288a855fcc5e4b403500b2d88fb3dc20f4c2",
+    "date": "2024-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Pulsar Glitch Detection with a Hidden Markov Model",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "https://www.semanticscholar.org/paper/247305be424cb8686aaf311224b396c5a9e0afc9",
+    "date": "2020-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] LNML-based Causal Discovery with Latent Confounders: Theory and Experiments",
+    "tags": [
+      "finding",
+      "hidden variable detection / causal discovery from residuals"
+    ],
+    "url": "http://arxiv.org/abs/2607.04133v2",
+    "date": "2026-07-05"
   }
 ]

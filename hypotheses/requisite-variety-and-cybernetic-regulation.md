@@ -1,6 +1,6 @@
 # Hypothesis draft — requisite variety and cybernetic regulation
 
-_Regenerated 2026-11-02 by `scripts/hypothesis_engine.py`. Node confidence 0.51; 4 surviving / 5 active / 0 refuted claims._
+_Regenerated 2026-11-09 by `scripts/hypothesis_engine.py`. Node confidence 0.51; 4 surviving / 5 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding. Open questions with methods and falsifiers are in [RESEARCH_GAPS.md](RESEARCH_GAPS.md).
 

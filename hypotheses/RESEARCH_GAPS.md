@@ -2,7 +2,7 @@
 
 **This is an automated triage of a literature sample, not a set of findings.** Each claim is the first sentence of an abstract — often background rather than the paper's result, so read the source before running anything. “Corroborating” and “contradicting” mean another abstract's sentences on a shared subject lean for or against it — cross-reading, not replication. Every entry is a starting point someone with a lab, data, or a desk can pick up.
 
-_Regenerated 2026-11-02 by `scripts/hypothesis_engine.py` (stage 8). Format: `RESEARCH_RENDER.md` §3. Ids are permanent: a gap that drops out keeps its id and moves to **Retired ids**; ids are never renumbered._
+_Regenerated 2026-11-09 by `scripts/hypothesis_engine.py` (stage 8). Format: `RESEARCH_RENDER.md` §3. Ids are permanent: a gap that drops out keeps its id and moves to **Retired ids**; ids are never renumbered._
 
 **Classes:** EMPIRICAL — a measurement nobody has made · METHODOLOGICAL — a procedure nobody has defined.  
 **Knowledge states:** `UNDER_STUDY` sources disagree, value provisional · `UNDEFINED` no agreed falsifier · `UNMEASURED` no value.
@@ -11,8 +11,8 @@ _Regenerated 2026-11-02 by `scripts/hypothesis_engine.py` (stage 8). Format: `RE
 
 ## Contents
 
-- [calibration and falsifiability of LLM agents](#calibration-and-falsifiability-of-llm-agents) · `CFA` · 32 open gaps · 7 untested markers
-- [hidden variable detection / causal discovery from residuals](#hidden-variable-detection-causal-discovery-from-residuals) · `HVD` · 8 open gaps · 2 untested markers
+- [calibration and falsifiability of LLM agents](#calibration-and-falsifiability-of-llm-agents) · `CFA` · 39 open gaps · 3 untested markers
+- [hidden variable detection / causal discovery from residuals](#hidden-variable-detection-causal-discovery-from-residuals) · `HVD` · 11 open gaps · 3 untested markers
 - [causal states and statistical complexity](#causal-states-and-statistical-complexity) · `CSS` · 1 open gap · 0 untested markers
 - [requisite variety and cybernetic regulation](#requisite-variety-and-cybernetic-regulation) · `RVC` · 4 open gaps · 1 untested markers
 - [Protocols](#protocols) · [Retired ids](#retired-ids)
@@ -139,25 +139,62 @@ Each gap names one. The steps are shared; what differs per gap is the claim, its
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
-### CFA_005 · EMPIRICAL · `UNDER_STUDY` — MameLoshnLM: Yiddish Language Model and Evaluation Benchmark
+### CFA_037 · EMPIRICAL · `UNDER_STUDY` — Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents
 
 **Gap:** the sample splits on this claim — 2 corroborating / 2 contradicting readings, beta 0.50, reformulated 2×.
 
-**Question:** does the result in “MameLoshnLM: Yiddish Language Model and Evaluation Benchmark” hold under its stated conditions, and which condition separates the sources that disagree?
+**Question:** does the result in “Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents” hold under its stated conditions, and which condition separates the sources that disagree?
 
-**Claim as extracted:** We present MameLoshnLM, the first open-source 8B-parameter language model built specifically for Yiddish.
+**Claim as extracted:** Reliable confidence estimation is increasingly central to the trustworthy deployment of language models: a calibrated estimate of the probability that an output is correct decides what to ship, what to escalate, and what to retry.
 
 **Disciplines:** machine learning, statistics (calibration, forecasting), philosophy of science
 
 **Existing record:**
-- source: [MameLoshnLM: Yiddish Language Model and Evaluation Benchmark](http://arxiv.org/abs/2608.05850v1)
-- cross-read: [Learning From Failure: Integrating Negative Examples when Fine-tuning Large Language Models as Agents](http://arxiv.org/abs/2402.11651v2)
-- cross-read: [How do language models learn facts? Dynamics, curricula and hallucinations](http://arxiv.org/abs/2503.21676v2)
-- cross-read: [Agents: An Open-source Framework for Autonomous Language Agents](http://arxiv.org/abs/2309.07870v3)
+- source: [Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents](https://www.semanticscholar.org/paper/a4eadda8b5fa6316b0b0ef5d60c40ea021835f59)
 - cross-read: [Calibrating the Confidence of Large Language Models by Eliciting Fidelity](http://arxiv.org/abs/2404.02655v2)
 - cross-read: [Agentic Confidence Calibration](http://arxiv.org/abs/2601.15778v1)
 - cross-read: [Retrospex: Language Agent Meets Offline Reinforcement Learning Critic](http://arxiv.org/abs/2505.11807v2)
-- … 25 more in `data/findings_log.jsonl`
+- cross-read: [Calibrated Per-Carrier Confidence and Certified Pruning for Gaussian-Splat Assets](https://doi.org/10.31224/7689)
+- cross-read: [Auditability Before Ontology: Operational Gates for Subjecthood Claims A Falsifiable Framework for Stakebearing Identity and Governance](https://doi.org/10.2139/ssrn.6181600)
+- cross-read: [Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval](https://doi.org/10.69987/aimlr.2025.60401)
+- … 23 more in `data/findings_log.jsonl`
+
+**Run:** [Protocol R — Replication split](#protocol-r)
+
+### CFA_038 · EMPIRICAL · `UNDER_STUDY` — Confidence and Calibration of Activation Oracles for Reliable Interpretation of Language Model Internals
+
+**Gap:** the sample splits on this claim — 3 corroborating / 1 contradicting readings, beta 0.67.
+
+**Question:** does the result in “Confidence and Calibration of Activation Oracles for Reliable Interpretation of Language Model Internals” hold under its stated conditions, and which condition separates the sources that disagree?
+
+**Claim as extracted:** An activation oracle is a language model trained to convert the activations of another model into natural language.
+
+**Disciplines:** machine learning, statistics (calibration, forecasting), philosophy of science
+
+**Existing record:**
+- source: [Confidence and Calibration of Activation Oracles for Reliable Interpretation of Language Model Internals](http://arxiv.org/abs/2605.26045v3)
+- cross-read: [Calibrated Per-Carrier Confidence and Certified Pruning for Gaussian-Splat Assets](https://doi.org/10.31224/7689)
+- cross-read: [Semantic Validation Gates: A Computable, Statistically Calibrated Framework for Runtime Verification of Language-Model Outputs](https://doi.org/10.2139/ssrn.7157718)
+- cross-read: [Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval](https://doi.org/10.69987/aimlr.2025.60401)
+- cross-read: [Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval](https://www.semanticscholar.org/paper/5fc6a54544f6b704a9fdcfabfae4ec5d2220c7f7)
+
+**Run:** [Protocol R — Replication split](#protocol-r)
+
+### CFA_039 · EMPIRICAL · `UNDER_STUDY` — MICE for CATs: Model-Internal Confidence Estimation for Calibrating Agents with Tools
+
+**Gap:** the sample splits on this claim — 2 corroborating / 1 contradicting readings, beta 0.60.
+
+**Question:** does the result in “MICE for CATs: Model-Internal Confidence Estimation for Calibrating Agents with Tools” hold under its stated conditions, and which condition separates the sources that disagree?
+
+**Claim as extracted:** Tool-using agents that act in the world need to be both useful and safe.
+
+**Disciplines:** machine learning, statistics (calibration, forecasting), philosophy of science
+
+**Existing record:**
+- source: [MICE for CATs: Model-Internal Confidence Estimation for Calibrating Agents with Tools](https://www.semanticscholar.org/paper/4f9ea82e5eccb871f3fc2907485d0e087044b2e3)
+- cross-read: [An Explainable Agentic AI Framework for Uncertainty-Aware and Abstention-Enabled Acute Ischemic Stroke Imaging Decisions](http://arxiv.org/abs/2601.01008v1)
+- cross-read: [TapGuard: Temperature-Calibrated Execute–Confirm–Block Routing for LLM-Powered Mobile Agents](https://www.semanticscholar.org/paper/455aff2b876a266a14e412f4d4ff3071da1bb7d3)
+- cross-read: [Confidence and Calibration of Activation Oracles for Reliable Interpretation of Language Model Internals](http://arxiv.org/abs/2605.26045v3)
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
@@ -183,6 +220,28 @@ Each gap names one. The steps are shared; what differs per gap is the claim, its
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
+### CFA_040 · EMPIRICAL · `UNDER_STUDY` — Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of con
+
+**Gap:** the sample splits on this claim — 1 corroborating / 1 contradicting readings, beta 0.50, reformulated 2×.
+
+**Question:** does the result in “Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept” hold under its stated conditions, and which condition separates the sources that disagree?
+
+**Claim as extracted:** Autonomous AI agents increasingly execute actions, invoke tools, and operate on protected resources with limited human oversight.
+
+**Disciplines:** machine learning, statistics (calibration, forecasting), philosophy of science
+
+**Existing record:**
+- source: [Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept](https://doi.org/10.3389/fcomp.2026.1966725)
+- cross-read: [Cryptographically verifiable authorization for autonomous AI agents: A falsifiable hypothesis and proof-of-concept](http://arxiv.org/abs/2607.21325v2)
+- cross-read: [From Calibrated Confidence to Calibrated Reliance: Human-Aware Confidence Communication for AI-Assisted Decision Making](https://doi.org/10.1145/3843742)
+- cross-read: [Cryptographically verifiable authorization for autonomous AI agents: A falsifiable hypothesis and proof-of-concept](https://www.semanticscholar.org/paper/42bfa454a0008fa4d9181b287677f76421917c94)
+- cross-read: [FinPersona-Bench: A Benchmark for Longitudinal Psychometric Stability of Autonomous Financial Agents](https://www.semanticscholar.org/paper/317d2659a28f8444d297f5020315bcdfc2509ab1)
+- cross-read: [EviGraph: Evidence-Guided Autonomous Research Agents](https://www.semanticscholar.org/paper/84171611669441638d18bf3266065b796ed5cd5d)
+- cross-read: [Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept](https://www.semanticscholar.org/paper/42bfa454a0008fa4d9181b287677f76421917c94)
+- … 7 more in `data/findings_log.jsonl`
+
+**Run:** [Protocol R — Replication split](#protocol-r)
+
 ### CFA_023 · EMPIRICAL · `UNDER_STUDY` — A measurement substrate for agentic Kubernetes operations: Methodology and a case study in retrieval-compoundi
 
 **Gap:** the sample splits on this claim — 1 corroborating / 1 contradicting readings, beta 0.50, reformulated 2×.
@@ -201,6 +260,28 @@ Each gap names one. The steps are shared; what differs per gap is the claim, its
 - cross-read: [Caging the Agents: A Zero Trust Security Architecture for Autonomous AI in Healthcare](http://arxiv.org/abs/2603.17419v1)
 - cross-read: [I-CALM: Incentivizing Confidence-Aware Abstention for LLM Hallucination Mitigation](http://arxiv.org/abs/2604.03904v1)
 - cross-read: [Auditability Before Ontology: Operational Gates for Subjecthood Claims A Falsifiable Framework for Stakebearing Identity and Governance](https://doi.org/10.2139/ssrn.6181600)
+- … 6 more in `data/findings_log.jsonl`
+
+**Run:** [Protocol R — Replication split](#protocol-r)
+
+### CFA_041 · EMPIRICAL · `UNDER_STUDY` — Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of con
+
+**Gap:** the sample splits on this claim — 1 corroborating / 1 contradicting readings, beta 0.50, reformulated 2×.
+
+**Question:** does the result in “Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept” hold under its stated conditions, and which condition separates the sources that disagree?
+
+**Claim as extracted:** Autonomous AI agents increasingly execute actions, invoke tools, and operate on protected resources with limited human oversight.
+
+**Disciplines:** machine learning, statistics (calibration, forecasting), philosophy of science
+
+**Existing record:**
+- source: [Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept](https://www.semanticscholar.org/paper/42bfa454a0008fa4d9181b287677f76421917c94)
+- cross-read: [Cryptographically verifiable authorization for autonomous AI agents: A falsifiable hypothesis and proof-of-concept](http://arxiv.org/abs/2607.21325v2)
+- cross-read: [From Calibrated Confidence to Calibrated Reliance: Human-Aware Confidence Communication for AI-Assisted Decision Making](https://doi.org/10.1145/3843742)
+- cross-read: [FinPersona-Bench: A Benchmark for Longitudinal Psychometric Stability of Autonomous Financial Agents](https://www.semanticscholar.org/paper/317d2659a28f8444d297f5020315bcdfc2509ab1)
+- cross-read: [EviGraph: Evidence-Guided Autonomous Research Agents](https://www.semanticscholar.org/paper/84171611669441638d18bf3266065b796ed5cd5d)
+- cross-read: [Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept](https://doi.org/10.3389/fcomp.2026.1966725)
+- cross-read: [Caging the Agents: A Zero Trust Security Architecture for Autonomous AI in Healthcare](http://arxiv.org/abs/2603.17419v1)
 - … 6 more in `data/findings_log.jsonl`
 
 **Run:** [Protocol R — Replication split](#protocol-r)
@@ -227,47 +308,69 @@ Each gap names one. The steps are shared; what differs per gap is the claim, its
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
-### CFA_025 · EMPIRICAL · `UNDER_STUDY` — From Sampling to Cognition: Modeling Internal Cognitive Confidence in Language Models for Robust Uncertainty C
+### CFA_042 · EMPIRICAL · `UNDER_STUDY` — Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments 
 
 **Gap:** the sample mostly contradicts this claim — 0 corroborating / 2 contradicting readings, beta 0.25, reformulated 2×.
 
-**Question:** does the result in “From Sampling to Cognition: Modeling Internal Cognitive Confidence in Language Models for Robust Uncertainty Calibration” hold under its stated conditions, and which condition separates the sources that disagree?
+**Question:** does the result in “Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval” hold under its stated conditions, and which condition separates the sources that disagree?
 
-**Claim as extracted:** Large Language Models (LLMs) have demonstrated remarkable performance across a wide range of tasks, yet they generally lack self-awareness, often displaying overconfidence when confronted with questions beyond their knowledge boundaries.
+**Claim as extracted:** Large language models (LLMs) can generate fluent yet unsupported content (“hallucinations”), which undermines trust and complicates downstream decision making.
 
 **Disciplines:** machine learning, statistics (calibration, forecasting), philosophy of science
 
 **Existing record:**
-- source: [From Sampling to Cognition: Modeling Internal Cognitive Confidence in Language Models for Robust Uncertainty Calibration](https://www.semanticscholar.org/paper/65ce1fc3a07d73774872ac573cc567435474a2d8)
-- cross-read: [Calibrating the Confidence of Large Language Models by Eliciting Fidelity](http://arxiv.org/abs/2404.02655v2)
+- source: [Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval](https://www.semanticscholar.org/paper/5fc6a54544f6b704a9fdcfabfae4ec5d2220c7f7)
 - cross-read: [Agentic Confidence Calibration](http://arxiv.org/abs/2601.15778v1)
 - cross-read: [Calibrated Per-Carrier Confidence and Certified Pruning for Gaussian-Splat Assets](https://doi.org/10.31224/7689)
+- cross-read: [Semantic Validation Gates: A Computable, Statistically Calibrated Framework for Runtime Verification of Language-Model Outputs](https://doi.org/10.2139/ssrn.7157718)
 - cross-read: [Caging the Agents: A Zero Trust Security Architecture for Autonomous AI in Healthcare](http://arxiv.org/abs/2603.17419v1)
-- cross-read: [Mitigating Multimodal Hallucination via Phase-wise Self-reward](http://arxiv.org/abs/2604.17982v1)
+- cross-read: [Agents of Context: A Methodological Critique and Counter-Evidence Analysis of Adversarial Red-Teaming Claims for Autonomous AI Agents](https://doi.org/10.65737/airjir2026369)
 - cross-read: [An Explainable Agentic AI Framework for Uncertainty-Aware and Abstention-Enabled Acute Ischemic Stroke Imaging Decisions](http://arxiv.org/abs/2601.01008v1)
-- … 21 more in `data/findings_log.jsonl`
+- … 28 more in `data/findings_log.jsonl`
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
-### CFA_036 · EMPIRICAL · `UNDER_STUDY` — Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA
+### CFA_043 · EMPIRICAL · `UNDER_STUDY` — On Verbalized Confidence Scores for LLMs
 
 **Gap:** the sample mostly contradicts this claim — 0 corroborating / 2 contradicting readings, beta 0.25, reformulated 2×.
 
-**Question:** does the result in “Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA Constraints” hold under its stated conditions, and which condition separates the sources that disagree?
+**Question:** does the result in “On Verbalized Confidence Scores for LLMs” hold under its stated conditions, and which condition separates the sources that disagree?
 
-**Claim as extracted:** Large language model (LLM) triage agents in security operations centres (SOCs) are evaluated on verdict accuracy.
+**Claim as extracted:** The rise of large language models (LLMs) and their tight integration into our daily life make it essential to dedicate efforts towards their trustworthiness.
 
 **Disciplines:** machine learning, statistics (calibration, forecasting), philosophy of science
 
 **Existing record:**
-- source: [Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA Constraints](https://www.semanticscholar.org/paper/e1442988917859798b9c8966dd7c08531ae7387e)
-- cross-read: [Calibrated Per-Carrier Confidence and Certified Pruning for Gaussian-Splat Assets](https://doi.org/10.31224/7689)
-- cross-read: [Caging the Agents: A Zero Trust Security Architecture for Autonomous AI in Healthcare](http://arxiv.org/abs/2603.17419v1)
-- cross-read: [Evidence-Calibrated RAG for Unanswerable Question Answering: Retrieval Coverage, Abstention Calibration, and Hallucination-Proxy Analysis on SQuAD 2.0](https://doi.org/10.51903/jtie.v4i2.536)
+- source: [On Verbalized Confidence Scores for LLMs](https://www.semanticscholar.org/paper/4fd8ded3fd8942fb9e8a557ac37722b9f7add8b8)
 - cross-read: [Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval](https://doi.org/10.69987/aimlr.2025.60401)
-- cross-read: [From Calibrated Confidence to Calibrated Reliance: Human-Aware Confidence Communication for AI-Assisted Decision Making](https://doi.org/10.1145/3843742)
-- cross-read: [Evidence-Bound Autonomous Research (EviBound): A Governance Framework for Eliminating False Claims](https://www.semanticscholar.org/paper/f40edbf79a2ec9732831dfb160d15f6893d80bda)
-- … 15 more in `data/findings_log.jsonl`
+- cross-read: [Uncertainty-Calibrated Trust Modelling for LLM-Generated Misinformation Detection](https://www.semanticscholar.org/paper/0e3d9323132170e70973401847692a80bf95a611)
+- cross-read: [Condence, Calibration, and Abstention in Small Open-Weight Language Models on Psychiatric Knowledge Questions: A Cross-Domain Replication](https://doi.org/10.21203/rs.3.rs-11012222/v1)
+- cross-read: [Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval](https://www.semanticscholar.org/paper/5fc6a54544f6b704a9fdcfabfae4ec5d2220c7f7)
+- cross-read: [From Sampling to Cognition: Modeling Internal Cognitive Confidence in Language Models for Robust Uncertainty Calibration](https://www.semanticscholar.org/paper/65ce1fc3a07d73774872ac573cc567435474a2d8)
+- cross-read: [Computational Psychopathology of AI: A Clinical-Computational Framework for Diagnosing and Preventing Failure Modes](https://www.semanticscholar.org/paper/3658a236ad1d932e67f9f0d4793dfcbcf8abc901)
+- … 9 more in `data/findings_log.jsonl`
+
+**Run:** [Protocol R — Replication split](#protocol-r)
+
+### CFA_044 · EMPIRICAL · `UNDER_STUDY` — Confidence Composition for Multiagent Language Model Systems
+
+**Gap:** the sample mostly contradicts this claim — 0 corroborating / 2 contradicting readings, beta 0.25, reformulated 2×.
+
+**Question:** does the result in “Confidence Composition for Multiagent Language Model Systems” hold under its stated conditions, and which condition separates the sources that disagree?
+
+**Claim as extracted:** Multiagent language model systems, such as collaborative reasoning and debate, produce multiple correlated candidate answers and confidence signals.
+
+**Disciplines:** machine learning, statistics (calibration, forecasting), philosophy of science
+
+**Existing record:**
+- source: [Confidence Composition for Multiagent Language Model Systems](https://www.semanticscholar.org/paper/35bcf942450e50382abea4f20844bf5c4adb2c2c)
+- cross-read: [Agentic Confidence Calibration](http://arxiv.org/abs/2601.15778v1)
+- cross-read: [I-CALM: Incentivizing Confidence-Aware Abstention for LLM Hallucination Mitigation](http://arxiv.org/abs/2604.03904v1)
+- cross-read: [Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval](https://doi.org/10.69987/aimlr.2025.60401)
+- cross-read: [Adversary-Controlled Abstention Adversary-Controlled Abstention: How Unevaluable Outcomes Inflate Reported Detection Rates](https://doi.org/10.2139/ssrn.7338498)
+- cross-read: [Do LLM Recommenders Know When They're Hallucinating? Auditing Confidence Calibration in Catalog Faithfulness](http://arxiv.org/abs/2608.10008v3)
+- cross-read: [A measurement substrate for agentic Kubernetes operations: Methodology and a case study in retrieval-compounding falsification](https://www.semanticscholar.org/paper/08649f99062f1d9624ec0c9017c4666b6ab3e5ad)
+- … 18 more in `data/findings_log.jsonl`
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
@@ -290,28 +393,6 @@ Each gap names one. The steps are shared; what differs per gap is the claim, its
 - cross-read: [EviGraph: Evidence-Guided Autonomous Research Agents](https://www.semanticscholar.org/paper/84171611669441638d18bf3266065b796ed5cd5d)
 - cross-read: [Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval](https://www.semanticscholar.org/paper/5fc6a54544f6b704a9fdcfabfae4ec5d2220c7f7)
 - … 10 more in `data/findings_log.jsonl`
-
-**Run:** [Protocol R — Replication split](#protocol-r)
-
-### CFA_027 · EMPIRICAL · `UNDER_STUDY` — MameLoshnLM: Yiddish Language Model and Evaluation Benchmark
-
-**Gap:** the sample mostly contradicts this claim — 0 corroborating / 2 contradicting readings, beta 0.25, reformulated 1×.
-
-**Question:** does the result in “MameLoshnLM: Yiddish Language Model and Evaluation Benchmark” hold under its stated conditions, and which condition separates the sources that disagree?
-
-**Claim as extracted:** We present MameLoshnLM, the first open-source 8B-parameter language model built specifically for Yiddish.
-
-**Disciplines:** machine learning, statistics (calibration, forecasting), philosophy of science
-
-**Existing record:**
-- source: [MameLoshnLM: Yiddish Language Model and Evaluation Benchmark](http://arxiv.org/abs/2608.05850v2)
-- cross-read: [Agentic Confidence Calibration](http://arxiv.org/abs/2601.15778v1)
-- cross-read: [Caging the Agents: A Zero Trust Security Architecture for Autonomous AI in Healthcare](http://arxiv.org/abs/2603.17419v1)
-- cross-read: [Multi-agent Reinforcement Learning for Cooperative Lane Changing of Connected and Autonomous Vehicles in Mixed Traffic](http://arxiv.org/abs/2111.06318v2)
-- cross-read: [Agents of Context: A Methodological Critique and Counter-Evidence Analysis of Adversarial Red-Teaming Claims for Autonomous AI Agents](https://doi.org/10.65737/airjir2026369)
-- cross-read: [Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval](https://doi.org/10.69987/aimlr.2025.60401)
-- cross-read: [MameLoshnLM: Yiddish Language Model and Evaluation Benchmark](http://arxiv.org/abs/2608.05850v1)
-- … 7 more in `data/findings_log.jsonl`
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
@@ -412,6 +493,21 @@ Each gap names one. The steps are shared; what differs per gap is the claim, its
 
 **Run:** [Protocol M — Operationalise](#protocol-m)
 
+### CFA_045 · METHODOLOGICAL · `UNDEFINED` — MameLoshnLM: Yiddish Language Model and Evaluation Benchmark
+
+**Gap:** failed, was reformulated, failed again until it left the tree — no fixed falsifier held. reformulated 3x without surviving a test
+
+**Question:** what measurement would make this claim falsifiable — what result would count against it?
+
+**Claim as extracted:** We present MameLoshnLM, the first open-source 8B-parameter language model built specifically for Yiddish.
+
+**Disciplines:** machine learning, statistics (calibration, forecasting), philosophy of science
+
+**Existing record:**
+- source: [MameLoshnLM: Yiddish Language Model and Evaluation Benchmark](http://arxiv.org/abs/2608.05850v1)
+
+**Run:** [Protocol M — Operationalise](#protocol-m)
+
 ### CFA_030 · METHODOLOGICAL · `UNDEFINED` — Calibrating the Confidence of Large Language Models by Eliciting Fidelity
 
 **Gap:** failed, was reformulated, failed again until it left the tree — no fixed falsifier held. reformulated 3x without surviving a test
@@ -424,6 +520,21 @@ Each gap names one. The steps are shared; what differs per gap is the claim, its
 
 **Existing record:**
 - source: [Calibrating the Confidence of Large Language Models by Eliciting Fidelity](http://arxiv.org/abs/2404.02655v2)
+
+**Run:** [Protocol M — Operationalise](#protocol-m)
+
+### CFA_046 · METHODOLOGICAL · `UNDEFINED` — Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA
+
+**Gap:** failed, was reformulated, failed again until it left the tree — no fixed falsifier held. reformulated 3x without surviving a test
+
+**Question:** what measurement would make this claim falsifiable — what result would count against it?
+
+**Claim as extracted:** Large language model (LLM) triage agents in security operations centres (SOCs) are evaluated on verdict accuracy.
+
+**Disciplines:** machine learning, statistics (calibration, forecasting), philosophy of science
+
+**Existing record:**
+- source: [Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA Constraints](https://www.semanticscholar.org/paper/e1442988917859798b9c8966dd7c08531ae7387e)
 
 **Run:** [Protocol M — Operationalise](#protocol-m)
 
@@ -622,6 +733,21 @@ Each gap names one. The steps are shared; what differs per gap is the claim, its
 
 **Run:** [Protocol M — Operationalise](#protocol-m)
 
+### CFA_047 · METHODOLOGICAL · `UNDEFINED` — From Sampling to Cognition: Modeling Internal Cognitive Confidence in Language Models for Robust Uncertainty C
+
+**Gap:** failed, was reformulated, failed again until it left the tree — no fixed falsifier held. reformulated 3x without surviving a test
+
+**Question:** what measurement would make this claim falsifiable — what result would count against it?
+
+**Claim as extracted:** Large Language Models (LLMs) have demonstrated remarkable performance across a wide range of tasks, yet they generally lack self-awareness, often displaying overconfidence when confronted with questions beyond their knowledge boundaries.
+
+**Disciplines:** machine learning, statistics (calibration, forecasting), philosophy of science
+
+**Existing record:**
+- source: [From Sampling to Cognition: Modeling Internal Cognitive Confidence in Language Models for Robust Uncertainty Calibration](https://www.semanticscholar.org/paper/65ce1fc3a07d73774872ac573cc567435474a2d8)
+
+**Run:** [Protocol M — Operationalise](#protocol-m)
+
 ### CFA_018 · METHODOLOGICAL · `UNDEFINED` — Calibrated Language Models and How to Find Them with Label Smoothing
 
 **Gap:** failed, was reformulated, failed again until it left the tree — no fixed falsifier held. reformulated 3x without surviving a test
@@ -641,13 +767,9 @@ Each gap names one. The steps are shared; what differs per gap is the claim, its
 
 No source in the sample spoke to these. That is a fact about the sample, not about the claim.
 
-- Confidence Composition for Multiagent Language Model Systems — [source](https://www.semanticscholar.org/paper/35bcf942450e50382abea4f20844bf5c4adb2c2c)
-- Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept — [source](http://arxiv.org/abs/2607.21325v3)
-- Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval — [source](https://www.semanticscholar.org/paper/5fc6a54544f6b704a9fdcfabfae4ec5d2220c7f7)
-- Mathematical Analysis of Hallucination Dynamics in Large Language Models: Uncertainty Quantification, Advanced Decoding, and Principled Mitigation — [source](https://www.semanticscholar.org/paper/55fc275598aa95cff62e1c0246a7c3c0faaeb8a1)
-- On Verbalized Confidence Scores for LLMs — [source](https://www.semanticscholar.org/paper/4fd8ded3fd8942fb9e8a557ac37722b9f7add8b8)
+- MameLoshnLM: Yiddish Language Model and Evaluation Benchmark — [source](http://arxiv.org/abs/2608.05850v2)
 - Operationalizing Serendipity: Multi-Agent AI Workflows for Enhanced Materials Characterization with Theory-in-the-Loop — [source](https://www.semanticscholar.org/paper/5b014f349a093bc770a18858d8afbb21290bfce3)
-- SearchJev: A Fast and Calibrated System-1 Model for Search Agents — [source](https://www.semanticscholar.org/paper/25c97215ea9ab363eec9d30543fa28b985f1b246)
+- SearchJev: A Calibrated System-1 Model for Search Agents — [source](https://www.semanticscholar.org/paper/fe0e5cd06e1323b137c04fdb00f17b043419ee18)
 
 <a id="hidden-variable-detection-causal-discovery-from-residuals"></a>
 
@@ -655,7 +777,7 @@ No source in the sample spoke to these. That is a fact about the sample, not abo
 
 ### HVD_001 · EMPIRICAL · `UNDER_STUDY` — Causal Discovery in High-Dimensional Time Series with Latent Confounders via Score-Based Diffusion Models
 
-**Gap:** the sample splits on this claim — 4 corroborating / 2 contradicting readings, beta 0.62.
+**Gap:** the sample splits on this claim — 6 corroborating / 2 contradicting readings, beta 0.70.
 
 **Question:** does the result in “Causal Discovery in High-Dimensional Time Series with Latent Confounders via Score-Based Diffusion Models” hold under its stated conditions, and which condition separates the sources that disagree?
 
@@ -671,12 +793,13 @@ No source in the sample spoke to these. That is a fact about the sample, not abo
 - cross-read: [Score matching through the roof: linear, nonlinear, and latent variables causal discovery](http://arxiv.org/abs/2407.18755v2)
 - cross-read: [Using Domain Knowledge to Overcome Latent Variables in Causal Inference from Time Series](https://www.semanticscholar.org/paper/1c20be6817e06988735c30cb9eecaf05e0c21c9a)
 - cross-read: [Nonlinear Causal Discovery in Time Series](https://www.semanticscholar.org/paper/53c4012d8f70b8cd28980d7e7ee96be911aeaaad)
+- … 2 more in `data/findings_log.jsonl`
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
 ### HVD_002 · EMPIRICAL · `UNDER_STUDY` — Causal discovery from time-series discrete data in the presence of latent confounders.
 
-**Gap:** the sample splits on this claim — 4 corroborating / 2 contradicting readings, beta 0.62.
+**Gap:** the sample splits on this claim — 6 corroborating / 2 contradicting readings, beta 0.70.
 
 **Question:** does the result in “Causal discovery from time-series discrete data in the presence of latent confounders.” hold under its stated conditions, and which condition separates the sources that disagree?
 
@@ -692,12 +815,13 @@ No source in the sample spoke to these. That is a fact about the sample, not abo
 - cross-read: [Using Domain Knowledge to Overcome Latent Variables in Causal Inference from Time Series](https://www.semanticscholar.org/paper/1c20be6817e06988735c30cb9eecaf05e0c21c9a)
 - cross-read: [Use of prior knowledge to discover causal additive models with unobserved variables and its application to time series data](https://www.semanticscholar.org/paper/d426a88c16e45e1fe0c56056534b897b53f6dd31)
 - cross-read: [Nonlinear Causal Discovery in Time Series](https://www.semanticscholar.org/paper/53c4012d8f70b8cd28980d7e7ee96be911aeaaad)
+- … 2 more in `data/findings_log.jsonl`
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
 ### HVD_003 · EMPIRICAL · `UNDER_STUDY` — High-recall causal discovery for autocorrelated time series with latent confounders
 
-**Gap:** the sample splits on this claim — 3 corroborating / 2 contradicting readings, beta 0.57.
+**Gap:** the sample splits on this claim — 4 corroborating / 2 contradicting readings, beta 0.62.
 
 **Question:** does the result in “High-recall causal discovery for autocorrelated time series with latent confounders” hold under its stated conditions, and which condition separates the sources that disagree?
 
@@ -712,6 +836,26 @@ No source in the sample spoke to these. That is a fact about the sample, not abo
 - cross-read: [Score matching through the roof: linear, nonlinear, and latent variables causal discovery](http://arxiv.org/abs/2407.18755v2)
 - cross-read: [Using Domain Knowledge to Overcome Latent Variables in Causal Inference from Time Series](https://www.semanticscholar.org/paper/1c20be6817e06988735c30cb9eecaf05e0c21c9a)
 - cross-read: [Nonlinear Causal Discovery in Time Series](https://www.semanticscholar.org/paper/53c4012d8f70b8cd28980d7e7ee96be911aeaaad)
+- cross-read: [LNML-based Causal Discovery with Latent Confounders: Theory and Experiments](http://arxiv.org/abs/2607.04133v2)
+
+**Run:** [Protocol R — Replication split](#protocol-r)
+
+### HVD_009 · EMPIRICAL · `UNDER_STUDY` — LNML-based Causal Discovery with Latent Confounders: Theory and Experiments
+
+**Gap:** the sample splits on this claim — 2 corroborating / 2 contradicting readings, beta 0.50.
+
+**Question:** does the result in “LNML-based Causal Discovery with Latent Confounders: Theory and Experiments” hold under its stated conditions, and which condition separates the sources that disagree?
+
+**Claim as extracted:** Causal discovery with nonlinear mechanisms and latent confounders remains challenging.
+
+**Disciplines:** causal inference, statistics, econometrics, climate and earth-system science
+
+**Existing record:**
+- source: [LNML-based Causal Discovery with Latent Confounders: Theory and Experiments](http://arxiv.org/abs/2607.04133v2)
+- cross-read: [Mitigating Hidden Confounding by Progressive Confounder Imputation via Large Language Models](http://arxiv.org/abs/2507.02928v1)
+- cross-read: [Score matching through the roof: linear, nonlinear, and latent variables causal discovery](http://arxiv.org/abs/2407.18755v2)
+- cross-read: [Nonlinear Causal Discovery in Time Series](https://www.semanticscholar.org/paper/53c4012d8f70b8cd28980d7e7ee96be911aeaaad)
+- cross-read: [Causal discovery from nonstationary subsample time series.](https://www.semanticscholar.org/paper/6913e14057b29808d2a46c9b40aed62194883717)
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
@@ -736,7 +880,7 @@ No source in the sample spoke to these. That is a fact about the sample, not abo
 
 ### HVD_005 · EMPIRICAL · `UNDER_STUDY` — Causal discovery for time series with latent confounders
 
-**Gap:** the sample splits on this claim — 2 corroborating / 1 contradicting readings, beta 0.60.
+**Gap:** the sample splits on this claim — 3 corroborating / 1 contradicting readings, beta 0.67.
 
 **Question:** does the result in “Causal discovery for time series with latent confounders” hold under its stated conditions, and which condition separates the sources that disagree?
 
@@ -749,6 +893,25 @@ No source in the sample spoke to these. That is a fact about the sample, not abo
 - cross-read: [Mitigating Hidden Confounding by Progressive Confounder Imputation via Large Language Models](http://arxiv.org/abs/2507.02928v1)
 - cross-read: [Causal discovery of linear non-Gaussian acyclic models in the presence of latent confounders](http://arxiv.org/abs/2001.04197v4)
 - cross-read: [Nonlinear Causal Discovery in Time Series](https://www.semanticscholar.org/paper/53c4012d8f70b8cd28980d7e7ee96be911aeaaad)
+- cross-read: [LNML-based Causal Discovery with Latent Confounders: Theory and Experiments](http://arxiv.org/abs/2607.04133v2)
+
+**Run:** [Protocol R — Replication split](#protocol-r)
+
+### HVD_010 · EMPIRICAL · `UNDER_STUDY` — Learning Kernelized Hypothesis for Hidden Confounder Detection
+
+**Gap:** the sample splits on this claim — 2 corroborating / 1 contradicting readings, beta 0.60.
+
+**Question:** does the result in “Learning Kernelized Hypothesis for Hidden Confounder Detection” hold under its stated conditions, and which condition separates the sources that disagree?
+
+**Claim as extracted:** Detecting hidden confounding is crucial for reliable causal analysis from observational data, directly determining which downstream causal inference method to be deployed.
+
+**Disciplines:** causal inference, statistics, econometrics, climate and earth-system science
+
+**Existing record:**
+- source: [Learning Kernelized Hypothesis for Hidden Confounder Detection](https://www.semanticscholar.org/paper/c06977bd0c67e2417773881919f1669845c25522)
+- cross-read: [Mitigating Hidden Confounding by Progressive Confounder Imputation via Large Language Models](http://arxiv.org/abs/2507.02928v1)
+- cross-read: [Using Domain Knowledge to Overcome Latent Variables in Causal Inference from Time Series](https://www.semanticscholar.org/paper/1c20be6817e06988735c30cb9eecaf05e0c21c9a)
+- cross-read: [LNML-based Causal Discovery with Latent Confounders: Theory and Experiments](http://arxiv.org/abs/2607.04133v2)
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
@@ -767,6 +930,23 @@ No source in the sample spoke to these. That is a fact about the sample, not abo
 - cross-read: [Mitigating Hidden Confounding by Progressive Confounder Imputation via Large Language Models](http://arxiv.org/abs/2507.02928v1)
 - cross-read: [Latent-Y: A Lab-Validated Autonomous Agent for De Novo Drug Design](http://arxiv.org/abs/2603.29727v2)
 - cross-read: [Nonlinear Causal Discovery in Time Series](https://www.semanticscholar.org/paper/53c4012d8f70b8cd28980d7e7ee96be911aeaaad)
+
+**Run:** [Protocol R — Replication split](#protocol-r)
+
+### HVD_011 · EMPIRICAL · `UNDER_STUDY` — SeiAttentionNet: An Epilepsy Detection Model Using Attention-based Graph Convolutional Network
+
+**Gap:** the sample splits on this claim — 1 corroborating / 1 contradicting readings, beta 0.50.
+
+**Question:** does the result in “SeiAttentionNet: An Epilepsy Detection Model Using Attention-based Graph Convolutional Network” hold under its stated conditions, and which condition separates the sources that disagree?
+
+**Claim as extracted:** Accurate and timely prediction of epileptic seizures is crucial in preventing unintended harm to patients.
+
+**Disciplines:** causal inference, statistics, econometrics, climate and earth-system science
+
+**Existing record:**
+- source: [SeiAttentionNet: An Epilepsy Detection Model Using Attention-based Graph Convolutional Network](https://www.semanticscholar.org/paper/bc0c288a855fcc5e4b403500b2d88fb3dc20f4c2)
+- cross-read: [Nonlinear Causal Discovery in Time Series](https://www.semanticscholar.org/paper/53c4012d8f70b8cd28980d7e7ee96be911aeaaad)
+- cross-read: [Research based on improved DE-YOLOv8 helmet wear detection model](https://www.semanticscholar.org/paper/25d7fb9c55205b2e2591fc3756b9d09dcf7baf7e)
 
 **Run:** [Protocol R — Replication split](#protocol-r)
 
@@ -808,8 +988,9 @@ No source in the sample spoke to these. That is a fact about the sample, not abo
 
 No source in the sample spoke to these. That is a fact about the sample, not about the claim.
 
+- An Enhanced Autoencoder-Based Anomaly Detection Model for Time Series Data From Wearable Medical Devices — [source](https://www.semanticscholar.org/paper/1efeb8fb3c359c4d27b0bfa1b62a7479d9b575c9)
 - Nonlinear Causal Discovery in Time Series — [source](https://www.semanticscholar.org/paper/53c4012d8f70b8cd28980d7e7ee96be911aeaaad)
-- Use of prior knowledge to discover causal additive models with unobserved variables and its application to time series data — [source](https://www.semanticscholar.org/paper/d426a88c16e45e1fe0c56056534b897b53f6dd31)
+- Research based on improved DE-YOLOv8 helmet wear detection model — [source](https://www.semanticscholar.org/paper/25d7fb9c55205b2e2591fc3756b9d09dcf7baf7e)
 
 <a id="causal-states-and-statistical-complexity"></a>
 
@@ -940,4 +1121,8 @@ Ids that no longer qualify as open (claim resolved, retired off-scope, or re-sta
 - `CFA_002` · contested · last seen 2026-10-08 · DiscoUQ: Structured Disagreement Analysis for Uncertainty Quantification in LLM Agent Ensembles
 - `CFA_003` · contested · last seen 2026-10-08 · Calibrating the Confidence of Large Language Models by Eliciting Fidelity
 - `CFA_004` · contested · last seen 2026-10-08 · Herd Behavior: Investigating Peer Influence in LLM-based Multi-Agent Systems
+- `CFA_005` · contested · last seen 2026-11-02 · MameLoshnLM: Yiddish Language Model and Evaluation Benchmark
+- `CFA_025` · contradicted · last seen 2026-11-02 · From Sampling to Cognition: Modeling Internal Cognitive Confidence in Language Models for Robust Uncertainty C
+- `CFA_027` · contradicted · last seen 2026-11-02 · MameLoshnLM: Yiddish Language Model and Evaluation Benchmark
+- `CFA_036` · contradicted · last seen 2026-11-02 · Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA
 - `RVC_001` · contested · last seen 2026-10-26 · The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World
