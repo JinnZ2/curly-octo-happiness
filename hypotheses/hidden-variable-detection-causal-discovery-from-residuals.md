@@ -1,6 +1,6 @@
 # Hypothesis draft — hidden variable detection / causal discovery from residuals
 
-_Regenerated 2026-11-09 by `scripts/hypothesis_engine.py`. Node confidence 0.49; 5 surviving / 12 active / 0 refuted claims._
+_Regenerated 2026-11-16 by `scripts/hypothesis_engine.py`. Node confidence 0.49; 5 surviving / 12 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding. Open questions with methods and falsifiers are in [RESEARCH_GAPS.md](RESEARCH_GAPS.md).
 
@@ -10,6 +10,11 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 2013 result
   - record: 7 passed / 1 failed, beta-confidence 0.80
   - source: http://arxiv.org/abs/2303.14295v1
+- **An Enhanced Autoencoder-Based Anomaly Detection Model for Time Series Data From Wearable Medical Devices** — In today's era of rapidly advancing technologies, such as sensors and the Internet of Things (IoT), and the increasing focus on promoting healthy lifestyles, smart wearable devices play a crucial role in real-time detection and diagnosis of physical health conditions.
+  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 95.37% result
+  - record: 2 passed / 0 failed, beta-confidence 0.75
+  - source: https://www.semanticscholar.org/paper/1efeb8fb3c359c4d27b0bfa1b62a7479d9b575c9
+  - reformulated 1x
 - **Causal Discovery in High-Dimensional Time Series with Latent Confounders via Score-Based Diffusion Models** — The identification of causal relationships from observational time series data constitutes a fundamental challenge across scientific disciplines, ranging from climate science to econometrics and systems biology.
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 6 passed / 2 failed, beta-confidence 0.70
@@ -39,11 +44,6 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 2 passed / 1 failed, beta-confidence 0.60
   - source: https://www.semanticscholar.org/paper/1c20be6817e06988735c30cb9eecaf05e0c21c9a
-- **An Enhanced Autoencoder-Based Anomaly Detection Model for Time Series Data From Wearable Medical Devices** — In today's era of rapidly advancing technologies, such as sensors and the Internet of Things (IoT), and the increasing focus on promoting healthy lifestyles, smart wearable devices play a crucial role in real-time detection and diagnosis of physical health conditions.
-  - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 95.37% result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: https://www.semanticscholar.org/paper/1efeb8fb3c359c4d27b0bfa1b62a7479d9b575c9
-  - reformulated 1x
 - **Causal Discovery for time series from multiple datasets with latent contexts** — Causal discovery from time series data is a typical problem setting across the sciences.
   - falsification: An independent source on 'hidden variable detection / causal discovery from residuals' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 2 passed / 2 failed, beta-confidence 0.50

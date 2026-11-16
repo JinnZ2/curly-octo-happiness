@@ -2,7 +2,7 @@
 
 **This is an automated triage of a literature sample, not a set of findings.** Each claim is the first sentence of an abstract — often background rather than the paper's result, so read the source before running anything. “Corroborating” and “contradicting” mean another abstract's sentences on a shared subject lean for or against it — cross-reading, not replication. Every entry is a starting point someone with a lab, data, or a desk can pick up.
 
-_Regenerated 2026-11-09 by `scripts/hypothesis_engine.py` (stage 8). Format: `RESEARCH_RENDER.md` §3. Ids are permanent: a gap that drops out keeps its id and moves to **Retired ids**; ids are never renumbered._
+_Regenerated 2026-11-16 by `scripts/hypothesis_engine.py` (stage 8). Format: `RESEARCH_RENDER.md` §3. Ids are permanent: a gap that drops out keeps its id and moves to **Retired ids**; ids are never renumbered._
 
 **Classes:** EMPIRICAL — a measurement nobody has made · METHODOLOGICAL — a procedure nobody has defined.  
 **Knowledge states:** `UNDER_STUDY` sources disagree, value provisional · `UNDEFINED` no agreed falsifier · `UNMEASURED` no value.
@@ -11,8 +11,8 @@ _Regenerated 2026-11-09 by `scripts/hypothesis_engine.py` (stage 8). Format: `RE
 
 ## Contents
 
-- [calibration and falsifiability of LLM agents](#calibration-and-falsifiability-of-llm-agents) · `CFA` · 39 open gaps · 3 untested markers
-- [hidden variable detection / causal discovery from residuals](#hidden-variable-detection-causal-discovery-from-residuals) · `HVD` · 11 open gaps · 3 untested markers
+- [calibration and falsifiability of LLM agents](#calibration-and-falsifiability-of-llm-agents) · `CFA` · 39 open gaps · 4 untested markers
+- [hidden variable detection / causal discovery from residuals](#hidden-variable-detection-causal-discovery-from-residuals) · `HVD` · 11 open gaps · 2 untested markers
 - [causal states and statistical complexity](#causal-states-and-statistical-complexity) · `CSS` · 1 open gap · 0 untested markers
 - [requisite variety and cybernetic regulation](#requisite-variety-and-cybernetic-regulation) · `RVC` · 4 open gaps · 1 untested markers
 - [Protocols](#protocols) · [Retired ids](#retired-ids)
@@ -767,6 +767,7 @@ Each gap names one. The steps are shared; what differs per gap is the claim, its
 
 No source in the sample spoke to these. That is a fact about the sample, not about the claim.
 
+- Auditing the Auditor: Extraction Accuracy, Hallucination, and Abstention in Open-Weight LLMs for ESG Reporting A Longitudinal Empirical Benchmark Across 518 Corporate Disclosures (2010–2026) — [source](https://doi.org/10.21203/rs.3.rs-11610550/v1)
 - MameLoshnLM: Yiddish Language Model and Evaluation Benchmark — [source](http://arxiv.org/abs/2608.05850v2)
 - Operationalizing Serendipity: Multi-Agent AI Workflows for Enhanced Materials Characterization with Theory-in-the-Loop — [source](https://www.semanticscholar.org/paper/5b014f349a093bc770a18858d8afbb21290bfce3)
 - SearchJev: A Calibrated System-1 Model for Search Agents — [source](https://www.semanticscholar.org/paper/fe0e5cd06e1323b137c04fdb00f17b043419ee18)
@@ -988,7 +989,6 @@ No source in the sample spoke to these. That is a fact about the sample, not abo
 
 No source in the sample spoke to these. That is a fact about the sample, not about the claim.
 
-- An Enhanced Autoencoder-Based Anomaly Detection Model for Time Series Data From Wearable Medical Devices — [source](https://www.semanticscholar.org/paper/1efeb8fb3c359c4d27b0bfa1b62a7479d9b575c9)
 - Nonlinear Causal Discovery in Time Series — [source](https://www.semanticscholar.org/paper/53c4012d8f70b8cd28980d7e7ee96be911aeaaad)
 - Research based on improved DE-YOLOv8 helmet wear detection model — [source](https://www.semanticscholar.org/paper/25d7fb9c55205b2e2591fc3756b9d09dcf7baf7e)
 

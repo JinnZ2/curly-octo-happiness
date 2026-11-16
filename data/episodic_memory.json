@@ -2338,5 +2338,25 @@
     ],
     "url": "http://arxiv.org/abs/2607.04133v2",
     "date": "2026-07-05"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Auditing the Auditor: Extraction Accuracy, Hallucination, and Abstention in Open-Weight LLMs for ESG Reporting A Longitudinal Empirical Benchmark Across 518 Corporate Disclosures (2010\u20132026)",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.21203/rs.3.rs-11610550/v1",
+    "date": "2026-11-10"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] &lt;b&gt;When Abstention Gates Overtrust Noisy Evidence: An Empirical Audit of Calibration and Thresholding in Lightweight RAG Evidence-Sufficiency Models&lt;/b&gt;",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.58445/csk35g23",
+    "date": "2026-11-15"
   }
 ]

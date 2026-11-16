@@ -1668,11 +1668,12 @@
       "meta_flags": [],
       "passed": 0,
       "reference_class": "semantic_scholar records on 'calibration and falsifiability of LLM agents'",
-      "reformulation_count": 1,
+      "reformulation_count": 2,
       "scope": {
         "date": "2026-01-01",
         "restrictions": [
-          "restricted after failure #1"
+          "restricted after failure #1",
+          "restricted after failure #2"
         ],
         "source": "semantic_scholar",
         "topic": "calibration and falsifiability of LLM agents"
@@ -1692,9 +1693,12 @@
         "01148ad827adc7f3e5f207d3ea2b995bb2c7f6f0f72840ee8410b8319163a1d5",
         "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
         "2d7834d661722828cd48045ab12c8c6f3176156aac0b28ab145611f84548d378",
-        "a7b3504690fe666e11e80ebba8cd3fb5ae9630314d188ceafbe9afe68b3ad33b"
+        "a7b3504690fe666e11e80ebba8cd3fb5ae9630314d188ceafbe9afe68b3ad33b",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "167ca2798bb19bb6538390b569235e875b0e803d29f717ace295eecd789bbc09",
+        "4ecdef68ed153c063076178d356417c474a84d229706107d5c65c83a96968e61"
       ],
-      "text": "On topic calibration and falsifiability of LLM agents, SearchJev: A Calibrated System-1 Model for Search Agents reports: Search agents repeatedly make short decisions about relevance, evidence sufficiency, and search actions. (scope narrowed: restricted after failure #1)"
+      "text": "On topic calibration and falsifiability of LLM agents, SearchJev: A Calibrated System-1 Model for Search Agents reports: Search agents repeatedly make short decisions about relevance, evidence sufficiency, and search actions. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2)"
     },
     {
       "beta_confidence": 0.6,
@@ -1721,13 +1725,13 @@
       "text": "On topic hidden variable detection / causal discovery from residuals, Learning Kernelized Hypothesis for Hidden Confounder Detection reports: Detecting hidden confounding is crucial for reliable causal analysis from observational data, directly determining which downstream causal inference method to be deployed."
     },
     {
-      "beta_confidence": 0.5,
-      "confidence": 0.5,
+      "beta_confidence": 0.75,
+      "confidence": 0.7,
       "failed": 0,
       "falsification": "An independent source on 'hidden variable detection / causal discovery from residuals' reports the opposite effect, or fails to reproduce the stated 95.37% result",
       "id": "9b5bcdfb03ac31aa",
       "meta_flags": [],
-      "passed": 0,
+      "passed": 2,
       "reference_class": "semantic_scholar records on 'hidden variable detection / causal discovery from residuals'",
       "reformulation_count": 1,
       "scope": {
@@ -1743,7 +1747,9 @@
       "tested_against": [
         "44bc0744730537d32cce5e55f186ac2f99f45efd4be38bd8377c5a1a0543cdf6",
         "4671c868359cf47cc0a6c213c88ed0de4d4ecebba7477665fe124d16f6a2b930",
-        "b4c9f67dd3ab55b1839866ef48f9684cd08b27d83117466889a7d6a35c0095ff"
+        "b4c9f67dd3ab55b1839866ef48f9684cd08b27d83117466889a7d6a35c0095ff",
+        "081a6ad825f582fced9485081673e9901b4a2cce7f835a66dbccf763e36e8bda",
+        "9732ce73d8681f1c9f4f805df14d8074b7a273c566781db25a1221ebf2a94b5f"
       ],
       "text": "On topic hidden variable detection / causal discovery from residuals, An Enhanced Autoencoder-Based Anomaly Detection Model for Time Series Data From Wearable Medical Devices reports: In today's era of rapidly advancing technologies, such as sensors and the Internet of Things (IoT), and the increasing focus on promoting healthy lifestyles, smart wearable devices play a crucial role in real-time detection and diagnosis of physical health conditions. (scope narrowed: restricted after failure #1)"
     },
@@ -1814,7 +1820,57 @@
         "57590041817a6cdb0db119cce0d4d94f355d599ff2a8a30648a4b9dc1db69d03"
       ],
       "text": "On topic hidden variable detection / causal discovery from residuals, LNML-based Causal Discovery with Latent Confounders: Theory and Experiments reports: Causal discovery with nonlinear mechanisms and latent confounders remains challenging."
+    },
+    {
+      "beta_confidence": 0.5,
+      "confidence": 0.5,
+      "failed": 0,
+      "falsification": "An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 46.7% result",
+      "id": "c47298d8a863144d",
+      "meta_flags": [],
+      "passed": 0,
+      "reference_class": "crossref records on 'calibration and falsifiability of LLM agents'",
+      "reformulation_count": 1,
+      "scope": {
+        "date": "2026-11-10",
+        "restrictions": [
+          "restricted after failure #1"
+        ],
+        "source": "crossref",
+        "topic": "calibration and falsifiability of LLM agents"
+      },
+      "source_url": "https://doi.org/10.21203/rs.3.rs-11610550/v1",
+      "status": "active",
+      "tested_against": [
+        "a4696e3fb9ea9f965d629daa30ccf7de2a2d7e2df83ecf4ae63c3103918dedf9",
+        "550beede8210a4bfb08450141c4fa3e4fe54797cd9aa5528b6e5697d9c3f51b2",
+        "7d333b9fd226349be7e2fa6ff2d4974a084ff7dd0447af26145f8f270e155329",
+        "c3a179430a4cfd42d2fed24f4eb16d7ebb571841e2db927f3edec4c229d356ec",
+        "9847b434f863cebd7d46449b3ac9f724b01b1c78264b2ecffdcdb8e85cad30ab",
+        "7f115fcdc59cf67a721bf4a647c2117994f3f66bd7ecb4fa29c0cdc8c5f84fb4",
+        "186ed98fc1514076b0125f9dcc272bcdf1a1b77ab324686b90096597f0e72b49",
+        "238e21d48af25551d6cfcfd0929e4093ea514aae98ac5158438089179ff0af17",
+        "12e0eaa2e0b0b36ed7913a9bb9c4be52e0f7b61808ef2ab90b9f85e7a88b8023",
+        "3cd837c742964e7fa937b11ba9b3de9a0b1c7f42321695dedeba2188b33dd3ae",
+        "ad781f6f9b071c7f813d76ec86166ed6507fc45a092a384370aa0e3b1fe48e6d",
+        "2ad45948acea864741148bb5b041025aaebb314a06063ebbb63f03037c486a6f",
+        "2963e3d25570eeed9fe736fee4bcf33d7d4815b4495e80d80bfaa8040d8cb67c",
+        "87967ba924a42a7c2c60a0b66ea0da3cc940c86185e769fbb31cb0654e1a8650",
+        "164fe64b513e790e684efbc140ff7e259d06c83c4838fd1f1979627ad9a604c7",
+        "30a1a5987e613782088412c2542de9b19e3be18426ec53cb82be03d8a2c3656d",
+        "01148ad827adc7f3e5f207d3ea2b995bb2c7f6f0f72840ee8410b8319163a1d5",
+        "a5100a796bf1a33ee23c81e43cd75068d40c1157f7af7950d75673e1145f74c9",
+        "833db41e39c5084cf44373c4165c54585684103328b8c0e22bf1651adb328dc7",
+        "2d7834d661722828cd48045ab12c8c6f3176156aac0b28ab145611f84548d378",
+        "2390453a55d87e7aa4cc04852e22a83f8f1a43fa815a9fb342d0b3917e4caed2",
+        "9a56a1495ed0f3819e8b3f7ee5ddafcf1b9fd2e2eaa0261e2cf0a7c4e3de3ff6",
+        "47667e7054e0fb27370de0863d0a1c0d9ce509b68d27ffa6d5e202e70b3c20dc",
+        "5809ad3e9f8dfcb5aa8b0a4c5ca3b6bf38fea648d88acbe2712f3675052ada18",
+        "6f0d03f14747fa13d07282180353e057b66965809c755ed06ac9b35a3728a1e9",
+        "7ae293a3cc56112fa9ea42b4a8ba9fc2ab14d019b2bbb71ffb892bc61ebc2a94"
+      ],
+      "text": "On topic calibration and falsifiability of LLM agents, Auditing the Auditor: Extraction Accuracy, Hallucination, and Abstention in Open-Weight LLMs for ESG Reporting A Longitudinal Empirical Benchmark Across 518 Corporate Disclosures (2010\u20132026) reports: Abstract Corporate sustainability auditing increasingly relies on Large Language Models (LLMs) to extract verified quantitative metrics from lengthy Environmental, Social, and Governance (ESG) reports. (scope narrowed: restricted after failure #1)"
     }
   ],
-  "saved_at": "2026-11-09T16:22:40"
+  "saved_at": "2026-11-16T15:49:45"
 }

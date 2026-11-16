@@ -1,6 +1,6 @@
 # Hypothesis draft — calibration and falsifiability of LLM agents
 
-_Regenerated 2026-11-09 by `scripts/hypothesis_engine.py`. Node confidence 0.42; 4 surviving / 21 active / 0 refuted claims._
+_Regenerated 2026-11-16 by `scripts/hypothesis_engine.py`. Node confidence 0.42; 4 surviving / 22 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding. Open questions with methods and falsifiers are in [RESEARCH_GAPS.md](RESEARCH_GAPS.md).
 
@@ -38,6 +38,11 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 1 passed / 1 failed, beta-confidence 0.50
   - source: https://www.semanticscholar.org/paper/08649f99062f1d9624ec0c9017c4666b6ab3e5ad
   - reformulated 2x
+- **Auditing the Auditor: Extraction Accuracy, Hallucination, and Abstention in Open-Weight LLMs for ESG Reporting A Longitudinal Empirical Benchmark Across 518 Corporate Disclosures (2010–2026)** — Abstract Corporate sustainability auditing increasingly relies on Large Language Models (LLMs) to extract verified quantitative metrics from lengthy Environmental, Social, and Governance (ESG) reports.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 46.7% result
+  - record: 0 passed / 0 failed, beta-confidence 0.50
+  - source: https://doi.org/10.21203/rs.3.rs-11610550/v1
+  - reformulated 1x
 - **Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents** — Reliable confidence estimation is increasingly central to the trustworthy deployment of language models: a calibrated estimate of the probability that an output is correct decides what to ship, what to escalate, and what to retry.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 10% result
   - record: 2 passed / 2 failed, beta-confidence 0.50
@@ -67,7 +72,7 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 74% result
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://www.semanticscholar.org/paper/fe0e5cd06e1323b137c04fdb00f17b043419ee18
-  - reformulated 1x
+  - reformulated 2x
 - **APEX-EM: Non-Parametric Online Learning for Autonomous Agents via Structured Procedural-Episodic Experience Replay** — LLM agents rerun full reasoning for every task, even one they solved moments earlier.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 7.6 result
   - record: 1 passed / 2 failed, beta-confidence 0.40
@@ -315,3 +320,5 @@ _none_
   - reformulated 3x without surviving a test
 - [escape-hatch] On topic calibration and falsifiability of LLM agents, Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA Constraints reports: Large language model (LLM) triage agents in security operations centres (SOCs) are evaluated on verdict accuracy. (scope narrowed: restricted after failure #1) (scope narrowed: restricted after failure #2) (scope narrowed: restricted after failure #3)
   - reformulated 3x without surviving a test
+- [off-scope] &lt;b&gt;When Abstention Gates Overtrust Noisy Evidence: An Empirical Audit of Calibration and Thresholding in Lightweight RAG Evidence-Sufficiency Models&lt;/b&gt;
+  - retrieved by keyword match but carries no phrase from the topic it was filed under
