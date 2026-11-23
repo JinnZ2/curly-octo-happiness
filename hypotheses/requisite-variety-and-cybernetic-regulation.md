@@ -1,39 +1,34 @@
 # Hypothesis draft — requisite variety and cybernetic regulation
 
-_Regenerated 2026-11-16 by `scripts/hypothesis_engine.py`. Node confidence 0.51; 4 surviving / 5 active / 0 refuted claims._
+_Regenerated 2026-11-23 by `scripts/hypothesis_engine.py`. Node confidence 0.47; 4 surviving / 5 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding. Open questions with methods and falsifiers are in [RESEARCH_GAPS.md](RESEARCH_GAPS.md).
 
 ## Supporting claims
 
-- **A Capacity-Based Theory of Complexity Control in Megaprojects: Structural Demands, Regulatory Capacity, and Ashby's Law of Requisite Variety** — Megaproject research has shown repeatedly that large, technologically demanding, and politically exposed projects are prone to cost escalation, delay, and governance breakdown.
-  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 2020 result
-  - record: 3 passed / 0 failed, beta-confidence 0.80
-  - source: https://doi.org/10.31235/osf.io/3hdn5_v1
-  - reformulated 1x
 - **GeoCausal: A Geometric-Causal World Model Integrating System 1 and System 2 for Embodied Reasoning** — This paper introduces GeoCausal, a novel theoretical framework for embodied artificial intelligence that unifies geometric deep learning with dual-process cognitive architectures.
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result
   - record: 2 passed / 0 failed, beta-confidence 0.75
   - source: https://doi.org/10.2139/ssrn.6089867
   - reformulated 1x
-- **The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World** — The idea that successful regulation requires an internal world model helps motivate both the generative models of active inference and the modeling engine of Kolmogorov Theory's algorithmic agent.
-  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
-  - record: 4 passed / 1 failed, beta-confidence 0.71
-  - source: https://doi.org/10.20944/preprints202609.1967.v1
+- **A Capacity-Based Theory of Complexity Control in Megaprojects: Structural Demands, Regulatory Capacity, and Ashby's Law of Requisite Variety** — Megaproject research has shown repeatedly that large, technologically demanding, and politically exposed projects are prone to cost escalation, delay, and governance breakdown.
+  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 2020 result
+  - record: 3 passed / 1 failed, beta-confidence 0.67
+  - source: https://doi.org/10.31235/osf.io/3hdn5_v1
+  - reformulated 1x
 - **Requisite Variety For Ai Security** — Enterprises are deploying large language models and autonomous AI agents into operational control loops-security operations, quality assurance, procurement, infrastructure management-where these systems make thousands of consequential decisions with tool access, external data ingestion, and limited human oversight.
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 1 result
   - record: 3 passed / 1 failed, beta-confidence 0.67
   - source: https://doi.org/10.2139/ssrn.6255362
   - reformulated 1x
+- **The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World** — The idea that successful regulation requires an internal world model helps motivate both the generative models of active inference and the modeling engine of Kolmogorov Theory's algorithmic agent.
+  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 4 passed / 2 failed, beta-confidence 0.62
+  - source: https://doi.org/10.20944/preprints202609.1967.v1
 - **Auditing World-Model Explanations in Retail Forecasting: Faithfulness, Accuracy and Causal Validity** — Retail forecasting models that see the price and promotion plan can explain each forecast as a baseline, what would sell with nothing planned, plus the lift each part of the plan adds.
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 6% result
   - record: 3 passed / 2 failed, beta-confidence 0.57
   - source: https://doi.org/10.2139/ssrn.7627720
-- **ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation** — Manipulating moving objects requires a policy to anticipate contact events, yet vision-language-action (VLA) policies are commonly fine-tuned from the current observation alone.
-  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 5 result
-  - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: http://arxiv.org/abs/2608.20735v2
-  - reformulated 1x
 - **From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market** — Quantitative factor strategies routinely excel in backtests and disappoint in production: the flagship live multifactor index earned a Sharpe ratio statistically indistinguishable from zero over seventeen years.
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 151 result
   - record: 2 passed / 2 failed, beta-confidence 0.50
@@ -43,6 +38,11 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 319 result
   - record: 2 passed / 2 failed, beta-confidence 0.50
   - source: http://arxiv.org/abs/2605.27589v1
+  - reformulated 1x
+- **ForeTime-VLA: Causal Future-Token Distillation from a World Action Model for Conveyor-Belt Manipulation** — Manipulating moving objects requires a policy to anticipate contact events, yet vision-language-action (VLA) policies are commonly fine-tuned from the current observation alone.
+  - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the opposite effect, or fails to reproduce the stated 5 result
+  - record: 0 passed / 1 failed, beta-confidence 0.33
+  - source: http://arxiv.org/abs/2608.20735v2
   - reformulated 1x
 - **The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World** — Regulation can make a system’s behavior much simpler despite changing disturbances.
   - falsification: An independent source on 'requisite variety and cybernetic regulation' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
@@ -130,4 +130,6 @@ _none_
 - [off-scope] Using Agency Law to Tame AI Agents
   - retrieved by keyword match but carries no phrase from the topic it was filed under
 - [off-scope] AgiBot World Colosseo: A Large-scale Manipulation Platform for Scalable and Intelligent Embodied Systems
+  - retrieved by keyword match but carries no phrase from the topic it was filed under
+- [off-scope] Autonomous discovery of new structure-plausibility laws for explainable and rapid crystal diagnosis and screening
   - retrieved by keyword match but carries no phrase from the topic it was filed under

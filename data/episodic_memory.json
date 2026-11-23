@@ -2358,5 +2358,35 @@
     ],
     "url": "https://doi.org/10.58445/csk35g23",
     "date": "2026-11-15"
+  },
+  {
+    "speaker": "engine",
+    "content": "[semantic_scholar] Safer On-Premise Medical AI: A Hybrid Framework for Hallucination Detection in Local LLMs",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://www.semanticscholar.org/paper/5832716185ac71ef543ed2fd51f4c8ffd4951457",
+    "date": "2026-01-01"
+  },
+  {
+    "speaker": "engine",
+    "content": "[crossref] Comparative Evaluation of Confidence Calibration and Selective Abstention Across Heterogeneous Security Decision Tasks",
+    "tags": [
+      "finding",
+      "calibration and falsifiability of LLM agents"
+    ],
+    "url": "https://doi.org/10.21203/rs.3.rs-11802873/v1",
+    "date": "2026-11-20"
+  },
+  {
+    "speaker": "engine",
+    "content": "[arxiv] Autonomous discovery of new structure-plausibility laws for explainable and rapid crystal diagnosis and screening",
+    "tags": [
+      "finding",
+      "requisite variety and cybernetic regulation"
+    ],
+    "url": "http://arxiv.org/abs/2609.01209v2",
+    "date": "2026-09-01"
   }
 ]

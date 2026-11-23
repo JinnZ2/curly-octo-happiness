@@ -5,7 +5,7 @@
       "id": "HVD_001",
       "kind": "contested",
       "label": "Causal Discovery in High-Dimensional Time Series with Latent Confounders via Score-Based Diffusion Models",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "hidden variable detection / causal discovery from residuals"
     },
@@ -14,7 +14,7 @@
       "id": "HVD_010",
       "kind": "contested",
       "label": "Learning Kernelized Hypothesis for Hidden Confounder Detection",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "hidden variable detection / causal discovery from residuals"
     },
@@ -23,7 +23,7 @@
       "id": "CFA_040",
       "kind": "contested",
       "label": "Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of con",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -32,7 +32,7 @@
       "id": "CFA_019",
       "kind": "contested",
       "label": "TapGuard: Temperature-Calibrated Execute\u2013Confirm\u2013Block Routing for LLM-Powered Mobile Agents",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -41,7 +41,7 @@
       "id": "RVC_005",
       "kind": "contested",
       "label": "Requisite Variety For Ai Security",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "requisite variety and cybernetic regulation"
     },
@@ -50,7 +50,7 @@
       "id": "HVD_009",
       "kind": "contested",
       "label": "LNML-based Causal Discovery with Latent Confounders: Theory and Experiments",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "hidden variable detection / causal discovery from residuals"
     },
@@ -59,7 +59,7 @@
       "id": "CFA_039",
       "kind": "contested",
       "label": "MICE for CATs: Model-Internal Confidence Estimation for Calibrating Agents with Tools",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -68,7 +68,7 @@
       "id": "HVD_011",
       "kind": "contested",
       "label": "SeiAttentionNet: An Epilepsy Detection Model Using Attention-based Graph Convolutional Network",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "hidden variable detection / causal discovery from residuals"
     },
@@ -77,7 +77,7 @@
       "id": "CFA_020",
       "kind": "contested",
       "label": "From Calibrated Confidence to Calibrated Reliance: Human-Aware Confidence Communication for AI-Assisted Decisi",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -86,7 +86,7 @@
       "id": "HVD_002",
       "kind": "contested",
       "label": "Causal discovery from time-series discrete data in the presence of latent confounders.",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "hidden variable detection / causal discovery from residuals"
     },
@@ -104,34 +104,79 @@
       "id": "RVC_004",
       "kind": "contested",
       "label": "Auditing World-Model Explanations in Retail Forecasting: Faithfulness, Accuracy and Causal Validity",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "requisite variety and cybernetic regulation"
+    },
+    "contested:5791127e693abad5": {
+      "first_seen": "2026-11-23",
+      "id": "CFA_050",
+      "kind": "contested",
+      "label": "XChronos OS as a Temporal-operating Layer: Architecture, Falsifiable Hypotheses, and an Experimental Program f",
+      "last_seen": "2026-11-23",
+      "standing": true,
+      "topic": "calibration and falsifiability of LLM agents"
+    },
+    "contested:6a93697f7e9f702a": {
+      "first_seen": "2026-11-23",
+      "id": "CFA_048",
+      "kind": "contested",
+      "label": "Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments ",
+      "last_seen": "2026-11-23",
+      "standing": true,
+      "topic": "calibration and falsifiability of LLM agents"
+    },
+    "contested:6b0eaddef58bef43": {
+      "first_seen": "2026-11-23",
+      "id": "CFA_051",
+      "kind": "contested",
+      "label": "SearchJev: A Fast and Calibrated System-1 Model for Search Agents",
+      "last_seen": "2026-11-23",
+      "standing": true,
+      "topic": "calibration and falsifiability of LLM agents"
     },
     "contested:6c5efa556196b2d0": {
       "first_seen": "2026-10-08",
       "id": "RVC_001",
       "kind": "contested",
       "label": "The Good Algorithmic Regulator Theorem: Model It, Transmit It, or Leave It in the World",
-      "last_seen": "2026-10-26",
-      "standing": false,
+      "last_seen": "2026-11-23",
+      "standing": true,
       "topic": "requisite variety and cybernetic regulation"
+    },
+    "contested:6dbdcc7c7502df9f": {
+      "first_seen": "2026-11-23",
+      "id": "CFA_052",
+      "kind": "contested",
+      "label": "Mathematical Analysis of Hallucination Dynamics in Large Language Models: Uncertainty Quantification, Advanced",
+      "last_seen": "2026-11-23",
+      "standing": true,
+      "topic": "calibration and falsifiability of LLM agents"
     },
     "contested:7b77502b691ca58c": {
       "first_seen": "2026-10-08",
       "id": "RVC_002",
       "kind": "contested",
       "label": "What-If World: A Causal Benchmark for General World Models in Embodied Scenarios",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "requisite variety and cybernetic regulation"
+    },
+    "contested:80354ede1febc056": {
+      "first_seen": "2026-11-23",
+      "id": "CFA_053",
+      "kind": "contested",
+      "label": "Efficiency Hallucination: Formalizing and Measuring Behavioral Calibration in LLM-Based Code Optimization",
+      "last_seen": "2026-11-23",
+      "standing": true,
+      "topic": "calibration and falsifiability of LLM agents"
     },
     "contested:8ae7a2b71bc60e04": {
       "first_seen": "2026-10-12",
       "id": "CFA_023",
       "kind": "contested",
       "label": "A measurement substrate for agentic Kubernetes operations: Methodology and a case study in retrieval-compoundi",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -140,7 +185,7 @@
       "id": "CFA_037",
       "kind": "contested",
       "label": "Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -167,7 +212,7 @@
       "id": "HVD_004",
       "kind": "contested",
       "label": "Causal Discovery for time series from multiple datasets with latent contexts",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "hidden variable detection / causal discovery from residuals"
     },
@@ -176,8 +221,8 @@
       "id": "CFA_001",
       "kind": "contested",
       "label": "On Verbalized Confidence Scores for LLMs",
-      "last_seen": "2026-10-08",
-      "standing": false,
+      "last_seen": "2026-11-23",
+      "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
     "contested:b42b5c4447dd86ad": {
@@ -185,7 +230,7 @@
       "id": "RVC_003",
       "kind": "contested",
       "label": "From Causal Factor Investing to Causal Factor Discovery: Evolving a Neuro-symbolic World Model of the Market",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "requisite variety and cybernetic regulation"
     },
@@ -194,7 +239,7 @@
       "id": "HVD_005",
       "kind": "contested",
       "label": "Causal discovery for time series with latent confounders",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "hidden variable detection / causal discovery from residuals"
     },
@@ -203,7 +248,7 @@
       "id": "CSS_001",
       "kind": "contested",
       "label": "Entropy Rate Estimation for English via a Large Cognitive Experiment Using Mechanical Turk",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "causal states and statistical complexity"
     },
@@ -212,7 +257,25 @@
       "id": "CFA_041",
       "kind": "contested",
       "label": "Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of con",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
+      "standing": true,
+      "topic": "calibration and falsifiability of LLM agents"
+    },
+    "contested:c36075e5eb90fe6d": {
+      "first_seen": "2026-11-23",
+      "id": "RVC_006",
+      "kind": "contested",
+      "label": "A Capacity-Based Theory of Complexity Control in Megaprojects: Structural Demands, Regulatory Capacity, and As",
+      "last_seen": "2026-11-23",
+      "standing": true,
+      "topic": "requisite variety and cybernetic regulation"
+    },
+    "contested:c4a4bf7a71a8874d": {
+      "first_seen": "2026-11-23",
+      "id": "CFA_049",
+      "kind": "contested",
+      "label": "The Calibration Gap: Model-Specific Confidence Thresholds for Reliable Customer Service LLMs",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -230,16 +293,25 @@
       "id": "HVD_006",
       "kind": "contested",
       "label": "Using Domain Knowledge to Overcome Latent Variables in Causal Inference from Time Series",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "hidden variable detection / causal discovery from residuals"
+    },
+    "contested:da115e4be576de7a": {
+      "first_seen": "2026-11-23",
+      "id": "CFA_054",
+      "kind": "contested",
+      "label": "Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of con",
+      "last_seen": "2026-11-23",
+      "standing": true,
+      "topic": "calibration and falsifiability of LLM agents"
     },
     "contested:da60ac8b37d43ee4": {
       "first_seen": "2026-10-12",
       "id": "CFA_021",
       "kind": "contested",
       "label": "Calibrated Per-Carrier Confidence and Certified Pruning for Gaussian-Splat Assets",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -248,7 +320,7 @@
       "id": "HVD_003",
       "kind": "contested",
       "label": "High-recall causal discovery for autocorrelated time series with latent confounders",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "hidden variable detection / causal discovery from residuals"
     },
@@ -257,7 +329,7 @@
       "id": "CFA_022",
       "kind": "contested",
       "label": "APEX-EM: Non-Parametric Online Learning for Autonomous Agents via Structured Procedural-Episodic Experience Re",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -267,7 +339,7 @@
       "kind": "contested",
       "label": "Confidence and Calibration of Activation Oracles for Reliable Interpretation of Language Model Internals",
       "last_seen": "2026-11-16",
-      "standing": true,
+      "standing": false,
       "topic": "calibration and falsifiability of LLM agents"
     },
     "contradicted:33b7714b93b24d98": {
@@ -275,7 +347,7 @@
       "id": "HVD_007",
       "kind": "contradicted",
       "label": "Addressing Information Asymmetry: Deep Temporal Causality Discovery for Mixed Time Series",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "hidden variable detection / causal discovery from residuals"
     },
@@ -284,7 +356,7 @@
       "id": "HVD_008",
       "kind": "contradicted",
       "label": "Causal Discovery with Inverted Self-attention for Multivariate Time Series",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "hidden variable detection / causal discovery from residuals"
     },
@@ -293,7 +365,7 @@
       "id": "CFA_024",
       "kind": "contradicted",
       "label": "Large Language Model Evaluation Via Multi AI Agents: Preliminary results",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -303,7 +375,7 @@
       "kind": "contradicted",
       "label": "Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments ",
       "last_seen": "2026-11-16",
-      "standing": true,
+      "standing": false,
       "topic": "calibration and falsifiability of LLM agents"
     },
     "contradicted:a9ce5dcf253a0e07": {
@@ -321,7 +393,7 @@
       "kind": "contradicted",
       "label": "On Verbalized Confidence Scores for LLMs",
       "last_seen": "2026-11-16",
-      "standing": true,
+      "standing": false,
       "topic": "calibration and falsifiability of LLM agents"
     },
     "contradicted:c06f1b8c0c5dc936": {
@@ -329,7 +401,7 @@
       "id": "CFA_044",
       "kind": "contradicted",
       "label": "Confidence Composition for Multiagent Language Model Systems",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -348,7 +420,7 @@
       "kind": "contradicted",
       "label": "The Calibration Gap: Model-Specific Confidence Thresholds for Reliable Customer Service LLMs",
       "last_seen": "2026-11-16",
-      "standing": true,
+      "standing": false,
       "topic": "calibration and falsifiability of LLM agents"
     },
     "contradicted:e2314f87f23d9603": {
@@ -365,7 +437,7 @@
       "id": "CFA_028",
       "kind": "contradicted",
       "label": "Agent-ToM: Learning to Monitor Autonomous LLM Agents via Theory-of-Mind Reasoning",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -374,7 +446,7 @@
       "id": "CFA_006",
       "kind": "escape",
       "label": "I-CALM: Incentivizing Confidence-Aware Abstention for LLM Hallucination Mitigation",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -383,7 +455,7 @@
       "id": "CFA_007",
       "kind": "escape",
       "label": "Deception and Communication in Autonomous Multi-Agent Systems: An Experimental Study with Among Us",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -392,7 +464,7 @@
       "id": "CFA_029",
       "kind": "escape",
       "label": "DiscoUQ: Structured Disagreement Analysis for Uncertainty Quantification in LLM Agent Ensembles",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -401,7 +473,7 @@
       "id": "CFA_008",
       "kind": "escape",
       "label": "Agents of Context: A Methodological Critique and Counter-Evidence Analysis of Adversarial Red-Teaming Claims f",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -410,7 +482,7 @@
       "id": "CFA_009",
       "kind": "escape",
       "label": "Explicit Abstention Knobs for Predictable Reliability in Video Question Answering",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -419,7 +491,7 @@
       "id": "CFA_045",
       "kind": "escape",
       "label": "MameLoshnLM: Yiddish Language Model and Evaluation Benchmark",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -428,7 +500,7 @@
       "id": "CFA_030",
       "kind": "escape",
       "label": "Calibrating the Confidence of Large Language Models by Eliciting Fidelity",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -437,7 +509,7 @@
       "id": "CFA_046",
       "kind": "escape",
       "label": "Cost-Calibrated Escalation: Learning Confidence-to-Tier Routing Policies for LLM-Assisted SOC Triage Under SLA",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -446,7 +518,7 @@
       "id": "CFA_031",
       "kind": "escape",
       "label": "SAVOR: Self-Aware Visual Grounding via Confidence-Calibrated Reinforcement Learning for Multimodal Hallucinati",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -455,7 +527,7 @@
       "id": "CFA_032",
       "kind": "escape",
       "label": "S-AI-ANTI HALLUCINATION: A BIO-INSPIRED AND CONFIDENCE-AWARE SPARSE AI FRAMEWORK FOR RELIABLE GENERATIVE SYSTE",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -464,7 +536,7 @@
       "id": "CFA_010",
       "kind": "escape",
       "label": "Mitigating Multimodal Hallucination via Phase-wise Self-reward",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -473,7 +545,7 @@
       "id": "CFA_033",
       "kind": "escape",
       "label": "Condence, Calibration, and Abstention in Small Open-Weight Language Models on Psychiatric Knowledge Questions:",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -482,7 +554,7 @@
       "id": "CFA_011",
       "kind": "escape",
       "label": "Caging the Agents: A Zero Trust Security Architecture for Autonomous AI in Healthcare",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -491,7 +563,7 @@
       "id": "CFA_012",
       "kind": "escape",
       "label": "Semantic Validation Gates: A Computable, Statistically Calibrated Framework for Runtime Verification of Langua",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -500,7 +572,7 @@
       "id": "CFA_013",
       "kind": "escape",
       "label": "Hallucination as output-boundary misclassification: a composite abstention architecture for language models",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -509,7 +581,7 @@
       "id": "CFA_034",
       "kind": "escape",
       "label": "FinPersona-Bench: A Benchmark for Longitudinal Psychometric Stability of Autonomous Financial Agents",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -518,7 +590,7 @@
       "id": "CFA_014",
       "kind": "escape",
       "label": "Demystifying Multi-Agent Debate: The Role of Confidence and Diversity",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -527,7 +599,7 @@
       "id": "CFA_015",
       "kind": "escape",
       "label": "Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments ",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -536,7 +608,7 @@
       "id": "CFA_016",
       "kind": "escape",
       "label": "Cryptographically verifiable authorization for autonomous AI agents: A falsifiable hypothesis and proof-of-con",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -545,7 +617,7 @@
       "id": "CFA_017",
       "kind": "escape",
       "label": "Digital Identity for Agentic Systems: Toward a Portable Authorization Standard for Autonomous Agents",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -554,7 +626,7 @@
       "id": "CFA_035",
       "kind": "escape",
       "label": "Herd Behavior: Investigating Peer Influence in LLM-based Multi-Agent Systems",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -563,7 +635,7 @@
       "id": "CFA_047",
       "kind": "escape",
       "label": "From Sampling to Cognition: Modeling Internal Cognitive Confidence in Language Models for Robust Uncertainty C",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     },
@@ -572,16 +644,16 @@
       "id": "CFA_018",
       "kind": "escape",
       "label": "Calibrated Language Models and How to Find Them with Label Smoothing",
-      "last_seen": "2026-11-16",
+      "last_seen": "2026-11-23",
       "standing": true,
       "topic": "calibration and falsifiability of LLM agents"
     }
   },
   "next": {
-    "CFA": 48,
+    "CFA": 55,
     "CSS": 2,
     "HVD": 12,
-    "RVC": 6
+    "RVC": 7
   },
   "prefixes": {
     "calibration and falsifiability of LLM agents": "CFA",

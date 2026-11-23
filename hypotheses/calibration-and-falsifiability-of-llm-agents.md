@@ -1,6 +1,6 @@
 # Hypothesis draft — calibration and falsifiability of LLM agents
 
-_Regenerated 2026-11-16 by `scripts/hypothesis_engine.py`. Node confidence 0.42; 4 surviving / 22 active / 0 refuted claims._
+_Regenerated 2026-11-23 by `scripts/hypothesis_engine.py`. Node confidence 0.45; 5 surviving / 23 active / 0 refuted claims._
 
 Cross-source corroboration is weak evidence — corroboration is not replication. Treat this as a starting point for human review, not a finding. Open questions with methods and falsifiers are in [RESEARCH_GAPS.md](RESEARCH_GAPS.md).
 
@@ -8,17 +8,37 @@ Cross-source corroboration is weak evidence — corroboration is not replication
 
 - **Confidence and Calibration of Activation Oracles for Reliable Interpretation of Language Model Internals** — An activation oracle is a language model trained to convert the activations of another model into natural language.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
-  - record: 3 passed / 1 failed, beta-confidence 0.67
+  - record: 4 passed / 1 failed, beta-confidence 0.71
   - source: http://arxiv.org/abs/2605.26045v3
 - **Cross-Modal Attention Calibration for LVLM Hallucination Mitigation** — Large vision-language models (LVLMs) have shown remarkable capabilities in visual-language understanding.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 1 passed / 0 failed, beta-confidence 0.67
   - source: https://www.semanticscholar.org/paper/d58102f6acc7a1bc354cdd0a5c9f7178329ab6f0
   - reformulated 1x
+- **From Calibrated Confidence to Calibrated Reliance: Human-Aware Confidence Communication for AI-Assisted Decision Making** — As AI systems increasingly support consequential human decisions, the confidence they display shapes whether users accept or override their recommendations.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 35 result
+  - record: 5 passed / 2 failed, beta-confidence 0.67
+  - source: https://doi.org/10.1145/3843742
+  - reformulated 2x
+- **SearchJev: A Calibrated System-1 Model for Search Agents** — Search agents repeatedly make short decisions about relevance, evidence sufficiency, and search actions.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 74% result
+  - record: 1 passed / 0 failed, beta-confidence 0.67
+  - source: https://www.semanticscholar.org/paper/fe0e5cd06e1323b137c04fdb00f17b043419ee18
+  - reformulated 2x
 - **TapGuard: Temperature-Calibrated Execute–Confirm–Block Routing for LLM-Powered Mobile Agents** — Large language model-powered mobile agents can compose messages, manage files, operate financial applications, and act on content from other applications.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 35.7% result
   - record: 4 passed / 2 failed, beta-confidence 0.62
   - source: https://www.semanticscholar.org/paper/455aff2b876a266a14e412f4d4ff3071da1bb7d3
+- **Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept** — Autonomous AI agents increasingly execute actions, invoke tools, and operate on protected resources with limited human oversight.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 2 passed / 1 failed, beta-confidence 0.60
+  - source: https://www.semanticscholar.org/paper/42bfa454a0008fa4d9181b287677f76421917c94
+  - reformulated 2x
+- **Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept** — Autonomous AI agents increasingly execute actions, invoke tools, and operate on protected resources with limited human oversight.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 2 passed / 1 failed, beta-confidence 0.60
+  - source: https://doi.org/10.3389/fcomp.2026.1966725
+  - reformulated 2x
 - **MICE for CATs: Model-Internal Confidence Estimation for Calibrating Agents with Tools** — Tool-using agents that act in the world need to be both useful and safe.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 2 passed / 1 failed, beta-confidence 0.60
@@ -28,10 +48,10 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 3 passed / 2 failed, beta-confidence 0.57
   - source: https://doi.org/10.31224/7689
   - reformulated 2x
-- **From Calibrated Confidence to Calibrated Reliance: Human-Aware Confidence Communication for AI-Assisted Decision Making** — As AI systems increasingly support consequential human decisions, the confidence they display shapes whether users accept or override their recommendations.
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 35 result
+- **Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents** — Reliable confidence estimation is increasingly central to the trustworthy deployment of language models: a calibrated estimate of the probability that an output is correct decides what to ship, what to escalate, and what to retry.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 10% result
   - record: 3 passed / 2 failed, beta-confidence 0.57
-  - source: https://doi.org/10.1145/3843742
+  - source: https://www.semanticscholar.org/paper/a4eadda8b5fa6316b0b0ef5d60c40ea021835f59
   - reformulated 2x
 - **A measurement substrate for agentic Kubernetes operations: Methodology and a case study in retrieval-compounding falsification** — Empirical claims about autonomous Kubernetes operations agents are largely unfalsifiable.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 19% result
@@ -42,66 +62,71 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 46.7% result
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://doi.org/10.21203/rs.3.rs-11610550/v1
+  - reformulated 2x
+- **Comparative Evaluation of Confidence Calibration and Selective Abstention Across Heterogeneous Security Decision Tasks** — Abstract Security decision systems increasingly combine machine-learning scores with domain-specific integrity evidence, yet raw confidence values are often used without checking whether they remain reliable under operating variation.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 71.2% result
+  - record: 0 passed / 0 failed, beta-confidence 0.50
+  - source: https://doi.org/10.21203/rs.3.rs-11802873/v1
   - reformulated 1x
-- **Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents** — Reliable confidence estimation is increasingly central to the trustworthy deployment of language models: a calibrated estimate of the probability that an output is correct decides what to ship, what to escalate, and what to retry.
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 10% result
+- **Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept** — Autonomous AI agents increasingly execute actions, invoke tools, and operate on protected resources with limited human oversight.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 1 passed / 1 failed, beta-confidence 0.50
+  - source: http://arxiv.org/abs/2607.21325v3
+  - reformulated 2x
+- **Efficiency Hallucination: Formalizing and Measuring Behavioral Calibration in LLM-Based Code Optimization** — The integration of Large Language Models (LLMs) into automated code optimization introduces a critical reliability risk we term the Efficiency Hallucination: an LLM's tendency to issue non-functional mutations with unsubstantiated performance claims on already-optimized code.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 100% result
+  - record: 1 passed / 1 failed, beta-confidence 0.50
+  - source: https://www.semanticscholar.org/paper/062743e52f4e4403c1eda0591ef11ead6aabbbef
+  - reformulated 2x
+- **Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval** — Large language models (LLMs) can generate fluent yet unsupported content (“hallucinations”), which undermines trust and complicates downstream decision making.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 18.1% result
   - record: 2 passed / 2 failed, beta-confidence 0.50
-  - source: https://www.semanticscholar.org/paper/a4eadda8b5fa6316b0b0ef5d60c40ea021835f59
-  - reformulated 2x
-- **Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept** — Autonomous AI agents increasingly execute actions, invoke tools, and operate on protected resources with limited human oversight.
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
-  - record: 1 passed / 1 failed, beta-confidence 0.50
-  - source: https://www.semanticscholar.org/paper/42bfa454a0008fa4d9181b287677f76421917c94
-  - reformulated 2x
-- **Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept** — Autonomous AI agents increasingly execute actions, invoke tools, and operate on protected resources with limited human oversight.
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
-  - record: 1 passed / 1 failed, beta-confidence 0.50
-  - source: https://doi.org/10.3389/fcomp.2026.1966725
+  - source: https://www.semanticscholar.org/paper/5fc6a54544f6b704a9fdcfabfae4ec5d2220c7f7
   - reformulated 2x
 - **MameLoshnLM: Yiddish Language Model and Evaluation Benchmark** — We present MameLoshnLM, the first open-source 8B-parameter language model built specifically for Yiddish.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: http://arxiv.org/abs/2608.05850v2
   - reformulated 2x
+- **Mathematical Analysis of Hallucination Dynamics in Large Language Models: Uncertainty Quantification, Advanced Decoding, and Principled Mitigation** — Large Language Models (LLMs) are powerful linguistic engines but remain susceptible to hallucinations: plausible-sounding outputs that are factually incorrect or unsupported.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 1 passed / 1 failed, beta-confidence 0.50
+  - source: https://www.semanticscholar.org/paper/55fc275598aa95cff62e1c0246a7c3c0faaeb8a1
+  - reformulated 2x
 - **Operationalizing Serendipity: Multi-Agent AI Workflows for Enhanced Materials Characterization with Theory-in-the-Loop** — The history of science is punctuated by serendipitous discoveries, where unexpected observations, rather than targeted hypotheses, opened new fields of inquiry.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 0 passed / 0 failed, beta-confidence 0.50
   - source: https://www.semanticscholar.org/paper/5b014f349a093bc770a18858d8afbb21290bfce3
   - reformulated 2x
-- **SearchJev: A Calibrated System-1 Model for Search Agents** — Search agents repeatedly make short decisions about relevance, evidence sufficiency, and search actions.
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 74% result
+- **Safer On-Premise Medical AI: A Hybrid Framework for Hallucination Detection in Local LLMs** — LLMs (Large Language Models) are increasingly integrated into medical workflows to provide decision-making support, for example as Question Answering (QA) systems.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
   - record: 0 passed / 0 failed, beta-confidence 0.50
-  - source: https://www.semanticscholar.org/paper/fe0e5cd06e1323b137c04fdb00f17b043419ee18
+  - source: https://www.semanticscholar.org/paper/5832716185ac71ef543ed2fd51f4c8ffd4951457
+  - reformulated 1x
+- **SearchJev: A Fast and Calibrated System-1 Model for Search Agents** — Search agents repeatedly make short decisions about relevance, evidence sufficiency, and search actions.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 74% result
+  - record: 1 passed / 1 failed, beta-confidence 0.50
+  - source: https://www.semanticscholar.org/paper/25c97215ea9ab363eec9d30543fa28b985f1b246
+  - reformulated 2x
+- **XChronos OS as a Temporal-operating Layer: Architecture, Falsifiable Hypotheses, and an Experimental Program for Persistent Memory and Agents** — Recent progress in language-model-based agents has shifted part of the artificial-intelligence problem from isolated models toward architectures that preserve memory, context, tools, goals, and state across time.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
+  - record: 1 passed / 1 failed, beta-confidence 0.50
+  - source: https://doi.org/10.2139/ssrn.7517899
   - reformulated 2x
 - **APEX-EM: Non-Parametric Online Learning for Autonomous Agents via Structured Procedural-Episodic Experience Replay** — LLM agents rerun full reasoning for every task, even one they solved moments earlier.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 7.6 result
   - record: 1 passed / 2 failed, beta-confidence 0.40
   - source: https://www.semanticscholar.org/paper/16c110756c0f0395fe9cc9568434d9e5621cd464
   - reformulated 2x
-- **Cryptographically verifiable authorization for autonomous AI agents: a falsifiable hypothesis and proof of concept** — Autonomous AI agents increasingly execute actions, invoke tools, and operate on protected resources with limited human oversight.
+- **On Verbalized Confidence Scores for LLMs** — The rise of large language models (LLMs) and their tight integration into our daily life make it essential to dedicate efforts towards their trustworthiness.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
-  - record: 0 passed / 1 failed, beta-confidence 0.33
-  - source: http://arxiv.org/abs/2607.21325v3
+  - record: 1 passed / 2 failed, beta-confidence 0.40
+  - source: https://www.semanticscholar.org/paper/4fd8ded3fd8942fb9e8a557ac37722b9f7add8b8
   - reformulated 2x
-- **Efficiency Hallucination: Formalizing and Measuring Behavioral Calibration in LLM-Based Code Optimization** — The integration of Large Language Models (LLMs) into automated code optimization introduces a critical reliability risk we term the Efficiency Hallucination: an LLM's tendency to issue non-functional mutations with unsubstantiated performance claims on already-optimized code.
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 100% result
-  - record: 0 passed / 1 failed, beta-confidence 0.33
-  - source: https://www.semanticscholar.org/paper/062743e52f4e4403c1eda0591ef11ead6aabbbef
-  - reformulated 2x
-- **Mathematical Analysis of Hallucination Dynamics in Large Language Models: Uncertainty Quantification, Advanced Decoding, and Principled Mitigation** — Large Language Models (LLMs) are powerful linguistic engines but remain susceptible to hallucinations: plausible-sounding outputs that are factually incorrect or unsupported.
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
-  - record: 0 passed / 1 failed, beta-confidence 0.33
-  - source: https://www.semanticscholar.org/paper/55fc275598aa95cff62e1c0246a7c3c0faaeb8a1
-  - reformulated 2x
-- **SearchJev: A Fast and Calibrated System-1 Model for Search Agents** — Search agents repeatedly make short decisions about relevance, evidence sufficiency, and search actions.
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 74% result
-  - record: 0 passed / 1 failed, beta-confidence 0.33
-  - source: https://www.semanticscholar.org/paper/25c97215ea9ab363eec9d30543fa28b985f1b246
-  - reformulated 2x
-- **XChronos OS as a Temporal-operating Layer: Architecture, Falsifiable Hypotheses, and an Experimental Program for Persistent Memory and Agents** — Recent progress in language-model-based agents has shifted part of the artificial-intelligence problem from isolated models toward architectures that preserve memory, context, tools, goals, and state across time.
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
-  - record: 0 passed / 1 failed, beta-confidence 0.33
-  - source: https://doi.org/10.2139/ssrn.7517899
+- **The Calibration Gap: Model-Specific Confidence Thresholds for Reliable Customer Service LLMs** — Every automated reply in customer service is a bet on a model's self-belief.
+  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 0.183 result
+  - record: 1 passed / 2 failed, beta-confidence 0.40
+  - source: https://www.semanticscholar.org/paper/234b078f2646d8e90d5823b0c5aefb0c22d9c125
   - reformulated 2x
 - **Agent-ToM: Learning to Monitor Autonomous LLM Agents via Theory-of-Mind Reasoning** — Monitoring autonomous large language model (LLM) agents for covert malicious behavior is challenging due to delayed, context-dependent, and long-horizon attack patterns.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
@@ -113,25 +138,10 @@ Cross-source corroboration is weak evidence — corroboration is not replication
   - record: 0 passed / 2 failed, beta-confidence 0.25
   - source: https://www.semanticscholar.org/paper/35bcf942450e50382abea4f20844bf5c4adb2c2c
   - reformulated 2x
-- **Hallucination Detection and Confidence Calibration for Large Language Model Outputs: Reproducible Experiments on HaluEval** — Large language models (LLMs) can generate fluent yet unsupported content (“hallucinations”), which undermines trust and complicates downstream decision making.
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 18.1% result
-  - record: 0 passed / 2 failed, beta-confidence 0.25
-  - source: https://www.semanticscholar.org/paper/5fc6a54544f6b704a9fdcfabfae4ec5d2220c7f7
-  - reformulated 2x
 - **Large Language Model Evaluation Via Multi AI Agents: Preliminary results** — As Large Language Models (LLMs) have become integral to both research and daily operations, rigorous evaluation is crucial.
   - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 3.5 result
   - record: 0 passed / 2 failed, beta-confidence 0.25
   - source: http://arxiv.org/abs/2404.01023v1
-  - reformulated 2x
-- **On Verbalized Confidence Scores for LLMs** — The rise of large language models (LLMs) and their tight integration into our daily life make it essential to dedicate efforts towards their trustworthiness.
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the stated mechanism does not hold under the conditions claimed for it, or obtains it only by assuming what it set out to establish
-  - record: 0 passed / 2 failed, beta-confidence 0.25
-  - source: https://www.semanticscholar.org/paper/4fd8ded3fd8942fb9e8a557ac37722b9f7add8b8
-  - reformulated 2x
-- **The Calibration Gap: Model-Specific Confidence Thresholds for Reliable Customer Service LLMs** — Every automated reply in customer service is a bet on a model's self-belief.
-  - falsification: An independent source on 'calibration and falsifiability of LLM agents' reports the opposite effect, or fails to reproduce the stated 0.183 result
-  - record: 0 passed / 2 failed, beta-confidence 0.25
-  - source: https://www.semanticscholar.org/paper/234b078f2646d8e90d5823b0c5aefb0c22d9c125
   - reformulated 2x
 
 ## Contradicted/refuted claims
