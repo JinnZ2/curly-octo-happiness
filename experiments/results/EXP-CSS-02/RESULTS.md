@@ -67,3 +67,17 @@ I report this as falsified because of a process I had classed as "finite-order, 
   - Compare it with CSSR (not run).
   - Show whether a lower `tolerance` or a determinisation step would fix period-3 (not tested; the design fixed default settings).
   - Validate the SNS analytic values beyond my own numerical calculation.
+
+## Addendum, 2026-11-27: reconstruct() fixed, rerun recorded separately
+
+This addendum does not change the result above, which describes the estimator as it was at 1181d9d.
+
+- **What changed.** `reconstruct()` now implements CSSR phases I–III (Shalizi & Shalizi 2004, [arXiv:cs/0406011](https://arxiv.org/abs/cs/0406011)): a chi-squared Phase II at α = 10⁻³, transient removal, and determinisation.
+- **Rerun.** The same grid was rerun in [`rerun-2026-11-27/`](rerun-2026-11-27/RESULTS.md).
+- **Period-3.** It now recovers 3 states with \(C = \log_2 3\) in 50/50 seeds at every T and L (it was 2 states, 0.918, before).
+- **Unchanged cases.** Golden mean and coin are unchanged at L = 2 and 3.
+- **SNS.** It still fails, but approaches the true value as L grows (ΔC −0.14 at T = 10⁵, L = 10).
+- **Regressions.**
+  - The even process gets worse.
+  - Coin and golden mean overfit at L = 10.
+- **Reading the "does not establish" list above.** The items "compare it with CSSR" and "whether a determinisation step would fix period-3" are answered by the rerun, not by this file.
