@@ -1,0 +1,4000 @@
+[
+ {
+  "gap": "CFA_001",
+  "claim": "b06c4ab4998bce26",
+  "registry_kind": "contested",
+  "engine_passed": 1,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 6,
+   "failed": 10,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 6,
+   "failed": 10,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 5,
+   "failed": 10,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 5,
+   "failed": 10,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 6,
+   "failed": 10,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 6,
+   "failed": 10,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 5,
+   "failed": 10,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 5,
+   "failed": 10,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_019",
+  "claim": "15d96749ff14b55d",
+  "registry_kind": "contested",
+  "engine_passed": 4,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_020",
+  "claim": "36f8f78bf5772eef",
+  "registry_kind": "contested",
+  "engine_passed": 5,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 5,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 5,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 19,
+   "failed": 17,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 12,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 5,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 5,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 17,
+   "failed": 17,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 10,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 5,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 5,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 19,
+   "failed": 17,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 12,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 5,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 5,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 17,
+   "failed": 17,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 10,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_021",
+  "claim": "da60ac8b37d43ee4",
+  "registry_kind": "contested",
+  "engine_passed": 3,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 12,
+   "failed": 13,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 6,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 11,
+   "failed": 13,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 5,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 12,
+   "failed": 13,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 6,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 11,
+   "failed": 13,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 5,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_022",
+  "claim": "fbea11aaf4952ac1",
+  "registry_kind": "contested",
+  "engine_passed": 1,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 7,
+   "failed": 9,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 5,
+   "failed": 9,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 6,
+   "failed": 9,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 4,
+   "failed": 9,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 7,
+   "failed": 9,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 5,
+   "failed": 9,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 6,
+   "failed": 9,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 4,
+   "failed": 9,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_023",
+  "claim": "8ae7a2b71bc60e04",
+  "registry_kind": "contested",
+  "engine_passed": 1,
+  "engine_failed": 1,
+  "off|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 3,
+   "failed": 9,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 2,
+   "failed": 8,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 3,
+   "failed": 9,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 2,
+   "failed": 8,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 3,
+   "failed": 9,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 2,
+   "failed": 8,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 3,
+   "failed": 9,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 2,
+   "failed": 8,
+   "class": "contradicted",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_024",
+  "claim": "64cda870547bd0fa",
+  "registry_kind": "contradicted",
+  "engine_passed": 0,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 14,
+   "failed": 16,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 2,
+   "failed": 8,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 14,
+   "failed": 15,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 2,
+   "failed": 7,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 14,
+   "failed": 15,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 2,
+   "failed": 7,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 14,
+   "failed": 15,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 2,
+   "failed": 7,
+   "class": "contradicted",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_028",
+  "claim": "e8f8ffa3e0ec2412",
+  "registry_kind": "contradicted",
+  "engine_passed": 0,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 9,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 7,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 8,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 6,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 9,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 7,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 8,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 6,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_037",
+  "claim": "979d93bcc43a2264",
+  "registry_kind": "contested",
+  "engine_passed": 3,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 11,
+   "failed": 19,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 10,
+   "failed": 19,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 9,
+   "failed": 19,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 8,
+   "failed": 19,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 11,
+   "failed": 19,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 10,
+   "failed": 19,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 9,
+   "failed": 19,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 8,
+   "failed": 19,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_039",
+  "claim": "27109a399014a522",
+  "registry_kind": "contested",
+  "engine_passed": 2,
+  "engine_failed": 1,
+  "off|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_040",
+  "claim": "102d400e3586e370",
+  "registry_kind": "contested",
+  "engine_passed": 2,
+  "engine_failed": 1,
+  "off|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 4,
+   "failed": 10,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 3,
+   "failed": 10,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": [
+    "CFA_041",
+    "CFA_054"
+   ]
+  },
+  "title|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": [
+    "CFA_041",
+    "CFA_054"
+   ]
+  },
+  "title|full|stored": {
+   "passed": 4,
+   "failed": 6,
+   "class": "contested",
+   "merged_with": [
+    "CFA_041",
+    "CFA_054"
+   ]
+  },
+  "title|full|now": {
+   "passed": 3,
+   "failed": 6,
+   "class": "contested",
+   "merged_with": [
+    "CFA_041",
+    "CFA_054"
+   ]
+  },
+  "doi|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 4,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 3,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": [
+    "CFA_041"
+   ]
+  },
+  "arxiv|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": [
+    "CFA_041"
+   ]
+  },
+  "arxiv|full|stored": {
+   "passed": 4,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": [
+    "CFA_041"
+   ]
+  },
+  "arxiv|full|now": {
+   "passed": 3,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": [
+    "CFA_041"
+   ]
+  }
+ },
+ {
+  "gap": "CFA_041",
+  "claim": "b979b64332a2f43d",
+  "registry_kind": "contested",
+  "engine_passed": 2,
+  "engine_failed": 1,
+  "off|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 4,
+   "failed": 9,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 3,
+   "failed": 9,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": [
+    "CFA_040",
+    "CFA_054"
+   ]
+  },
+  "title|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": [
+    "CFA_040",
+    "CFA_054"
+   ]
+  },
+  "title|full|stored": {
+   "passed": 4,
+   "failed": 6,
+   "class": "contested",
+   "merged_with": [
+    "CFA_040",
+    "CFA_054"
+   ]
+  },
+  "title|full|now": {
+   "passed": 3,
+   "failed": 6,
+   "class": "contested",
+   "merged_with": [
+    "CFA_040",
+    "CFA_054"
+   ]
+  },
+  "doi|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": [
+    "CFA_054"
+   ]
+  },
+  "doi|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": [
+    "CFA_054"
+   ]
+  },
+  "doi|full|stored": {
+   "passed": 4,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": [
+    "CFA_054"
+   ]
+  },
+  "doi|full|now": {
+   "passed": 3,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": [
+    "CFA_054"
+   ]
+  },
+  "arxiv|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": [
+    "CFA_040"
+   ]
+  },
+  "arxiv|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": [
+    "CFA_040"
+   ]
+  },
+  "arxiv|full|stored": {
+   "passed": 4,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": [
+    "CFA_040"
+   ]
+  },
+  "arxiv|full|now": {
+   "passed": 3,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": [
+    "CFA_040"
+   ]
+  }
+ },
+ {
+  "gap": "CFA_044",
+  "claim": "c06f1b8c0c5dc936",
+  "registry_kind": "contradicted",
+  "engine_passed": 0,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 6,
+   "failed": 18,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 6,
+   "failed": 18,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 5,
+   "failed": 18,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 5,
+   "failed": 18,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 6,
+   "failed": 18,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 6,
+   "failed": 18,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 5,
+   "failed": 18,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 5,
+   "failed": 18,
+   "class": "contradicted",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_048",
+  "claim": "6a93697f7e9f702a",
+  "registry_kind": "contested",
+  "engine_passed": 2,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 19,
+   "failed": 17,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 19,
+   "failed": 17,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 16,
+   "failed": 17,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 16,
+   "failed": 17,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 19,
+   "failed": 17,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 19,
+   "failed": 17,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 16,
+   "failed": 17,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 16,
+   "failed": 17,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_049",
+  "claim": "c4a4bf7a71a8874d",
+  "registry_kind": "contested",
+  "engine_passed": 1,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 7,
+   "failed": 10,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 7,
+   "failed": 10,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 6,
+   "failed": 9,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 6,
+   "failed": 9,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 7,
+   "failed": 9,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 7,
+   "failed": 9,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 6,
+   "failed": 9,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 6,
+   "failed": 9,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_050",
+  "claim": "5791127e693abad5",
+  "registry_kind": "contested",
+  "engine_passed": 1,
+  "engine_failed": 1,
+  "off|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 10,
+   "failed": 21,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 10,
+   "failed": 21,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 9,
+   "failed": 17,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 9,
+   "failed": 17,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 10,
+   "failed": 18,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 10,
+   "failed": 18,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 9,
+   "failed": 18,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 9,
+   "failed": 18,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_051",
+  "claim": "6b0eaddef58bef43",
+  "registry_kind": "contested",
+  "engine_passed": 1,
+  "engine_failed": 1,
+  "off|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 9,
+   "failed": 8,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 9,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 7,
+   "failed": 8,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 7,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 9,
+   "failed": 8,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 9,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 7,
+   "failed": 8,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 7,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_052",
+  "claim": "6dbdcc7c7502df9f",
+  "registry_kind": "contested",
+  "engine_passed": 1,
+  "engine_failed": 1,
+  "off|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 14,
+   "failed": 14,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 13,
+   "failed": 14,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 11,
+   "failed": 13,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 10,
+   "failed": 13,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 14,
+   "failed": 13,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 13,
+   "failed": 13,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 11,
+   "failed": 13,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 10,
+   "failed": 13,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_053",
+  "claim": "80354ede1febc056",
+  "registry_kind": "contested",
+  "engine_passed": 1,
+  "engine_failed": 1,
+  "off|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 13,
+   "failed": 18,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 13,
+   "failed": 18,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 11,
+   "failed": 18,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 11,
+   "failed": 18,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 13,
+   "failed": 18,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 13,
+   "failed": 18,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 11,
+   "failed": 18,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 11,
+   "failed": 18,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CFA_054",
+  "claim": "da115e4be576de7a",
+  "registry_kind": "contested",
+  "engine_passed": 1,
+  "engine_failed": 1,
+  "off|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 3,
+   "failed": 10,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 3,
+   "failed": 10,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": [
+    "CFA_041",
+    "CFA_040"
+   ]
+  },
+  "title|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": [
+    "CFA_041",
+    "CFA_040"
+   ]
+  },
+  "title|full|stored": {
+   "passed": 4,
+   "failed": 6,
+   "class": "contested",
+   "merged_with": [
+    "CFA_041",
+    "CFA_040"
+   ]
+  },
+  "title|full|now": {
+   "passed": 3,
+   "failed": 6,
+   "class": "contested",
+   "merged_with": [
+    "CFA_041",
+    "CFA_040"
+   ]
+  },
+  "doi|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": [
+    "CFA_041"
+   ]
+  },
+  "doi|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": [
+    "CFA_041"
+   ]
+  },
+  "doi|full|stored": {
+   "passed": 4,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": [
+    "CFA_041"
+   ]
+  },
+  "doi|full|now": {
+   "passed": 3,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": [
+    "CFA_041"
+   ]
+  },
+  "arxiv|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 3,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 3,
+   "failed": 7,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "CSS_001",
+  "claim": "b949d5d954ec9adf",
+  "registry_kind": "contested",
+  "engine_passed": 3,
+  "engine_failed": 1,
+  "off|post|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 0,
+   "failed": 0,
+   "class": null,
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 0,
+   "failed": 0,
+   "class": null,
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 0,
+   "failed": 0,
+   "class": null,
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 0,
+   "failed": 0,
+   "class": null,
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 0,
+   "failed": 0,
+   "class": null,
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 0,
+   "failed": 0,
+   "class": null,
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 0,
+   "failed": 0,
+   "class": null,
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 0,
+   "failed": 0,
+   "class": null,
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "HVD_001",
+  "claim": "0a034e33eb558cff",
+  "registry_kind": "contested",
+  "engine_passed": 6,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "HVD_002",
+  "claim": "39d539505cb8675b",
+  "registry_kind": "contested",
+  "engine_passed": 6,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 6,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "HVD_003",
+  "claim": "fa943ae7d410ca7c",
+  "registry_kind": "contested",
+  "engine_passed": 4,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "HVD_004",
+  "claim": "b01e9b5e336a1aae",
+  "registry_kind": "contested",
+  "engine_passed": 2,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "HVD_005",
+  "claim": "b68027e51377f598",
+  "registry_kind": "contested",
+  "engine_passed": 3,
+  "engine_failed": 1,
+  "off|post|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "HVD_006",
+  "claim": "d7a9d0e4f9e5da9a",
+  "registry_kind": "contested",
+  "engine_passed": 2,
+  "engine_failed": 1,
+  "off|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "HVD_007",
+  "claim": "33b7714b93b24d98",
+  "registry_kind": "contradicted",
+  "engine_passed": 0,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "HVD_008",
+  "claim": "636dfab8ad83e852",
+  "registry_kind": "contradicted",
+  "engine_passed": 0,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 0,
+   "failed": 2,
+   "class": "contradicted",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "HVD_009",
+  "claim": "1b5da8cf3e2ea956",
+  "registry_kind": "contested",
+  "engine_passed": 2,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "HVD_010",
+  "claim": "0e0d469e5c1d3840",
+  "registry_kind": "contested",
+  "engine_passed": 2,
+  "engine_failed": 1,
+  "off|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "HVD_011",
+  "claim": "34fb08afb1924d7a",
+  "registry_kind": "contested",
+  "engine_passed": 1,
+  "engine_failed": 1,
+  "off|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "RVC_001",
+  "claim": "6c5efa556196b2d0",
+  "registry_kind": "contested",
+  "engine_passed": 4,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 4,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": [
+    "(no gap)"
+   ]
+  },
+  "title|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": [
+    "(no gap)"
+   ]
+  },
+  "title|full|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": [
+    "(no gap)"
+   ]
+  },
+  "title|full|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": [
+    "(no gap)"
+   ]
+  },
+  "doi|post|stored": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": [
+    "(no gap)"
+   ]
+  },
+  "arxiv|post|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": [
+    "(no gap)"
+   ]
+  },
+  "arxiv|full|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": [
+    "(no gap)"
+   ]
+  },
+  "arxiv|full|now": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": [
+    "(no gap)"
+   ]
+  }
+ },
+ {
+  "gap": "RVC_002",
+  "claim": "7b77502b691ca58c",
+  "registry_kind": "contested",
+  "engine_passed": 2,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 5,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 4,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 4,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 4,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "RVC_003",
+  "claim": "b42b5c4447dd86ad",
+  "registry_kind": "contested",
+  "engine_passed": 2,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 5,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 4,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 4,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 1,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 4,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "RVC_004",
+  "claim": "4a2d90891c0b23e6",
+  "registry_kind": "contested",
+  "engine_passed": 3,
+  "engine_failed": 2,
+  "off|post|stored": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 3,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 2,
+   "failed": 2,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "RVC_005",
+  "claim": "16d081300cf321e2",
+  "registry_kind": "contested",
+  "engine_passed": 3,
+  "engine_failed": 1,
+  "off|post|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 6,
+   "failed": 6,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 4,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 5,
+   "failed": 6,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 3,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 5,
+   "failed": 6,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 3,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 5,
+   "failed": 6,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 3,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  }
+ },
+ {
+  "gap": "RVC_006",
+  "claim": "c36075e5eb90fe6d",
+  "registry_kind": "contested",
+  "engine_passed": 3,
+  "engine_failed": 1,
+  "off|post|stored": {
+   "passed": 3,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|stored": {
+   "passed": 5,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "off|full|now": {
+   "passed": 1,
+   "failed": 4,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "title|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|stored": {
+   "passed": 4,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "title|full|now": {
+   "passed": 1,
+   "failed": 4,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "doi|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|stored": {
+   "passed": 4,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "doi|full|now": {
+   "passed": 1,
+   "failed": 4,
+   "class": "contradicted",
+   "merged_with": []
+  },
+  "arxiv|post|stored": {
+   "passed": 2,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|post|now": {
+   "passed": 1,
+   "failed": 1,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|stored": {
+   "passed": 4,
+   "failed": 5,
+   "class": "contested",
+   "merged_with": []
+  },
+  "arxiv|full|now": {
+   "passed": 1,
+   "failed": 4,
+   "class": "contradicted",
+   "merged_with": []
+  }
+ }
+]
