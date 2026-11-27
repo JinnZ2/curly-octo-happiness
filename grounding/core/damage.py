@@ -493,8 +493,15 @@ class DamageDetector:
         history = equalized_history_length(
             len(set(residual_symbols)), len(set(augmented)), max_history)
 
-        before = reconstruct(residual_symbols, max_history=max_history)
-        after = reconstruct(residual_symbols, augmented, max_history=history)
+        # test="tv" pins the pre-2026-11-27 total-variation merge rule. The
+        # library default became CSSR's chi-squared test, which is consistent
+        # but conservative on short streams: on this module's 200-sample
+        # damage stream it named a real culprit in 5/30 seeds against 24/30
+        # for TV (both 30/30, no noise false positives, at n >= 800). See
+        # experiments/results/EXP-CSS-02/rerun-2026-11-27. Revisit when the
+        # attribution windows are longer.
+        before = reconstruct(residual_symbols, max_history=max_history, test="tv")
+        after = reconstruct(residual_symbols, augmented, max_history=history, test="tv")
         delta_c = before.statistical_complexity - after.statistical_complexity
         delta_h = before.entropy_rate - after.entropy_rate
 

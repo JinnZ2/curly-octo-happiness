@@ -87,10 +87,15 @@ def test_conditioning_on_the_driver_simplifies_the_stream():
     assert with_driver.statistical_complexity < base.statistical_complexity
     assert with_driver.entropy_rate < base.entropy_rate
 
-    # Conditioning on noise shatters histories into rare, spuriously
-    # deterministic states: h_mu may fall, but C_mu rises. Requiring both to
-    # drop is what makes the acceptance criterion a test rather than a ratchet.
-    assert with_noise.statistical_complexity > base.statistical_complexity
+    # Noise must not pass the criterion: requiring both C_mu and h_mu to drop
+    # is what makes it a test rather than a ratchet. (Until 2026-11-27 this
+    # asserted that noise raises C_mu. That held for the old total-variation
+    # merge rule, which shattered noisy histories into spurious states; with
+    # CSSR's chi-squared test and Phase III, noise lowers C_mu here but raises
+    # h_mu, and is still rejected. See experiments/results/EXP-CSS-02/
+    # rerun-2026-11-27.)
+    assert not (with_noise.statistical_complexity < base.statistical_complexity
+                and with_noise.entropy_rate < base.entropy_rate)
 
 
 def test_reconstruct_rejects_mismatched_streams():
@@ -107,3 +112,89 @@ def test_degenerate_streams_do_not_crash():
         assert machine.statistical_complexity == 0.0
         assert machine.entropy_rate == 0.0
         assert "eps-machine" in machine.summary()
+
+
+# --- Regression cases from EXP-CSS-02 (added 2026-11-27) --------------------
+# Pre-registered processes with analytic C_mu and h_mu. Before CSSR Phase III
+# was added, period-3 came out at 2 states / C_mu = 0.918 at every T and L.
+
+LOG2_3 = 1.584962500721156
+
+
+def _period3(n=3000, phase=1):
+    return [1 if (i + phase) % 3 == 2 else 0 for i in range(n)]
+
+
+def _golden_mean(n=20000, seed=7):
+    rng, state, out = random.Random(seed), "A", []
+    for _ in range(n + 100):
+        if state == "A":
+            b = rng.randint(0, 1)
+            state = "B" if b else "A"
+        else:
+            b, state = 0, "A"
+        out.append(b)
+    return out[100:]
+
+
+def test_period_three_recovers_three_states():
+    for length in (2, 3, 5, 10):
+        machine = reconstruct(_period3(), max_history=length)
+        assert machine.n_states == 3, length
+        assert abs(machine.statistical_complexity - LOG2_3) < 1e-6
+        assert machine.entropy_rate < 1e-9
+
+
+def test_period_three_machine_is_unifilar():
+    # Each state's histories must send every symbol to a single state.
+    seq = _period3()
+    machine = reconstruct(seq, max_history=3)
+    label = {h: k for k, st in enumerate(machine.states) for h in st.histories}
+    for st in machine.states:
+        for sym in (0, 1):
+            targets = {label.get(h[1:] + (sym,)) for h in st.histories} - {None}
+            assert len(targets) <= 1
+
+
+def test_golden_mean_two_states():
+    for length in (2, 3, 5):
+        machine = reconstruct(_golden_mean(), max_history=length)
+        assert machine.n_states == 2
+        assert abs(machine.statistical_complexity - 0.9183) < 0.03
+        assert abs(machine.entropy_rate - 2 / 3) < 0.02
+
+
+def test_biased_coin_one_state():
+    rng = random.Random(3)
+    seq = [1 if rng.random() < 0.3 else 0 for _ in range(10000)]
+    for length in (2, 3, 5):
+        machine = reconstruct(seq, max_history=length)
+        assert machine.n_states == 1
+        assert machine.statistical_complexity == 0.0
+        assert abs(machine.entropy_rate - 0.8813) < 0.02
+
+
+def test_simple_nonunifilar_source_is_undercounted():
+    # The SNS has infinitely many causal states (C_mu ~ 2.71 bits); any
+    # finite-L reconstruction undercounts. Documented, not hidden.
+    rng, state, out = random.Random(11), "A", []
+    for _ in range(20100):
+        if state == "A":
+            b, state = 1, ("A" if rng.random() < 0.5 else "B")
+        elif rng.random() < 0.5:
+            b, state = 1, "B"
+        else:
+            b, state = 0, "A"
+        out.append(b)
+    machine = reconstruct(out[100:], max_history=5)
+    assert machine.statistical_complexity < 2.71
+
+
+def test_tv_option_and_bad_test_name():
+    machine = reconstruct(_period3(), max_history=2, test="tv")
+    assert machine.n_states == 3
+    try:
+        reconstruct(_period3(), test="ks")
+    except ValueError:
+        return
+    raise AssertionError("expected ValueError for unknown test")
