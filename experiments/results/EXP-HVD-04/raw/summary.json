@@ -1,0 +1,828 @@
+{
+ "by_sim": {
+  "1": {
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.2,
+    "baseline": 0.05,
+    "diff": 0.15,
+    "diff_ci95": [
+     -0.1,
+     0.45
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.2,
+    "baseline": 0.0,
+    "diff": 0.2,
+    "diff_ci95": [
+     0.0,
+     0.5
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "2": {
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_rows": 30,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.13333333333333333,
+    "baseline": 0.01825641025641026,
+    "diff": 0.11507692307692308,
+    "diff_ci95": [
+     -0.009160256410256409,
+     0.2739256410256409
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.1,
+    "baseline": 0.01564102564102564,
+    "diff": 0.08435897435897438,
+    "diff_ci95": [
+     -0.01564102564102564,
+     0.24064743589743573
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "3": {
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_rows": 50,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.17,
+    "baseline": 0.014211711711711712,
+    "diff": 0.15578828828828828,
+    "diff_ci95": [
+     0.06466272522522522,
+     0.24990033783783777
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.17,
+    "baseline": 0.007094594594594594,
+    "diff": 0.1629054054054054,
+    "diff_ci95": [
+     0.07204954954954956,
+     0.26883427177177166
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "5": {
+   "Nnodes": 5,
+   "Nt": 1200,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.6,
+    "baseline": 0.2,
+    "diff": 0.4,
+    "diff_ci95": [
+     0.05,
+     0.75
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.6,
+    "baseline": 0.05,
+    "diff": 0.55,
+    "diff_ci95": [
+     0.25,
+     0.8012499999999932
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "6": {
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_rows": 30,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.7666666666666667,
+    "baseline": 0.04907692307692308,
+    "diff": 0.7175897435897435,
+    "diff_ci95": [
+     0.6344307692307691,
+     0.8096923076923076
+    ],
+    "bidirected_on_induced": 0.13333333333333333
+   },
+   "pcmciplus": {
+    "recall": 0.8333333333333334,
+    "baseline": 0.03241025641025641,
+    "diff": 0.800923076923077,
+    "diff_ci95": [
+     0.6932820512820512,
+     0.9086666666666666
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "7": {
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.9,
+    "baseline": 0.4,
+    "diff": 0.5,
+    "diff_ci95": [
+     0.25,
+     0.75
+    ],
+    "bidirected_on_induced": 0.1
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.3,
+    "diff": 0.7,
+    "diff_ci95": [
+     0.55,
+     0.85
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "8": {
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.4,
+    "baseline": 0.25,
+    "diff": 0.15,
+    "diff_ci95": [
+     -0.15,
+     0.5
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.3,
+    "baseline": 0.25,
+    "diff": 0.05,
+    "diff_ci95": [
+     -0.3,
+     0.45
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "9": {
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.8,
+    "diff": 0.2,
+    "diff_ci95": [
+     0.05,
+     0.35
+    ],
+    "bidirected_on_induced": 0.2
+   },
+   "pcmciplus": {
+    "recall": 0.9,
+    "baseline": 0.75,
+    "diff": 0.15,
+    "diff_ci95": [
+     -0.15,
+     0.45
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "10": {
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.4,
+    "baseline": 0.15,
+    "diff": 0.25,
+    "diff_ci95": [
+     -0.15,
+     0.65
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.5,
+    "baseline": 0.05,
+    "diff": 0.45,
+    "diff_ci95": [
+     0.1,
+     0.8
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "11": {
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_rows": 30,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.36666666666666664,
+    "baseline": 0.1531794871794872,
+    "diff": 0.21348717948717943,
+    "diff_ci95": [
+     0.07235897435897434,
+     0.38789743589743597
+    ],
+    "bidirected_on_induced": 0.06666666666666667
+   },
+   "pcmciplus": {
+    "recall": 0.3,
+    "baseline": 0.1505128205128205,
+    "diff": 0.14948717948717943,
+    "diff_ci95": [
+     0.07374358974358973,
+     0.1957435897435897
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "12": {
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_rows": 30,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.16666666666666666,
+    "baseline": 0.0221025641025641,
+    "diff": 0.14456410256410257,
+    "diff_ci95": [
+     0.019126923076923076,
+     0.2791602564102562
+    ],
+    "bidirected_on_induced": 0.03333333333333333
+   },
+   "pcmciplus": {
+    "recall": 0.13333333333333333,
+    "baseline": 0.026000000000000002,
+    "diff": 0.10733333333333332,
+    "diff_ci95": [
+     -0.018153846153846152,
+     0.24711025641025627
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "13": {
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_rows": 28,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.08928571428571429,
+    "diff": -0.08928571428571429,
+    "diff_ci95": [
+     -0.19642857142857142,
+     0.0
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.03571428571428571,
+    "baseline": 0.10714285714285714,
+    "diff": -0.07142857142857142,
+    "diff_ci95": [
+     -0.17857142857142858,
+     0.0
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "15": {
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.5,
+    "baseline": 0.2,
+    "diff": 0.3,
+    "diff_ci95": [
+     -0.1,
+     0.7
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.7,
+    "baseline": 0.05,
+    "diff": 0.65,
+    "diff_ci95": [
+     0.35,
+     0.9
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "17": {
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_rows": 30,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.1,
+    "baseline": 0.010461538461538463,
+    "diff": 0.08953846153846154,
+    "diff_ci95": [
+     -0.016975641025641024,
+     0.22943589743589746
+    ],
+    "bidirected_on_induced": 0.06666666666666667
+   },
+   "pcmciplus": {
+    "recall": 0.23333333333333334,
+    "baseline": 0.011692307692307695,
+    "diff": 0.22164102564102567,
+    "diff_ci95": [
+     0.05750641025641025,
+     0.3948205128205128
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "18": {
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.2,
+    "baseline": 0.0,
+    "diff": 0.2,
+    "diff_ci95": [
+     0.0,
+     0.5
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.3,
+    "baseline": 0.0,
+    "diff": 0.3,
+    "diff_ci95": [
+     0.0,
+     0.6
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "19": {
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.5,
+    "baseline": 0.05,
+    "diff": 0.45,
+    "diff_ci95": [
+     0.1,
+     0.8
+    ],
+    "bidirected_on_induced": 0.2
+   },
+   "pcmciplus": {
+    "recall": 0.8,
+    "baseline": 0.55,
+    "diff": 0.25,
+    "diff_ci95": [
+     -0.1,
+     0.55
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "20": {
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.6,
+    "baseline": 0.15,
+    "diff": 0.45,
+    "diff_ci95": [
+     0.2,
+     0.7
+    ],
+    "bidirected_on_induced": 0.2
+   },
+   "pcmciplus": {
+    "recall": 0.8,
+    "baseline": 0.6,
+    "diff": 0.2,
+    "diff_ci95": [
+     -0.15,
+     0.55
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "21": {
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.2,
+    "baseline": 0.05,
+    "diff": 0.15,
+    "diff_ci95": [
+     -0.1,
+     0.45
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.2,
+    "baseline": 0.0,
+    "diff": 0.2,
+    "diff_ci95": [
+     0.0,
+     0.5
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "22": {
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.5,
+    "baseline": 0.15,
+    "diff": 0.35,
+    "diff_ci95": [
+     -0.1,
+     0.8
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.6,
+    "baseline": 0.1,
+    "diff": 0.5,
+    "diff_ci95": [
+     0.1,
+     0.85
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "23": {
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.9,
+    "baseline": 0.4,
+    "diff": 0.5,
+    "diff_ci95": [
+     0.05,
+     0.85
+    ],
+    "bidirected_on_induced": 0.2
+   },
+   "pcmciplus": {
+    "recall": 0.7,
+    "baseline": 0.35,
+    "diff": 0.35,
+    "diff_ci95": [
+     -0.15,
+     0.8
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "24": {
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.9,
+    "baseline": 0.55,
+    "diff": 0.35,
+    "diff_ci95": [
+     0.09875000000000007,
+     0.6
+    ],
+    "bidirected_on_induced": 0.3
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "diff": 0.5,
+    "diff_ci95": [
+     0.25,
+     0.75
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "25": {
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "diff": 0.0,
+    "diff_ci95": [
+     0.0,
+     0.0
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "diff": 0.0,
+    "diff_ci95": [
+     0.0,
+     0.0
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "26": {
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.1,
+    "baseline": 0.0,
+    "diff": 0.1,
+    "diff_ci95": [
+     0.0,
+     0.3
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.2,
+    "baseline": 0.0,
+    "diff": 0.2,
+    "diff_ci95": [
+     0.0,
+     0.5
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "27": {
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.3,
+    "baseline": 0.0,
+    "diff": 0.3,
+    "diff_ci95": [
+     0.1,
+     0.6
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.2,
+    "baseline": 0.0,
+    "diff": 0.2,
+    "diff_ci95": [
+     0.0,
+     0.5
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "28": {
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_rows": 10,
+   "n_units": 10,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "diff": 0.0,
+    "diff_ci95": [
+     0.0,
+     0.0
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.05,
+    "diff": -0.05,
+    "diff_ci95": [
+     -0.15,
+     0.0
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  }
+ },
+ "by_Nt": {
+  "50": {
+   "n_rows": 20,
+   "n_units": 20,
+   "lpcmci": {
+    "recall": 0.2,
+    "baseline": 0.0,
+    "diff": 0.2,
+    "diff_ci95": [
+     0.05,
+     0.4
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.2,
+    "baseline": 0.0,
+    "diff": 0.2,
+    "diff_ci95": [
+     0.05,
+     0.4
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "100": {
+   "n_rows": 20,
+   "n_units": 20,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "diff": 0.0,
+    "diff_ci95": [
+     0.0,
+     0.0
+    ],
+    "bidirected_on_induced": 0.0
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.025,
+    "diff": -0.025,
+    "diff_ci95": [
+     -0.075,
+     0.0
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "200": {
+   "n_rows": 288,
+   "n_units": 150,
+   "lpcmci": {
+    "recall": 0.2552083333333333,
+    "baseline": 0.09489786661661662,
+    "diff": 0.1603104667167167,
+    "diff_ci95": [
+     0.11207457688506549,
+     0.21449252287730103
+    ],
+    "bidirected_on_induced": 0.034722222222222224
+   },
+   "pcmciplus": {
+    "recall": 0.2690972222222222,
+    "baseline": 0.07802123036498038,
+    "diff": 0.19107599185724186,
+    "diff_ci95": [
+     0.13993506026854402,
+     0.25095962568941776
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "1200": {
+   "n_rows": 40,
+   "n_units": 20,
+   "lpcmci": {
+    "recall": 0.725,
+    "baseline": 0.08680769230769231,
+    "diff": 0.6381923076923076,
+    "diff_ci95": [
+     0.5018990384615385,
+     0.7496807692307693
+    ],
+    "bidirected_on_induced": 0.1
+   },
+   "pcmciplus": {
+    "recall": 0.775,
+    "baseline": 0.036807692307692305,
+    "diff": 0.7381923076923077,
+    "diff_ci95": [
+     0.6117194570135747,
+     0.8458530418856505
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "2400": {
+   "n_rows": 20,
+   "n_units": 20,
+   "lpcmci": {
+    "recall": 0.55,
+    "baseline": 0.1,
+    "diff": 0.45,
+    "diff_ci95": [
+     0.25,
+     0.675
+    ],
+    "bidirected_on_induced": 0.2
+   },
+   "pcmciplus": {
+    "recall": 0.8,
+    "baseline": 0.575,
+    "diff": 0.225,
+    "diff_ci95": [
+     -0.025,
+     0.475
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  },
+  "5000": {
+   "n_rows": 20,
+   "n_units": 20,
+   "lpcmci": {
+    "recall": 0.95,
+    "baseline": 0.6,
+    "diff": 0.35,
+    "diff_ci95": [
+     0.2,
+     0.525
+    ],
+    "bidirected_on_induced": 0.15
+   },
+   "pcmciplus": {
+    "recall": 0.95,
+    "baseline": 0.525,
+    "diff": 0.425,
+    "diff_ci95": [
+     0.2,
+     0.625
+    ],
+    "bidirected_on_induced": 0.0
+   }
+  }
+ },
+ "all": {
+  "n_rows": 408,
+  "n_units": 250,
+  "lpcmci": {
+   "recall": 0.33455882352941174,
+   "baseline": 0.10981101293601293,
+   "diff": 0.22474781059339882,
+   "diff_ci95": [
+    0.1736812481950861,
+    0.2727671318159269
+   ],
+   "bidirected_on_induced": 0.051470588235294115
+  },
+  "pcmciplus": {
+   "recall": 0.36151960784313725,
+   "baseline": 0.11382946577799519,
+   "diff": 0.24769014206514206,
+   "diff_ci95": [
+    0.19764479651808095,
+    0.30181473524446645
+   ],
+   "bidirected_on_induced": 0.0
+  }
+ },
+ "sims_without_eligible_rows": [
+  14,
+  16
+ ]
+}

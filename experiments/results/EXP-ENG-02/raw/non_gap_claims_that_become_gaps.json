@@ -1,0 +1,744 @@
+[
+ {
+  "claim": "578ca01497db3e77",
+  "cell": "off|full|stored",
+  "class": "contested",
+  "passed": 5,
+  "failed": 5
+ },
+ {
+  "claim": "578ca01497db3e77",
+  "cell": "off|full|now",
+  "class": "contested",
+  "passed": 3,
+  "failed": 3
+ },
+ {
+  "claim": "578ca01497db3e77",
+  "cell": "title|full|stored",
+  "class": "contested",
+  "passed": 4,
+  "failed": 5
+ },
+ {
+  "claim": "578ca01497db3e77",
+  "cell": "title|full|now",
+  "class": "contested",
+  "passed": 2,
+  "failed": 3
+ },
+ {
+  "claim": "578ca01497db3e77",
+  "cell": "doi|full|stored",
+  "class": "contested",
+  "passed": 4,
+  "failed": 5
+ },
+ {
+  "claim": "578ca01497db3e77",
+  "cell": "doi|full|now",
+  "class": "contested",
+  "passed": 2,
+  "failed": 3
+ },
+ {
+  "claim": "578ca01497db3e77",
+  "cell": "arxiv|full|stored",
+  "class": "contested",
+  "passed": 4,
+  "failed": 5
+ },
+ {
+  "claim": "578ca01497db3e77",
+  "cell": "arxiv|full|now",
+  "class": "contested",
+  "passed": 2,
+  "failed": 3
+ },
+ {
+  "claim": "a4a6a3fc54bac055",
+  "cell": "off|post|stored",
+  "class": "contested",
+  "passed": 1,
+  "failed": 1
+ },
+ {
+  "claim": "a4a6a3fc54bac055",
+  "cell": "off|post|now",
+  "class": "contested",
+  "passed": 1,
+  "failed": 1
+ },
+ {
+  "claim": "a4a6a3fc54bac055",
+  "cell": "off|full|stored",
+  "class": "contested",
+  "passed": 4,
+  "failed": 7
+ },
+ {
+  "claim": "a4a6a3fc54bac055",
+  "cell": "off|full|now",
+  "class": "contested",
+  "passed": 3,
+  "failed": 4
+ },
+ {
+  "claim": "a4a6a3fc54bac055",
+  "cell": "title|full|stored",
+  "class": "contested",
+  "passed": 3,
+  "failed": 7
+ },
+ {
+  "claim": "a4a6a3fc54bac055",
+  "cell": "title|full|now",
+  "class": "contested",
+  "passed": 2,
+  "failed": 4
+ },
+ {
+  "claim": "a4a6a3fc54bac055",
+  "cell": "doi|full|stored",
+  "class": "contested",
+  "passed": 3,
+  "failed": 7
+ },
+ {
+  "claim": "a4a6a3fc54bac055",
+  "cell": "doi|full|now",
+  "class": "contested",
+  "passed": 2,
+  "failed": 4
+ },
+ {
+  "claim": "a4a6a3fc54bac055",
+  "cell": "arxiv|full|stored",
+  "class": "contested",
+  "passed": 3,
+  "failed": 7
+ },
+ {
+  "claim": "a4a6a3fc54bac055",
+  "cell": "arxiv|full|now",
+  "class": "contested",
+  "passed": 2,
+  "failed": 4
+ },
+ {
+  "claim": "f1bbf23466e6847d",
+  "cell": "off|full|stored",
+  "class": "contested",
+  "passed": 5,
+  "failed": 6
+ },
+ {
+  "claim": "f1bbf23466e6847d",
+  "cell": "off|full|now",
+  "class": "contested",
+  "passed": 5,
+  "failed": 6
+ },
+ {
+  "claim": "f1bbf23466e6847d",
+  "cell": "title|full|stored",
+  "class": "contested",
+  "passed": 4,
+  "failed": 5
+ },
+ {
+  "claim": "f1bbf23466e6847d",
+  "cell": "title|full|now",
+  "class": "contested",
+  "passed": 4,
+  "failed": 5
+ },
+ {
+  "claim": "f1bbf23466e6847d",
+  "cell": "doi|full|stored",
+  "class": "contested",
+  "passed": 5,
+  "failed": 5
+ },
+ {
+  "claim": "f1bbf23466e6847d",
+  "cell": "doi|full|now",
+  "class": "contested",
+  "passed": 5,
+  "failed": 5
+ },
+ {
+  "claim": "f1bbf23466e6847d",
+  "cell": "arxiv|full|stored",
+  "class": "contested",
+  "passed": 4,
+  "failed": 5
+ },
+ {
+  "claim": "f1bbf23466e6847d",
+  "cell": "arxiv|full|now",
+  "class": "contested",
+  "passed": 4,
+  "failed": 5
+ },
+ {
+  "claim": "a858c4a7a0f4e214",
+  "cell": "off|full|stored",
+  "class": "contested",
+  "passed": 4,
+  "failed": 3
+ },
+ {
+  "claim": "a858c4a7a0f4e214",
+  "cell": "off|full|now",
+  "class": "contested",
+  "passed": 4,
+  "failed": 3
+ },
+ {
+  "claim": "a858c4a7a0f4e214",
+  "cell": "title|full|stored",
+  "class": "contested",
+  "passed": 4,
+  "failed": 3
+ },
+ {
+  "claim": "a858c4a7a0f4e214",
+  "cell": "title|full|now",
+  "class": "contested",
+  "passed": 4,
+  "failed": 3
+ },
+ {
+  "claim": "a858c4a7a0f4e214",
+  "cell": "doi|full|stored",
+  "class": "contested",
+  "passed": 4,
+  "failed": 3
+ },
+ {
+  "claim": "a858c4a7a0f4e214",
+  "cell": "doi|full|now",
+  "class": "contested",
+  "passed": 4,
+  "failed": 3
+ },
+ {
+  "claim": "a858c4a7a0f4e214",
+  "cell": "arxiv|full|stored",
+  "class": "contested",
+  "passed": 4,
+  "failed": 3
+ },
+ {
+  "claim": "a858c4a7a0f4e214",
+  "cell": "arxiv|full|now",
+  "class": "contested",
+  "passed": 4,
+  "failed": 3
+ },
+ {
+  "claim": "1397903f1f203157",
+  "cell": "off|full|stored",
+  "class": "contested",
+  "passed": 6,
+  "failed": 5
+ },
+ {
+  "claim": "1397903f1f203157",
+  "cell": "off|full|now",
+  "class": "contested",
+  "passed": 6,
+  "failed": 5
+ },
+ {
+  "claim": "1397903f1f203157",
+  "cell": "title|full|stored",
+  "class": "contested",
+  "passed": 5,
+  "failed": 5
+ },
+ {
+  "claim": "1397903f1f203157",
+  "cell": "title|full|now",
+  "class": "contested",
+  "passed": 5,
+  "failed": 5
+ },
+ {
+  "claim": "1397903f1f203157",
+  "cell": "doi|full|stored",
+  "class": "contested",
+  "passed": 6,
+  "failed": 5
+ },
+ {
+  "claim": "1397903f1f203157",
+  "cell": "doi|full|now",
+  "class": "contested",
+  "passed": 6,
+  "failed": 5
+ },
+ {
+  "claim": "1397903f1f203157",
+  "cell": "arxiv|full|stored",
+  "class": "contested",
+  "passed": 5,
+  "failed": 5
+ },
+ {
+  "claim": "1397903f1f203157",
+  "cell": "arxiv|full|now",
+  "class": "contested",
+  "passed": 5,
+  "failed": 5
+ },
+ {
+  "claim": "e2314f87f23d9603",
+  "cell": "off|full|stored",
+  "class": "contested",
+  "passed": 6,
+  "failed": 8
+ },
+ {
+  "claim": "e2314f87f23d9603",
+  "cell": "off|full|now",
+  "class": "contested",
+  "passed": 6,
+  "failed": 7
+ },
+ {
+  "claim": "e2314f87f23d9603",
+  "cell": "title|full|stored",
+  "class": "contested",
+  "passed": 4,
+  "failed": 7
+ },
+ {
+  "claim": "e2314f87f23d9603",
+  "cell": "title|full|now",
+  "class": "contested",
+  "passed": 4,
+  "failed": 6
+ },
+ {
+  "claim": "e2314f87f23d9603",
+  "cell": "doi|full|stored",
+  "class": "contested",
+  "passed": 6,
+  "failed": 7
+ },
+ {
+  "claim": "e2314f87f23d9603",
+  "cell": "doi|full|now",
+  "class": "contested",
+  "passed": 6,
+  "failed": 6
+ },
+ {
+  "claim": "e2314f87f23d9603",
+  "cell": "arxiv|full|stored",
+  "class": "contested",
+  "passed": 4,
+  "failed": 7
+ },
+ {
+  "claim": "e2314f87f23d9603",
+  "cell": "arxiv|full|now",
+  "class": "contested",
+  "passed": 4,
+  "failed": 6
+ },
+ {
+  "claim": "a982132c07f474b3",
+  "cell": "title|post|stored",
+  "class": "contested",
+  "passed": 2,
+  "failed": 2
+ },
+ {
+  "claim": "a982132c07f474b3",
+  "cell": "title|post|now",
+  "class": "contested",
+  "passed": 1,
+  "failed": 2
+ },
+ {
+  "claim": "a982132c07f474b3",
+  "cell": "title|full|stored",
+  "class": "contested",
+  "passed": 2,
+  "failed": 2
+ },
+ {
+  "claim": "a982132c07f474b3",
+  "cell": "title|full|now",
+  "class": "contested",
+  "passed": 1,
+  "failed": 2
+ },
+ {
+  "claim": "a982132c07f474b3",
+  "cell": "arxiv|post|stored",
+  "class": "contested",
+  "passed": 2,
+  "failed": 2
+ },
+ {
+  "claim": "a982132c07f474b3",
+  "cell": "arxiv|post|now",
+  "class": "contested",
+  "passed": 1,
+  "failed": 2
+ },
+ {
+  "claim": "a982132c07f474b3",
+  "cell": "arxiv|full|stored",
+  "class": "contested",
+  "passed": 2,
+  "failed": 2
+ },
+ {
+  "claim": "a982132c07f474b3",
+  "cell": "arxiv|full|now",
+  "class": "contested",
+  "passed": 1,
+  "failed": 2
+ },
+ {
+  "claim": "fe61b8c8ecf35865",
+  "cell": "title|post|stored",
+  "class": "contested",
+  "passed": 3,
+  "failed": 1
+ },
+ {
+  "claim": "fe61b8c8ecf35865",
+  "cell": "title|post|now",
+  "class": "contested",
+  "passed": 3,
+  "failed": 1
+ },
+ {
+  "claim": "fe61b8c8ecf35865",
+  "cell": "title|full|stored",
+  "class": "contested",
+  "passed": 3,
+  "failed": 1
+ },
+ {
+  "claim": "fe61b8c8ecf35865",
+  "cell": "title|full|now",
+  "class": "contested",
+  "passed": 3,
+  "failed": 1
+ },
+ {
+  "claim": "fe61b8c8ecf35865",
+  "cell": "arxiv|post|stored",
+  "class": "contested",
+  "passed": 3,
+  "failed": 1
+ },
+ {
+  "claim": "fe61b8c8ecf35865",
+  "cell": "arxiv|post|now",
+  "class": "contested",
+  "passed": 3,
+  "failed": 1
+ },
+ {
+  "claim": "fe61b8c8ecf35865",
+  "cell": "arxiv|full|stored",
+  "class": "contested",
+  "passed": 3,
+  "failed": 1
+ },
+ {
+  "claim": "fe61b8c8ecf35865",
+  "cell": "arxiv|full|now",
+  "class": "contested",
+  "passed": 3,
+  "failed": 1
+ },
+ {
+  "claim": "c341cd349a33f0d8",
+  "cell": "off|full|stored",
+  "class": "contested",
+  "passed": 9,
+  "failed": 8
+ },
+ {
+  "claim": "c341cd349a33f0d8",
+  "cell": "off|full|now",
+  "class": "contested",
+  "passed": 9,
+  "failed": 7
+ },
+ {
+  "claim": "c341cd349a33f0d8",
+  "cell": "title|full|stored",
+  "class": "contested",
+  "passed": 7,
+  "failed": 8
+ },
+ {
+  "claim": "c341cd349a33f0d8",
+  "cell": "title|full|now",
+  "class": "contested",
+  "passed": 7,
+  "failed": 7
+ },
+ {
+  "claim": "c341cd349a33f0d8",
+  "cell": "doi|full|stored",
+  "class": "contested",
+  "passed": 9,
+  "failed": 8
+ },
+ {
+  "claim": "c341cd349a33f0d8",
+  "cell": "doi|full|now",
+  "class": "contested",
+  "passed": 9,
+  "failed": 7
+ },
+ {
+  "claim": "c341cd349a33f0d8",
+  "cell": "arxiv|full|stored",
+  "class": "contested",
+  "passed": 7,
+  "failed": 8
+ },
+ {
+  "claim": "c341cd349a33f0d8",
+  "cell": "arxiv|full|now",
+  "class": "contested",
+  "passed": 7,
+  "failed": 7
+ },
+ {
+  "claim": "9b5bcdfb03ac31aa",
+  "cell": "off|full|stored",
+  "class": "contested",
+  "passed": 2,
+  "failed": 3
+ },
+ {
+  "claim": "9b5bcdfb03ac31aa",
+  "cell": "off|full|now",
+  "class": "contested",
+  "passed": 2,
+  "failed": 3
+ },
+ {
+  "claim": "9b5bcdfb03ac31aa",
+  "cell": "title|full|stored",
+  "class": "contested",
+  "passed": 2,
+  "failed": 3
+ },
+ {
+  "claim": "9b5bcdfb03ac31aa",
+  "cell": "title|full|now",
+  "class": "contested",
+  "passed": 2,
+  "failed": 3
+ },
+ {
+  "claim": "9b5bcdfb03ac31aa",
+  "cell": "doi|full|stored",
+  "class": "contested",
+  "passed": 2,
+  "failed": 3
+ },
+ {
+  "claim": "9b5bcdfb03ac31aa",
+  "cell": "doi|full|now",
+  "class": "contested",
+  "passed": 2,
+  "failed": 3
+ },
+ {
+  "claim": "9b5bcdfb03ac31aa",
+  "cell": "arxiv|full|stored",
+  "class": "contested",
+  "passed": 2,
+  "failed": 3
+ },
+ {
+  "claim": "9b5bcdfb03ac31aa",
+  "cell": "arxiv|full|now",
+  "class": "contested",
+  "passed": 2,
+  "failed": 3
+ },
+ {
+  "claim": "c47298d8a863144d",
+  "cell": "off|full|stored",
+  "class": "contested",
+  "passed": 14,
+  "failed": 18
+ },
+ {
+  "claim": "c47298d8a863144d",
+  "cell": "off|full|now",
+  "class": "contested",
+  "passed": 13,
+  "failed": 18
+ },
+ {
+  "claim": "c47298d8a863144d",
+  "cell": "title|full|stored",
+  "class": "contested",
+  "passed": 12,
+  "failed": 16
+ },
+ {
+  "claim": "c47298d8a863144d",
+  "cell": "title|full|now",
+  "class": "contested",
+  "passed": 11,
+  "failed": 16
+ },
+ {
+  "claim": "c47298d8a863144d",
+  "cell": "doi|full|stored",
+  "class": "contested",
+  "passed": 14,
+  "failed": 17
+ },
+ {
+  "claim": "c47298d8a863144d",
+  "cell": "doi|full|now",
+  "class": "contested",
+  "passed": 13,
+  "failed": 17
+ },
+ {
+  "claim": "c47298d8a863144d",
+  "cell": "arxiv|full|stored",
+  "class": "contested",
+  "passed": 12,
+  "failed": 16
+ },
+ {
+  "claim": "c47298d8a863144d",
+  "cell": "arxiv|full|now",
+  "class": "contested",
+  "passed": 11,
+  "failed": 16
+ },
+ {
+  "claim": "8489f9a055dc8b9e",
+  "cell": "off|full|stored",
+  "class": "contested",
+  "passed": 18,
+  "failed": 10
+ },
+ {
+  "claim": "8489f9a055dc8b9e",
+  "cell": "off|full|now",
+  "class": "contested",
+  "passed": 18,
+  "failed": 10
+ },
+ {
+  "claim": "8489f9a055dc8b9e",
+  "cell": "title|full|stored",
+  "class": "contested",
+  "passed": 16,
+  "failed": 10
+ },
+ {
+  "claim": "8489f9a055dc8b9e",
+  "cell": "title|full|now",
+  "class": "contested",
+  "passed": 16,
+  "failed": 10
+ },
+ {
+  "claim": "8489f9a055dc8b9e",
+  "cell": "doi|full|stored",
+  "class": "contested",
+  "passed": 18,
+  "failed": 10
+ },
+ {
+  "claim": "8489f9a055dc8b9e",
+  "cell": "doi|full|now",
+  "class": "contested",
+  "passed": 18,
+  "failed": 10
+ },
+ {
+  "claim": "8489f9a055dc8b9e",
+  "cell": "arxiv|full|stored",
+  "class": "contested",
+  "passed": 16,
+  "failed": 10
+ },
+ {
+  "claim": "8489f9a055dc8b9e",
+  "cell": "arxiv|full|now",
+  "class": "contested",
+  "passed": 16,
+  "failed": 10
+ },
+ {
+  "claim": "11a8cdd47d3cb4ba",
+  "cell": "off|full|stored",
+  "class": "contested",
+  "passed": 17,
+  "failed": 19
+ },
+ {
+  "claim": "11a8cdd47d3cb4ba",
+  "cell": "off|full|now",
+  "class": "contested",
+  "passed": 17,
+  "failed": 19
+ },
+ {
+  "claim": "11a8cdd47d3cb4ba",
+  "cell": "title|full|stored",
+  "class": "contested",
+  "passed": 15,
+  "failed": 16
+ },
+ {
+  "claim": "11a8cdd47d3cb4ba",
+  "cell": "title|full|now",
+  "class": "contested",
+  "passed": 15,
+  "failed": 16
+ },
+ {
+  "claim": "11a8cdd47d3cb4ba",
+  "cell": "doi|full|stored",
+  "class": "contested",
+  "passed": 17,
+  "failed": 17
+ },
+ {
+  "claim": "11a8cdd47d3cb4ba",
+  "cell": "doi|full|now",
+  "class": "contested",
+  "passed": 17,
+  "failed": 17
+ },
+ {
+  "claim": "11a8cdd47d3cb4ba",
+  "cell": "arxiv|full|stored",
+  "class": "contested",
+  "passed": 15,
+  "failed": 17
+ },
+ {
+  "claim": "11a8cdd47d3cb4ba",
+  "cell": "arxiv|full|now",
+  "class": "contested",
+  "passed": 15,
+  "failed": 17
+ }
+]

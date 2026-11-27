@@ -1,0 +1,25 @@
+runs replayed: 18 (1462daa..d469d9d)
+pairs on current claims: 715; open claim-backed gaps: 38
+reconstruction check (non-reformulated claim-runs): 726/727 exact; with >=1 new pair: 201/202
+stored verdict missing (finding not in log at that run): 0
+baseline cell off|post|stored: counts match engine for 38/38, class matches registry for 38/38
+
+cell -> gaps whose class differs from registry kind (of 38)
+  off|post|stored          0  
+  off|post|now             1  CSS_001
+  off|full|stored          4  CFA_023 CFA_024 CFA_028 CFA_054
+  off|full|now             7  CFA_023 CFA_028 CFA_040 CFA_041 CFA_054 CSS_001 RVC_006
+  title|post|stored        0  
+  title|post|now           1  CSS_001
+  title|full|stored        3  CFA_023 CFA_024 CFA_028
+  title|full|now           4  CFA_023 CFA_028 CSS_001 RVC_006
+  doi|post|stored          0  
+  doi|post|now             1  CSS_001
+  doi|full|stored          3  CFA_023 CFA_024 CFA_028
+  doi|full|now             4  CFA_023 CFA_028 CSS_001 RVC_006
+  arxiv|post|stored        0  
+  arxiv|post|now           1  CSS_001
+  arxiv|full|stored        3  CFA_023 CFA_024 CFA_028
+  arxiv|full|now           4  CFA_023 CFA_028 CSS_001 RVC_006
+
+runtime_s: 3.1

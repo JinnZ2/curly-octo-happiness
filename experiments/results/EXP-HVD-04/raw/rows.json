@@ -1,0 +1,8972 @@
+{
+ "env": {
+  "python": "3.14.8",
+  "numpy": "2.5.5",
+  "tigramite": "5.2.10.1",
+  "subjects": 10,
+  "skipped_sims": [
+   4
+  ],
+  "runtime_s": 1253.2
+ },
+ "rows": [
+  {
+   "sim": 1,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.29
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.27
+   }
+  },
+  {
+   "sim": 1,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.27
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.11
+   }
+  },
+  {
+   "sim": 1,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.14
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.5
+   }
+  },
+  {
+   "sim": 1,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.91
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.2
+   }
+  },
+  {
+   "sim": 1,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.56
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.7
+   }
+  },
+  {
+   "sim": 1,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.87
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.34
+   }
+  },
+  {
+   "sim": 1,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.21
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.33
+   }
+  },
+  {
+   "sim": 1,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.41
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.16
+   }
+  },
+  {
+   "sim": 1,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.56
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.19
+   }
+  },
+  {
+   "sim": 1,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.3
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.04
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 0,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.19
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.02
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 12.72
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.09
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 0,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 10.68
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.23
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.7
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.21
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 1,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.08,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.65
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.17
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.02
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.27
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 1,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.2
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.01
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 2,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.19
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.77
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 2,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.07692307692307693,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 12.51
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.33
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 16.06
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.37
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 3,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.13
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.26
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 3,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.35
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.23
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 4,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.58
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.17
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.46
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.55
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 4,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.97
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.24
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 5,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.55
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.19
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.81
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.17
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.34
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.16
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 6,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.1
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.01
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 5,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 12.75
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.46
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 6,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.15
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.48
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 7,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.45
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.15
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 7,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.91
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.64
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 8.6
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.26
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.76
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.22
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 8,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.44
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.19
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.08
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.82
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 8,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.03
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.38
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 9,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.84
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.21
+   }
+  },
+  {
+   "sim": 2,
+   "subject": 9,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.03
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.99
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 0,
+   "k": 2,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 2,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.013888888888888888,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.65
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.013888888888888888,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.77
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 9.48
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.1
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 0,
+   "k": 5,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.02702702702702703,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 10.06
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.74
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 0,
+   "k": 7,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.013888888888888888,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.3
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.013888888888888888,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.59
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 0,
+   "k": 10,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.51
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.61
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 1,
+   "k": 2,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 2,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.59
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.013888888888888888,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.09
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 8.49
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.45
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 1,
+   "k": 7,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.013888888888888888,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.92
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.3
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 1,
+   "k": 5,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 11.64
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.45
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 1,
+   "k": 10,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 14.84
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.02702702702702703,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.25
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.02702702702702703,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.38
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.43
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 2,
+   "k": 2,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 2,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.027777777777777776,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.31
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.013888888888888888,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.45
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 2,
+   "k": 5,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 10.67
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.39
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 2,
+   "k": 7,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.027777777777777776,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 20.0
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.013888888888888888,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.78
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 2,
+   "k": 10,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.02702702702702703,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 14.34
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.87
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 3,
+   "k": 2,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 2,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 0.5,
+    "baseline": 0.041666666666666664,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 8.66
+   },
+   "pcmciplus": {
+    "recall": 0.5,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.12
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.04054054054054054,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 13.15
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.02702702702702703,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 13.0
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 3,
+   "k": 7,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 14.05
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.013888888888888888,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.53
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 3,
+   "k": 5,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.04054054054054054,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 23.38
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.02702702702702703,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 12.21
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 11.05
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.2
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 4,
+   "k": 2,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 2,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.01
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.53
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 3,
+   "k": 10,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.04054054054054054,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 21.82
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.02702702702702703,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 8.62
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 4,
+   "k": 5,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.17
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.46
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 4,
+   "k": 10,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.23
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.19
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.89
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.76
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 4,
+   "k": 7,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 12.13
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.74
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 5,
+   "k": 5,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.53
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.11
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 5,
+   "k": 2,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 2,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.013888888888888888,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 12.85
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.76
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 5,
+   "k": 7,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 16.85
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.12
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 5,
+   "k": 10,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 15.5
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.1
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 9.79
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.47
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 6,
+   "k": 2,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 2,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.027777777777777776,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 10.19
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.04
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 6,
+   "k": 5,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.74
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.25
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 6,
+   "k": 7,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.027777777777777776,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.83
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.09
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 6,
+   "k": 10,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.92
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.87
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 11.06
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.31
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 7,
+   "k": 2,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 2,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 19.93
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.85
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 7,
+   "k": 7,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 15.79
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.41
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 7,
+   "k": 5,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 21.41
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.3
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 7,
+   "k": 10,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.67
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.18
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 8,
+   "k": 2,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 2,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 16.83
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.92
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 20.63
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.5
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 8,
+   "k": 5,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.8
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.84
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 8,
+   "k": 7,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.013888888888888888,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.97
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.11
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 8,
+   "k": 10,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 18.34
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.65
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.02702702702702703,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 15.86
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.91
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 9,
+   "k": 5,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.02702702702702703,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 9.59
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.013513513513513514,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.62
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 9,
+   "k": 2,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 2,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.041666666666666664,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 13.18
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.013888888888888888,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.1
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 9,
+   "k": 7,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 72,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.027777777777777776,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 13.95
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.027777777777777776,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.83
+   }
+  },
+  {
+   "sim": 3,
+   "subject": 9,
+   "k": 10,
+   "Nnodes": 15,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 74,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 16.11
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.98
+   }
+  },
+  {
+   "sim": 5,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.63
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.53
+   }
+  },
+  {
+   "sim": 5,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.44
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.57
+   }
+  },
+  {
+   "sim": 5,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.43
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.54
+   }
+  },
+  {
+   "sim": 5,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.52
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.57
+   }
+  },
+  {
+   "sim": 5,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.13
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.4
+   }
+  },
+  {
+   "sim": 5,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.79
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.93
+   }
+  },
+  {
+   "sim": 5,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.03
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.12
+   }
+  },
+  {
+   "sim": 5,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.26
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.1
+   }
+  },
+  {
+   "sim": 5,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.71
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.15
+   }
+  },
+  {
+   "sim": 5,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.43
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.14
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 0,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 8.02
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.2
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.07692307692307693,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 13.29
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.58
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 0,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.07692307692307693,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 16.05
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.2
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 9.36
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.99
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 1,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.86
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.63
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 1,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 3.93
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.89
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.11538461538461539,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.24
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.07692307692307693,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.81
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 2,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.87
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.08,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.66
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.11538461538461539,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 11.97
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.67
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 2,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.07692307692307693,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 14.18
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 10.84
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 3,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 11.38
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.11
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 3,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 12.99
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.99
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.07692307692307693,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 10.71
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.16
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 4,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.64
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.48
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 4,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.07692307692307693,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.9
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.35
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.11538461538461539,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 13.01
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.02
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 5,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.74
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.61
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 5,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.08,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 12.26
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 8.3
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.32
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.48
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 6,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 11.24
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.81
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 6,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 9.43
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.79
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 13.75
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 8.04
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 7,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.11538461538461539,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 8.09
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.07692307692307693,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.84
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 7,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 29.46
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.07
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.13
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.76
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 8,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 16.41
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.7
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 8,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 10.4
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.46
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 9,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 12.63
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.88
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.07692307692307693,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 17.24
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.07692307692307693,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.44
+   }
+  },
+  {
+   "sim": 7,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 5.15
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.83
+   }
+  },
+  {
+   "sim": 7,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.07
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.61
+   }
+  },
+  {
+   "sim": 6,
+   "subject": 9,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 1200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 13.47
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.07692307692307693,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.0
+   }
+  },
+  {
+   "sim": 7,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.19
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.29
+   }
+  },
+  {
+   "sim": 7,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.51
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.24
+   }
+  },
+  {
+   "sim": 7,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.43
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.14
+   }
+  },
+  {
+   "sim": 7,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.75
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.31
+   }
+  },
+  {
+   "sim": 7,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.33
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.48
+   }
+  },
+  {
+   "sim": 7,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.03
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.06
+   }
+  },
+  {
+   "sim": 7,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.33
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.2
+   }
+  },
+  {
+   "sim": 8,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.03
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.63
+   }
+  },
+  {
+   "sim": 7,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.09
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.6
+   }
+  },
+  {
+   "sim": 8,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.69
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.53
+   }
+  },
+  {
+   "sim": 8,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.55
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.64
+   }
+  },
+  {
+   "sim": 8,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.44
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.86
+   }
+  },
+  {
+   "sim": 8,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.31
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.68
+   }
+  },
+  {
+   "sim": 8,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.5
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.37
+   }
+  },
+  {
+   "sim": 8,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.77
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.36
+   }
+  },
+  {
+   "sim": 8,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.51
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.4
+   }
+  },
+  {
+   "sim": 8,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.16
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.61
+   }
+  },
+  {
+   "sim": 8,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.92
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.73
+   }
+  },
+  {
+   "sim": 9,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.9
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.47
+   }
+  },
+  {
+   "sim": 9,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.1
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.08
+   }
+  },
+  {
+   "sim": 9,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.88
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.49
+   }
+  },
+  {
+   "sim": 9,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.49
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.24
+   }
+  },
+  {
+   "sim": 9,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 10.01
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.47
+   }
+  },
+  {
+   "sim": 9,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.28
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.45
+   }
+  },
+  {
+   "sim": 9,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 7.73
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.04
+   }
+  },
+  {
+   "sim": 9,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 8.05
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.88
+   }
+  },
+  {
+   "sim": 9,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 10.14
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.5
+   }
+  },
+  {
+   "sim": 9,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 5000,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 10.67
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.88
+   }
+  },
+  {
+   "sim": 10,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.91
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.69
+   }
+  },
+  {
+   "sim": 10,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.86
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.3
+   }
+  },
+  {
+   "sim": 10,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.12
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.6
+   }
+  },
+  {
+   "sim": 10,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.76
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.54
+   }
+  },
+  {
+   "sim": 10,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.87
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.14
+   }
+  },
+  {
+   "sim": 10,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.14
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.79
+   }
+  },
+  {
+   "sim": 10,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.07
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.4
+   }
+  },
+  {
+   "sim": 10,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.95
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.05
+   }
+  },
+  {
+   "sim": 10,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.69
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.39
+   }
+  },
+  {
+   "sim": 10,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.06
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.35
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 0,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.16,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.7
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.16,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.26
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 12.3
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.19230769230769232,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.47
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 0,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.11538461538461539,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 11.48
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.44
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.41
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.45
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 1,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.12,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.9
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.12,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.09
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 1,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.11538461538461539,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.12
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.46
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.11538461538461539,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.67
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.76
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 2,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.12,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.98
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.16,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.77
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 2,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.11538461538461539,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.71
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.11538461538461539,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.97
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 9.25
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.99
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 3,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.12,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.62
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.12,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.15
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 3,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.11538461538461539,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.62
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.11538461538461539,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.12
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 4,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.12,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.33
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.12,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.98
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 8.0
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.9
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.08
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.19230769230769232,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.31
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 5,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.16,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.82
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.12,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.28
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 4,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.35
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.11538461538461539,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.13
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.42
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.27
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 5,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 8.31
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.11538461538461539,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.65
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 6,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.16,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.0
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.12,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.05
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 6,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.0
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.07692307692307693,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.39
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.23076923076923078,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.54
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.19230769230769232,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.51
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 7,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.12,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.76
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.16,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.83
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 7,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 8.96
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.38
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.19230769230769232,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 8.56
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.23076923076923078,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.4
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 8,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.2,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.1
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.16,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.18
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.19230769230769232,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.99
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.86
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 8,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.19230769230769232,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 13.44
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.15384615384615385,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.41
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 9,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.2,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.55
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.16,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.35
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.99
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.93
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 0,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.91
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.34
+   }
+  },
+  {
+   "sim": 11,
+   "subject": 9,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.19230769230769232,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 8.34
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.23076923076923078,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.74
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.3
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.91
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 0,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.32
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.25
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 1,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.72
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.86
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 1,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.95
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.28
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 2,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.68
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.2
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 7.01
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.56
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 2,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.07692307692307693,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.77
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.75
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.24
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.86
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 3,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.31
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.99
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.24
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.78
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 4,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.76
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.31
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 3,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.9
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.96
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 4,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.87
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.24
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.07692307692307693,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.74
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.07692307692307693,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.21
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 5,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.43
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.53
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 5,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.08,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.11
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.08,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.98
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.65
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.12
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 6,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.68
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.27
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 6,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.68
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.45
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.95
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.42
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 7,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.12
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.09
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 7,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.84
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.3
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.97
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.7
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 8,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.79
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.03
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 8,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.4
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.68
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.42
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.11538461538461539,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.71
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 9,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.14
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.07692307692307693,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.52
+   }
+  },
+  {
+   "sim": 12,
+   "subject": 9,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.26
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.85
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.05
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.05
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 0,
+   "k": 2,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.2
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.05
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 0,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.3
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.08
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 1,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.05
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.27
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.11
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.38
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.14
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.33
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 2,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.79
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.27
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 2,
+   "k": 2,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.44
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.21
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.61
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.22
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 3,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.35
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.34
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.32
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.17
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 4,
+   "k": 2,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.55
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.21
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 3,
+   "k": 3,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.9
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.35
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 4,
+   "k": 3,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.24
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.19
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.19
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.15
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 5,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.31
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.27
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.32
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.08
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 6,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.2
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.15
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 6,
+   "k": 2,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.52
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.35
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 5,
+   "k": 3,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.86
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.25
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 6,
+   "k": 3,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.51
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.11
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.62
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.3
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 7,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.36
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.16
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.33
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.11
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 7,
+   "k": 3,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.02
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.28
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.73
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.1
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 9,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.55
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.05
+   }
+  },
+  {
+   "sim": 13,
+   "subject": 9,
+   "k": 3,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.36
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.12
+   }
+  },
+  {
+   "sim": 15,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.23
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.08
+   }
+  },
+  {
+   "sim": 15,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.25
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.12
+   }
+  },
+  {
+   "sim": 15,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.17
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.06
+   }
+  },
+  {
+   "sim": 15,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.41
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.21
+   }
+  },
+  {
+   "sim": 15,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.85
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.6
+   }
+  },
+  {
+   "sim": 15,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.67
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.53
+   }
+  },
+  {
+   "sim": 15,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.41
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.25
+   }
+  },
+  {
+   "sim": 15,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.14
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.36
+   }
+  },
+  {
+   "sim": 15,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.56
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.66
+   }
+  },
+  {
+   "sim": 15,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.38
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.52
+   }
+  },
+  {
+   "sim": 16,
+   "subject": 0,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 0
+  },
+  {
+   "sim": 16,
+   "subject": 0,
+   "k": 2,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 1
+  },
+  {
+   "sim": 16,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 0,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.77
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.22
+   }
+  },
+  {
+   "sim": 16,
+   "subject": 1,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 0
+  },
+  {
+   "sim": 16,
+   "subject": 1,
+   "k": 2,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 1
+  },
+  {
+   "sim": 16,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 0,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.41
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.11
+   }
+  },
+  {
+   "sim": 16,
+   "subject": 2,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 0
+  },
+  {
+   "sim": 16,
+   "subject": 2,
+   "k": 2,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 1
+  },
+  {
+   "sim": 16,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 0,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.57
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.66
+   }
+  },
+  {
+   "sim": 16,
+   "subject": 3,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 0
+  },
+  {
+   "sim": 16,
+   "subject": 3,
+   "k": 2,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 1
+  },
+  {
+   "sim": 16,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 0,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.24
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.09
+   }
+  },
+  {
+   "sim": 16,
+   "subject": 4,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 0
+  },
+  {
+   "sim": 16,
+   "subject": 4,
+   "k": 2,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 1
+  },
+  {
+   "sim": 16,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 0,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.23
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.18
+   }
+  },
+  {
+   "sim": 16,
+   "subject": 5,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 0
+  },
+  {
+   "sim": 16,
+   "subject": 5,
+   "k": 2,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 1
+  },
+  {
+   "sim": 16,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 0,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.93
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.48
+   }
+  },
+  {
+   "sim": 16,
+   "subject": 6,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 0
+  },
+  {
+   "sim": 16,
+   "subject": 6,
+   "k": 2,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 1
+  },
+  {
+   "sim": 16,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 0,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.71
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.38
+   }
+  },
+  {
+   "sim": 16,
+   "subject": 7,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 0
+  },
+  {
+   "sim": 16,
+   "subject": 7,
+   "k": 2,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 1
+  },
+  {
+   "sim": 16,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 0,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.72
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.21
+   }
+  },
+  {
+   "sim": 16,
+   "subject": 8,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 0
+  },
+  {
+   "sim": 16,
+   "subject": 8,
+   "k": 2,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 1
+  },
+  {
+   "sim": 16,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 0,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.17
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.09
+   }
+  },
+  {
+   "sim": 16,
+   "subject": 9,
+   "k": 1,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 0
+  },
+  {
+   "sim": 16,
+   "subject": 9,
+   "k": 2,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 0,
+   "n_control": 1
+  },
+  {
+   "sim": 16,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 0,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.02
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": null,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.7
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 0,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.73
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.34
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.46
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.52
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 0,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.16
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.46
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 1,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.77
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.51
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 12.02
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.73
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 1,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 9.54
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.11
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.09
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.04
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 2,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.08,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.14
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.29
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.62
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.5
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 2,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 8.27
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.37
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 3,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.78
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.9
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 3,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.05
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.53
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.97
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.87
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 4,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.89
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.81
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.12
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.4
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 4,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.58
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.14
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 5,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.67
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.93
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 5,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 7.92
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.47
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.73
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.54
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 6,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.3
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.24
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 6,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.05
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.53
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.15
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.36
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 7,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.64
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.3
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 7,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.77
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.93
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 8,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.09
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.31
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.06
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.62
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.79
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.33
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 8,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 7.47
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.09
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 9,
+   "k": 2,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 25,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 5.09
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.04,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.76
+   }
+  },
+  {
+   "sim": 18,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.11
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.7
+   }
+  },
+  {
+   "sim": 18,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.7
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.51
+   }
+  },
+  {
+   "sim": 17,
+   "subject": 9,
+   "k": 5,
+   "Nnodes": 10,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 26,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 6.59
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.038461538461538464,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.08
+   }
+  },
+  {
+   "sim": 18,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.63
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.43
+   }
+  },
+  {
+   "sim": 18,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.94
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.26
+   }
+  },
+  {
+   "sim": 18,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.01
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.06
+   }
+  },
+  {
+   "sim": 18,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.17
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.05
+   }
+  },
+  {
+   "sim": 18,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.77
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.41
+   }
+  },
+  {
+   "sim": 18,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.17
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.06
+   }
+  },
+  {
+   "sim": 18,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.12
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.04
+   }
+  },
+  {
+   "sim": 18,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.2
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.28
+   }
+  },
+  {
+   "sim": 19,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.79
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.08
+   }
+  },
+  {
+   "sim": 19,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.28
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.69
+   }
+  },
+  {
+   "sim": 19,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 2.33
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.93
+   }
+  },
+  {
+   "sim": 19,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.79
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.76
+   }
+  },
+  {
+   "sim": 19,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.99
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.71
+   }
+  },
+  {
+   "sim": 19,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.31
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.6
+   }
+  },
+  {
+   "sim": 19,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 3.03
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.2
+   }
+  },
+  {
+   "sim": 19,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 0.71
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.18
+   }
+  },
+  {
+   "sim": 19,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.92
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.49
+   }
+  },
+  {
+   "sim": 19,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.16
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.4
+   }
+  },
+  {
+   "sim": 20,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.04
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.96
+   }
+  },
+  {
+   "sim": 20,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.62
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.59
+   }
+  },
+  {
+   "sim": 20,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.77
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.61
+   }
+  },
+  {
+   "sim": 20,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 5.74
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.16
+   }
+  },
+  {
+   "sim": 20,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 5.8
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.44
+   }
+  },
+  {
+   "sim": 20,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.78
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.55
+   }
+  },
+  {
+   "sim": 20,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 4.66
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.66
+   }
+  },
+  {
+   "sim": 20,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.81
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.85
+   }
+  },
+  {
+   "sim": 20,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.5
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.52
+   }
+  },
+  {
+   "sim": 21,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.79
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.09
+   }
+  },
+  {
+   "sim": 21,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.15
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.06
+   }
+  },
+  {
+   "sim": 21,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.26
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.09
+   }
+  },
+  {
+   "sim": 20,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 2400,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.87
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.66
+   }
+  },
+  {
+   "sim": 21,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.58
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.52
+   }
+  },
+  {
+   "sim": 21,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.84
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.52
+   }
+  },
+  {
+   "sim": 21,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.82
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.4
+   }
+  },
+  {
+   "sim": 21,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.53
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.28
+   }
+  },
+  {
+   "sim": 21,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.96
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.09
+   }
+  },
+  {
+   "sim": 21,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.38
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.17
+   }
+  },
+  {
+   "sim": 21,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.89
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.37
+   }
+  },
+  {
+   "sim": 22,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.21
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.1
+   }
+  },
+  {
+   "sim": 22,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.35
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.08
+   }
+  },
+  {
+   "sim": 22,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.05
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.03
+   }
+  },
+  {
+   "sim": 22,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.28
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.06
+   }
+  },
+  {
+   "sim": 22,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.14
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.05
+   }
+  },
+  {
+   "sim": 22,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.75
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.64
+   }
+  },
+  {
+   "sim": 22,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.26
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.83
+   }
+  },
+  {
+   "sim": 22,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.6
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.32
+   }
+  },
+  {
+   "sim": 22,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.99
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.51
+   }
+  },
+  {
+   "sim": 22,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.22
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.3
+   }
+  },
+  {
+   "sim": 23,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.27
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.73
+   }
+  },
+  {
+   "sim": 23,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.51
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.51
+   }
+  },
+  {
+   "sim": 23,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.81
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.09
+   }
+  },
+  {
+   "sim": 23,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.27
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.67
+   }
+  },
+  {
+   "sim": 23,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 1.49
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.33
+   }
+  },
+  {
+   "sim": 23,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.69
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.07
+   }
+  },
+  {
+   "sim": 23,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.21
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.07
+   }
+  },
+  {
+   "sim": 23,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 1.94
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.64
+   }
+  },
+  {
+   "sim": 23,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.16
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.55
+   }
+  },
+  {
+   "sim": 23,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.43
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.37
+   }
+  },
+  {
+   "sim": 24,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.71
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.61
+   }
+  },
+  {
+   "sim": 24,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.77
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.31
+   }
+  },
+  {
+   "sim": 24,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.94
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.1
+   }
+  },
+  {
+   "sim": 24,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 0.85
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.19
+   }
+  },
+  {
+   "sim": 24,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.31
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.69
+   }
+  },
+  {
+   "sim": 24,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 1.0
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.18
+   }
+  },
+  {
+   "sim": 24,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.43
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.07
+   }
+  },
+  {
+   "sim": 24,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.77
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.4
+   }
+  },
+  {
+   "sim": 24,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 1.0,
+    "runtime_s": 2.36
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.46
+   }
+  },
+  {
+   "sim": 24,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 200,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 2.56
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 1.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.17
+   }
+  },
+  {
+   "sim": 25,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.29
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.13
+   }
+  },
+  {
+   "sim": 25,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.39
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.07
+   }
+  },
+  {
+   "sim": 25,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.11
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.03
+   }
+  },
+  {
+   "sim": 25,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.12
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.03
+   }
+  },
+  {
+   "sim": 25,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.09
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.03
+   }
+  },
+  {
+   "sim": 25,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.1
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.03
+   }
+  },
+  {
+   "sim": 25,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.08
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.22
+   }
+  },
+  {
+   "sim": 25,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.65
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.25
+   }
+  },
+  {
+   "sim": 25,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.23
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.09
+   }
+  },
+  {
+   "sim": 26,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.23
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.14
+   }
+  },
+  {
+   "sim": 26,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.23
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.12
+   }
+  },
+  {
+   "sim": 25,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.89
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.19
+   }
+  },
+  {
+   "sim": 26,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.24
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.15
+   }
+  },
+  {
+   "sim": 26,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.22
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.1
+   }
+  },
+  {
+   "sim": 26,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.17
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.14
+   }
+  },
+  {
+   "sim": 26,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.43
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.23
+   }
+  },
+  {
+   "sim": 26,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.39
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.19
+   }
+  },
+  {
+   "sim": 26,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.57
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.17
+   }
+  },
+  {
+   "sim": 26,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.3
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.05
+   }
+  },
+  {
+   "sim": 26,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.16
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.21
+   }
+  },
+  {
+   "sim": 27,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.14
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.08
+   }
+  },
+  {
+   "sim": 27,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.23
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.09
+   }
+  },
+  {
+   "sim": 27,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.62
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.18
+   }
+  },
+  {
+   "sim": 27,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.26
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.07
+   }
+  },
+  {
+   "sim": 27,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.16
+   },
+   "pcmciplus": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.07
+   }
+  },
+  {
+   "sim": 27,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.12
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.07
+   }
+  },
+  {
+   "sim": 27,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 1.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.27
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.07
+   }
+  },
+  {
+   "sim": 27,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.07
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.07
+   }
+  },
+  {
+   "sim": 27,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.07
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.04
+   }
+  },
+  {
+   "sim": 27,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 50,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.6
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.21
+   }
+  },
+  {
+   "sim": 28,
+   "subject": 0,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.63
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.16
+   }
+  },
+  {
+   "sim": 28,
+   "subject": 1,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.99
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.56
+   }
+  },
+  {
+   "sim": 28,
+   "subject": 2,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 1.36
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.42
+   }
+  },
+  {
+   "sim": 28,
+   "subject": 3,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.67
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.5,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.23
+   }
+  },
+  {
+   "sim": 28,
+   "subject": 5,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.53
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.11
+   }
+  },
+  {
+   "sim": 28,
+   "subject": 4,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.8
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.17
+   }
+  },
+  {
+   "sim": 28,
+   "subject": 6,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.65
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.23
+   }
+  },
+  {
+   "sim": 28,
+   "subject": 7,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.59
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.35
+   }
+  },
+  {
+   "sim": 28,
+   "subject": 8,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.69
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.13
+   }
+  },
+  {
+   "sim": 28,
+   "subject": 9,
+   "k": 0,
+   "Nnodes": 5,
+   "Nt": 100,
+   "n_induced": 1,
+   "n_control": 2,
+   "lpcmci": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.78
+   },
+   "pcmciplus": {
+    "recall": 0.0,
+    "baseline": 0.0,
+    "bidirected_on_induced": 0.0,
+    "runtime_s": 0.25
+   }
+  }
+ ]
+}
